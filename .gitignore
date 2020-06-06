@@ -1,8 +1,10 @@
 
 Trace.Data/bin
 Trace.Data/obj
+Trace.Data/obj/Debug
 Trace.Domain/bin
 Trace.Domain/obj
+Trace.Domain/obj/Debug
 Trace.Monitoring/bin
 Trace.Data/bin/Debug
 Trace.Domain/bin/Debug
