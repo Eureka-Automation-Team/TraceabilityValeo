@@ -1,0 +1,9 @@
+
+Trace.Data/bin
+Trace.Data/obj
+Trace.Domain/bin
+Trace.Domain/obj
+Trace.Monitoring/bin
+Trace.Data/bin/Debug
+Trace.Domain/bin/Debug
+Trace.Monitoring/bin/Debug
