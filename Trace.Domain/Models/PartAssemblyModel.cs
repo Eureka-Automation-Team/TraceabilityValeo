@@ -8,7 +8,7 @@ namespace Trace.Domain.Models
 {
     public class PartAssemblyModel : DomainObject
     {
-        public int PartName { get; set; }
+        public string PartName { get; set; }
         public string SerialNumber { get; set; }
         public int TraceabilityLogId { get; set; }
 

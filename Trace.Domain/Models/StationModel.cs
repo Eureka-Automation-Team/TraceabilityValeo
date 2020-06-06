@@ -8,7 +8,7 @@ namespace Trace.Domain.Models
 {
     public class StationModel : DomainObject
     {
-        public int StationNumber { get; set; }
+        public string StationNumber { get; set; }
 
         public List<MachineModel> MachineList { get; set; }
     }
