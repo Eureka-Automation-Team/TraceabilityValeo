@@ -10,20 +10,16 @@ namespace Trace.Domain.Services
     {
         Task<IEnumerable<T>> GetAll();
 
-        Task<IEnumerable<T>> GetAll(int id);
+        Task<IEnumerable<T>> GetList(string whereClause, int takeRows);
 
         Task<IEnumerable<T>> GetByDateRange(DateTime startDate, DateTime endDate);
-
-        Task<IEnumerable<T>> GetTakeRows(int takeRows);
-
+        
         Task<T> GetByID(int id);
-
-        Task<T> GetByCode(T model);
 
         Task<T> Create(T entity);
 
-        Task<T> Update(int id, T entity);
+        Task<T> Update(T entity);
 
-        Task<bool> Delete(int id);
+        Task<bool> DeleteByID(int id);
     }
 }

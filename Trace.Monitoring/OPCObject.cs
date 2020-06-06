@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trace.OPCClient
+namespace Trace.Monitoring
 {
     public class OPCObject
     {
