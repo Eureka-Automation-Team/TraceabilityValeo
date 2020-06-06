@@ -59,7 +59,7 @@ namespace Trace.Monitoring
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)        
                 items[0] = new Item();
-                items[0].ItemName = "[TEST]Program:Traceability_System.Request_to_PC_Read_DATA";//this reads 2 word (short - 16 bit)
+                items[0].ItemName = "[TRACEABILITY]Program:Traceability_System.Request_to_PC_Read_DATA";//this reads 2 word (short - 16 bit)
                 items = groupRead.AddItems(items);
             }
             catch (Opc.ConnectFailedException opcConnExc)
@@ -75,23 +75,26 @@ namespace Trace.Monitoring
         {
             for (int i = 0; i < values.Length; i++)
             {
-                short[] receivedData = (short[])values[i].Value;
-                if (values[i].ItemName == "[TEST]Program:Traceability_System.Request_to_PC_Read_DATA")
+                int receivedData = (Int16)values[i].Value;
+                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.Request_to_PC_Read_DATA")
                 {
-                    myOpcObject.DataN7 = receivedData;
+                    //myOpcObject.DataN7 = receivedData;
                     //remember that it's in another thread (so if you want to update the UI you should use anonyms methods)
-                    textBox1.Invoke(new EventHandler(delegate { textBox1.Text = myOpcObject.DataN7[0].ToString(); }));
+                    textBox1.Invoke(new EventHandler(delegate { textBox1.Text = receivedData.ToString(); }));
                 }
-                else if (values[i].ItemName == "[UNTITLED_1]B10:0")
-                {
-                    myOpcObject.BitsB10 = receivedData;
-                }
+                //else if (values[i].ItemName == "[UNTITLED_1]B10:0")
+                //{
+                //    myOpcObject.BitsB10 = receivedData;
+                //}
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Connect("RSLinx OPC Server");
+            //Connect("RSLinx OPC Server");
+            string serverName = "RSLinx OPC Server";
+     
+            Connect(serverName);
         }
     }
 }
