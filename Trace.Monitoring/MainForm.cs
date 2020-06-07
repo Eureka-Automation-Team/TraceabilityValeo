@@ -17,8 +17,8 @@ namespace Trace.Monitoring
         private Subscription groupRead;        
         private SubscriptionState groupState;
 
-        //private Opc.Da.Subscription groupWrite;
-        //private Opc.Da.SubscriptionState groupStateWrite;
+        private Subscription groupWrite;
+        private SubscriptionState groupStateWrite;
 
         private Item[] items = new Opc.Da.Item[1];
 
@@ -59,8 +59,14 @@ namespace Trace.Monitoring
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)        
                 items[0] = new Item();
-                items[0].ItemName = "[TRACEABILITY]Program:Traceability_System.Request_to_PC_Read_DATA";//this reads 2 word (short - 16 bit)
+                items[0].ItemName = "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp";//this reads 2 word (short - 16 bit)
                 items = groupRead.AddItems(items);
+
+                groupStateWrite = new SubscriptionState();
+                groupStateWrite.Name = "Group Write";
+                groupStateWrite.Active = false;//not needed to read if you want to write only
+                groupWrite = (Opc.Da.Subscription)_hdaServer.CreateSubscription(groupStateWrite);
+
             }
             catch (Opc.ConnectFailedException opcConnExc)
             {
@@ -76,7 +82,7 @@ namespace Trace.Monitoring
             for (int i = 0; i < values.Length; i++)
             {
                 int receivedData = (Int16)values[i].Value;
-                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.Request_to_PC_Read_DATA")
+                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp")
                 {
                     //myOpcObject.DataN7 = receivedData;
                     //remember that it's in another thread (so if you want to update the UI you should use anonyms methods)
@@ -89,12 +95,51 @@ namespace Trace.Monitoring
             }
         }
 
+        private void WriteWord()
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Opc.Da.Item[] itemToAdd = new Opc.Da.Item[1];
+            itemToAdd[0] = new Opc.Da.Item();
+            itemToAdd[0].ItemName = "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp";
+
+            //create the item that contains the value to write
+            Opc.Da.ItemValue[] writeValues = new Opc.Da.ItemValue[1];
+            writeValues[0] = new Opc.Da.ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Opc.Da.Item item in groupWrite.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                groupWrite.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = groupWrite.Items[groupWrite.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = 1;
+            //write
+            groupWrite.Write(writeValues);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //Connect("RSLinx OPC Server");
             string serverName = "RSLinx OPC Server";
      
             Connect(serverName);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            WriteWord();
         }
     }
 }
