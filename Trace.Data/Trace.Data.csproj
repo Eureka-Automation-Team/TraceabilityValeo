@@ -106,6 +106,10 @@
     <Compile Include="Migrations\202006080255041_New plc_tags table.Designer.cs">
       <DependentUpon>202006080255041_New plc_tags table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006081154264_Update machine table.cs" />
+    <Compile Include="Migrations\202006081154264_Update machine table.Designer.cs">
+      <DependentUpon>202006081154264_Update machine table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
     <Compile Include="Service\MachineService.cs" />
@@ -130,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006080255041_New plc_tags table.resx">
       <DependentUpon>202006080255041_New plc_tags table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006081154264_Update machine table.resx">
+      <DependentUpon>202006081154264_Update machine table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

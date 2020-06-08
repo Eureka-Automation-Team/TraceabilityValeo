@@ -84,6 +84,17 @@ namespace Trace.Monitoring.Presenters
             _view.serverUrl = ConfigurationSettings.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationSettings.AppSettings["MainBlock"].ToString();
 
+            var machines = await _serviceMachine.GetAll();
+            int i = 1;
+            foreach(var mac in machines.ToList().OrderBy(o => o.Id))
+            {
+                if(i == 1)
+                {
+                    _view.machine1 = mac;
+                }
+                i++;
+            }
+
             var result = await _servicePLCTag.GetAll();
             _view.plcTags = result.ToList();
 

@@ -28,6 +28,14 @@ namespace Trace.Monitoring
         //initialization of the sample object that contains opc values
         OPCObject _myOpcObject = new OPCObject();
 
+        private MachineModel _machine1;
+        private MachineModel _machine2;
+        private MachineModel _machine3;
+        private MachineModel _machine4;
+        private MachineModel _machine5;
+        private MachineModel _machine6;
+        private MachineModel _machine7;
+
         private List<PlcTagModel> _plcTags;
         private bool _connectedPlc;
         private bool _systemReady;
@@ -148,6 +156,29 @@ namespace Trace.Monitoring
             }
         }
 
+        public MachineModel machine1
+        {
+            get { return _machine1; }
+            set
+            {
+                _machine1 = value;
+
+                if (_machine1 != null)
+                {
+                    txtManchineName1.Text = _machine1.ManchineName;
+                    butStatusMc1.Text = _machine1.StatusName;
+                    butRequestLogging1.Text = _machine1.RequestLogging.ToString().ToUpper();
+                    butCompletedLogging1.Text = _machine1.CompletedLogging.ToString().ToUpper();
+                }
+            }
+        }
+        public MachineModel machine2 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public MachineModel machine3 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public MachineModel machine4 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public MachineModel machine5 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public MachineModel machine6 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public MachineModel machine7 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
@@ -173,9 +204,16 @@ namespace Trace.Monitoring
                 }
                 if(values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1StatusMc")
                 {
-                    butStatusMc1.Invoke(new EventHandler(delegate { this.butStatusMc1.Text = Convert.ToBoolean(receivedData).ToString(); }));
+                    butStatusMc1.Invoke(new EventHandler(delegate { this.machine1.OnlineFlag = Convert.ToBoolean(receivedData); }));
                 }
-
+                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1ReqLogging")
+                {
+                    butStatusMc1.Invoke(new EventHandler(delegate { this.machine1.RequestLogging = Convert.ToBoolean(receivedData); }));
+                }
+                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp")
+                {
+                    butStatusMc1.Invoke(new EventHandler(delegate { this.machine1.CompletedLogging = Convert.ToBoolean(receivedData); }));
+                }
             }
         }
 

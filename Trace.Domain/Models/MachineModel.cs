@@ -17,6 +17,9 @@ namespace Trace.Domain.Models
             get { return (OnlineFlag) ? "Online" : "Offline"; } 
         }
 
+        public bool RequestLogging { get; set; }
+        public bool CompletedLogging { get; set; }
+
         public StationModel Station { get; set; }
     }
 }

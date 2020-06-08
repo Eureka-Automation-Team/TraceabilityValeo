@@ -150,27 +150,27 @@
             this.butStatusMc5 = new System.Windows.Forms.Button();
             this.butStatusMc6 = new System.Windows.Forms.Button();
             this.butStatusMc7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.butRequestLogging1 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.butCompletedLogging1 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtManchineName1 = new System.Windows.Forms.TextBox();
+            this.txtManchineName2 = new System.Windows.Forms.TextBox();
+            this.txtManchineName3 = new System.Windows.Forms.TextBox();
+            this.txtManchineName4 = new System.Windows.Forms.TextBox();
+            this.txtManchineName5 = new System.Windows.Forms.TextBox();
+            this.txtManchineName6 = new System.Windows.Forms.TextBox();
+            this.txtManchineName7 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -472,7 +472,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button8);
+            this.panel5.Controls.Add(this.butRequestLogging1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(551, 33);
             this.panel5.Name = "panel5";
@@ -481,7 +481,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.textBox6);
+            this.panel10.Controls.Add(this.txtManchineName1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 33);
             this.panel10.Name = "panel10";
@@ -521,7 +521,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.button15);
+            this.panel13.Controls.Add(this.butCompletedLogging1);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(707, 33);
             this.panel13.Name = "panel13";
@@ -661,7 +661,7 @@
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.textBox7);
+            this.panel20.Controls.Add(this.txtManchineName2);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(3, 33);
             this.panel20.Name = "panel20";
@@ -892,7 +892,7 @@
             // 
             // panel32
             // 
-            this.panel32.Controls.Add(this.textBox8);
+            this.panel32.Controls.Add(this.txtManchineName3);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel32.Location = new System.Drawing.Point(3, 33);
             this.panel32.Name = "panel32";
@@ -1018,7 +1018,7 @@
             // 
             // panel40
             // 
-            this.panel40.Controls.Add(this.textBox9);
+            this.panel40.Controls.Add(this.txtManchineName4);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel40.Location = new System.Drawing.Point(3, 71);
             this.panel40.Name = "panel40";
@@ -1154,7 +1154,7 @@
             // 
             // panel48
             // 
-            this.panel48.Controls.Add(this.textBox10);
+            this.panel48.Controls.Add(this.txtManchineName5);
             this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel48.Location = new System.Drawing.Point(3, 33);
             this.panel48.Name = "panel48";
@@ -1319,7 +1319,7 @@
             // 
             // panel57
             // 
-            this.panel57.Controls.Add(this.textBox12);
+            this.panel57.Controls.Add(this.txtManchineName7);
             this.panel57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel57.Location = new System.Drawing.Point(3, 71);
             this.panel57.Name = "panel57";
@@ -1421,7 +1421,7 @@
             // 
             // panel64
             // 
-            this.panel64.Controls.Add(this.textBox11);
+            this.panel64.Controls.Add(this.txtManchineName6);
             this.panel64.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel64.Location = new System.Drawing.Point(3, 33);
             this.panel64.Name = "panel64";
@@ -1625,19 +1625,19 @@
             this.butStatusMc7.Text = "Online";
             this.butStatusMc7.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // butRequestLogging1
             // 
-            this.button8.BackColor = System.Drawing.Color.Gray;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(150, 29);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "FALSE";
-            this.button8.UseVisualStyleBackColor = false;
+            this.butRequestLogging1.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging1.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging1.Name = "butRequestLogging1";
+            this.butRequestLogging1.Size = new System.Drawing.Size(150, 29);
+            this.butRequestLogging1.TabIndex = 4;
+            this.butRequestLogging1.Text = "FALSE";
+            this.butRequestLogging1.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
@@ -1723,19 +1723,19 @@
             this.button14.Text = "FALSE";
             this.button14.UseVisualStyleBackColor = false;
             // 
-            // button15
+            // butCompletedLogging1
             // 
-            this.button15.BackColor = System.Drawing.Color.Gray;
-            this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Location = new System.Drawing.Point(0, 0);
-            this.button15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(160, 29);
-            this.button15.TabIndex = 5;
-            this.button15.Text = "FALSE";
-            this.button15.UseVisualStyleBackColor = false;
+            this.butCompletedLogging1.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging1.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging1.Name = "butCompletedLogging1";
+            this.butCompletedLogging1.Size = new System.Drawing.Size(160, 29);
+            this.butCompletedLogging1.TabIndex = 5;
+            this.butCompletedLogging1.Text = "FALSE";
+            this.butCompletedLogging1.UseVisualStyleBackColor = false;
             // 
             // button16
             // 
@@ -1821,68 +1821,68 @@
             this.button21.Text = "FALSE";
             this.button21.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // txtManchineName1
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(0, 0);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(439, 26);
-            this.textBox6.TabIndex = 0;
-            this.textBox6.Text = "Automatic Tightening upper frame M5";
+            this.txtManchineName1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName1.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName1.Name = "txtManchineName1";
+            this.txtManchineName1.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName1.TabIndex = 0;
+            this.txtManchineName1.Text = "Automatic Tightening upper frame M5";
             // 
-            // textBox7
+            // txtManchineName2
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(0, 0);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(439, 26);
-            this.textBox7.TabIndex = 1;
-            this.textBox7.Text = "Semi -auto Tightening upper frame support M6";
+            this.txtManchineName2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName2.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName2.Name = "txtManchineName2";
+            this.txtManchineName2.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName2.TabIndex = 1;
+            this.txtManchineName2.Text = "Semi -auto Tightening upper frame support M6";
             // 
-            // textBox8
+            // txtManchineName3
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(0, 0);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(439, 26);
-            this.textBox8.TabIndex = 1;
-            this.textBox8.Text = "UPPER AGS FRAM Auto gauge check";
+            this.txtManchineName3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName3.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName3.Name = "txtManchineName3";
+            this.txtManchineName3.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName3.TabIndex = 1;
+            this.txtManchineName3.Text = "UPPER AGS FRAM Auto gauge check";
             // 
-            // textBox9
+            // txtManchineName4
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(0, 0);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(439, 26);
-            this.textBox9.TabIndex = 1;
-            this.textBox9.Text = "LOWER AGS FRAM Auto gauge check";
+            this.txtManchineName4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName4.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName4.Name = "txtManchineName4";
+            this.txtManchineName4.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName4.TabIndex = 1;
+            this.txtManchineName4.Text = "LOWER AGS FRAM Auto gauge check";
             // 
-            // textBox10
+            // txtManchineName5
             // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Location = new System.Drawing.Point(0, 0);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(439, 26);
-            this.textBox10.TabIndex = 1;
-            this.textBox10.Text = "Semi -auto Tightening lower frame support M6";
+            this.txtManchineName5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName5.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName5.Name = "txtManchineName5";
+            this.txtManchineName5.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName5.TabIndex = 1;
+            this.txtManchineName5.Text = "Semi -auto Tightening lower frame support M6";
             // 
-            // textBox11
+            // txtManchineName6
             // 
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Location = new System.Drawing.Point(0, 0);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(439, 26);
-            this.textBox11.TabIndex = 1;
-            this.textBox11.Text = "Upper  EOL laser marking and probe sensor check";
+            this.txtManchineName6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName6.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName6.Name = "txtManchineName6";
+            this.txtManchineName6.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName6.TabIndex = 1;
+            this.txtManchineName6.Text = "Upper  EOL laser marking and probe sensor check";
             // 
-            // textBox12
+            // txtManchineName7
             // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Location = new System.Drawing.Point(0, 0);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(439, 26);
-            this.textBox12.TabIndex = 1;
-            this.textBox12.Text = "Lower EOL laser marking and probe sensor check";
+            this.txtManchineName7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName7.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName7.Name = "txtManchineName7";
+            this.txtManchineName7.Size = new System.Drawing.Size(439, 26);
+            this.txtManchineName7.TabIndex = 1;
+            this.txtManchineName7.Text = "Lower EOL laser marking and probe sensor check";
             // 
             // MainForm
             // 
@@ -2120,8 +2120,8 @@
         private System.Windows.Forms.Button butStatusMc5;
         private System.Windows.Forms.Button butStatusMc7;
         private System.Windows.Forms.Button butStatusMc6;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button butRequestLogging1;
+        private System.Windows.Forms.Button butCompletedLogging1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button18;
@@ -2134,13 +2134,13 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtManchineName1;
+        private System.Windows.Forms.TextBox txtManchineName2;
+        private System.Windows.Forms.TextBox txtManchineName4;
+        private System.Windows.Forms.TextBox txtManchineName3;
+        private System.Windows.Forms.TextBox txtManchineName5;
+        private System.Windows.Forms.TextBox txtManchineName7;
+        private System.Windows.Forms.TextBox txtManchineName6;
     }
 }
 

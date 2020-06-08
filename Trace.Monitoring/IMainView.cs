@@ -30,6 +30,14 @@ namespace Trace.Monitoring
 
         List<PlcTagModel> plcTags { get; set; }
 
+        MachineModel machine1 { get; set; }
+        MachineModel machine2 { get; set; }
+        MachineModel machine3 { get; set; }
+        MachineModel machine4 { get; set; }
+        MachineModel machine5 { get; set; }
+        MachineModel machine6 { get; set; }
+        MachineModel machine7 { get; set; }
+
         bool connectedPlc { get; set; }
         bool systemReady { get; set; }
         string tagMainBlock { get; set; }
