@@ -26,19 +26,27 @@ namespace Trace.Monitoring.Presenters
 
             _view.FormLoad += FormLoad;
             _view.Connect_Click += Connect;
+            _view.Disconnect_Click += Disconnect_Click;
             _view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
+        }
+
+        private void Disconnect_Click(object sender, EventArgs e)
+        {
+            _view.connectedPlc = !Disconnect();
         }
 
         private void MakeReady(object sender, EventArgs e)
         {
             if (_view.systemReady)
             {
-                WriteWord(_view.tagTraceabilityReady, 0);
+                if (WriteWord(_view.tagTraceabilityReady, 0))
+                    _view.systemReady = false;
             }
             else
             {
-                WriteWord(_view.tagTraceabilityReady, 1);
+                if (WriteWord(_view.tagTraceabilityReady, 1))
+                    _view.systemReady = true;
             }
         }
 
@@ -57,8 +65,16 @@ namespace Trace.Monitoring.Presenters
         {
             if (!string.IsNullOrEmpty(_view.serverUrl))
             {
-                Connect(_view.serverUrl);
+                _view.connectedPlc = Connect(_view.serverUrl);
             }
+        }
+
+        private bool Disconnect()
+        {
+            if (_view.daServer != null && _view.daServer.IsConnected)
+                _view.daServer.Disconnect();
+
+            return true;
         }
 
         [Obsolete]
@@ -81,7 +97,7 @@ namespace Trace.Monitoring.Presenters
 
         }
 
-        private void Connect(string serverName)
+        private bool Connect(string serverName)
         {
             /* When the factory creates an HDA server, it passes along 2 parameters:
              *    SerializationInfo info
@@ -121,11 +137,10 @@ namespace Trace.Monitoring.Presenters
                 _view.groupStateWrite.Active = false;//not needed to read if you want to write only
                 _view.groupWrite = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWrite);
 
+                return true;
             }
             catch (Opc.ConnectFailedException opcConnExc)
             {
-                //Console.WriteLine(String.Format("Could not connect to server {0}", serverName));
-                //Console.WriteLine(opcConnExc.ToString());
                 MessageBox.Show(String.Format("Could not connect to server {0}{1}{2}"
                                             , serverName
                                             , Environment.NewLine
@@ -133,6 +148,7 @@ namespace Trace.Monitoring.Presenters
                                             , "Connection failed!"
                                             , MessageBoxButtons.OK
                                             , MessageBoxIcon.Error);
+                return false;
             }           
         }
 
