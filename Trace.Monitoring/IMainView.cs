@@ -14,6 +14,7 @@ namespace Trace.Monitoring
         event EventHandler Connect_Click;
         event EventHandler Disconnect_Click;
         event EventHandler InterLock;
+        event EventHandler MakeReady;
 
         Server daServer { get; set; }
         Subscription groupRead { get; set; }
@@ -30,6 +31,7 @@ namespace Trace.Monitoring
         List<PlcTagModel> plcTags { get; set; }
 
         bool connectedPlc { get; set; }
+        bool systemReady { get; set; }
         string tagMainBlock { get; set; }
         string serverUrl { get; set; }
         string tagClockReady { get; set; }

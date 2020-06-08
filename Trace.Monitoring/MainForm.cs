@@ -23,13 +23,14 @@ namespace Trace.Monitoring
         private Subscription _groupWrite;
         private SubscriptionState _groupStateWrite;
 
-        private Item[] _items = new Item[1];
+        private Item[] _items = new Item[2];
 
         //initialization of the sample object that contains opc values
         OPCObject _myOpcObject = new OPCObject();
 
         private List<PlcTagModel> _plcTags;
         private bool _connectedPlc;
+        private bool _systemReady;
         private string _tagMainBlock;
         private string _tagClockReady;
         private string _tagTraceabilityReady;
@@ -83,14 +84,17 @@ namespace Trace.Monitoring
             { 
                 _connectedPlc = value;
                 txtServerUrl.ReadOnly = _connectedPlc;
+                butMakeReady.Visible = _connectedPlc;
                 if (_connectedPlc)
                 {
                     butConnect.Text = "Disconnect";
+                    systemReady = true;
                     EnableClock();
                 }
                 else
                 {
                     butConnect.Text = "Connect";
+                    systemReady = false;
                     DisableClock();
                 }
             }
@@ -104,7 +108,10 @@ namespace Trace.Monitoring
         public string tagTraceabilityReady
         {
             get { return _tagTraceabilityReady; }
-            set { _tagTraceabilityReady = value; }
+            set 
+            { 
+                _tagTraceabilityReady = value; 
+            }
         }
 
         public string tagMainBlock
@@ -119,10 +126,33 @@ namespace Trace.Monitoring
             set { _plcTags = value; }
         }
 
+        public bool systemReady
+        {
+            get { return _systemReady; }
+            set
+            {
+                _systemReady = value;
+                
+                if (_systemReady)
+                {
+                    butMakeReady.Text = "Ready";
+                    butMakeReady.BackColor = Color.GreenYellow;
+                    EnableClock();
+                }
+                else
+                {
+                    butMakeReady.Text = "Not ready";
+                    butMakeReady.BackColor = Color.Gray;
+                    DisableClock();
+                }
+            }
+        }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
         public event EventHandler InterLock;
+        public event EventHandler MakeReady;
 
         public MainForm()
         {
@@ -148,12 +178,6 @@ namespace Trace.Monitoring
                 //    myOpcObject.BitsB10 = receivedData;
                 //}
             }
-        }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //WriteWord();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -193,6 +217,12 @@ namespace Trace.Monitoring
         {
             if (InterLock != null)
                 InterLock(sender, e);
+        }
+
+        private void butMakeReady_Click(object sender, EventArgs e)
+        {
+            if (MakeReady != null)
+                MakeReady(sender, e);
         }
     }
 }

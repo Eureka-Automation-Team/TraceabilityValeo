@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.txtTraceabilityRdy = new System.Windows.Forms.TextBox();
             this.butConnect = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.butMakeReady = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtServerUrl = new System.Windows.Forms.TextBox();
@@ -60,20 +60,23 @@
             this.butConnect.UseVisualStyleBackColor = true;
             this.butConnect.Click += new System.EventHandler(this.butConnect_Click);
             // 
-            // button2
+            // butMakeReady
             // 
-            this.button2.Location = new System.Drawing.Point(526, 114);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 35);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Write";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.butMakeReady.BackColor = System.Drawing.Color.Lime;
+            this.butMakeReady.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butMakeReady.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butMakeReady.Location = new System.Drawing.Point(769, 15);
+            this.butMakeReady.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butMakeReady.Name = "butMakeReady";
+            this.butMakeReady.Size = new System.Drawing.Size(178, 35);
+            this.butMakeReady.TabIndex = 2;
+            this.butMakeReady.Text = "Ready";
+            this.butMakeReady.UseVisualStyleBackColor = false;
+            this.butMakeReady.Click += new System.EventHandler(this.butMakeReady_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(666, 118);
+            this.textBox2.Location = new System.Drawing.Point(270, 103);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 26);
@@ -130,7 +133,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtServerUrl);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.butMakeReady);
             this.Controls.Add(this.butConnect);
             this.Controls.Add(this.txtTraceabilityRdy);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -148,7 +151,7 @@
 
         private System.Windows.Forms.TextBox txtTraceabilityRdy;
         private System.Windows.Forms.Button butConnect;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button butMakeReady;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtServerUrl;

@@ -27,11 +27,30 @@ namespace Trace.Monitoring.Presenters
             _view.FormLoad += FormLoad;
             _view.Connect_Click += Connect;
             _view.InterLock += InterLock;
+            _view.MakeReady += MakeReady;
+        }
+
+        private void MakeReady(object sender, EventArgs e)
+        {
+            if (_view.systemReady)
+            {
+                WriteWord(_view.tagTraceabilityReady, 0);
+            }
+            else
+            {
+                WriteWord(_view.tagTraceabilityReady, 1);
+            }
         }
 
         private void InterLock(object sender, EventArgs e)
         {
-            WriteWord(_view.tagClockReady, 1);
+            var result = WriteWord(_view.tagClockReady, 1);
+
+            if (!result)
+            {
+                _view.connectedPlc = false;
+                _view.systemReady = false;
+            }
         }
 
         private void Connect(object sender, EventArgs e)
@@ -92,7 +111,7 @@ namespace Trace.Monitoring.Presenters
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)        
                 _view.items[0] = new Item();
                 _view.items[0].ItemName = _view.tagClockReady;//this reads 2 word (short - 16 bit)
-                _view.items = _view.groupRead.AddItems(_view.items);
+                //_view.items = _view.groupRead.AddItems(_view.items);
                 _view.items[1] = new Item();
                 _view.items[1].ItemName = _view.tagTraceabilityReady;//this reads 2 word (short - 16 bit)
                 _view.items = _view.groupRead.AddItems(_view.items);
@@ -117,7 +136,7 @@ namespace Trace.Monitoring.Presenters
             }           
         }
 
-        private void WriteWord(string tag, int value)
+        private bool WriteWord(string tag, int value)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -149,7 +168,16 @@ namespace Trace.Monitoring.Presenters
             //set the value to write
             writeValues[0].Value = value;
             //write
-            _view.groupWrite.Write(writeValues);
+
+            try
+            {
+                _view.groupWrite.Write(writeValues);
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
+            
         }
 
     }
