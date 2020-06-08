@@ -151,19 +151,19 @@
             this.butStatusMc6 = new System.Windows.Forms.Button();
             this.butStatusMc7 = new System.Windows.Forms.Button();
             this.butRequestLogging1 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.butRequestLogging2 = new System.Windows.Forms.Button();
+            this.butRequestLogging3 = new System.Windows.Forms.Button();
+            this.butRequestLogging4 = new System.Windows.Forms.Button();
+            this.butRequestLogging5 = new System.Windows.Forms.Button();
+            this.butRequestLogging6 = new System.Windows.Forms.Button();
+            this.butRequestLogging7 = new System.Windows.Forms.Button();
             this.butCompletedLogging1 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
+            this.butCompletedLogging2 = new System.Windows.Forms.Button();
+            this.butCompletedLogging3 = new System.Windows.Forms.Button();
+            this.butCompletedLogging4 = new System.Windows.Forms.Button();
+            this.butCompletedLogging5 = new System.Windows.Forms.Button();
+            this.butCompletedLogging6 = new System.Windows.Forms.Button();
+            this.butCompletedLogging7 = new System.Windows.Forms.Button();
             this.txtManchineName1 = new System.Windows.Forms.TextBox();
             this.txtManchineName2 = new System.Windows.Forms.TextBox();
             this.txtManchineName3 = new System.Windows.Forms.TextBox();
@@ -652,7 +652,7 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.button9);
+            this.panel19.Controls.Add(this.butRequestLogging2);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(551, 33);
             this.panel19.Name = "panel19";
@@ -701,7 +701,7 @@
             // 
             // panel23
             // 
-            this.panel23.Controls.Add(this.button16);
+            this.panel23.Controls.Add(this.butCompletedLogging2);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel23.Location = new System.Drawing.Point(707, 33);
             this.panel23.Name = "panel23";
@@ -883,7 +883,7 @@
             // 
             // panel31
             // 
-            this.panel31.Controls.Add(this.button10);
+            this.panel31.Controls.Add(this.butRequestLogging3);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel31.Location = new System.Drawing.Point(551, 33);
             this.panel31.Name = "panel31";
@@ -932,7 +932,7 @@
             // 
             // panel35
             // 
-            this.panel35.Controls.Add(this.button17);
+            this.panel35.Controls.Add(this.butCompletedLogging3);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel35.Location = new System.Drawing.Point(707, 33);
             this.panel35.Name = "panel35";
@@ -1000,7 +1000,7 @@
             // 
             // panel38
             // 
-            this.panel38.Controls.Add(this.button11);
+            this.panel38.Controls.Add(this.butRequestLogging4);
             this.panel38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel38.Location = new System.Drawing.Point(551, 71);
             this.panel38.Name = "panel38";
@@ -1009,7 +1009,7 @@
             // 
             // panel39
             // 
-            this.panel39.Controls.Add(this.button18);
+            this.panel39.Controls.Add(this.butCompletedLogging4);
             this.panel39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel39.Location = new System.Drawing.Point(707, 71);
             this.panel39.Name = "panel39";
@@ -1145,7 +1145,7 @@
             // 
             // panel47
             // 
-            this.panel47.Controls.Add(this.button12);
+            this.panel47.Controls.Add(this.butRequestLogging5);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel47.Location = new System.Drawing.Point(551, 33);
             this.panel47.Name = "panel47";
@@ -1194,7 +1194,7 @@
             // 
             // panel51
             // 
-            this.panel51.Controls.Add(this.button19);
+            this.panel51.Controls.Add(this.butCompletedLogging5);
             this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel51.Location = new System.Drawing.Point(707, 33);
             this.panel51.Name = "panel51";
@@ -1328,7 +1328,7 @@
             // 
             // panel58
             // 
-            this.panel58.Controls.Add(this.button21);
+            this.panel58.Controls.Add(this.butCompletedLogging7);
             this.panel58.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel58.Location = new System.Drawing.Point(707, 71);
             this.panel58.Name = "panel58";
@@ -1337,7 +1337,7 @@
             // 
             // panel59
             // 
-            this.panel59.Controls.Add(this.button14);
+            this.panel59.Controls.Add(this.butRequestLogging7);
             this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel59.Location = new System.Drawing.Point(551, 71);
             this.panel59.Name = "panel59";
@@ -1412,7 +1412,7 @@
             // 
             // panel63
             // 
-            this.panel63.Controls.Add(this.button13);
+            this.panel63.Controls.Add(this.butRequestLogging6);
             this.panel63.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel63.Location = new System.Drawing.Point(551, 33);
             this.panel63.Name = "panel63";
@@ -1461,7 +1461,7 @@
             // 
             // panel67
             // 
-            this.panel67.Controls.Add(this.button20);
+            this.panel67.Controls.Add(this.butCompletedLogging6);
             this.panel67.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel67.Location = new System.Drawing.Point(707, 33);
             this.panel67.Name = "panel67";
@@ -1639,89 +1639,89 @@
             this.butRequestLogging1.Text = "FALSE";
             this.butRequestLogging1.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // butRequestLogging2
             // 
-            this.button9.BackColor = System.Drawing.Color.Gray;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 29);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "FALSE";
-            this.button9.UseVisualStyleBackColor = false;
+            this.butRequestLogging2.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging2.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging2.Name = "butRequestLogging2";
+            this.butRequestLogging2.Size = new System.Drawing.Size(150, 29);
+            this.butRequestLogging2.TabIndex = 5;
+            this.butRequestLogging2.Text = "FALSE";
+            this.butRequestLogging2.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // butRequestLogging3
             // 
-            this.button10.BackColor = System.Drawing.Color.Gray;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(0, 0);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 32);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "FALSE";
-            this.button10.UseVisualStyleBackColor = false;
+            this.butRequestLogging3.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging3.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging3.Name = "butRequestLogging3";
+            this.butRequestLogging3.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging3.TabIndex = 5;
+            this.butRequestLogging3.Text = "FALSE";
+            this.butRequestLogging3.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // butRequestLogging4
             // 
-            this.button11.BackColor = System.Drawing.Color.Gray;
-            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(0, 0);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(150, 32);
-            this.button11.TabIndex = 5;
-            this.button11.Text = "FALSE";
-            this.button11.UseVisualStyleBackColor = false;
+            this.butRequestLogging4.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging4.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging4.Name = "butRequestLogging4";
+            this.butRequestLogging4.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging4.TabIndex = 5;
+            this.butRequestLogging4.Text = "FALSE";
+            this.butRequestLogging4.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // butRequestLogging5
             // 
-            this.button12.BackColor = System.Drawing.Color.Gray;
-            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(0, 0);
-            this.button12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(150, 29);
-            this.button12.TabIndex = 5;
-            this.button12.Text = "FALSE";
-            this.button12.UseVisualStyleBackColor = false;
+            this.butRequestLogging5.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging5.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging5.Name = "butRequestLogging5";
+            this.butRequestLogging5.Size = new System.Drawing.Size(150, 29);
+            this.butRequestLogging5.TabIndex = 5;
+            this.butRequestLogging5.Text = "FALSE";
+            this.butRequestLogging5.UseVisualStyleBackColor = false;
             // 
-            // button13
+            // butRequestLogging6
             // 
-            this.button13.BackColor = System.Drawing.Color.Gray;
-            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(0, 0);
-            this.button13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(150, 32);
-            this.button13.TabIndex = 5;
-            this.button13.Text = "FALSE";
-            this.button13.UseVisualStyleBackColor = false;
+            this.butRequestLogging6.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging6.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging6.Name = "butRequestLogging6";
+            this.butRequestLogging6.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging6.TabIndex = 5;
+            this.butRequestLogging6.Text = "FALSE";
+            this.butRequestLogging6.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // butRequestLogging7
             // 
-            this.button14.BackColor = System.Drawing.Color.Gray;
-            this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(0, 0);
-            this.button14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(150, 32);
-            this.button14.TabIndex = 5;
-            this.button14.Text = "FALSE";
-            this.button14.UseVisualStyleBackColor = false;
+            this.butRequestLogging7.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging7.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging7.Name = "butRequestLogging7";
+            this.butRequestLogging7.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging7.TabIndex = 5;
+            this.butRequestLogging7.Text = "FALSE";
+            this.butRequestLogging7.UseVisualStyleBackColor = false;
             // 
             // butCompletedLogging1
             // 
@@ -1737,89 +1737,89 @@
             this.butCompletedLogging1.Text = "FALSE";
             this.butCompletedLogging1.UseVisualStyleBackColor = false;
             // 
-            // button16
+            // butCompletedLogging2
             // 
-            this.button16.BackColor = System.Drawing.Color.Gray;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button16.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Location = new System.Drawing.Point(0, 0);
-            this.button16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(160, 29);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "FALSE";
-            this.button16.UseVisualStyleBackColor = false;
+            this.butCompletedLogging2.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging2.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging2.Name = "butCompletedLogging2";
+            this.butCompletedLogging2.Size = new System.Drawing.Size(160, 29);
+            this.butCompletedLogging2.TabIndex = 5;
+            this.butCompletedLogging2.Text = "FALSE";
+            this.butCompletedLogging2.UseVisualStyleBackColor = false;
             // 
-            // button17
+            // butCompletedLogging3
             // 
-            this.button17.BackColor = System.Drawing.Color.Gray;
-            this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button17.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Location = new System.Drawing.Point(0, 0);
-            this.button17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(160, 32);
-            this.button17.TabIndex = 5;
-            this.button17.Text = "FALSE";
-            this.button17.UseVisualStyleBackColor = false;
+            this.butCompletedLogging3.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging3.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging3.Name = "butCompletedLogging3";
+            this.butCompletedLogging3.Size = new System.Drawing.Size(160, 32);
+            this.butCompletedLogging3.TabIndex = 5;
+            this.butCompletedLogging3.Text = "FALSE";
+            this.butCompletedLogging3.UseVisualStyleBackColor = false;
             // 
-            // button18
+            // butCompletedLogging4
             // 
-            this.button18.BackColor = System.Drawing.Color.Gray;
-            this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Location = new System.Drawing.Point(0, 0);
-            this.button18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(160, 32);
-            this.button18.TabIndex = 5;
-            this.button18.Text = "FALSE";
-            this.button18.UseVisualStyleBackColor = false;
+            this.butCompletedLogging4.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging4.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging4.Name = "butCompletedLogging4";
+            this.butCompletedLogging4.Size = new System.Drawing.Size(160, 32);
+            this.butCompletedLogging4.TabIndex = 5;
+            this.butCompletedLogging4.Text = "FALSE";
+            this.butCompletedLogging4.UseVisualStyleBackColor = false;
             // 
-            // button19
+            // butCompletedLogging5
             // 
-            this.button19.BackColor = System.Drawing.Color.Gray;
-            this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button19.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Location = new System.Drawing.Point(0, 0);
-            this.button19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(160, 29);
-            this.button19.TabIndex = 5;
-            this.button19.Text = "FALSE";
-            this.button19.UseVisualStyleBackColor = false;
+            this.butCompletedLogging5.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging5.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging5.Name = "butCompletedLogging5";
+            this.butCompletedLogging5.Size = new System.Drawing.Size(160, 29);
+            this.butCompletedLogging5.TabIndex = 5;
+            this.butCompletedLogging5.Text = "FALSE";
+            this.butCompletedLogging5.UseVisualStyleBackColor = false;
             // 
-            // button20
+            // butCompletedLogging6
             // 
-            this.button20.BackColor = System.Drawing.Color.Gray;
-            this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button20.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Location = new System.Drawing.Point(0, 0);
-            this.button20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(160, 32);
-            this.button20.TabIndex = 5;
-            this.button20.Text = "FALSE";
-            this.button20.UseVisualStyleBackColor = false;
+            this.butCompletedLogging6.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging6.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging6.Name = "butCompletedLogging6";
+            this.butCompletedLogging6.Size = new System.Drawing.Size(160, 32);
+            this.butCompletedLogging6.TabIndex = 5;
+            this.butCompletedLogging6.Text = "FALSE";
+            this.butCompletedLogging6.UseVisualStyleBackColor = false;
             // 
-            // button21
+            // butCompletedLogging7
             // 
-            this.button21.BackColor = System.Drawing.Color.Gray;
-            this.button21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button21.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Location = new System.Drawing.Point(0, 0);
-            this.button21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(160, 32);
-            this.button21.TabIndex = 5;
-            this.button21.Text = "FALSE";
-            this.button21.UseVisualStyleBackColor = false;
+            this.butCompletedLogging7.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging7.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging7.Name = "butCompletedLogging7";
+            this.butCompletedLogging7.Size = new System.Drawing.Size(160, 32);
+            this.butCompletedLogging7.TabIndex = 5;
+            this.butCompletedLogging7.Text = "FALSE";
+            this.butCompletedLogging7.UseVisualStyleBackColor = false;
             // 
             // txtManchineName1
             // 
@@ -1828,7 +1828,6 @@
             this.txtManchineName1.Name = "txtManchineName1";
             this.txtManchineName1.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName1.TabIndex = 0;
-            this.txtManchineName1.Text = "Automatic Tightening upper frame M5";
             // 
             // txtManchineName2
             // 
@@ -1837,7 +1836,6 @@
             this.txtManchineName2.Name = "txtManchineName2";
             this.txtManchineName2.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName2.TabIndex = 1;
-            this.txtManchineName2.Text = "Semi -auto Tightening upper frame support M6";
             // 
             // txtManchineName3
             // 
@@ -1846,7 +1844,6 @@
             this.txtManchineName3.Name = "txtManchineName3";
             this.txtManchineName3.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName3.TabIndex = 1;
-            this.txtManchineName3.Text = "UPPER AGS FRAM Auto gauge check";
             // 
             // txtManchineName4
             // 
@@ -1855,7 +1852,6 @@
             this.txtManchineName4.Name = "txtManchineName4";
             this.txtManchineName4.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName4.TabIndex = 1;
-            this.txtManchineName4.Text = "LOWER AGS FRAM Auto gauge check";
             // 
             // txtManchineName5
             // 
@@ -1864,7 +1860,6 @@
             this.txtManchineName5.Name = "txtManchineName5";
             this.txtManchineName5.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName5.TabIndex = 1;
-            this.txtManchineName5.Text = "Semi -auto Tightening lower frame support M6";
             // 
             // txtManchineName6
             // 
@@ -1873,7 +1868,6 @@
             this.txtManchineName6.Name = "txtManchineName6";
             this.txtManchineName6.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName6.TabIndex = 1;
-            this.txtManchineName6.Text = "Upper  EOL laser marking and probe sensor check";
             // 
             // txtManchineName7
             // 
@@ -1882,7 +1876,6 @@
             this.txtManchineName7.Name = "txtManchineName7";
             this.txtManchineName7.Size = new System.Drawing.Size(439, 26);
             this.txtManchineName7.TabIndex = 1;
-            this.txtManchineName7.Text = "Lower EOL laser marking and probe sensor check";
             // 
             // MainForm
             // 
@@ -2122,18 +2115,18 @@
         private System.Windows.Forms.Button butStatusMc6;
         private System.Windows.Forms.Button butRequestLogging1;
         private System.Windows.Forms.Button butCompletedLogging1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button butRequestLogging2;
+        private System.Windows.Forms.Button butCompletedLogging2;
+        private System.Windows.Forms.Button butCompletedLogging4;
+        private System.Windows.Forms.Button butRequestLogging4;
+        private System.Windows.Forms.Button butRequestLogging3;
+        private System.Windows.Forms.Button butCompletedLogging3;
+        private System.Windows.Forms.Button butRequestLogging5;
+        private System.Windows.Forms.Button butCompletedLogging5;
+        private System.Windows.Forms.Button butCompletedLogging7;
+        private System.Windows.Forms.Button butRequestLogging7;
+        private System.Windows.Forms.Button butRequestLogging6;
+        private System.Windows.Forms.Button butCompletedLogging6;
         private System.Windows.Forms.TextBox txtManchineName1;
         private System.Windows.Forms.TextBox txtManchineName2;
         private System.Windows.Forms.TextBox txtManchineName4;

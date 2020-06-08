@@ -88,10 +88,21 @@ namespace Trace.Monitoring.Presenters
             int i = 1;
             foreach(var mac in machines.ToList().OrderBy(o => o.Id))
             {
-                if(i == 1)
-                {
+                if (i == 1)
                     _view.machine1 = mac;
-                }
+                if (i == 2)
+                    _view.machine2 = mac;
+                if (i == 3)
+                    _view.machine3 = mac;
+                if (i == 4)
+                    _view.machine4 = mac;
+                if (i == 5)
+                    _view.machine5 = mac;
+                if (i == 6)
+                    _view.machine6 = mac;
+                if (i == 7)
+                    _view.machine7 = mac;
+
                 i++;
             }
 

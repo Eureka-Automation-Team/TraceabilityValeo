@@ -166,18 +166,87 @@ namespace Trace.Monitoring
                 if (_machine1 != null)
                 {
                     txtManchineName1.Text = _machine1.ManchineName;
-                    butStatusMc1.Text = _machine1.StatusName;
-                    butRequestLogging1.Text = _machine1.RequestLogging.ToString().ToUpper();
-                    butCompletedLogging1.Text = _machine1.CompletedLogging.ToString().ToUpper();
                 }
             }
         }
-        public MachineModel machine2 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public MachineModel machine3 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public MachineModel machine4 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public MachineModel machine5 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public MachineModel machine6 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public MachineModel machine7 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public MachineModel machine2
+        {
+            get { return _machine2; }
+            set
+            {
+                _machine2 = value;
+
+                if (_machine2 != null)
+                {
+                    txtManchineName2.Text = _machine2.ManchineName;
+                }
+            }
+        }
+        public MachineModel machine3
+        {
+            get { return _machine3; }
+            set
+            {
+                _machine3 = value;
+
+                if (_machine3 != null)
+                {
+                    txtManchineName3.Text = _machine3.ManchineName;
+                }
+            }
+        }
+        public MachineModel machine4
+        {
+            get { return _machine4; }
+            set
+            {
+                _machine4 = value;
+
+                if (_machine4 != null)
+                {
+                    txtManchineName4.Text = _machine4.ManchineName;
+                }
+            }
+        }
+        public MachineModel machine5
+        {
+            get { return _machine5; }
+            set
+            {
+                _machine5 = value;
+
+                if (_machine5 != null)
+                {
+                    txtManchineName5.Text = _machine5.ManchineName;
+                }
+            }
+        }
+        public MachineModel machine6
+        {
+            get { return _machine6; }
+            set
+            {
+                _machine6 = value;
+
+                if (_machine6 != null)
+                {
+                    txtManchineName6.Text = _machine6.ManchineName;
+                }
+            }
+        }
+        public MachineModel machine7
+        {
+            get { return _machine7; }
+            set
+            {
+                _machine7 = value;
+
+                if (_machine7 != null)
+                {
+                    txtManchineName7.Text = _machine7.ManchineName;
+                }
+            }
+        }
 
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
@@ -198,21 +267,106 @@ namespace Trace.Monitoring
             for (int i = 0; i < values.Length; i++)
             {
                 int receivedData = (Int16)values[i].Value;
+                //Machine 1
                 if (values[i].ItemName == this._tagTraceabilityReady)
                 {
                     butMakeReady.Invoke(new EventHandler(delegate { this.systemReady = Convert.ToBoolean(receivedData); }));
                 }
-                if(values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1StatusMc")
+                if (values[i].ItemName == tagMainBlock + "." + "ST1StatusMc")
                 {
-                    butStatusMc1.Invoke(new EventHandler(delegate { this.machine1.OnlineFlag = Convert.ToBoolean(receivedData); }));
+                    butStatusMc1.Invoke(new EventHandler(delegate { butStatusMc1.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
                 }
-                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1ReqLogging")
+                if (values[i].ItemName == tagMainBlock + "." + "ST1ReqLogging")
                 {
-                    butStatusMc1.Invoke(new EventHandler(delegate { this.machine1.RequestLogging = Convert.ToBoolean(receivedData); }));
+                    butRequestLogging1.Invoke(new EventHandler(delegate { butRequestLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
                 }
-                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp")
+                if (values[i].ItemName == tagMainBlock + "." + "ST1LoggingApp")
                 {
-                    butStatusMc1.Invoke(new EventHandler(delegate { this.machine1.CompletedLogging = Convert.ToBoolean(receivedData); }));
+                    butCompletedLogging1.Invoke(new EventHandler(delegate { butCompletedLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+
+                //Machine 2
+                if (values[i].ItemName == tagMainBlock + "." + "ST2StatusMc")
+                {
+                    butStatusMc2.Invoke(new EventHandler(delegate { butStatusMc2.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST2ReqLogging")
+                {
+                    butRequestLogging2.Invoke(new EventHandler(delegate { butRequestLogging2.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST2LoggingApp")
+                {
+                    butCompletedLogging2.Invoke(new EventHandler(delegate { butCompletedLogging2.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+
+                //Machine 3
+                if (values[i].ItemName == tagMainBlock + "." + "ST3_1StatusMc")
+                {
+                    butStatusMc3.Invoke(new EventHandler(delegate { butStatusMc3.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST3_1ReqLogging")
+                {
+                    butRequestLogging3.Invoke(new EventHandler(delegate { butRequestLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST3_1LoggingApp")
+                {
+                    butCompletedLogging3.Invoke(new EventHandler(delegate { butCompletedLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+
+                //Machine 4
+                if (values[i].ItemName == tagMainBlock + "." + "ST3_2StatusMc")
+                {
+                    butStatusMc4.Invoke(new EventHandler(delegate { butStatusMc4.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST3_2ReqLogging")
+                {
+                    butRequestLogging4.Invoke(new EventHandler(delegate { butRequestLogging4.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST3_2LoggingApp")
+                {
+                    butCompletedLogging4.Invoke(new EventHandler(delegate { butCompletedLogging4.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+
+                //Machine 5
+                if (values[i].ItemName == tagMainBlock + "." + "ST4StatusMc")
+                {
+                    butStatusMc5.Invoke(new EventHandler(delegate { butStatusMc5.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST4ReqLogging")
+                {
+                    butRequestLogging5.Invoke(new EventHandler(delegate { butRequestLogging5.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST4LoggingApp")
+                {
+                    butCompletedLogging5.Invoke(new EventHandler(delegate { butCompletedLogging5.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+
+                //Machine 6
+                if (values[i].ItemName == tagMainBlock + "." + "ST5_1StatusMc")
+                {
+                    butStatusMc6.Invoke(new EventHandler(delegate { butStatusMc6.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST5_1ReqLogging")
+                {
+                    butRequestLogging6.Invoke(new EventHandler(delegate { butRequestLogging6.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST5_1LoggingApp")
+                {
+                    butCompletedLogging6.Invoke(new EventHandler(delegate { butCompletedLogging6.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+
+                //Machine 7
+                if (values[i].ItemName == tagMainBlock + "." + "ST5_2StatusMc")
+                {
+                    butStatusMc7.Invoke(new EventHandler(delegate { butStatusMc7.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST5_2ReqLogging")
+                {
+                    butRequestLogging7.Invoke(new EventHandler(delegate { butRequestLogging7.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                }
+                if (values[i].ItemName == tagMainBlock + "." + "ST5_2LoggingApp")
+                {
+                    butCompletedLogging7.Invoke(new EventHandler(delegate { butCompletedLogging7.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
                 }
             }
         }
