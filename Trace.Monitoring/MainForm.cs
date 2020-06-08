@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trace.Domain.Models;
 using Trace.Monitoring.Presenters;
 
 namespace Trace.Monitoring
@@ -27,7 +28,11 @@ namespace Trace.Monitoring
         //initialization of the sample object that contains opc values
         OPCObject _myOpcObject = new OPCObject();
 
+        private List<PlcTagModel> _plcTags;
         private bool _connectedPlc;
+        private string _tagMainBlock;
+        private string _tagClockReady;
+        private string _tagTraceabilityReady;
 
         public string serverUrl 
         {
@@ -85,6 +90,29 @@ namespace Trace.Monitoring
             }
         }
 
+        public string tagClockReady
+        {
+            get { return _tagClockReady; }
+            set { _tagClockReady = value; }
+        }
+        public string tagTraceabilityReady
+        {
+            get { return _tagTraceabilityReady; }
+            set { _tagTraceabilityReady = value; }
+        }
+
+        public string tagMainBlock
+        {
+            get { return _tagMainBlock; }
+            set { _tagMainBlock = value; }
+        }
+
+        public List<PlcTagModel> plcTags
+        {
+            get { return _plcTags; }
+            set { _plcTags = value; }
+        }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
@@ -97,17 +125,16 @@ namespace Trace.Monitoring
         }
 
 
-
-        private void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        public void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
         {
             for (int i = 0; i < values.Length; i++)
             {
                 int receivedData = (Int16)values[i].Value;
-                if (values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp")
+                if (values[i].ItemName == this._tagTraceabilityReady)
                 {
                     //myOpcObject.DataN7 = receivedData;
                     //remember that it's in another thread (so if you want to update the UI you should use anonyms methods)
-                    textBox1.Invoke(new EventHandler(delegate { textBox1.Text = receivedData.ToString(); }));
+                    txtTraceabilityRdy.Invoke(new EventHandler(delegate { txtTraceabilityRdy.Text = receivedData.ToString(); }));
                 }
                 //else if (values[i].ItemName == "[UNTITLED_1]B10:0")
                 //{

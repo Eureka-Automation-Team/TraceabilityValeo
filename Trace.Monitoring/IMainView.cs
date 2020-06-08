@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trace.Domain.Models;
 
 namespace Trace.Monitoring
 {
@@ -25,7 +26,14 @@ namespace Trace.Monitoring
         OPCObject myOpcObject { get; set; }
         Item[] items { get; set; }
 
+        List<PlcTagModel> plcTags { get; set; }
+
         bool connectedPlc { get; set; }
+        string tagMainBlock { get; set; }
         string serverUrl { get; set; }
+        string tagClockReady { get; set; }
+        string tagTraceabilityReady { get; set; }
+
+        void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values);
     }
 }
