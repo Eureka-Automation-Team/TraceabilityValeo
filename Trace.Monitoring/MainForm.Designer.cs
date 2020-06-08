@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtTraceabilityRdy = new System.Windows.Forms.TextBox();
             this.butConnect = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.txtServerUrl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timerInter = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtTraceabilityRdy
@@ -113,6 +115,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "System Ready :";
             // 
+            // timerInter
+            // 
+            this.timerInter.Interval = 1000;
+            this.timerInter.Tick += new System.EventHandler(this.timerInter_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -147,6 +154,7 @@
         private System.Windows.Forms.TextBox txtServerUrl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timerInter;
     }
 }
 

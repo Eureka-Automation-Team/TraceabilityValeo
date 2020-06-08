@@ -13,6 +13,7 @@ namespace Trace.Monitoring
         event EventHandler FormLoad;
         event EventHandler Connect_Click;
         event EventHandler Disconnect_Click;
+        event EventHandler InterLock;
 
         Server daServer { get; set; }
         Subscription groupRead { get; set; }
@@ -35,5 +36,8 @@ namespace Trace.Monitoring
         string tagTraceabilityReady { get; set; }
 
         void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values);
+
+        void EnableClock();
+        void DisableClock();
     }
 }

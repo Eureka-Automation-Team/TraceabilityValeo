@@ -84,9 +84,15 @@ namespace Trace.Monitoring
                 _connectedPlc = value;
                 txtServerUrl.ReadOnly = _connectedPlc;
                 if (_connectedPlc)
+                {
                     butConnect.Text = "Disconnect";
+                    EnableClock();
+                }
                 else
+                {
                     butConnect.Text = "Connect";
+                    DisableClock();
+                }
             }
         }
 
@@ -116,6 +122,7 @@ namespace Trace.Monitoring
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
+        public event EventHandler InterLock;
 
         public MainForm()
         {
@@ -143,50 +150,19 @@ namespace Trace.Monitoring
             }
         }
 
-        private void WriteWord()
-        {
-            //Create the item to write (if the group doesn't have it, we need to insert it)
-            Opc.Da.Item[] itemToAdd = new Opc.Da.Item[1];
-            itemToAdd[0] = new Opc.Da.Item();
-            itemToAdd[0].ItemName = "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp";
-
-            //create the item that contains the value to write
-            Opc.Da.ItemValue[] writeValues = new Opc.Da.ItemValue[1];
-            writeValues[0] = new Opc.Da.ItemValue(itemToAdd[0]);
-
-            //make a scan of group to see if it already contains the item
-            bool itemFound = false;
-            foreach (Opc.Da.Item item in groupWrite.Items)
-            {
-                if (item.ItemName == itemToAdd[0].ItemName)
-                {
-                    // if it find the item i set the new value
-                    writeValues[0].ServerHandle = item.ServerHandle;
-                    itemFound = true;
-                }
-            }
-            if (!itemFound)
-            {
-                //if it doesn't find it, we add it
-                groupWrite.AddItems(itemToAdd);
-                writeValues[0].ServerHandle = groupWrite.Items[groupWrite.Items.Length - 1].ServerHandle;
-            }
-            //set the value to write
-            writeValues[0].Value = 1;
-            //write
-            groupWrite.Write(writeValues);
-        }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WriteWord();
+            //WriteWord();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             if (FormLoad != null)
                 FormLoad(sender, e);
+
+            _connectedPlc = false;
+            DisableClock();
         }
 
         private void butConnect_Click(object sender, EventArgs e)
@@ -200,6 +176,23 @@ namespace Trace.Monitoring
                 if (Connect_Click != null)
                     Connect_Click(sender, e);
             }
+        }
+
+        public void EnableClock()
+        {
+            timerInter.Interval = 2000;
+            timerInter.Enabled = true;
+        }
+
+        public void DisableClock()
+        {
+            timerInter.Enabled = false;
+        }
+
+        private void timerInter_Tick(object sender, EventArgs e)
+        {
+            if (InterLock != null)
+                InterLock(sender, e);
         }
     }
 }

@@ -26,6 +26,12 @@ namespace Trace.Monitoring.Presenters
 
             _view.FormLoad += FormLoad;
             _view.Connect_Click += Connect;
+            _view.InterLock += InterLock;
+        }
+
+        private void InterLock(object sender, EventArgs e)
+        {
+            WriteWord(_view.tagClockReady, 1);
         }
 
         private void Connect(object sender, EventArgs e)
@@ -108,9 +114,42 @@ namespace Trace.Monitoring.Presenters
                                             , "Connection failed!"
                                             , MessageBoxButtons.OK
                                             , MessageBoxIcon.Error);
+            }           
+        }
+
+        private void WriteWord(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new Opc.Da.ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWrite.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
             }
 
-            //Console.WriteLine("Are we connected? " + _view.daServer.IsConnected);
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWrite.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWrite.Items[_view.groupWrite.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+            _view.groupWrite.Write(writeValues);
         }
 
     }
