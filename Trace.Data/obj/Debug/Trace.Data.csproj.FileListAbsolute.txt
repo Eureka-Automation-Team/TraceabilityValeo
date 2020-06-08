@@ -33,9 +33,10 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\bin\Debug\System.Buffers.x
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\bin\Debug\System.Memory.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csprojAssemblyReference.cache
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.InitailProject.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.GenerateResource.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CoreCompileInputs.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CopyComplete
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.InitailProject.resources
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.GenerateResource.cache
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Newplc_tagstable.resources

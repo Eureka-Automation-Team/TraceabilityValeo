@@ -46,6 +46,7 @@
     <Compile Include="Models\DomainObject.cs" />
     <Compile Include="Models\MachineModel.cs" />
     <Compile Include="Models\PartAssemblyModel.cs" />
+    <Compile Include="Models\PlcTagModel.cs" />
     <Compile Include="Models\StationModel.cs" />
     <Compile Include="Models\TighteningResultModel.cs" />
     <Compile Include="Models\TraceabilityLogModel.cs" />

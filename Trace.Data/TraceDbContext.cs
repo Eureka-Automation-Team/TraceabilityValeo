@@ -25,6 +25,7 @@ namespace Trace.Data
         public DbSet<TighteningResultModel> TighteningResults { get; set; }
         public DbSet<CameraResultModel> CameraResults { get; set; }
         public DbSet<TraceabilityLogModel> TraceabilityLogs { get; set; }
+        public DbSet<PlcTagModel> PlcTags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -124,6 +125,21 @@ namespace Trace.Data
             modelBuilder.Entity<TraceabilityLogModel>()
                 .Property(e => e.QRCodePath).HasMaxLength(500);
 
+            ///plc_tags
+            modelBuilder.Entity<PlcTagModel>().ToTable("plc_tags")
+                .HasKey(e => e.Id);
+            modelBuilder.Entity<PlcTagModel>()
+                .Property(e => e.PlcTag).IsRequired()
+                .HasMaxLength(250);
+            modelBuilder.Entity<PlcTagModel>()
+                .Property(e => e.Description)
+                .HasMaxLength(250);
+            modelBuilder.Entity<PlcTagModel>()
+                .Property(e => e.DataType).IsRequired()
+                .HasMaxLength(50);
+            modelBuilder.Entity<PlcTagModel>()
+                .Property(e => e.TypeCode).IsRequired()
+                .HasMaxLength(100);
         }
     }
 }

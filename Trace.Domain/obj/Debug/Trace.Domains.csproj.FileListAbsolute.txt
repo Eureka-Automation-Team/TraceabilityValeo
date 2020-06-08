@@ -1,6 +1,6 @@
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\bin\Debug\Trace.Domain.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\bin\Debug\Trace.Domain.pdb
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\obj\Debug\Trace.Domains.csprojAssemblyReference.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\obj\Debug\Trace.Domains.csproj.CoreCompileInputs.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\obj\Debug\Trace.Domain.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\obj\Debug\Trace.Domain.pdb
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Domain\obj\Debug\Trace.Domains.csprojAssemblyReference.cache

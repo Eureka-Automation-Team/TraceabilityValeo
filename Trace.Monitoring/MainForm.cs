@@ -11,19 +11,65 @@ using System.Windows.Forms;
 
 namespace Trace.Monitoring
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainView
     {
-        private Server _hdaServer = null;
-        private Subscription groupRead;        
-        private SubscriptionState groupState;
+        private Server _daServer = null;
+        private Subscription _groupRead;        
+        private SubscriptionState _groupStateRead;
 
-        private Subscription groupWrite;
-        private SubscriptionState groupStateWrite;
+        private Subscription _groupWrite;
+        private SubscriptionState _groupStateWrite;
 
-        private Item[] items = new Opc.Da.Item[1];
+        private Item[] _items = new Item[1];
 
         //initialization of the sample object that contains opc values
-        OPCObject myOpcObject = new OPCObject();
+        OPCObject _myOpcObject = new OPCObject();
+
+        public string serverUrl 
+        {
+            get { return txtServerUrl.Text; }
+            set { txtServerUrl.Text = value; }
+        }
+
+        public Server daServer
+        {
+            get { return _daServer; }
+            set { _daServer = value; }
+        }
+        public Subscription groupRead
+        {
+            get { return _groupRead; }
+            set { _groupRead = value; }
+        }
+        public SubscriptionState groupStateRead
+        {
+            get { return _groupStateRead; }
+            set { _groupStateRead = value; }
+        }
+        public Subscription groupWrite
+        {
+            get { return _groupWrite; }
+            set { _groupWrite = value; }
+        }
+        public SubscriptionState groupStateWrite
+        {
+            get { return _groupStateWrite; }
+            set { _groupStateWrite = value; }
+        }
+        public OPCObject myOpcObject
+        {
+            get { return _myOpcObject; }
+            set { _myOpcObject = value; }
+        }
+        public Item[] items
+        {
+            get { return _items; }
+            set { _items = value; }
+        }
+
+        public event EventHandler FormLoad;
+        public event EventHandler Connect_Click;
+        public event EventHandler Disconnect_Click;
 
         public MainForm()
         {
@@ -39,33 +85,33 @@ namespace Trace.Monitoring
              * The Factory class casts the COM object (pointing to the HDA server) to the IServer interface.
              * All calls to the interface or proxied to the COM object.
              */
-            Opc.URL url = new Opc.URL(String.Format("opcda://localhost/{0}", serverName));
+            Opc.URL url = new Opc.URL(serverName);
             OpcCom.Factory fact = new OpcCom.Factory();
-            _hdaServer = new Server(fact, url);
+            _daServer = new Server(fact, url);
 
             try
             {
                 //_hdaServer.Connect();
-                _hdaServer.Connect(url, new Opc.ConnectData(new System.Net.NetworkCredential()));
+                _daServer.Connect(url, new Opc.ConnectData(new System.Net.NetworkCredential()));
                 Console.WriteLine(String.Format("Connect to server {0}", serverName));
 
                 //3rd Create a group if items            
-                groupState = new SubscriptionState();
-                groupState.Name = "Group";
-                groupState.UpdateRate = 1000;// this isthe time between every reads from OPC server
-                groupState.Active = true;//this must be true if you the group has to read value
-                groupRead = (Opc.Da.Subscription)_hdaServer.CreateSubscription(groupState);
-                groupRead.DataChanged += new Opc.Da.DataChangedEventHandler(group_DataChanged);//callback when the data are readed                            
+                _groupStateRead = new SubscriptionState();
+                _groupStateRead.Name = "Group";
+                _groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
+                _groupStateRead.Active = true;//this must be true if you the group has to read value
+                _groupRead = (Opc.Da.Subscription)_daServer.CreateSubscription(_groupStateRead);
+                _groupRead.DataChanged += new Opc.Da.DataChangedEventHandler(group_DataChanged);//callback when the data are readed                            
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)        
-                items[0] = new Item();
-                items[0].ItemName = "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp";//this reads 2 word (short - 16 bit)
-                items = groupRead.AddItems(items);
+                _items[0] = new Item();
+                _items[0].ItemName = "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp";//this reads 2 word (short - 16 bit)
+                _items = _groupRead.AddItems(_items);
 
-                groupStateWrite = new SubscriptionState();
-                groupStateWrite.Name = "Group Write";
-                groupStateWrite.Active = false;//not needed to read if you want to write only
-                groupWrite = (Opc.Da.Subscription)_hdaServer.CreateSubscription(groupStateWrite);
+                _groupStateWrite = new SubscriptionState();
+                _groupStateWrite.Name = "Group Write";
+                _groupStateWrite.Active = false;//not needed to read if you want to write only
+                _groupWrite = (Opc.Da.Subscription)_daServer.CreateSubscription(_groupStateWrite);
 
             }
             catch (Opc.ConnectFailedException opcConnExc)
@@ -74,7 +120,7 @@ namespace Trace.Monitoring
                 Console.WriteLine(opcConnExc.ToString());
             }
 
-            Console.WriteLine("Are we connected? " + _hdaServer.IsConnected);
+            Console.WriteLine("Are we connected? " + _daServer.IsConnected);
         }
 
         private void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
@@ -131,10 +177,7 @@ namespace Trace.Monitoring
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Connect("RSLinx OPC Server");
-            string serverName = "RSLinx OPC Server";
-     
-            Connect(serverName);
+            Connect(txtServerUrl.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)
