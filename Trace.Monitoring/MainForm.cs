@@ -23,7 +23,7 @@ namespace Trace.Monitoring
         private Subscription _groupWrite;
         private SubscriptionState _groupStateWrite;
 
-        private Item[] _items = new Item[2];
+        private Item[] _items;
 
         //initialization of the sample object that contains opc values
         OPCObject _myOpcObject = new OPCObject();
@@ -169,14 +169,13 @@ namespace Trace.Monitoring
                 int receivedData = (Int16)values[i].Value;
                 if (values[i].ItemName == this._tagTraceabilityReady)
                 {
-                    //myOpcObject.DataN7 = receivedData;
-                    //remember that it's in another thread (so if you want to update the UI you should use anonyms methods)
-                    txtTraceabilityRdy.Invoke(new EventHandler(delegate { txtTraceabilityRdy.Text = receivedData.ToString(); }));
+                    butMakeReady.Invoke(new EventHandler(delegate { this.systemReady = Convert.ToBoolean(receivedData); }));
                 }
-                //else if (values[i].ItemName == "[UNTITLED_1]B10:0")
-                //{
-                //    myOpcObject.BitsB10 = receivedData;
-                //}
+                if(values[i].ItemName == "[TRACEABILITY]Program:Traceability_System.ST1StatusMc")
+                {
+                    butStatusMc1.Invoke(new EventHandler(delegate { this.butStatusMc1.Text = Convert.ToBoolean(receivedData).ToString(); }));
+                }
+
             }
         }
 

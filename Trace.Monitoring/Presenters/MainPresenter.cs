@@ -124,12 +124,19 @@ namespace Trace.Monitoring.Presenters
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
                 _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
-                // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)        
-                _view.items[0] = new Item();
-                _view.items[0].ItemName = _view.tagClockReady;//this reads 2 word (short - 16 bit)
-                //_view.items = _view.groupRead.AddItems(_view.items);
-                _view.items[1] = new Item();
-                _view.items[1].ItemName = _view.tagTraceabilityReady;//this reads 2 word (short - 16 bit)
+                // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)   
+                if (_view.groupRead.Items != null)
+                    _view.groupRead.RemoveItems(_view.groupRead.Items);
+
+                _view.items = new Item[_view.plcTags.Count];
+                int i = 0;
+                foreach(var tag in _view.plcTags)
+                {
+                    _view.items[i] = new Item();
+                    _view.items[i].ItemName = _view.tagMainBlock + "." + tag.PlcTag;
+
+                    i++;
+                }                
                 _view.items = _view.groupRead.AddItems(_view.items);
 
                 _view.groupStateWrite = new SubscriptionState();
