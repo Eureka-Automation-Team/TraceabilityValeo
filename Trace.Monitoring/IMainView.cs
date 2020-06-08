@@ -25,6 +25,7 @@ namespace Trace.Monitoring
         OPCObject myOpcObject { get; set; }
         Item[] items { get; set; }
 
+        bool connectedPlc { get; set; }
         string serverUrl { get; set; }
     }
 }

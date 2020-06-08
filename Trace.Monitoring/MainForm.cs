@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trace.Monitoring.Presenters;
 
 namespace Trace.Monitoring
 {
     public partial class MainForm : Form, IMainView
     {
+        private readonly MainPresenter _presenter;
         private Server _daServer = null;
         private Subscription _groupRead;        
         private SubscriptionState _groupStateRead;
@@ -24,6 +26,8 @@ namespace Trace.Monitoring
 
         //initialization of the sample object that contains opc values
         OPCObject _myOpcObject = new OPCObject();
+
+        private bool _connectedPlc;
 
         public string serverUrl 
         {
@@ -67,6 +71,20 @@ namespace Trace.Monitoring
             set { _items = value; }
         }
 
+        public bool connectedPlc
+        {
+            get { return _connectedPlc; }
+            set 
+            { 
+                _connectedPlc = value;
+                txtServerUrl.ReadOnly = _connectedPlc;
+                if (_connectedPlc)
+                    butConnect.Text = "Disconnect";
+                else
+                    butConnect.Text = "Connect";
+            }
+        }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
@@ -74,54 +92,11 @@ namespace Trace.Monitoring
         public MainForm()
         {
             InitializeComponent();
+
+            this._presenter = new MainPresenter(this);
         }
 
-        public void Connect(string serverName)
-        {
-            /* When the factory creates an HDA server, it passes along 2 parameters:
-             *    SerializationInfo info
-             *    StreamingContext context
-             *
-             * The Factory class casts the COM object (pointing to the HDA server) to the IServer interface.
-             * All calls to the interface or proxied to the COM object.
-             */
-            Opc.URL url = new Opc.URL(serverName);
-            OpcCom.Factory fact = new OpcCom.Factory();
-            _daServer = new Server(fact, url);
 
-            try
-            {
-                //_hdaServer.Connect();
-                _daServer.Connect(url, new Opc.ConnectData(new System.Net.NetworkCredential()));
-                Console.WriteLine(String.Format("Connect to server {0}", serverName));
-
-                //3rd Create a group if items            
-                _groupStateRead = new SubscriptionState();
-                _groupStateRead.Name = "Group";
-                _groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
-                _groupStateRead.Active = true;//this must be true if you the group has to read value
-                _groupRead = (Opc.Da.Subscription)_daServer.CreateSubscription(_groupStateRead);
-                _groupRead.DataChanged += new Opc.Da.DataChangedEventHandler(group_DataChanged);//callback when the data are readed                            
-
-                // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)        
-                _items[0] = new Item();
-                _items[0].ItemName = "[TRACEABILITY]Program:Traceability_System.ST1LoggingApp";//this reads 2 word (short - 16 bit)
-                _items = _groupRead.AddItems(_items);
-
-                _groupStateWrite = new SubscriptionState();
-                _groupStateWrite.Name = "Group Write";
-                _groupStateWrite.Active = false;//not needed to read if you want to write only
-                _groupWrite = (Opc.Da.Subscription)_daServer.CreateSubscription(_groupStateWrite);
-
-            }
-            catch (Opc.ConnectFailedException opcConnExc)
-            {
-                Console.WriteLine(String.Format("Could not connect to server {0}", serverName));
-                Console.WriteLine(opcConnExc.ToString());
-            }
-
-            Console.WriteLine("Are we connected? " + _daServer.IsConnected);
-        }
 
         private void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
         {
@@ -175,14 +150,29 @@ namespace Trace.Monitoring
             groupWrite.Write(writeValues);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Connect(txtServerUrl.Text);
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             WriteWord();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (FormLoad != null)
+                FormLoad(sender, e);
+        }
+
+        private void butConnect_Click(object sender, EventArgs e)
+        {
+            if (this.connectedPlc)
+            {
+                if (Disconnect_Click != null)
+                    Disconnect_Click(sender, e);
+            }else
+            {
+                if (Connect_Click != null)
+                    Connect_Click(sender, e);
+            }
         }
     }
 }
