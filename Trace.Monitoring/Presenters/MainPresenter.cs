@@ -29,12 +29,20 @@ namespace Trace.Monitoring.Presenters
             _view.Disconnect_Click += Disconnect_Click;
             _view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
-            _view.LoggingMachine3_1 += LoggingMachine3_1;
+            _view.KeepLogging += KeepLogging;
         }
 
-        private void LoggingMachine3_1(object sender, EventArgs e)
+        private void KeepLogging(object sender, EventArgs e)
         {
-            ItemValueResult[] result = (ItemValueResult[])sender;
+            MachineModel machine = (MachineModel)sender;
+            var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
+            
+            var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+            var tags = (from tag in machineTags
+                       where tag.MachineId == machine.Id
+                       select new { Tag = _view.tagMainBlock + "." + tag.PlcTag }).ToArray();
+
+            var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
         }
 
         private void Disconnect_Click(object sender, EventArgs e)

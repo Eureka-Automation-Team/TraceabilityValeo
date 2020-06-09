@@ -165,6 +165,7 @@ namespace Trace.Monitoring
 
                 if (_machine1 != null)
                 {
+                    txtManchineName1.Tag = _machine1;
                     txtManchineName1.Text = _machine1.ManchineName;
                 }
             }
@@ -178,6 +179,7 @@ namespace Trace.Monitoring
 
                 if (_machine2 != null)
                 {
+                    txtManchineName2.Tag = _machine2;
                     txtManchineName2.Text = _machine2.ManchineName;
                 }
             }
@@ -191,6 +193,7 @@ namespace Trace.Monitoring
 
                 if (_machine3 != null)
                 {
+                    txtManchineName3.Tag = _machine3;
                     txtManchineName3.Text = _machine3.ManchineName;
                 }
             }
@@ -204,6 +207,7 @@ namespace Trace.Monitoring
 
                 if (_machine4 != null)
                 {
+                    txtManchineName4.Tag = _machine4;
                     txtManchineName4.Text = _machine4.ManchineName;
                 }
             }
@@ -217,6 +221,7 @@ namespace Trace.Monitoring
 
                 if (_machine5 != null)
                 {
+                    txtManchineName5.Tag = _machine5;
                     txtManchineName5.Text = _machine5.ManchineName;
                 }
             }
@@ -230,6 +235,7 @@ namespace Trace.Monitoring
 
                 if (_machine6 != null)
                 {
+                    txtManchineName6.Tag = _machine6;
                     txtManchineName6.Text = _machine6.ManchineName;
                 }
             }
@@ -243,6 +249,7 @@ namespace Trace.Monitoring
 
                 if (_machine7 != null)
                 {
+                    txtManchineName7.Tag = _machine7;
                     txtManchineName7.Text = _machine7.ManchineName;
                 }
             }
@@ -253,7 +260,7 @@ namespace Trace.Monitoring
         public event EventHandler Disconnect_Click;
         public event EventHandler InterLock;
         public event EventHandler MakeReady;
-        public event EventHandler LoggingMachine3_1;
+        public event EventHandler KeepLogging;
 
         public MainForm()
         {
@@ -333,7 +340,7 @@ namespace Trace.Monitoring
                         { 
                             butRequestLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper();
                             SetButtonStatusColor(butRequestLogging3, Convert.ToBoolean(receivedData));
-                            LoggingMachine3_1(values, null);
+                            KeepLogging((MachineModel)txtManchineName3.Tag, null);
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1LoggingApp")
