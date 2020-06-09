@@ -110,10 +110,15 @@
     <Compile Include="Migrations\202006081154264_Update machine table.Designer.cs">
       <DependentUpon>202006081154264_Update machine table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006091030439_Add column RepairTime.cs" />
+    <Compile Include="Migrations\202006091030439_Add column RepairTime.Designer.cs">
+      <DependentUpon>202006091030439_Add column RepairTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
     <Compile Include="Service\MachineService.cs" />
     <Compile Include="Service\PLCTagService.cs" />
+    <Compile Include="Service\TraceabilityLogService.cs" />
     <Compile Include="TraceDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TraceDbContextFactory.cs" />
@@ -137,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006081154264_Update machine table.resx">
       <DependentUpon>202006081154264_Update machine table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006091030439_Add column RepairTime.resx">
+      <DependentUpon>202006091030439_Add column RepairTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

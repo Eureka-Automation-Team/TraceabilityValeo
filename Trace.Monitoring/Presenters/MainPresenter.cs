@@ -17,6 +17,7 @@ namespace Trace.Monitoring.Presenters
     {
         IDataService<MachineModel> _serviceMachine = new MachineService(new TraceDbContextFactory());
         IDataService<PlcTagModel> _servicePLCTag = new PLCTagService(new TraceDbContextFactory());
+        IDataService<TraceabilityLogModel> _serviceTraceLog = new TraceabilityLogService(new TraceDbContextFactory());
 
         private readonly IMainView _view;
 
@@ -43,6 +44,33 @@ namespace Trace.Monitoring.Presenters
                        select new { Tag = _view.tagMainBlock + "." + tag.PlcTag }).ToArray();
 
             var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+            if (machine.Id == 3)
+                KeepLogForMachine3(r, machine);
+        }
+
+        private void KeepLogForMachine3(IEnumerable<ItemValueResult> r, MachineModel m)
+        {
+            TraceabilityLogModel trace = new TraceabilityLogModel();
+            trace.StationId = m.StationId;
+            trace.MachineId = m.Id;
+
+            foreach (var item in r)
+            {
+                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1Code")
+                    trace.ItemCode = item.Value.ToString();
+
+                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1TestResult[0]")
+                    trace.Attribute1 = item.Value.ToString();
+
+                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1FinalJudgment")
+                    trace.FinalResult = Convert.ToBoolean(item.Value);
+
+                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1RepairTime")
+                    trace.RepairTime = Convert.ToInt32(item.Value);
+            }
+
+            _serviceTraceLog.Create(trace);
         }
 
         private void Disconnect_Click(object sender, EventArgs e)
