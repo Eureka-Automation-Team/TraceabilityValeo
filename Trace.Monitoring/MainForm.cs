@@ -266,108 +266,163 @@ namespace Trace.Monitoring
         {
             for (int i = 0; i < values.Length; i++)
             {
-                int receivedData = (Int16)values[i].Value;
+                
                 //Machine 1
                 if (values[i].ItemName == this._tagTraceabilityReady)
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butMakeReady.Invoke(new EventHandler(delegate { this.systemReady = Convert.ToBoolean(receivedData); }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST1StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc1.Invoke(new EventHandler(delegate { butStatusMc1.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc1, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST1ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging1.Invoke(new EventHandler(delegate { butRequestLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging1, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST1LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging1.Invoke(new EventHandler(delegate { butCompletedLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging1, Convert.ToBoolean(receivedData));
                 }
 
                 //Machine 2
                 if (values[i].ItemName == tagMainBlock + "." + "ST2StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc2.Invoke(new EventHandler(delegate { butStatusMc2.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc2, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST2ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging2.Invoke(new EventHandler(delegate { butRequestLogging2.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging2, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST2LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging2.Invoke(new EventHandler(delegate { butCompletedLogging2.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging2, Convert.ToBoolean(receivedData));
                 }
 
                 //Machine 3
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc3.Invoke(new EventHandler(delegate { butStatusMc3.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc3, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging3.Invoke(new EventHandler(delegate { butRequestLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging3, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging3.Invoke(new EventHandler(delegate { butCompletedLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging3, Convert.ToBoolean(receivedData));
                 }
 
                 //Machine 4
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_2StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc4.Invoke(new EventHandler(delegate { butStatusMc4.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc4, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_2ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging4.Invoke(new EventHandler(delegate { butRequestLogging4.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging4, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_2LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging4.Invoke(new EventHandler(delegate { butCompletedLogging4.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging4, Convert.ToBoolean(receivedData));
                 }
 
                 //Machine 5
                 if (values[i].ItemName == tagMainBlock + "." + "ST4StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc5.Invoke(new EventHandler(delegate { butStatusMc5.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc5, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST4ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging5.Invoke(new EventHandler(delegate { butRequestLogging5.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging5, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST4LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging5.Invoke(new EventHandler(delegate { butCompletedLogging5.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging5, Convert.ToBoolean(receivedData));
                 }
 
                 //Machine 6
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_1StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc6.Invoke(new EventHandler(delegate { butStatusMc6.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc6, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_1ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging6.Invoke(new EventHandler(delegate { butRequestLogging6.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging6, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_1LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging6.Invoke(new EventHandler(delegate { butCompletedLogging6.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging6, Convert.ToBoolean(receivedData));
                 }
 
                 //Machine 7
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_2StatusMc")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butStatusMc7.Invoke(new EventHandler(delegate { butStatusMc7.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
+                    SetButtonStatusColor(butStatusMc7, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_2ReqLogging")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butRequestLogging7.Invoke(new EventHandler(delegate { butRequestLogging7.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butRequestLogging7, Convert.ToBoolean(receivedData));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_2LoggingApp")
                 {
+                    int receivedData = (Int16)values[i].Value;
                     butCompletedLogging7.Invoke(new EventHandler(delegate { butCompletedLogging7.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
+                    SetButtonStatusColor(butCompletedLogging7, Convert.ToBoolean(receivedData));
                 }
+            }
+        }
+
+        private void SetButtonStatusColor(Button butStatus, bool v)
+        {
+            if (v)
+            {
+                butStatus.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+                butStatus.BackColor = Color.Gray;
             }
         }
 
