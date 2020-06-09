@@ -29,6 +29,12 @@ namespace Trace.Monitoring.Presenters
             _view.Disconnect_Click += Disconnect_Click;
             _view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
+            _view.LoggingMachine3_1 += LoggingMachine3_1;
+        }
+
+        private void LoggingMachine3_1(object sender, EventArgs e)
+        {
+            ItemValueResult[] result = (ItemValueResult[])sender;
         }
 
         private void Disconnect_Click(object sender, EventArgs e)

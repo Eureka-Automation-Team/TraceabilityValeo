@@ -253,6 +253,7 @@ namespace Trace.Monitoring
         public event EventHandler Disconnect_Click;
         public event EventHandler InterLock;
         public event EventHandler MakeReady;
+        public event EventHandler LoggingMachine3_1;
 
         public MainForm()
         {
@@ -276,8 +277,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST1StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc1.Invoke(new EventHandler(delegate { butStatusMc1.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE"; }));
-                    SetButtonStatusColor(butStatusMc1, Convert.ToBoolean(receivedData));
+                    butStatusMc1.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc1.Text = Convert.ToBoolean(receivedData) ? "ONLINE" : "OFFLINE";
+                            SetButtonStatusColor(butStatusMc1, Convert.ToBoolean(receivedData));
+                        }
+                        ));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST1ReqLogging")
                 {
@@ -322,8 +328,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging3.Invoke(new EventHandler(delegate { butRequestLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging3, Convert.ToBoolean(receivedData));
+                    butRequestLogging3.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butRequestLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging3, Convert.ToBoolean(receivedData));
+                            LoggingMachine3_1(values, null);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1LoggingApp")
                 {

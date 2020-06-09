@@ -15,6 +15,7 @@ namespace Trace.Monitoring
         event EventHandler Disconnect_Click;
         event EventHandler InterLock;
         event EventHandler MakeReady;
+        event EventHandler LoggingMachine3_1;
 
         Server daServer { get; set; }
         Subscription groupRead { get; set; }
