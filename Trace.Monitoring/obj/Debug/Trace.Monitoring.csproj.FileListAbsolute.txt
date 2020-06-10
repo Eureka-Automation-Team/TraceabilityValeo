@@ -1,3 +1,8 @@
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csprojAssemblyReference.cache
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.MainForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.Properties.Resources.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csproj.GenerateResource.cache
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csproj.CoreCompileInputs.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\Trace.Monitoring.exe.config
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\Trace.Monitoring.exe
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\Trace.Monitoring.pdb
@@ -36,11 +41,6 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\Renci.SshN
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\System.Buffers.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\System.Memory.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csprojAssemblyReference.cache
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.MainForm.resources
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.Properties.Resources.resources
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csproj.GenerateResource.cache
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csproj.CoreCompileInputs.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.csproj.CopyComplete
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.exe
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Monitoring\obj\Debug\Trace.Monitoring.pdb

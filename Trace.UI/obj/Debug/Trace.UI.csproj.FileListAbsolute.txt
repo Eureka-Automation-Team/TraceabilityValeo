@@ -1,0 +1,9 @@
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.UI.exe.config
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.UI.exe
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.UI.pdb
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.MainForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Properties.Resources.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.GenerateResource.cache
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.CoreCompileInputs.cache
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.exe
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.pdb

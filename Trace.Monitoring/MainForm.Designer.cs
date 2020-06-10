@@ -29,18 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.butConnect = new System.Windows.Forms.Button();
             this.butMakeReady = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtServerUrl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtServerUrl = new System.Windows.Forms.TextBox();
             this.timerInter = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -48,13 +44,22 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.butRequestLogging1 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txtManchineName1 = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.butStatusMc1 = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging1 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,11 +70,15 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.butRequestLogging2 = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.txtManchineName2 = new System.Windows.Forms.TextBox();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.butStatusMc2 = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging2 = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel25 = new System.Windows.Forms.Panel();
@@ -78,6 +87,14 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel41 = new System.Windows.Forms.Panel();
+            this.butStatusMc4 = new System.Windows.Forms.Button();
+            this.panel40 = new System.Windows.Forms.Panel();
+            this.txtManchineName4 = new System.Windows.Forms.TextBox();
+            this.panel39 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging4 = new System.Windows.Forms.Button();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.butRequestLogging4 = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
@@ -85,20 +102,20 @@
             this.panel30 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel31 = new System.Windows.Forms.Panel();
+            this.butRequestLogging3 = new System.Windows.Forms.Button();
             this.panel32 = new System.Windows.Forms.Panel();
+            this.txtManchineName3 = new System.Windows.Forms.TextBox();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.butStatusMc3 = new System.Windows.Forms.Button();
             this.panel34 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging3 = new System.Windows.Forms.Button();
             this.panel36 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel37 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel38 = new System.Windows.Forms.Panel();
-            this.panel39 = new System.Windows.Forms.Panel();
-            this.panel40 = new System.Windows.Forms.Panel();
-            this.panel41 = new System.Windows.Forms.Panel();
             this.panel42 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -109,11 +126,15 @@
             this.panel46 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
+            this.butRequestLogging5 = new System.Windows.Forms.Button();
             this.panel48 = new System.Windows.Forms.Panel();
+            this.txtManchineName5 = new System.Windows.Forms.TextBox();
             this.panel49 = new System.Windows.Forms.Panel();
+            this.butStatusMc5 = new System.Windows.Forms.Button();
             this.panel50 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.panel51 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging5 = new System.Windows.Forms.Button();
             this.panel52 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.panel53 = new System.Windows.Forms.Panel();
@@ -123,9 +144,13 @@
             this.panel55 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.panel56 = new System.Windows.Forms.Panel();
+            this.butStatusMc7 = new System.Windows.Forms.Button();
             this.panel57 = new System.Windows.Forms.Panel();
+            this.txtManchineName7 = new System.Windows.Forms.TextBox();
             this.panel58 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging7 = new System.Windows.Forms.Button();
             this.panel59 = new System.Windows.Forms.Panel();
+            this.butRequestLogging7 = new System.Windows.Forms.Button();
             this.panel60 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.panel61 = new System.Windows.Forms.Panel();
@@ -133,49 +158,23 @@
             this.panel62 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.panel63 = new System.Windows.Forms.Panel();
+            this.butRequestLogging6 = new System.Windows.Forms.Button();
             this.panel64 = new System.Windows.Forms.Panel();
+            this.txtManchineName6 = new System.Windows.Forms.TextBox();
             this.panel65 = new System.Windows.Forms.Panel();
+            this.butStatusMc6 = new System.Windows.Forms.Button();
             this.panel66 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.panel67 = new System.Windows.Forms.Panel();
+            this.butCompletedLogging6 = new System.Windows.Forms.Button();
             this.panel68 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel69 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.butStatusMc1 = new System.Windows.Forms.Button();
-            this.butStatusMc2 = new System.Windows.Forms.Button();
-            this.butStatusMc3 = new System.Windows.Forms.Button();
-            this.butStatusMc4 = new System.Windows.Forms.Button();
-            this.butStatusMc5 = new System.Windows.Forms.Button();
-            this.butStatusMc6 = new System.Windows.Forms.Button();
-            this.butStatusMc7 = new System.Windows.Forms.Button();
-            this.butRequestLogging1 = new System.Windows.Forms.Button();
-            this.butRequestLogging2 = new System.Windows.Forms.Button();
-            this.butRequestLogging3 = new System.Windows.Forms.Button();
-            this.butRequestLogging4 = new System.Windows.Forms.Button();
-            this.butRequestLogging5 = new System.Windows.Forms.Button();
-            this.butRequestLogging6 = new System.Windows.Forms.Button();
-            this.butRequestLogging7 = new System.Windows.Forms.Button();
-            this.butCompletedLogging1 = new System.Windows.Forms.Button();
-            this.butCompletedLogging2 = new System.Windows.Forms.Button();
-            this.butCompletedLogging3 = new System.Windows.Forms.Button();
-            this.butCompletedLogging4 = new System.Windows.Forms.Button();
-            this.butCompletedLogging5 = new System.Windows.Forms.Button();
-            this.butCompletedLogging6 = new System.Windows.Forms.Button();
-            this.butCompletedLogging7 = new System.Windows.Forms.Button();
-            this.txtManchineName1 = new System.Windows.Forms.TextBox();
-            this.txtManchineName2 = new System.Windows.Forms.TextBox();
-            this.txtManchineName3 = new System.Windows.Forms.TextBox();
-            this.txtManchineName4 = new System.Windows.Forms.TextBox();
-            this.txtManchineName5 = new System.Windows.Forms.TextBox();
-            this.txtManchineName6 = new System.Windows.Forms.TextBox();
-            this.txtManchineName7 = new System.Windows.Forms.TextBox();
+            this.butQuality = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -186,6 +185,9 @@
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -203,6 +205,10 @@
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.panel41.SuspendLayout();
+            this.panel40.SuspendLayout();
+            this.panel39.SuspendLayout();
+            this.panel38.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel30.SuspendLayout();
@@ -214,10 +220,6 @@
             this.panel36.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel37.SuspendLayout();
-            this.panel38.SuspendLayout();
-            this.panel39.SuspendLayout();
-            this.panel40.SuspendLayout();
-            this.panel41.SuspendLayout();
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -281,6 +283,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butQuality);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.butConnect);
             this.panel1.Controls.Add(this.txtServerUrl);
@@ -289,16 +292,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 53);
+            this.panel1.Size = new System.Drawing.Size(1116, 53);
             this.panel1.TabIndex = 4;
-            // 
-            // txtServerUrl
-            // 
-            this.txtServerUrl.Location = new System.Drawing.Point(107, 10);
-            this.txtServerUrl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtServerUrl.Name = "txtServerUrl";
-            this.txtServerUrl.Size = new System.Drawing.Size(409, 26);
-            this.txtServerUrl.TabIndex = 0;
             // 
             // label1
             // 
@@ -309,6 +304,14 @@
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "OPC URL:";
+            // 
+            // txtServerUrl
+            // 
+            this.txtServerUrl.Location = new System.Drawing.Point(107, 10);
+            this.txtServerUrl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtServerUrl.Name = "txtServerUrl";
+            this.txtServerUrl.Size = new System.Drawing.Size(409, 26);
+            this.txtServerUrl.TabIndex = 0;
             // 
             // timerInter
             // 
@@ -322,8 +325,215 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 53);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(962, 65);
+            this.panel2.Size = new System.Drawing.Size(1116, 65);
             this.panel2.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tableLayoutPanel2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(92, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1024, 65);
+            this.panel3.TabIndex = 18;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.16197F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83803F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel8, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel5, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel10, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel11, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel12, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel13, 3, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1024, 65);
+            this.tableLayoutPanel2.TabIndex = 21;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(561, 24);
+            this.panel6.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(561, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Machine";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(570, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(125, 24);
+            this.panel8.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 24);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Status";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(701, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(150, 24);
+            this.panel4.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 24);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Request Logging";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.butRequestLogging1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(701, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(150, 29);
+            this.panel5.TabIndex = 27;
+            // 
+            // butRequestLogging1
+            // 
+            this.butRequestLogging1.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging1.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging1.Name = "butRequestLogging1";
+            this.butRequestLogging1.Size = new System.Drawing.Size(150, 29);
+            this.butRequestLogging1.TabIndex = 4;
+            this.butRequestLogging1.Text = "FALSE";
+            this.butRequestLogging1.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.txtManchineName1);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 33);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(561, 29);
+            this.panel10.TabIndex = 28;
+            // 
+            // txtManchineName1
+            // 
+            this.txtManchineName1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName1.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName1.Name = "txtManchineName1";
+            this.txtManchineName1.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName1.TabIndex = 0;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.butStatusMc1);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(570, 33);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(125, 29);
+            this.panel11.TabIndex = 29;
+            // 
+            // butStatusMc1
+            // 
+            this.butStatusMc1.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc1.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc1.Name = "butStatusMc1";
+            this.butStatusMc1.Size = new System.Drawing.Size(125, 29);
+            this.butStatusMc1.TabIndex = 3;
+            this.butStatusMc1.Text = "Online";
+            this.butStatusMc1.UseVisualStyleBackColor = false;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label5);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(857, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(164, 24);
+            this.panel12.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(164, 24);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Completed Log";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.butCompletedLogging1);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(857, 33);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(164, 29);
+            this.panel13.TabIndex = 31;
+            // 
+            // butCompletedLogging1
+            // 
+            this.butCompletedLogging1.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging1.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging1.Name = "butCompletedLogging1";
+            this.butCompletedLogging1.Size = new System.Drawing.Size(164, 29);
+            this.butCompletedLogging1.TabIndex = 5;
+            this.butCompletedLogging1.Text = "FALSE";
+            this.butCompletedLogging1.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -384,163 +594,6 @@
             this.textBox5.Text = "1";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(92, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(870, 65);
-            this.panel3.TabIndex = 18;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.16197F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83803F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel8, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel10, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel11, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel12, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel13, 3, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(870, 65);
-            this.tableLayoutPanel2.TabIndex = 21;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(439, 24);
-            this.panel6.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(439, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Machine";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(448, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(97, 24);
-            this.panel8.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 24);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Status";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(551, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(150, 24);
-            this.panel4.TabIndex = 26;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.butRequestLogging1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(551, 33);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(150, 29);
-            this.panel5.TabIndex = 27;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.txtManchineName1);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 33);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(439, 29);
-            this.panel10.TabIndex = 28;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.butStatusMc1);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(448, 33);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(97, 29);
-            this.panel11.TabIndex = 29;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 24);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Request Logging";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.label5);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(707, 3);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(160, 24);
-            this.panel12.TabIndex = 30;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.butCompletedLogging1);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(707, 33);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(160, 29);
-            this.panel13.TabIndex = 31;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 24);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Completed Log";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel14
             // 
             this.panel14.Controls.Add(this.panel15);
@@ -548,7 +601,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 118);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(962, 65);
+            this.panel14.Size = new System.Drawing.Size(1116, 65);
             this.panel14.TabIndex = 6;
             // 
             // panel15
@@ -557,7 +610,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(92, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(870, 65);
+            this.panel15.Size = new System.Drawing.Size(1024, 65);
             this.panel15.TabIndex = 18;
             // 
             // tableLayoutPanel1
@@ -566,7 +619,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.16197F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83803F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel1.Controls.Add(this.panel16, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel17, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel18, 2, 0);
@@ -581,7 +634,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(870, 65);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1024, 65);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // panel16
@@ -590,7 +643,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(3, 3);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(439, 24);
+            this.panel16.Size = new System.Drawing.Size(561, 24);
             this.panel16.TabIndex = 23;
             // 
             // label7
@@ -601,7 +654,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(439, 24);
+            this.label7.Size = new System.Drawing.Size(561, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "Machine";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -610,9 +663,9 @@
             // 
             this.panel17.Controls.Add(this.label8);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(448, 3);
+            this.panel17.Location = new System.Drawing.Point(570, 3);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(97, 24);
+            this.panel17.Size = new System.Drawing.Size(125, 24);
             this.panel17.TabIndex = 25;
             // 
             // label8
@@ -623,7 +676,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 24);
+            this.label8.Size = new System.Drawing.Size(125, 24);
             this.label8.TabIndex = 7;
             this.label8.Text = "Status";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -632,7 +685,7 @@
             // 
             this.panel18.Controls.Add(this.label9);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(551, 3);
+            this.panel18.Location = new System.Drawing.Point(701, 3);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(150, 24);
             this.panel18.TabIndex = 26;
@@ -654,10 +707,24 @@
             // 
             this.panel19.Controls.Add(this.butRequestLogging2);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(551, 33);
+            this.panel19.Location = new System.Drawing.Point(701, 33);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(150, 29);
             this.panel19.TabIndex = 27;
+            // 
+            // butRequestLogging2
+            // 
+            this.butRequestLogging2.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging2.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging2.Name = "butRequestLogging2";
+            this.butRequestLogging2.Size = new System.Drawing.Size(150, 29);
+            this.butRequestLogging2.TabIndex = 5;
+            this.butRequestLogging2.Text = "FALSE";
+            this.butRequestLogging2.UseVisualStyleBackColor = false;
             // 
             // panel20
             // 
@@ -665,25 +732,47 @@
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(3, 33);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(439, 29);
+            this.panel20.Size = new System.Drawing.Size(561, 29);
             this.panel20.TabIndex = 28;
+            // 
+            // txtManchineName2
+            // 
+            this.txtManchineName2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName2.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName2.Name = "txtManchineName2";
+            this.txtManchineName2.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName2.TabIndex = 1;
             // 
             // panel21
             // 
             this.panel21.Controls.Add(this.butStatusMc2);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(448, 33);
+            this.panel21.Location = new System.Drawing.Point(570, 33);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(97, 29);
+            this.panel21.Size = new System.Drawing.Size(125, 29);
             this.panel21.TabIndex = 29;
+            // 
+            // butStatusMc2
+            // 
+            this.butStatusMc2.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc2.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc2.Name = "butStatusMc2";
+            this.butStatusMc2.Size = new System.Drawing.Size(125, 29);
+            this.butStatusMc2.TabIndex = 4;
+            this.butStatusMc2.Text = "Online";
+            this.butStatusMc2.UseVisualStyleBackColor = false;
             // 
             // panel22
             // 
             this.panel22.Controls.Add(this.label10);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(707, 3);
+            this.panel22.Location = new System.Drawing.Point(857, 3);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(160, 24);
+            this.panel22.Size = new System.Drawing.Size(164, 24);
             this.panel22.TabIndex = 30;
             // 
             // label10
@@ -694,7 +783,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(160, 24);
+            this.label10.Size = new System.Drawing.Size(164, 24);
             this.label10.TabIndex = 9;
             this.label10.Text = "Completed Log";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -703,10 +792,24 @@
             // 
             this.panel23.Controls.Add(this.butCompletedLogging2);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel23.Location = new System.Drawing.Point(707, 33);
+            this.panel23.Location = new System.Drawing.Point(857, 33);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(160, 29);
+            this.panel23.Size = new System.Drawing.Size(164, 29);
             this.panel23.TabIndex = 31;
+            // 
+            // butCompletedLogging2
+            // 
+            this.butCompletedLogging2.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging2.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging2.Name = "butCompletedLogging2";
+            this.butCompletedLogging2.Size = new System.Drawing.Size(164, 29);
+            this.butCompletedLogging2.TabIndex = 5;
+            this.butCompletedLogging2.Text = "FALSE";
+            this.butCompletedLogging2.UseVisualStyleBackColor = false;
             // 
             // panel24
             // 
@@ -774,7 +877,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel26.Location = new System.Drawing.Point(0, 183);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(962, 106);
+            this.panel26.Size = new System.Drawing.Size(1116, 106);
             this.panel26.TabIndex = 7;
             // 
             // panel27
@@ -783,7 +886,7 @@
             this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel27.Location = new System.Drawing.Point(92, 0);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(870, 106);
+            this.panel27.Size = new System.Drawing.Size(1024, 106);
             this.panel27.TabIndex = 18;
             // 
             // tableLayoutPanel5
@@ -792,7 +895,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.16197F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83803F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel5.Controls.Add(this.panel41, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.panel40, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.panel39, 0, 2);
@@ -812,8 +915,94 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(870, 106);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1024, 106);
             this.tableLayoutPanel5.TabIndex = 21;
+            // 
+            // panel41
+            // 
+            this.panel41.Controls.Add(this.butStatusMc4);
+            this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel41.Location = new System.Drawing.Point(570, 71);
+            this.panel41.Name = "panel41";
+            this.panel41.Size = new System.Drawing.Size(125, 32);
+            this.panel41.TabIndex = 35;
+            // 
+            // butStatusMc4
+            // 
+            this.butStatusMc4.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc4.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc4.Name = "butStatusMc4";
+            this.butStatusMc4.Size = new System.Drawing.Size(125, 32);
+            this.butStatusMc4.TabIndex = 4;
+            this.butStatusMc4.Text = "Online";
+            this.butStatusMc4.UseVisualStyleBackColor = false;
+            // 
+            // panel40
+            // 
+            this.panel40.Controls.Add(this.txtManchineName4);
+            this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel40.Location = new System.Drawing.Point(3, 71);
+            this.panel40.Name = "panel40";
+            this.panel40.Size = new System.Drawing.Size(561, 32);
+            this.panel40.TabIndex = 34;
+            // 
+            // txtManchineName4
+            // 
+            this.txtManchineName4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName4.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName4.Name = "txtManchineName4";
+            this.txtManchineName4.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName4.TabIndex = 1;
+            // 
+            // panel39
+            // 
+            this.panel39.Controls.Add(this.butCompletedLogging4);
+            this.panel39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel39.Location = new System.Drawing.Point(857, 71);
+            this.panel39.Name = "panel39";
+            this.panel39.Size = new System.Drawing.Size(164, 32);
+            this.panel39.TabIndex = 33;
+            // 
+            // butCompletedLogging4
+            // 
+            this.butCompletedLogging4.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging4.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging4.Name = "butCompletedLogging4";
+            this.butCompletedLogging4.Size = new System.Drawing.Size(164, 32);
+            this.butCompletedLogging4.TabIndex = 5;
+            this.butCompletedLogging4.Text = "FALSE";
+            this.butCompletedLogging4.UseVisualStyleBackColor = false;
+            // 
+            // panel38
+            // 
+            this.panel38.Controls.Add(this.butRequestLogging4);
+            this.panel38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel38.Location = new System.Drawing.Point(701, 71);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(150, 32);
+            this.panel38.TabIndex = 32;
+            // 
+            // butRequestLogging4
+            // 
+            this.butRequestLogging4.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging4.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging4.Name = "butRequestLogging4";
+            this.butRequestLogging4.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging4.TabIndex = 5;
+            this.butRequestLogging4.Text = "FALSE";
+            this.butRequestLogging4.UseVisualStyleBackColor = false;
             // 
             // panel28
             // 
@@ -821,7 +1010,7 @@
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel28.Location = new System.Drawing.Point(3, 3);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(439, 24);
+            this.panel28.Size = new System.Drawing.Size(561, 24);
             this.panel28.TabIndex = 23;
             // 
             // label12
@@ -832,7 +1021,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(439, 24);
+            this.label12.Size = new System.Drawing.Size(561, 24);
             this.label12.TabIndex = 6;
             this.label12.Text = "Machine";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -841,9 +1030,9 @@
             // 
             this.panel29.Controls.Add(this.label13);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(448, 3);
+            this.panel29.Location = new System.Drawing.Point(570, 3);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(97, 24);
+            this.panel29.Size = new System.Drawing.Size(125, 24);
             this.panel29.TabIndex = 25;
             // 
             // label13
@@ -854,7 +1043,7 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(0, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 24);
+            this.label13.Size = new System.Drawing.Size(125, 24);
             this.label13.TabIndex = 7;
             this.label13.Text = "Status";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -863,7 +1052,7 @@
             // 
             this.panel30.Controls.Add(this.label14);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(551, 3);
+            this.panel30.Location = new System.Drawing.Point(701, 3);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(150, 24);
             this.panel30.TabIndex = 26;
@@ -885,10 +1074,24 @@
             // 
             this.panel31.Controls.Add(this.butRequestLogging3);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(551, 33);
+            this.panel31.Location = new System.Drawing.Point(701, 33);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(150, 32);
             this.panel31.TabIndex = 27;
+            // 
+            // butRequestLogging3
+            // 
+            this.butRequestLogging3.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging3.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging3.Name = "butRequestLogging3";
+            this.butRequestLogging3.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging3.TabIndex = 5;
+            this.butRequestLogging3.Text = "FALSE";
+            this.butRequestLogging3.UseVisualStyleBackColor = false;
             // 
             // panel32
             // 
@@ -896,25 +1099,47 @@
             this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel32.Location = new System.Drawing.Point(3, 33);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(439, 32);
+            this.panel32.Size = new System.Drawing.Size(561, 32);
             this.panel32.TabIndex = 28;
+            // 
+            // txtManchineName3
+            // 
+            this.txtManchineName3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName3.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName3.Name = "txtManchineName3";
+            this.txtManchineName3.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName3.TabIndex = 1;
             // 
             // panel33
             // 
             this.panel33.Controls.Add(this.butStatusMc3);
             this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel33.Location = new System.Drawing.Point(448, 33);
+            this.panel33.Location = new System.Drawing.Point(570, 33);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(97, 32);
+            this.panel33.Size = new System.Drawing.Size(125, 32);
             this.panel33.TabIndex = 29;
+            // 
+            // butStatusMc3
+            // 
+            this.butStatusMc3.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc3.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc3.Name = "butStatusMc3";
+            this.butStatusMc3.Size = new System.Drawing.Size(125, 32);
+            this.butStatusMc3.TabIndex = 4;
+            this.butStatusMc3.Text = "Online";
+            this.butStatusMc3.UseVisualStyleBackColor = false;
             // 
             // panel34
             // 
             this.panel34.Controls.Add(this.label15);
             this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel34.Location = new System.Drawing.Point(707, 3);
+            this.panel34.Location = new System.Drawing.Point(857, 3);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(160, 24);
+            this.panel34.Size = new System.Drawing.Size(164, 24);
             this.panel34.TabIndex = 30;
             // 
             // label15
@@ -925,7 +1150,7 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(0, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(160, 24);
+            this.label15.Size = new System.Drawing.Size(164, 24);
             this.label15.TabIndex = 9;
             this.label15.Text = "Completed Log";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -934,10 +1159,24 @@
             // 
             this.panel35.Controls.Add(this.butCompletedLogging3);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel35.Location = new System.Drawing.Point(707, 33);
+            this.panel35.Location = new System.Drawing.Point(857, 33);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(160, 32);
+            this.panel35.Size = new System.Drawing.Size(164, 32);
             this.panel35.TabIndex = 31;
+            // 
+            // butCompletedLogging3
+            // 
+            this.butCompletedLogging3.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging3.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging3.Name = "butCompletedLogging3";
+            this.butCompletedLogging3.Size = new System.Drawing.Size(164, 32);
+            this.butCompletedLogging3.TabIndex = 5;
+            this.butCompletedLogging3.Text = "FALSE";
+            this.butCompletedLogging3.UseVisualStyleBackColor = false;
             // 
             // panel36
             // 
@@ -998,42 +1237,6 @@
             this.textBox2.Text = "3";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel38
-            // 
-            this.panel38.Controls.Add(this.butRequestLogging4);
-            this.panel38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel38.Location = new System.Drawing.Point(551, 71);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(150, 32);
-            this.panel38.TabIndex = 32;
-            // 
-            // panel39
-            // 
-            this.panel39.Controls.Add(this.butCompletedLogging4);
-            this.panel39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel39.Location = new System.Drawing.Point(707, 71);
-            this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(160, 32);
-            this.panel39.TabIndex = 33;
-            // 
-            // panel40
-            // 
-            this.panel40.Controls.Add(this.txtManchineName4);
-            this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel40.Location = new System.Drawing.Point(3, 71);
-            this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(439, 32);
-            this.panel40.TabIndex = 34;
-            // 
-            // panel41
-            // 
-            this.panel41.Controls.Add(this.butStatusMc4);
-            this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel41.Location = new System.Drawing.Point(448, 71);
-            this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(97, 32);
-            this.panel41.TabIndex = 35;
-            // 
             // panel42
             // 
             this.panel42.Controls.Add(this.panel43);
@@ -1041,7 +1244,7 @@
             this.panel42.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel42.Location = new System.Drawing.Point(0, 289);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(962, 65);
+            this.panel42.Size = new System.Drawing.Size(1116, 65);
             this.panel42.TabIndex = 8;
             // 
             // panel43
@@ -1050,7 +1253,7 @@
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel43.Location = new System.Drawing.Point(92, 0);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(870, 65);
+            this.panel43.Size = new System.Drawing.Size(1024, 65);
             this.panel43.TabIndex = 18;
             // 
             // tableLayoutPanel7
@@ -1059,7 +1262,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.16197F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83803F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel7.Controls.Add(this.panel44, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel45, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel46, 2, 0);
@@ -1074,7 +1277,7 @@
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(870, 65);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1024, 65);
             this.tableLayoutPanel7.TabIndex = 21;
             // 
             // panel44
@@ -1083,7 +1286,7 @@
             this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel44.Location = new System.Drawing.Point(3, 3);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(439, 24);
+            this.panel44.Size = new System.Drawing.Size(561, 24);
             this.panel44.TabIndex = 23;
             // 
             // label17
@@ -1094,7 +1297,7 @@
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(0, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(439, 24);
+            this.label17.Size = new System.Drawing.Size(561, 24);
             this.label17.TabIndex = 6;
             this.label17.Text = "Machine";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1103,9 +1306,9 @@
             // 
             this.panel45.Controls.Add(this.label18);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel45.Location = new System.Drawing.Point(448, 3);
+            this.panel45.Location = new System.Drawing.Point(570, 3);
             this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(97, 24);
+            this.panel45.Size = new System.Drawing.Size(125, 24);
             this.panel45.TabIndex = 25;
             // 
             // label18
@@ -1116,7 +1319,7 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(0, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 24);
+            this.label18.Size = new System.Drawing.Size(125, 24);
             this.label18.TabIndex = 7;
             this.label18.Text = "Status";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1125,7 +1328,7 @@
             // 
             this.panel46.Controls.Add(this.label19);
             this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel46.Location = new System.Drawing.Point(551, 3);
+            this.panel46.Location = new System.Drawing.Point(701, 3);
             this.panel46.Name = "panel46";
             this.panel46.Size = new System.Drawing.Size(150, 24);
             this.panel46.TabIndex = 26;
@@ -1147,10 +1350,24 @@
             // 
             this.panel47.Controls.Add(this.butRequestLogging5);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel47.Location = new System.Drawing.Point(551, 33);
+            this.panel47.Location = new System.Drawing.Point(701, 33);
             this.panel47.Name = "panel47";
             this.panel47.Size = new System.Drawing.Size(150, 29);
             this.panel47.TabIndex = 27;
+            // 
+            // butRequestLogging5
+            // 
+            this.butRequestLogging5.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging5.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging5.Name = "butRequestLogging5";
+            this.butRequestLogging5.Size = new System.Drawing.Size(150, 29);
+            this.butRequestLogging5.TabIndex = 5;
+            this.butRequestLogging5.Text = "FALSE";
+            this.butRequestLogging5.UseVisualStyleBackColor = false;
             // 
             // panel48
             // 
@@ -1158,25 +1375,47 @@
             this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel48.Location = new System.Drawing.Point(3, 33);
             this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(439, 29);
+            this.panel48.Size = new System.Drawing.Size(561, 29);
             this.panel48.TabIndex = 28;
+            // 
+            // txtManchineName5
+            // 
+            this.txtManchineName5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName5.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName5.Name = "txtManchineName5";
+            this.txtManchineName5.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName5.TabIndex = 1;
             // 
             // panel49
             // 
             this.panel49.Controls.Add(this.butStatusMc5);
             this.panel49.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel49.Location = new System.Drawing.Point(448, 33);
+            this.panel49.Location = new System.Drawing.Point(570, 33);
             this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(97, 29);
+            this.panel49.Size = new System.Drawing.Size(125, 29);
             this.panel49.TabIndex = 29;
+            // 
+            // butStatusMc5
+            // 
+            this.butStatusMc5.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc5.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc5.Name = "butStatusMc5";
+            this.butStatusMc5.Size = new System.Drawing.Size(125, 29);
+            this.butStatusMc5.TabIndex = 4;
+            this.butStatusMc5.Text = "Online";
+            this.butStatusMc5.UseVisualStyleBackColor = false;
             // 
             // panel50
             // 
             this.panel50.Controls.Add(this.label20);
             this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel50.Location = new System.Drawing.Point(707, 3);
+            this.panel50.Location = new System.Drawing.Point(857, 3);
             this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(160, 24);
+            this.panel50.Size = new System.Drawing.Size(164, 24);
             this.panel50.TabIndex = 30;
             // 
             // label20
@@ -1187,7 +1426,7 @@
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(0, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(160, 24);
+            this.label20.Size = new System.Drawing.Size(164, 24);
             this.label20.TabIndex = 9;
             this.label20.Text = "Completed Log";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1196,10 +1435,24 @@
             // 
             this.panel51.Controls.Add(this.butCompletedLogging5);
             this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel51.Location = new System.Drawing.Point(707, 33);
+            this.panel51.Location = new System.Drawing.Point(857, 33);
             this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(160, 29);
+            this.panel51.Size = new System.Drawing.Size(164, 29);
             this.panel51.TabIndex = 31;
+            // 
+            // butCompletedLogging5
+            // 
+            this.butCompletedLogging5.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging5.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging5.Name = "butCompletedLogging5";
+            this.butCompletedLogging5.Size = new System.Drawing.Size(164, 29);
+            this.butCompletedLogging5.TabIndex = 5;
+            this.butCompletedLogging5.Text = "FALSE";
+            this.butCompletedLogging5.UseVisualStyleBackColor = false;
             // 
             // panel52
             // 
@@ -1267,7 +1520,7 @@
             this.panel54.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel54.Location = new System.Drawing.Point(0, 354);
             this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(962, 106);
+            this.panel54.Size = new System.Drawing.Size(1116, 106);
             this.panel54.TabIndex = 9;
             // 
             // panel55
@@ -1276,7 +1529,7 @@
             this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel55.Location = new System.Drawing.Point(92, 0);
             this.panel55.Name = "panel55";
-            this.panel55.Size = new System.Drawing.Size(870, 106);
+            this.panel55.Size = new System.Drawing.Size(1024, 106);
             this.panel55.TabIndex = 18;
             // 
             // tableLayoutPanel9
@@ -1285,7 +1538,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.16197F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83803F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel9.Controls.Add(this.panel56, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.panel57, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.panel58, 0, 2);
@@ -1305,17 +1558,31 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(870, 106);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1024, 106);
             this.tableLayoutPanel9.TabIndex = 21;
             // 
             // panel56
             // 
             this.panel56.Controls.Add(this.butStatusMc7);
             this.panel56.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel56.Location = new System.Drawing.Point(448, 71);
+            this.panel56.Location = new System.Drawing.Point(570, 71);
             this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(97, 32);
+            this.panel56.Size = new System.Drawing.Size(125, 32);
             this.panel56.TabIndex = 35;
+            // 
+            // butStatusMc7
+            // 
+            this.butStatusMc7.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc7.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc7.Name = "butStatusMc7";
+            this.butStatusMc7.Size = new System.Drawing.Size(125, 32);
+            this.butStatusMc7.TabIndex = 4;
+            this.butStatusMc7.Text = "Online";
+            this.butStatusMc7.UseVisualStyleBackColor = false;
             // 
             // panel57
             // 
@@ -1323,26 +1590,62 @@
             this.panel57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel57.Location = new System.Drawing.Point(3, 71);
             this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(439, 32);
+            this.panel57.Size = new System.Drawing.Size(561, 32);
             this.panel57.TabIndex = 34;
+            // 
+            // txtManchineName7
+            // 
+            this.txtManchineName7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName7.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName7.Name = "txtManchineName7";
+            this.txtManchineName7.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName7.TabIndex = 1;
             // 
             // panel58
             // 
             this.panel58.Controls.Add(this.butCompletedLogging7);
             this.panel58.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel58.Location = new System.Drawing.Point(707, 71);
+            this.panel58.Location = new System.Drawing.Point(857, 71);
             this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(160, 32);
+            this.panel58.Size = new System.Drawing.Size(164, 32);
             this.panel58.TabIndex = 33;
+            // 
+            // butCompletedLogging7
+            // 
+            this.butCompletedLogging7.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging7.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging7.Name = "butCompletedLogging7";
+            this.butCompletedLogging7.Size = new System.Drawing.Size(164, 32);
+            this.butCompletedLogging7.TabIndex = 5;
+            this.butCompletedLogging7.Text = "FALSE";
+            this.butCompletedLogging7.UseVisualStyleBackColor = false;
             // 
             // panel59
             // 
             this.panel59.Controls.Add(this.butRequestLogging7);
             this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel59.Location = new System.Drawing.Point(551, 71);
+            this.panel59.Location = new System.Drawing.Point(701, 71);
             this.panel59.Name = "panel59";
             this.panel59.Size = new System.Drawing.Size(150, 32);
             this.panel59.TabIndex = 32;
+            // 
+            // butRequestLogging7
+            // 
+            this.butRequestLogging7.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging7.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging7.Name = "butRequestLogging7";
+            this.butRequestLogging7.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging7.TabIndex = 5;
+            this.butRequestLogging7.Text = "FALSE";
+            this.butRequestLogging7.UseVisualStyleBackColor = false;
             // 
             // panel60
             // 
@@ -1350,7 +1653,7 @@
             this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel60.Location = new System.Drawing.Point(3, 3);
             this.panel60.Name = "panel60";
-            this.panel60.Size = new System.Drawing.Size(439, 24);
+            this.panel60.Size = new System.Drawing.Size(561, 24);
             this.panel60.TabIndex = 23;
             // 
             // label22
@@ -1361,7 +1664,7 @@
             this.label22.ForeColor = System.Drawing.Color.White;
             this.label22.Location = new System.Drawing.Point(0, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(439, 24);
+            this.label22.Size = new System.Drawing.Size(561, 24);
             this.label22.TabIndex = 6;
             this.label22.Text = "Machine";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1370,9 +1673,9 @@
             // 
             this.panel61.Controls.Add(this.label23);
             this.panel61.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel61.Location = new System.Drawing.Point(448, 3);
+            this.panel61.Location = new System.Drawing.Point(570, 3);
             this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(97, 24);
+            this.panel61.Size = new System.Drawing.Size(125, 24);
             this.panel61.TabIndex = 25;
             // 
             // label23
@@ -1383,7 +1686,7 @@
             this.label23.ForeColor = System.Drawing.Color.White;
             this.label23.Location = new System.Drawing.Point(0, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(97, 24);
+            this.label23.Size = new System.Drawing.Size(125, 24);
             this.label23.TabIndex = 7;
             this.label23.Text = "Status";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1392,7 +1695,7 @@
             // 
             this.panel62.Controls.Add(this.label24);
             this.panel62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel62.Location = new System.Drawing.Point(551, 3);
+            this.panel62.Location = new System.Drawing.Point(701, 3);
             this.panel62.Name = "panel62";
             this.panel62.Size = new System.Drawing.Size(150, 24);
             this.panel62.TabIndex = 26;
@@ -1414,10 +1717,24 @@
             // 
             this.panel63.Controls.Add(this.butRequestLogging6);
             this.panel63.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel63.Location = new System.Drawing.Point(551, 33);
+            this.panel63.Location = new System.Drawing.Point(701, 33);
             this.panel63.Name = "panel63";
             this.panel63.Size = new System.Drawing.Size(150, 32);
             this.panel63.TabIndex = 27;
+            // 
+            // butRequestLogging6
+            // 
+            this.butRequestLogging6.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestLogging6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging6.Location = new System.Drawing.Point(0, 0);
+            this.butRequestLogging6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging6.Name = "butRequestLogging6";
+            this.butRequestLogging6.Size = new System.Drawing.Size(150, 32);
+            this.butRequestLogging6.TabIndex = 5;
+            this.butRequestLogging6.Text = "FALSE";
+            this.butRequestLogging6.UseVisualStyleBackColor = false;
             // 
             // panel64
             // 
@@ -1425,25 +1742,47 @@
             this.panel64.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel64.Location = new System.Drawing.Point(3, 33);
             this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(439, 32);
+            this.panel64.Size = new System.Drawing.Size(561, 32);
             this.panel64.TabIndex = 28;
+            // 
+            // txtManchineName6
+            // 
+            this.txtManchineName6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtManchineName6.Location = new System.Drawing.Point(0, 0);
+            this.txtManchineName6.Name = "txtManchineName6";
+            this.txtManchineName6.Size = new System.Drawing.Size(561, 26);
+            this.txtManchineName6.TabIndex = 1;
             // 
             // panel65
             // 
             this.panel65.Controls.Add(this.butStatusMc6);
             this.panel65.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel65.Location = new System.Drawing.Point(448, 33);
+            this.panel65.Location = new System.Drawing.Point(570, 33);
             this.panel65.Name = "panel65";
-            this.panel65.Size = new System.Drawing.Size(97, 32);
+            this.panel65.Size = new System.Drawing.Size(125, 32);
             this.panel65.TabIndex = 29;
+            // 
+            // butStatusMc6
+            // 
+            this.butStatusMc6.BackColor = System.Drawing.Color.GreenYellow;
+            this.butStatusMc6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butStatusMc6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc6.Location = new System.Drawing.Point(0, 0);
+            this.butStatusMc6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc6.Name = "butStatusMc6";
+            this.butStatusMc6.Size = new System.Drawing.Size(125, 32);
+            this.butStatusMc6.TabIndex = 4;
+            this.butStatusMc6.Text = "Online";
+            this.butStatusMc6.UseVisualStyleBackColor = false;
             // 
             // panel66
             // 
             this.panel66.Controls.Add(this.label25);
             this.panel66.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel66.Location = new System.Drawing.Point(707, 3);
+            this.panel66.Location = new System.Drawing.Point(857, 3);
             this.panel66.Name = "panel66";
-            this.panel66.Size = new System.Drawing.Size(160, 24);
+            this.panel66.Size = new System.Drawing.Size(164, 24);
             this.panel66.TabIndex = 30;
             // 
             // label25
@@ -1454,7 +1793,7 @@
             this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(0, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(160, 24);
+            this.label25.Size = new System.Drawing.Size(164, 24);
             this.label25.TabIndex = 9;
             this.label25.Text = "Completed Log";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1463,10 +1802,24 @@
             // 
             this.panel67.Controls.Add(this.butCompletedLogging6);
             this.panel67.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel67.Location = new System.Drawing.Point(707, 33);
+            this.panel67.Location = new System.Drawing.Point(857, 33);
             this.panel67.Name = "panel67";
-            this.panel67.Size = new System.Drawing.Size(160, 32);
+            this.panel67.Size = new System.Drawing.Size(164, 32);
             this.panel67.TabIndex = 31;
+            // 
+            // butCompletedLogging6
+            // 
+            this.butCompletedLogging6.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butCompletedLogging6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging6.Location = new System.Drawing.Point(0, 0);
+            this.butCompletedLogging6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging6.Name = "butCompletedLogging6";
+            this.butCompletedLogging6.Size = new System.Drawing.Size(164, 32);
+            this.butCompletedLogging6.TabIndex = 5;
+            this.butCompletedLogging6.Text = "FALSE";
+            this.butCompletedLogging6.UseVisualStyleBackColor = false;
             // 
             // panel68
             // 
@@ -1527,362 +1880,25 @@
             this.textBox4.Text = "5";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // butStatusMc1
+            // butQuality
             // 
-            this.butStatusMc1.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc1.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc1.Name = "butStatusMc1";
-            this.butStatusMc1.Size = new System.Drawing.Size(97, 29);
-            this.butStatusMc1.TabIndex = 3;
-            this.butStatusMc1.Text = "Online";
-            this.butStatusMc1.UseVisualStyleBackColor = false;
-            // 
-            // butStatusMc2
-            // 
-            this.butStatusMc2.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc2.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc2.Name = "butStatusMc2";
-            this.butStatusMc2.Size = new System.Drawing.Size(97, 29);
-            this.butStatusMc2.TabIndex = 4;
-            this.butStatusMc2.Text = "Online";
-            this.butStatusMc2.UseVisualStyleBackColor = false;
-            // 
-            // butStatusMc3
-            // 
-            this.butStatusMc3.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc3.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc3.Name = "butStatusMc3";
-            this.butStatusMc3.Size = new System.Drawing.Size(97, 32);
-            this.butStatusMc3.TabIndex = 4;
-            this.butStatusMc3.Text = "Online";
-            this.butStatusMc3.UseVisualStyleBackColor = false;
-            // 
-            // butStatusMc4
-            // 
-            this.butStatusMc4.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc4.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc4.Name = "butStatusMc4";
-            this.butStatusMc4.Size = new System.Drawing.Size(97, 32);
-            this.butStatusMc4.TabIndex = 4;
-            this.butStatusMc4.Text = "Online";
-            this.butStatusMc4.UseVisualStyleBackColor = false;
-            // 
-            // butStatusMc5
-            // 
-            this.butStatusMc5.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc5.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc5.Name = "butStatusMc5";
-            this.butStatusMc5.Size = new System.Drawing.Size(97, 29);
-            this.butStatusMc5.TabIndex = 4;
-            this.butStatusMc5.Text = "Online";
-            this.butStatusMc5.UseVisualStyleBackColor = false;
-            // 
-            // butStatusMc6
-            // 
-            this.butStatusMc6.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc6.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc6.Name = "butStatusMc6";
-            this.butStatusMc6.Size = new System.Drawing.Size(97, 32);
-            this.butStatusMc6.TabIndex = 4;
-            this.butStatusMc6.Text = "Online";
-            this.butStatusMc6.UseVisualStyleBackColor = false;
-            // 
-            // butStatusMc7
-            // 
-            this.butStatusMc7.BackColor = System.Drawing.Color.GreenYellow;
-            this.butStatusMc7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butStatusMc7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butStatusMc7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStatusMc7.Location = new System.Drawing.Point(0, 0);
-            this.butStatusMc7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butStatusMc7.Name = "butStatusMc7";
-            this.butStatusMc7.Size = new System.Drawing.Size(97, 32);
-            this.butStatusMc7.TabIndex = 4;
-            this.butStatusMc7.Text = "Online";
-            this.butStatusMc7.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging1
-            // 
-            this.butRequestLogging1.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging1.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging1.Name = "butRequestLogging1";
-            this.butRequestLogging1.Size = new System.Drawing.Size(150, 29);
-            this.butRequestLogging1.TabIndex = 4;
-            this.butRequestLogging1.Text = "FALSE";
-            this.butRequestLogging1.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging2
-            // 
-            this.butRequestLogging2.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging2.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging2.Name = "butRequestLogging2";
-            this.butRequestLogging2.Size = new System.Drawing.Size(150, 29);
-            this.butRequestLogging2.TabIndex = 5;
-            this.butRequestLogging2.Text = "FALSE";
-            this.butRequestLogging2.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging3
-            // 
-            this.butRequestLogging3.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging3.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging3.Name = "butRequestLogging3";
-            this.butRequestLogging3.Size = new System.Drawing.Size(150, 32);
-            this.butRequestLogging3.TabIndex = 5;
-            this.butRequestLogging3.Text = "FALSE";
-            this.butRequestLogging3.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging4
-            // 
-            this.butRequestLogging4.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging4.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging4.Name = "butRequestLogging4";
-            this.butRequestLogging4.Size = new System.Drawing.Size(150, 32);
-            this.butRequestLogging4.TabIndex = 5;
-            this.butRequestLogging4.Text = "FALSE";
-            this.butRequestLogging4.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging5
-            // 
-            this.butRequestLogging5.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging5.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging5.Name = "butRequestLogging5";
-            this.butRequestLogging5.Size = new System.Drawing.Size(150, 29);
-            this.butRequestLogging5.TabIndex = 5;
-            this.butRequestLogging5.Text = "FALSE";
-            this.butRequestLogging5.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging6
-            // 
-            this.butRequestLogging6.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging6.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging6.Name = "butRequestLogging6";
-            this.butRequestLogging6.Size = new System.Drawing.Size(150, 32);
-            this.butRequestLogging6.TabIndex = 5;
-            this.butRequestLogging6.Text = "FALSE";
-            this.butRequestLogging6.UseVisualStyleBackColor = false;
-            // 
-            // butRequestLogging7
-            // 
-            this.butRequestLogging7.BackColor = System.Drawing.Color.Gray;
-            this.butRequestLogging7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butRequestLogging7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butRequestLogging7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butRequestLogging7.Location = new System.Drawing.Point(0, 0);
-            this.butRequestLogging7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butRequestLogging7.Name = "butRequestLogging7";
-            this.butRequestLogging7.Size = new System.Drawing.Size(150, 32);
-            this.butRequestLogging7.TabIndex = 5;
-            this.butRequestLogging7.Text = "FALSE";
-            this.butRequestLogging7.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging1
-            // 
-            this.butCompletedLogging1.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging1.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging1.Name = "butCompletedLogging1";
-            this.butCompletedLogging1.Size = new System.Drawing.Size(160, 29);
-            this.butCompletedLogging1.TabIndex = 5;
-            this.butCompletedLogging1.Text = "FALSE";
-            this.butCompletedLogging1.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging2
-            // 
-            this.butCompletedLogging2.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging2.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging2.Name = "butCompletedLogging2";
-            this.butCompletedLogging2.Size = new System.Drawing.Size(160, 29);
-            this.butCompletedLogging2.TabIndex = 5;
-            this.butCompletedLogging2.Text = "FALSE";
-            this.butCompletedLogging2.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging3
-            // 
-            this.butCompletedLogging3.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging3.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging3.Name = "butCompletedLogging3";
-            this.butCompletedLogging3.Size = new System.Drawing.Size(160, 32);
-            this.butCompletedLogging3.TabIndex = 5;
-            this.butCompletedLogging3.Text = "FALSE";
-            this.butCompletedLogging3.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging4
-            // 
-            this.butCompletedLogging4.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging4.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging4.Name = "butCompletedLogging4";
-            this.butCompletedLogging4.Size = new System.Drawing.Size(160, 32);
-            this.butCompletedLogging4.TabIndex = 5;
-            this.butCompletedLogging4.Text = "FALSE";
-            this.butCompletedLogging4.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging5
-            // 
-            this.butCompletedLogging5.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging5.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging5.Name = "butCompletedLogging5";
-            this.butCompletedLogging5.Size = new System.Drawing.Size(160, 29);
-            this.butCompletedLogging5.TabIndex = 5;
-            this.butCompletedLogging5.Text = "FALSE";
-            this.butCompletedLogging5.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging6
-            // 
-            this.butCompletedLogging6.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging6.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging6.Name = "butCompletedLogging6";
-            this.butCompletedLogging6.Size = new System.Drawing.Size(160, 32);
-            this.butCompletedLogging6.TabIndex = 5;
-            this.butCompletedLogging6.Text = "FALSE";
-            this.butCompletedLogging6.UseVisualStyleBackColor = false;
-            // 
-            // butCompletedLogging7
-            // 
-            this.butCompletedLogging7.BackColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butCompletedLogging7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butCompletedLogging7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butCompletedLogging7.Location = new System.Drawing.Point(0, 0);
-            this.butCompletedLogging7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butCompletedLogging7.Name = "butCompletedLogging7";
-            this.butCompletedLogging7.Size = new System.Drawing.Size(160, 32);
-            this.butCompletedLogging7.TabIndex = 5;
-            this.butCompletedLogging7.Text = "FALSE";
-            this.butCompletedLogging7.UseVisualStyleBackColor = false;
-            // 
-            // txtManchineName1
-            // 
-            this.txtManchineName1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName1.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName1.Name = "txtManchineName1";
-            this.txtManchineName1.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName1.TabIndex = 0;
-            // 
-            // txtManchineName2
-            // 
-            this.txtManchineName2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName2.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName2.Name = "txtManchineName2";
-            this.txtManchineName2.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName2.TabIndex = 1;
-            // 
-            // txtManchineName3
-            // 
-            this.txtManchineName3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName3.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName3.Name = "txtManchineName3";
-            this.txtManchineName3.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName3.TabIndex = 1;
-            // 
-            // txtManchineName4
-            // 
-            this.txtManchineName4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName4.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName4.Name = "txtManchineName4";
-            this.txtManchineName4.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName4.TabIndex = 1;
-            // 
-            // txtManchineName5
-            // 
-            this.txtManchineName5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName5.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName5.Name = "txtManchineName5";
-            this.txtManchineName5.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName5.TabIndex = 1;
-            // 
-            // txtManchineName6
-            // 
-            this.txtManchineName6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName6.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName6.Name = "txtManchineName6";
-            this.txtManchineName6.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName6.TabIndex = 1;
-            // 
-            // txtManchineName7
-            // 
-            this.txtManchineName7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManchineName7.Location = new System.Drawing.Point(0, 0);
-            this.txtManchineName7.Name = "txtManchineName7";
-            this.txtManchineName7.Size = new System.Drawing.Size(439, 26);
-            this.txtManchineName7.TabIndex = 1;
+            this.butQuality.BackColor = System.Drawing.Color.GreenYellow;
+            this.butQuality.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butQuality.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butQuality.Location = new System.Drawing.Point(949, 7);
+            this.butQuality.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butQuality.Name = "butQuality";
+            this.butQuality.Size = new System.Drawing.Size(164, 35);
+            this.butQuality.TabIndex = 3;
+            this.butQuality.Text = "Good";
+            this.butQuality.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(962, 463);
+            this.ClientSize = new System.Drawing.Size(1116, 463);
             this.Controls.Add(this.panel54);
             this.Controls.Add(this.panel42);
             this.Controls.Add(this.panel26);
@@ -1890,6 +1906,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1898,10 +1915,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.panel9.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1913,6 +1926,10 @@
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.panel9.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1932,6 +1949,11 @@
             this.panel26.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.panel41.ResumeLayout(false);
+            this.panel40.ResumeLayout(false);
+            this.panel40.PerformLayout();
+            this.panel39.ResumeLayout(false);
+            this.panel38.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.panel30.ResumeLayout(false);
@@ -1945,11 +1967,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.panel37.ResumeLayout(false);
-            this.panel38.ResumeLayout(false);
-            this.panel39.ResumeLayout(false);
-            this.panel40.ResumeLayout(false);
-            this.panel40.PerformLayout();
-            this.panel41.ResumeLayout(false);
             this.panel42.ResumeLayout(false);
             this.panel43.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -2134,6 +2151,7 @@
         private System.Windows.Forms.TextBox txtManchineName5;
         private System.Windows.Forms.TextBox txtManchineName7;
         private System.Windows.Forms.TextBox txtManchineName6;
+        private System.Windows.Forms.Button butQuality;
     }
 }
 

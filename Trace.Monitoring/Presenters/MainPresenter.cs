@@ -655,9 +655,16 @@ namespace Trace.Monitoring.Presenters
 
         private void InterLock(object sender, EventArgs e)
         {
-            var result = WriteWord(_view.tagClockReady, 1);
+            bool result = false; 
 
-            if (!result)
+            Task t = Task.Run(() => {
+                result = WriteWord(_view.tagClockReady, 1);
+            });
+            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+            //if (!t.Wait(ts))
+            //    Console.WriteLine("The timeout interval elapsed.");
+
+            if (!t.Wait(ts))
             {
                 _view.connectedPlc = false;
                 _view.systemReady = false;
