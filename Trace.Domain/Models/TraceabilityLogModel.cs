@@ -31,10 +31,11 @@ namespace Trace.Domain.Models
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
         public int MaxRepairTime { get; set; }
+        public string Result { get; set; }
         public bool FinalResult { get; set; }
         public string ImagePath { get; set; }
         public string QRCodePath { get; set; }
-        public int RepairTime { get; set; }
+        public int RepairTime { get; set; }       
 
         public StationModel Station { get; set; }
         public MachineModel Machine { get; set; }

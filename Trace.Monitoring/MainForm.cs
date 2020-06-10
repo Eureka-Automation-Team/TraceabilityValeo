@@ -295,8 +295,15 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST1ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging1.Invoke(new EventHandler(delegate { butRequestLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging1, Convert.ToBoolean(receivedData));
+                    butRequestLogging1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging1.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging1, val);
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName1.Tag, null);
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST1LoggingApp")
                 {
@@ -315,8 +322,15 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST2ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging2.Invoke(new EventHandler(delegate { butRequestLogging2.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging2, Convert.ToBoolean(receivedData));
+                    butRequestLogging2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging2.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging2, val);
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName2.Tag, null);
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST2LoggingApp")
                 {
@@ -337,10 +351,12 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butRequestLogging3.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            butRequestLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging3, Convert.ToBoolean(receivedData));
-                            KeepLogging((MachineModel)txtManchineName3.Tag, null);
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging3.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging3, val);
+                            if(val)
+                                KeepLogging((MachineModel)txtManchineName3.Tag, null);
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_1LoggingApp")
@@ -360,8 +376,15 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_2ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging4.Invoke(new EventHandler(delegate { butRequestLogging4.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging4, Convert.ToBoolean(receivedData));
+                    butRequestLogging4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging4.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging4, val);
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName4.Tag, null);
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST3_2LoggingApp")
                 {
@@ -380,8 +403,15 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST4ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging5.Invoke(new EventHandler(delegate { butRequestLogging5.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging5, Convert.ToBoolean(receivedData));
+                    butRequestLogging5.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging5.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging5, val);
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName5.Tag, null);
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST4LoggingApp")
                 {
@@ -400,8 +430,15 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_1ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging6.Invoke(new EventHandler(delegate { butRequestLogging6.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging6, Convert.ToBoolean(receivedData));
+                    butRequestLogging6.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging6.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging6, val);
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName6.Tag, null);
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_1LoggingApp")
                 {
@@ -420,8 +457,15 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_2ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butRequestLogging7.Invoke(new EventHandler(delegate { butRequestLogging7.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butRequestLogging7, Convert.ToBoolean(receivedData));
+                    butRequestLogging7.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            butRequestLogging7.Text = val.ToString().ToUpper();
+                            SetButtonStatusColor(butRequestLogging7, val);
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName7.Tag, null);
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "." + "ST5_2LoggingApp")
                 {
