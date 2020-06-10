@@ -172,7 +172,6 @@
             this.panel69 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.butQuality = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -283,7 +282,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.butQuality);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.butConnect);
             this.panel1.Controls.Add(this.txtServerUrl);
@@ -1880,19 +1878,6 @@
             this.textBox4.Text = "5";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // butQuality
-            // 
-            this.butQuality.BackColor = System.Drawing.Color.GreenYellow;
-            this.butQuality.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.butQuality.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butQuality.Location = new System.Drawing.Point(949, 7);
-            this.butQuality.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.butQuality.Name = "butQuality";
-            this.butQuality.Size = new System.Drawing.Size(164, 35);
-            this.butQuality.TabIndex = 3;
-            this.butQuality.Text = "Good";
-            this.butQuality.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2151,7 +2136,6 @@
         private System.Windows.Forms.TextBox txtManchineName5;
         private System.Windows.Forms.TextBox txtManchineName7;
         private System.Windows.Forms.TextBox txtManchineName6;
-        private System.Windows.Forms.Button butQuality;
     }
 }
 
