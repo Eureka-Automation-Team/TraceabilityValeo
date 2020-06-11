@@ -30,10 +30,10 @@ namespace Trace.Domain.Models
             get { return Result.ToString("#0.0") + "Nm"; }
         }
 
-        public bool TestResult { get; set; }
+        public string TestResult { get; set; }
         public string TestResultDescription
         {
-            get { return (TestResult) ? "OK" : "NOK"; }
+            get { return TestResult; }
         }
 
         public int TraceLogId { get; set; }

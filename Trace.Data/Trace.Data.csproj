@@ -118,6 +118,10 @@
     <Compile Include="Migrations\202006100958073_Initail Project2.Designer.cs">
       <DependentUpon>202006100958073_Initail Project2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006111158072_Alter column.cs" />
+    <Compile Include="Migrations\202006111158072_Alter column.Designer.cs">
+      <DependentUpon>202006111158072_Alter column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006100958073_Initail Project2.resx">
       <DependentUpon>202006100958073_Initail Project2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006111158072_Alter column.resx">
+      <DependentUpon>202006111158072_Alter column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
