@@ -75,6 +75,11 @@ namespace Trace.Data.Service
             }
         }
 
+        public Task<IEnumerable<PlcTagModel>> GetListByMachineID(int id, int takeRows)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<PlcTagModel> Update(PlcTagModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
