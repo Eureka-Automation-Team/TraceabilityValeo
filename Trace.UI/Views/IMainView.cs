@@ -9,6 +9,7 @@ namespace Trace.UI.Views
     public interface IMainView
     {
         event EventHandler FormLoad;
+        event EventHandler OpenForm;
 
         void LoadSubForm(object form);
     }

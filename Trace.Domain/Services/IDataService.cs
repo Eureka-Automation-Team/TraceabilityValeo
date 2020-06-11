@@ -12,6 +12,8 @@ namespace Trace.Domain.Services
 
         Task<IEnumerable<T>> GetList(string whereClause, int takeRows);
 
+        Task<IEnumerable<T>> GetListByMachineID(int id, int takeRows);
+
         Task<IEnumerable<T>> GetByDateRange(DateTime startDate, DateTime endDate);
         
         Task<T> GetByID(int id);

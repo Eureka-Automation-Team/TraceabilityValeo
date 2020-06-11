@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,24 +34,65 @@ namespace Trace.Data.Service
             return await _nonQueryDataService.Delete(id);
         }
 
-        public Task<IEnumerable<TraceabilityLogModel>> GetAll()
+        public async Task<IEnumerable<TraceabilityLogModel>> GetAll()
         {
-            throw new NotImplementedException();
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs.ToListAsync();
+                return entities;
+            }
         }
 
-        public Task<IEnumerable<TraceabilityLogModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public async Task<IEnumerable<TraceabilityLogModel>> GetByDateRange(DateTime startDate, DateTime endDate)
         {
-            throw new NotImplementedException();
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
+                                                    .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                                                    .ToListAsync();
+                return entities;
+            }
         }
 
-        public Task<TraceabilityLogModel> GetByID(int id)
+        public async Task<TraceabilityLogModel> GetByID(int id)
         {
-            throw new NotImplementedException();
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                TraceabilityLogModel entity = await context.TraceabilityLogs
+                                                           .Include(i => i.Machine)
+                                                           .Include(i => i.Station)
+                                                           .Include(i => i.PartAssemblies)
+                                                           .Include(i => i.TighteningResults)
+                                                           .Include(i => i.CameraResults)
+                                                           .FirstOrDefaultAsync((e) => e.Id == id);
+                return entity;
+            }
         }
 
-        public Task<IEnumerable<TraceabilityLogModel>> GetList(string whereClause, int takeRows)
+        public async Task<IEnumerable<TraceabilityLogModel>> GetList(string whereClause, int takeRows)
         {
-            throw new NotImplementedException();
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
+                                                    //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                                                    .OrderByDescending(o => o.CreationDate)
+                                                    .Take(takeRows)                                                    
+                                                    .ToListAsync();
+                return entities;
+            }
+        }
+
+        public async Task<IEnumerable<TraceabilityLogModel>> GetListByMachineID(int id, int takeRows)
+        {
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
+                                                    .Where(x => x.MachineId == id)
+                                                    .OrderByDescending(o => o.CreationDate)
+                                                    .Take(takeRows)
+                                                    .ToListAsync();
+                return entities;
+            }
         }
 
         public async Task<TraceabilityLogModel> Update(TraceabilityLogModel entity)

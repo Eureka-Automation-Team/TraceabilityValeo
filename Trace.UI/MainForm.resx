@@ -125,7 +125,7 @@
         AQCA03rf9d+PhQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="butStations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="butSearchHistories.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAASlJREFUWEft
         1D1KA0EYxvElpTdIn16wSxEEESzsBLtUHiAXsA4EiyB2gl5AYxcIIVfwAkmb3iKSOvk/CSuDeZ3ZD3cL
@@ -136,7 +136,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="butHome.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAX5JREFUWEft
         1s0rBVEYx/EpFmLhrSglCklZkZLyJyCFFWtFFtZYyULZWthiJ3+AjSwsLbyUHSXKyktskLfvb+6MxJl7

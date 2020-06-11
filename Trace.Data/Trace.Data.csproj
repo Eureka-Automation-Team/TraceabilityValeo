@@ -114,10 +114,17 @@
     <Compile Include="Migrations\202006091030439_Add column RepairTime.Designer.cs">
       <DependentUpon>202006091030439_Add column RepairTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006100958073_Initail Project2.cs" />
+    <Compile Include="Migrations\202006100958073_Initail Project2.Designer.cs">
+      <DependentUpon>202006100958073_Initail Project2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
     <Compile Include="Service\MachineService.cs" />
+    <Compile Include="Service\PartAssemblyService.cs" />
     <Compile Include="Service\PLCTagService.cs" />
+    <Compile Include="Service\TighteningResultService.cs" />
     <Compile Include="Service\TraceabilityLogService.cs" />
     <Compile Include="TraceDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006091030439_Add column RepairTime.resx">
       <DependentUpon>202006091030439_Add column RepairTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006100958073_Initail Project2.resx">
+      <DependentUpon>202006100958073_Initail Project2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

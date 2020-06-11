@@ -33,8 +33,8 @@
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.butHideSideBar = new System.Windows.Forms.Button();
-            this.butStations = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.butSearchHistories = new System.Windows.Forms.Button();
+            this.butHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -58,7 +58,7 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.panelContainer.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(230, 0);
@@ -71,8 +71,8 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.Controls.Add(this.butHideSideBar);
-            this.panelMenu.Controls.Add(this.butStations);
-            this.panelMenu.Controls.Add(this.button6);
+            this.panelMenu.Controls.Add(this.butSearchHistories);
+            this.panelMenu.Controls.Add(this.butHome);
             this.panelMenu.Controls.Add(this.panel2);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -84,7 +84,7 @@
             // 
             // butHideSideBar
             // 
-            this.butHideSideBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butHideSideBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butHideSideBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butHideSideBar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.butHideSideBar.FlatAppearance.BorderSize = 0;
@@ -105,39 +105,41 @@
             this.butHideSideBar.UseVisualStyleBackColor = true;
             this.butHideSideBar.Click += new System.EventHandler(this.butHideSideBar_Click);
             // 
-            // butStations
+            // butSearchHistories
             // 
-            this.butStations.Dock = System.Windows.Forms.DockStyle.Top;
-            this.butStations.FlatAppearance.BorderSize = 0;
-            this.butStations.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(187)))), ((int)(((byte)(19)))));
-            this.butStations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butStations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.butStations.Image = ((System.Drawing.Image)(resources.GetObject("butStations.Image")));
-            this.butStations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butStations.Location = new System.Drawing.Point(0, 129);
-            this.butStations.Name = "butStations";
-            this.butStations.Size = new System.Drawing.Size(230, 45);
-            this.butStations.TabIndex = 5;
-            this.butStations.Text = "         Search Histories";
-            this.butStations.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butStations.UseVisualStyleBackColor = true;
+            this.butSearchHistories.Dock = System.Windows.Forms.DockStyle.Top;
+            this.butSearchHistories.FlatAppearance.BorderSize = 0;
+            this.butSearchHistories.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(187)))), ((int)(((byte)(19)))));
+            this.butSearchHistories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butSearchHistories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.butSearchHistories.Image = ((System.Drawing.Image)(resources.GetObject("butSearchHistories.Image")));
+            this.butSearchHistories.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butSearchHistories.Location = new System.Drawing.Point(0, 129);
+            this.butSearchHistories.Name = "butSearchHistories";
+            this.butSearchHistories.Size = new System.Drawing.Size(230, 45);
+            this.butSearchHistories.TabIndex = 5;
+            this.butSearchHistories.Text = "         Search Histories";
+            this.butSearchHistories.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butSearchHistories.UseVisualStyleBackColor = true;
+            this.butSearchHistories.Click += new System.EventHandler(this.butSearchHistories_Click);
             // 
-            // button6
+            // butHome
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(187)))), ((int)(((byte)(19)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 84);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(230, 45);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "         Home";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
+            this.butHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.butHome.FlatAppearance.BorderSize = 0;
+            this.butHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(187)))), ((int)(((byte)(19)))));
+            this.butHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.butHome.Image = ((System.Drawing.Image)(resources.GetObject("butHome.Image")));
+            this.butHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butHome.Location = new System.Drawing.Point(0, 84);
+            this.butHome.Name = "butHome";
+            this.butHome.Size = new System.Drawing.Size(230, 45);
+            this.butHome.TabIndex = 3;
+            this.butHome.Text = "         Home";
+            this.butHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butHome.UseVisualStyleBackColor = true;
+            this.butHome.Click += new System.EventHandler(this.butHome_Click);
             // 
             // panel2
             // 
@@ -174,7 +176,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(14, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 81);
+            this.pictureBox2.Size = new System.Drawing.Size(200, 78);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -192,6 +194,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Traceability";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
@@ -210,8 +213,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button butStations;
+        private System.Windows.Forms.Button butHome;
+        private System.Windows.Forms.Button butSearchHistories;
         private System.Windows.Forms.Button butHideSideBar;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
