@@ -31,12 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtLowerItemCode = new System.Windows.Forms.TextBox();
+            this.txtLowerDescription = new System.Windows.Forms.TextBox();
+            this.txtUpperItemCode = new System.Windows.Forms.TextBox();
+            this.txtUpperDescription = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblUpperFinalResult = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblLowerFinalResult = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -44,32 +52,24 @@
             this.txtStationNumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtLowerManchineName = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUpperManchineName = new System.Windows.Forms.TextBox();
-            this.txtLowerManchineName = new System.Windows.Forms.TextBox();
-            this.txtUpperDescription = new System.Windows.Forms.TextBox();
-            this.txtUpperItemCode = new System.Windows.Forms.TextBox();
-            this.txtLowerDescription = new System.Windows.Forms.TextBox();
-            this.txtLowerItemCode = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lblUpperFinalResult = new System.Windows.Forms.Label();
-            this.lblLowerFinalResult = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -88,7 +88,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel2.Controls.Add(this.txtLowerItemCode, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtLowerDescription, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtUpperItemCode, 1, 1);
@@ -107,6 +107,46 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(651, 90);
             this.tableLayoutPanel2.TabIndex = 32;
+            // 
+            // txtLowerItemCode
+            // 
+            this.txtLowerItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLowerItemCode.Location = new System.Drawing.Point(292, 61);
+            this.txtLowerItemCode.Name = "txtLowerItemCode";
+            this.txtLowerItemCode.ReadOnly = true;
+            this.txtLowerItemCode.Size = new System.Drawing.Size(283, 23);
+            this.txtLowerItemCode.TabIndex = 31;
+            // 
+            // txtLowerDescription
+            // 
+            this.txtLowerDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLowerDescription.Location = new System.Drawing.Point(3, 61);
+            this.txtLowerDescription.Name = "txtLowerDescription";
+            this.txtLowerDescription.ReadOnly = true;
+            this.txtLowerDescription.Size = new System.Drawing.Size(283, 23);
+            this.txtLowerDescription.TabIndex = 30;
+            // 
+            // txtUpperItemCode
+            // 
+            this.txtUpperItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUpperItemCode.Location = new System.Drawing.Point(292, 33);
+            this.txtUpperItemCode.Name = "txtUpperItemCode";
+            this.txtUpperItemCode.ReadOnly = true;
+            this.txtUpperItemCode.Size = new System.Drawing.Size(283, 23);
+            this.txtUpperItemCode.TabIndex = 28;
+            // 
+            // txtUpperDescription
+            // 
+            this.txtUpperDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUpperDescription.Location = new System.Drawing.Point(3, 33);
+            this.txtUpperDescription.Name = "txtUpperDescription";
+            this.txtUpperDescription.ReadOnly = true;
+            this.txtUpperDescription.Size = new System.Drawing.Size(283, 23);
+            this.txtUpperDescription.TabIndex = 27;
             // 
             // panel6
             // 
@@ -173,6 +213,52 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Code";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.lblUpperFinalResult);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(581, 33);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(67, 22);
+            this.panel7.TabIndex = 32;
+            // 
+            // lblUpperFinalResult
+            // 
+            this.lblUpperFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.lblUpperFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblUpperFinalResult.ForeColor = System.Drawing.Color.Black;
+            this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblUpperFinalResult.Name = "lblUpperFinalResult";
+            this.lblUpperFinalResult.Size = new System.Drawing.Size(67, 22);
+            this.lblUpperFinalResult.TabIndex = 25;
+            this.lblUpperFinalResult.Text = "OK";
+            this.lblUpperFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.lblLowerFinalResult);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(581, 61);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(67, 26);
+            this.panel10.TabIndex = 33;
+            // 
+            // lblLowerFinalResult
+            // 
+            this.lblLowerFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.lblLowerFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblLowerFinalResult.ForeColor = System.Drawing.Color.Black;
+            this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblLowerFinalResult.Name = "lblLowerFinalResult";
+            this.lblLowerFinalResult.Size = new System.Drawing.Size(67, 26);
+            this.lblLowerFinalResult.TabIndex = 25;
+            this.lblLowerFinalResult.Text = "OK";
+            this.lblLowerFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -261,6 +347,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 86);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
+            // txtLowerManchineName
+            // 
+            this.txtLowerManchineName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLowerManchineName.Location = new System.Drawing.Point(3, 61);
+            this.txtLowerManchineName.Name = "txtLowerManchineName";
+            this.txtLowerManchineName.ReadOnly = true;
+            this.txtLowerManchineName.Size = new System.Drawing.Size(353, 23);
+            this.txtLowerManchineName.TabIndex = 25;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.label1);
@@ -293,102 +389,6 @@
             this.txtUpperManchineName.Size = new System.Drawing.Size(353, 23);
             this.txtUpperManchineName.TabIndex = 24;
             // 
-            // txtLowerManchineName
-            // 
-            this.txtLowerManchineName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLowerManchineName.Location = new System.Drawing.Point(3, 61);
-            this.txtLowerManchineName.Name = "txtLowerManchineName";
-            this.txtLowerManchineName.ReadOnly = true;
-            this.txtLowerManchineName.Size = new System.Drawing.Size(353, 23);
-            this.txtLowerManchineName.TabIndex = 25;
-            // 
-            // txtUpperDescription
-            // 
-            this.txtUpperDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUpperDescription.Location = new System.Drawing.Point(3, 33);
-            this.txtUpperDescription.Name = "txtUpperDescription";
-            this.txtUpperDescription.ReadOnly = true;
-            this.txtUpperDescription.Size = new System.Drawing.Size(283, 23);
-            this.txtUpperDescription.TabIndex = 27;
-            // 
-            // txtUpperItemCode
-            // 
-            this.txtUpperItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUpperItemCode.Location = new System.Drawing.Point(292, 33);
-            this.txtUpperItemCode.Name = "txtUpperItemCode";
-            this.txtUpperItemCode.ReadOnly = true;
-            this.txtUpperItemCode.Size = new System.Drawing.Size(283, 23);
-            this.txtUpperItemCode.TabIndex = 28;
-            // 
-            // txtLowerDescription
-            // 
-            this.txtLowerDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLowerDescription.Location = new System.Drawing.Point(3, 61);
-            this.txtLowerDescription.Name = "txtLowerDescription";
-            this.txtLowerDescription.ReadOnly = true;
-            this.txtLowerDescription.Size = new System.Drawing.Size(283, 23);
-            this.txtLowerDescription.TabIndex = 30;
-            // 
-            // txtLowerItemCode
-            // 
-            this.txtLowerItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLowerItemCode.Location = new System.Drawing.Point(292, 61);
-            this.txtLowerItemCode.Name = "txtLowerItemCode";
-            this.txtLowerItemCode.ReadOnly = true;
-            this.txtLowerItemCode.Size = new System.Drawing.Size(283, 23);
-            this.txtLowerItemCode.TabIndex = 31;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.lblUpperFinalResult);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(581, 33);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(67, 22);
-            this.panel7.TabIndex = 32;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.lblLowerFinalResult);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(581, 61);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(67, 26);
-            this.panel10.TabIndex = 33;
-            // 
-            // lblUpperFinalResult
-            // 
-            this.lblUpperFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
-            this.lblUpperFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblUpperFinalResult.ForeColor = System.Drawing.Color.Black;
-            this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblUpperFinalResult.Name = "lblUpperFinalResult";
-            this.lblUpperFinalResult.Size = new System.Drawing.Size(67, 22);
-            this.lblUpperFinalResult.TabIndex = 25;
-            this.lblUpperFinalResult.Text = "OK";
-            this.lblUpperFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblLowerFinalResult
-            // 
-            this.lblLowerFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
-            this.lblLowerFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblLowerFinalResult.ForeColor = System.Drawing.Color.Black;
-            this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblLowerFinalResult.Name = "lblLowerFinalResult";
-            this.lblLowerFinalResult.Size = new System.Drawing.Size(67, 26);
-            this.lblLowerFinalResult.TabIndex = 25;
-            this.lblLowerFinalResult.Text = "OK";
-            this.lblLowerFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -413,6 +413,8 @@
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -421,8 +423,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

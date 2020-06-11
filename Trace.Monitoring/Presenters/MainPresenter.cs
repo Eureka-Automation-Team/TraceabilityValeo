@@ -43,7 +43,7 @@ namespace Trace.Monitoring.Presenters
                 var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
                 var tags = (from tag in machineTags
                             where tag.MachineId == machine.Id
-                            select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                 var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
@@ -51,47 +51,47 @@ namespace Trace.Monitoring.Presenters
                 if (machine.Id == 1)
                 {
                     KeepLogForMachine1(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "." + "ST1LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock +  "ST1LoggingApp", 1);
                 }
 
                 //Station2
                 if (machine.Id == 2)
                 {
                     KeepLogForMachine2(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "." + "ST2LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock + "ST2LoggingApp", 1);
                 }
 
                 //Station3
                 if (machine.Id == 3)
                 {
                     KeepLogForMachine3(r, machine);
-                    WriteWord(_view.tagMainBlock + "." + "ST3_1LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock + "ST3_1LoggingApp", 1);
                 }
 
                 if (machine.Id == 4)
                 {
                     KeepLogForMachine4(r, machine);
-                    WriteWord(_view.tagMainBlock + "." + "ST3_2LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock + "ST3_2LoggingApp", 1);
                 }
 
                 //Station4
                 if (machine.Id == 5)
                 {
                     KeepLogForMachine5(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "." + "ST4LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock + "ST4LoggingApp", 1);
                 }
 
                 //Station5
                 if (machine.Id == 6)
                 {
                     KeepLogForMachine6(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "." + "ST5_1LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock + "ST5_1LoggingApp", 1);
                 }
 
                 if (machine.Id == 7)
                 {
                     KeepLogForMachine7(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "." + "ST5_2LoggingApp", 1);
+                    WriteWord(_view.tagMainBlock + "ST5_2LoggingApp", 1);
                 }
             }               
         }
@@ -102,29 +102,29 @@ namespace Trace.Monitoring.Presenters
 
             var tagsPart = (from tag in machineTags
                             where tag.TypeCode == "DATA_PART_ASSEMBLY"
-                            select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
             var tagsTightening = (from tag in machineTags
                                   where tag.TypeCode == "DATA_TIGHTENING_RESULT"
-                                  select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                                  select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
             var tagsCamera = (from tag in machineTags
                                   where tag.TypeCode == "DATA_CAMERA_RESULT"
-                              select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                              select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1Code")
+                if (item.ItemName == _view.tagMainBlock + "ST1Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1Final Judgment")
+                if (item.ItemName == _view.tagMainBlock + "ST1Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1ModelRunning")
+                if (item.ItemName == _view.tagMainBlock + "ST1ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1RepairTime")
+                if (item.ItemName == _view.tagMainBlock + "ST1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
@@ -132,42 +132,42 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
                 {
                     part.PartName = "UPR Actuator P/N";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[1]")
                 {
                     part.PartName = "UPR Actuator S/N";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[2]")
                 {
                     part.PartName = "UPR Frame";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[3]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[3]")
                 {
                     part.PartName = "UPR vane set LH";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[4]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[4]")
                 {
                     part.PartName = "UPR vane set RH";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[5]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[5]")
                 {
                     part.PartName = "Pull rod,";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[6]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[6]")
                 {
                     part.PartName = "Lever, 4";
                     part.SerialNumber = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1PartSerialNo[7]")
+                if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[7]")
                 {
                     part.PartName = "Space";
                     part.SerialNumber = item.Value.ToString();
@@ -181,84 +181,84 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 TighteningResultModel t = new TighteningResultModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[0]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[0]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[0]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[0]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[0]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[0]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[0]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[0]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[0]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[1]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[1]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[1]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[1]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[1]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[1]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[1]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[1]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[1]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[2]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[2]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[2]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[2]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[2]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[2]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[2]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[2]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[2]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[3]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[3]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[3]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[3]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[3]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[3]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[3]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[3]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[3]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[3]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[4]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[4]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[4]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[4]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[4]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[4]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[4]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[4]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[4]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[4]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[5]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[5]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[5]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[5]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[5]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[5]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[5]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[5]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[5]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[5]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[6]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[6]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[6]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[6]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[6]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[6]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[6]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[6]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[6]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[6]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[7]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[7]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter2[7]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter1[7]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1Parameter3[7]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST1TestJudgment[7]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[7]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[7]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[7]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value);
                 }
 
                 trace.TighteningResults.Add(t);
@@ -268,13 +268,13 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 CameraResultModel cam = new CameraResultModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[8]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[8]")
                 {
                     cam.CameraName = "Lever Assy L";
                     cam.TestResult = Convert.ToBoolean(item.Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST1TestResult[9]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[9]")
                 {
                     cam.CameraName = "Lever Assy R";
                     cam.TestResult = Convert.ToBoolean(item.Value);
@@ -292,23 +292,23 @@ namespace Trace.Monitoring.Presenters
 
             var tagsPart = (from tag in machineTags
                             where tag.TypeCode == "DATA_PART_ASSEMBLY"
-                            select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
             var tagsTightening = (from tag in machineTags
                                   where tag.TypeCode == "DATA_TIGHTENING_RESULT"
-                                  select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                                  select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2Code")
+                if (item.ItemName == _view.tagMainBlock + "ST2Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2Final Judgment")
+                if (item.ItemName == _view.tagMainBlock + "ST2Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2RepairTime")
+                if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
@@ -316,19 +316,19 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2PartSerialNo[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[0]")
                 {
                     part.PartName = "Z support LH";
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2PartSerialNo[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[1]")
                 {
                     part.PartName = "Z support RH";
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2PartSerialNo[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[2]")
                 {
                     part.PartName = "Blind vane";
                     part.SerialNumber = item.Value.ToString();
@@ -342,44 +342,44 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 TighteningResultModel t = new TighteningResultModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST2TestResult[0]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter2[0]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter1[0]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter3[0]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2TestJudgment[0]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[0]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[0]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[0]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[0]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2TestResult[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST2TestResult[1]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter2[1]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter1[1]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter3[1]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2TestJudgment[1]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[1]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[1]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[1]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[1]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2TestResult[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST2TestResult[2]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter2[2]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter1[2]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter3[2]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2TestJudgment[2]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[2]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[2]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[2]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[2]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST2TestResult[3]")
+                if (item.ItemName == _view.tagMainBlock + "ST2TestResult[3]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter2[3]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter1[3]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2Parameter3[3]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST2TestJudgment[3]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[3]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[3]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[3]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[3]").FirstOrDefault().Value);
                 }
 
                 trace.TighteningResults.Add(t);
@@ -398,34 +398,34 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2 Code")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2 Product Serial No")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2ProductSerialNo")
                     trace.PartSerialNumber = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[0]")
                     trace.Actuator = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2TestResult[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[1]")
                     trace.ProductionDate = Convert.ToDateTime(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2TestResult[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[2]")
                     trace.SwNumber = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2TestResult[3]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[3]")
                     trace.LineErrorCounter = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2TestResult[4]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[4]")
                     trace.CurrentMaximum = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2TestResult[5]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[5]")
                     trace.OpenAngle = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2Final Judgment")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_2RepairTime")
+                if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
@@ -441,34 +441,34 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1 Code")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1 Product Serial No")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1ProductSerialNo")
                     trace.PartSerialNumber = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[0]")
                     trace.Actuator = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1TestResult[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[1]")
                     trace.ProductionDate = Convert.ToDateTime(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1TestResult[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[2]")
                     trace.SwNumber = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1TestResult[3]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[3]")
                     trace.LineErrorCounter = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1TestResult[4]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[4]")
                     trace.CurrentMaximum = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1TestResult[5]")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[5]")
                     trace.OpenAngle = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1Final Judgment")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST5_1RepairTime")
+                if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
@@ -486,23 +486,23 @@ namespace Trace.Monitoring.Presenters
 
             var tagsPart = (from tag in machineTags
                             where tag.TypeCode == "DATA_PART_ASSEMBLY"
-                            select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
             var tagsTightening = (from tag in machineTags
                                  where tag.TypeCode == "DATA_TIGHTENING_RESULT"
-                                 select new { Tag = _view.tagMainBlock + "." + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4Code")
+                if (item.ItemName == _view.tagMainBlock + "ST4Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4Final Judgment")
+                if (item.ItemName == _view.tagMainBlock + "ST4Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4ModelRunning")
+                if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
             }
 
@@ -510,31 +510,31 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4PartSerialNo[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[0]")
                 {
                     part.PartName = "LWR Actuator P/N";
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4PartSerialNo[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[1]")
                 {
                     part.PartName = "LWR Actuator S/N";
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4PartSerialNo[2]")
+                if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[2]")
                 {
                     part.PartName = "LWR Frame";
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4PartSerialNo[3]")
+                if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[3]")
                 {
                     part.PartName = "Vane LH";
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4PartSerialNo[4]")
+                if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[4]")
                 {
                     part.PartName = "Vane RH";
                     part.SerialNumber = item.Value.ToString();
@@ -547,24 +547,24 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 TighteningResultModel t = new TighteningResultModel();
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]")
                 {                    
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4Parameter2[0]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4Parameter1[0]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4Parameter3[0]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4TestJudgment[0]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[0]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[0]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[0]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[0]").FirstOrDefault().Value);
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST4TestResult[1]")
+                if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]")
                 {
                     t.No = i;
                     t.Result = Convert.ToDecimal(item.Value);
-                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4Parameter2[1]").FirstOrDefault().Value);
-                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4Parameter1[1]").FirstOrDefault().Value);
-                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4Parameter3[1]").FirstOrDefault().Value);
-                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "." + "ST4TestJudgment[1]").FirstOrDefault().Value);
+                    t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[1]").FirstOrDefault().Value);
+                    t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[1]").FirstOrDefault().Value);
+                    t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[1]").FirstOrDefault().Value);
+                    t.TestResult = Convert.ToBoolean(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[1]").FirstOrDefault().Value);
                 }
 
                 trace.TighteningResults.Add(t);
@@ -588,16 +588,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_2Code")
+                if (item.ItemName == _view.tagMainBlock + "ST3_2Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_2TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST3_2TestResult[0]")
                     trace.Attribute1 = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_2FinalJudgment")
+                if (item.ItemName == _view.tagMainBlock + "ST3_2Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_2RepairTime")
+                if (item.ItemName == _view.tagMainBlock + "ST3_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
@@ -618,16 +618,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1Code")
+                if (item.ItemName == _view.tagMainBlock + "ST3_1Code")
                     trace.ItemCode = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1TestResult[0]")
+                if (item.ItemName == _view.tagMainBlock + "ST3_1TestResult[0]")
                     trace.Attribute1 = item.Value.ToString();
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1FinalJudgment")
+                if (item.ItemName == _view.tagMainBlock + "ST3_1Final_Judgment")
                     trace.FinalResult = Convert.ToBoolean(item.Value);
 
-                if (item.ItemName == _view.tagMainBlock + "." + "ST3_1RepairTime")
+                if (item.ItemName == _view.tagMainBlock + "ST3_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
@@ -723,8 +723,8 @@ namespace Trace.Monitoring.Presenters
             {
                 string clockTag = _view.plcTags.Where(x => x.TypeCode == "INTER_LOCK").FirstOrDefault().PlcTag;
                 string readyTag = _view.plcTags.Where(x => x.TypeCode == "SYSTEM_READY").FirstOrDefault().PlcTag;
-                _view.tagClockReady = _view.tagMainBlock + "." + clockTag;
-                _view.tagTraceabilityReady = _view.tagMainBlock + "." + readyTag;
+                _view.tagClockReady = _view.tagMainBlock + clockTag;
+                _view.tagTraceabilityReady = _view.tagMainBlock + readyTag;
             }
 
         }
@@ -765,7 +765,7 @@ namespace Trace.Monitoring.Presenters
                 foreach(var tag in _view.plcTags)
                 {
                     _view.items[i] = new Item();
-                    _view.items[i].ItemName = _view.tagMainBlock + "." + tag.PlcTag;
+                    _view.items[i].ItemName = _view.tagMainBlock + tag.PlcTag;
 
                     i++;
                 }                
