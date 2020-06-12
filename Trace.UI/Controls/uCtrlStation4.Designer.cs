@@ -59,7 +59,6 @@ namespace Trace.UI.Controls
             this.label7 = new System.Windows.Forms.Label();
             this.txtManchineName = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.partAssemblyModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tighteningResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +69,7 @@ namespace Trace.UI.Controls
             this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partAssemblyModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,7 +79,7 @@ namespace Trace.UI.Controls
             this.targetDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.testResultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.testResultDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traceLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traceLogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,8 +103,8 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tighteningResultModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -463,10 +463,6 @@ namespace Trace.UI.Controls
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // partAssemblyModelBindingSource
-            // 
-            this.partAssemblyModelBindingSource.DataSource = typeof(Trace.Domain.Models.PartAssemblyModel);
-            // 
             // tighteningResultModelBindingSource
             // 
             this.tighteningResultModelBindingSource.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
@@ -541,6 +537,10 @@ namespace Trace.UI.Controls
             this.createdByDataGridViewTextBoxColumn.Visible = false;
             this.createdByDataGridViewTextBoxColumn.Width = 99;
             // 
+            // partAssemblyModelBindingSource
+            // 
+            this.partAssemblyModelBindingSource.DataSource = typeof(Trace.Domain.Models.PartAssemblyModel);
+            // 
             // noDataGridViewTextBoxColumn
             // 
             this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
@@ -609,6 +609,8 @@ namespace Trace.UI.Controls
             this.testResultDataGridViewCheckBoxColumn.DataPropertyName = "TestResult";
             this.testResultDataGridViewCheckBoxColumn.HeaderText = "[OK]";
             this.testResultDataGridViewCheckBoxColumn.Name = "testResultDataGridViewCheckBoxColumn";
+            this.testResultDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.testResultDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // testResultDescriptionDataGridViewTextBoxColumn
             // 
@@ -698,8 +700,8 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel4.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tighteningResultModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -737,24 +739,6 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.BindingSource tighteningResultModelBindingSource;
         private System.Windows.Forms.BindingSource partAssemblyModelBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn minDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn targetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn targetDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testResultDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn testResultDescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn traceLogIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn traceLogDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn traceabilityLogIdDataGridViewTextBoxColumn;
@@ -764,5 +748,23 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn targetDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn targetDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn testResultDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn testResultDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traceLogIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traceLogDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn1;
     }
 }

@@ -129,6 +129,7 @@ namespace Trace.Monitoring.Presenters
             }
 
             //Keep part Assemblies
+            trace.PartAssemblies = new trace.PartAssemblies();
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
@@ -178,6 +179,7 @@ namespace Trace.Monitoring.Presenters
 
             //Keep Tightening
             int i = 1;
+            trace.TighteningResults = new List<TighteningResultModel>();
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 TighteningResultModel t = new TighteningResultModel();
@@ -265,6 +267,7 @@ namespace Trace.Monitoring.Presenters
                 i++;
             }
 
+            trace.CameraResults = new List<CameraResultModel>();
             foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 CameraResultModel cam = new CameraResultModel();
@@ -313,6 +316,7 @@ namespace Trace.Monitoring.Presenters
             }
 
             //Keep part Assemblies
+            trace.PartAssemblies = new List<PartAssemblyModel>();
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
@@ -339,6 +343,7 @@ namespace Trace.Monitoring.Presenters
 
             //Keep Tightening
             int i = 1;
+            trace.TighteningResults = new List<TighteningResultModel>();
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 TighteningResultModel t = new TighteningResultModel();
@@ -507,6 +512,7 @@ namespace Trace.Monitoring.Presenters
             }
 
             //Keep part Assemblies
+            trace.PartAssemblies = new List<PartAssemblyModel>();
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
@@ -544,6 +550,7 @@ namespace Trace.Monitoring.Presenters
 
             //Keep Tightening
             int i = 1;
+            trace.TighteningResults = new List<TighteningResultModel>();
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 TighteningResultModel t = new TighteningResultModel();
