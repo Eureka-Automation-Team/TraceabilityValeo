@@ -8,7 +8,7 @@ namespace Trace.Domain.Models
 {
     public class TighteningResultModel : DomainObject
     {
-        public int No { get; set; }
+        public string No { get; set; }
         public decimal Min { get; set; }
         public string MinDesc
         {

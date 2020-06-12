@@ -129,7 +129,7 @@ namespace Trace.Monitoring.Presenters
             }
 
             //Keep part Assemblies
-            trace.PartAssemblies = new trace.PartAssemblies();
+            trace.PartAssemblies = new List<PartAssemblyModel>();
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 PartAssemblyModel part = new PartAssemblyModel();
@@ -185,7 +185,7 @@ namespace Trace.Monitoring.Presenters
                 TighteningResultModel t = new TighteningResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[0]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[0]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[0]").FirstOrDefault().Value);
@@ -195,7 +195,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[1]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[1]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[1]").FirstOrDefault().Value);
@@ -205,7 +205,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[2]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[2]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[2]").FirstOrDefault().Value);
@@ -215,7 +215,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[3]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[3]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[3]").FirstOrDefault().Value);
@@ -225,7 +225,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[4]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[4]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[4]").FirstOrDefault().Value);
@@ -235,7 +235,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[5]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[5]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[5]").FirstOrDefault().Value);
@@ -245,7 +245,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[6]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[6]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[6]").FirstOrDefault().Value);
@@ -255,7 +255,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[7]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[7]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[7]").FirstOrDefault().Value);
@@ -338,6 +338,12 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
+                if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[3]")
+                {
+                    part.PartName = "Blind vane";
+                    part.SerialNumber = item.Value.ToString();
+                }
+
                 trace.PartAssemblies.Add(part);
             }
 
@@ -349,7 +355,7 @@ namespace Trace.Monitoring.Presenters
                 TighteningResultModel t = new TighteningResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST2TestResult[0]")
                 {
-                    t.No = i;
+                    t.No = "Hollow Nut Screw L";
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[0]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[0]").FirstOrDefault().Value);
@@ -359,7 +365,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST2TestResult[1]")
                 {
-                    t.No = i;
+                    t.No = "Hollow Nut Screw R";
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[1]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[1]").FirstOrDefault().Value);
@@ -369,7 +375,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST2TestResult[2]")
                 {
-                    t.No = i;
+                    t.No = "Ejot Screw L";
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[2]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[2]").FirstOrDefault().Value);
@@ -379,7 +385,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST2TestResult[3]")
                 {
-                    t.No = i;
+                    t.No = "Ejot Screw R";
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[3]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[3]").FirstOrDefault().Value);
@@ -556,7 +562,7 @@ namespace Trace.Monitoring.Presenters
                 TighteningResultModel t = new TighteningResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]")
                 {                    
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[0]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[0]").FirstOrDefault().Value);
@@ -566,7 +572,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]")
                 {
-                    t.No = i;
+                    t.No = i.ToString();
                     t.Result = Convert.ToDecimal(item.Value);
                     t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[1]").FirstOrDefault().Value);
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[1]").FirstOrDefault().Value);
