@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.picClose = new System.Windows.Forms.PictureBox();
             this.uCtrlStation51 = new Trace.UI.Controls.uCtrlStation5();
             this.uCtrlStation41 = new Trace.UI.Controls.uCtrlStation4();
             this.uCtrlStation31 = new Trace.UI.Controls.uCtrlStation3();
             this.uCtrlStation21 = new Trace.UI.Controls.uCtrlStation2();
             this.uCtrlStation11 = new Trace.UI.Controls.uCtrlStation1();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picClose = new System.Windows.Forms.PictureBox();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
@@ -55,6 +55,78 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1325, 1031);
             this.panelMain.TabIndex = 0;
+            // 
+            // uCtrlStation51
+            // 
+            this.uCtrlStation51.BackColor = System.Drawing.Color.White;
+            this.uCtrlStation51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uCtrlStation51.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uCtrlStation51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.uCtrlStation51.Location = new System.Drawing.Point(0, 759);
+            this.uCtrlStation51.Margin = new System.Windows.Forms.Padding(4);
+            this.uCtrlStation51.MonitorFlag = false;
+            this.uCtrlStation51.Name = "uCtrlStation51";
+            this.uCtrlStation51.Size = new System.Drawing.Size(1325, 246);
+            this.uCtrlStation51.TabIndex = 4;
+            this.uCtrlStation51.traceabilityLowerLog = null;
+            this.uCtrlStation51.traceabilityUpperLog = null;
+            // 
+            // uCtrlStation41
+            // 
+            this.uCtrlStation41.BackColor = System.Drawing.Color.White;
+            this.uCtrlStation41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uCtrlStation41.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uCtrlStation41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.uCtrlStation41.Location = new System.Drawing.Point(0, 569);
+            this.uCtrlStation41.Margin = new System.Windows.Forms.Padding(4);
+            this.uCtrlStation41.MonitorFlag = false;
+            this.uCtrlStation41.Name = "uCtrlStation41";
+            this.uCtrlStation41.Size = new System.Drawing.Size(1325, 190);
+            this.uCtrlStation41.TabIndex = 3;
+            this.uCtrlStation41.traceabilityLog = null;
+            // 
+            // uCtrlStation31
+            // 
+            this.uCtrlStation31.BackColor = System.Drawing.Color.White;
+            this.uCtrlStation31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uCtrlStation31.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uCtrlStation31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.uCtrlStation31.Location = new System.Drawing.Point(0, 474);
+            this.uCtrlStation31.Margin = new System.Windows.Forms.Padding(4);
+            this.uCtrlStation31.MonitorFlag = false;
+            this.uCtrlStation31.Name = "uCtrlStation31";
+            this.uCtrlStation31.Size = new System.Drawing.Size(1325, 95);
+            this.uCtrlStation31.TabIndex = 2;
+            this.uCtrlStation31.traceabilityLowerLog = null;
+            this.uCtrlStation31.traceabilityUpperLog = null;
+            // 
+            // uCtrlStation21
+            // 
+            this.uCtrlStation21.BackColor = System.Drawing.Color.White;
+            this.uCtrlStation21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uCtrlStation21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uCtrlStation21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.uCtrlStation21.Location = new System.Drawing.Point(0, 290);
+            this.uCtrlStation21.Margin = new System.Windows.Forms.Padding(4);
+            this.uCtrlStation21.MonitorFlag = false;
+            this.uCtrlStation21.Name = "uCtrlStation21";
+            this.uCtrlStation21.Size = new System.Drawing.Size(1325, 184);
+            this.uCtrlStation21.TabIndex = 1;
+            this.uCtrlStation21.traceabilityLog = null;
+            // 
+            // uCtrlStation11
+            // 
+            this.uCtrlStation11.BackColor = System.Drawing.Color.White;
+            this.uCtrlStation11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uCtrlStation11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uCtrlStation11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.uCtrlStation11.Location = new System.Drawing.Point(0, 0);
+            this.uCtrlStation11.Margin = new System.Windows.Forms.Padding(4);
+            this.uCtrlStation11.MonitorFlag = false;
+            this.uCtrlStation11.Name = "uCtrlStation11";
+            this.uCtrlStation11.Size = new System.Drawing.Size(1325, 290);
+            this.uCtrlStation11.TabIndex = 0;
+            this.uCtrlStation11.traceabilityLog = null;
             // 
             // panel2
             // 
@@ -92,78 +164,6 @@
             this.picClose.TabIndex = 0;
             this.picClose.TabStop = false;
             this.picClose.Click += new System.EventHandler(this.picClose_Click);
-            // 
-            // uCtrlStation51
-            // 
-            this.uCtrlStation51.BackColor = System.Drawing.Color.White;
-            this.uCtrlStation51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uCtrlStation51.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uCtrlStation51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation51.Location = new System.Drawing.Point(0, 702);
-            this.uCtrlStation51.Margin = new System.Windows.Forms.Padding(4);
-            this.uCtrlStation51.MonitorFlag = false;
-            this.uCtrlStation51.Name = "uCtrlStation51";
-            this.uCtrlStation51.Size = new System.Drawing.Size(1325, 246);
-            this.uCtrlStation51.TabIndex = 4;
-            this.uCtrlStation51.traceabilityLowerLog = null;
-            this.uCtrlStation51.traceabilityUpperLog = null;
-            // 
-            // uCtrlStation41
-            // 
-            this.uCtrlStation41.BackColor = System.Drawing.Color.White;
-            this.uCtrlStation41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uCtrlStation41.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uCtrlStation41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation41.Location = new System.Drawing.Point(0, 512);
-            this.uCtrlStation41.Margin = new System.Windows.Forms.Padding(4);
-            this.uCtrlStation41.MonitorFlag = false;
-            this.uCtrlStation41.Name = "uCtrlStation41";
-            this.uCtrlStation41.Size = new System.Drawing.Size(1325, 190);
-            this.uCtrlStation41.TabIndex = 3;
-            this.uCtrlStation41.traceabilityLog = null;
-            // 
-            // uCtrlStation31
-            // 
-            this.uCtrlStation31.BackColor = System.Drawing.Color.White;
-            this.uCtrlStation31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uCtrlStation31.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uCtrlStation31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation31.Location = new System.Drawing.Point(0, 417);
-            this.uCtrlStation31.Margin = new System.Windows.Forms.Padding(4);
-            this.uCtrlStation31.MonitorFlag = false;
-            this.uCtrlStation31.Name = "uCtrlStation31";
-            this.uCtrlStation31.Size = new System.Drawing.Size(1325, 95);
-            this.uCtrlStation31.TabIndex = 2;
-            this.uCtrlStation31.traceabilityLowerLog = null;
-            this.uCtrlStation31.traceabilityUpperLog = null;
-            // 
-            // uCtrlStation21
-            // 
-            this.uCtrlStation21.BackColor = System.Drawing.Color.White;
-            this.uCtrlStation21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uCtrlStation21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uCtrlStation21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation21.Location = new System.Drawing.Point(0, 233);
-            this.uCtrlStation21.Margin = new System.Windows.Forms.Padding(4);
-            this.uCtrlStation21.MonitorFlag = false;
-            this.uCtrlStation21.Name = "uCtrlStation21";
-            this.uCtrlStation21.Size = new System.Drawing.Size(1325, 184);
-            this.uCtrlStation21.TabIndex = 1;
-            this.uCtrlStation21.traceabilityLog = null;
-            // 
-            // uCtrlStation11
-            // 
-            this.uCtrlStation11.BackColor = System.Drawing.Color.White;
-            this.uCtrlStation11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uCtrlStation11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uCtrlStation11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation11.Location = new System.Drawing.Point(0, 0);
-            this.uCtrlStation11.Margin = new System.Windows.Forms.Padding(4);
-            this.uCtrlStation11.MonitorFlag = false;
-            this.uCtrlStation11.Name = "uCtrlStation11";
-            this.uCtrlStation11.Size = new System.Drawing.Size(1325, 233);
-            this.uCtrlStation11.TabIndex = 0;
-            this.uCtrlStation11.traceabilityLog = null;
             // 
             // HomeForm
             // 

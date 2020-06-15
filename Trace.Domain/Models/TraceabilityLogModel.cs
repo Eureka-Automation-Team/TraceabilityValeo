@@ -32,7 +32,13 @@ namespace Trace.Domain.Models
         public string Attribute10 { get; set; }
         public int MaxRepairTime { get; set; }
         public string Result { get; set; }
-        public bool FinalResult { get; set; }
+        public int FinalResult { get; set; }
+
+        public string FinalResultDesc
+        {
+            get { return (Enum.GetName(typeof(enumFinalResult), FinalResult)); }
+        }
+
         public string ImagePath { get; set; }
         public string QRCodePath { get; set; }
         public int RepairTime { get; set; }       
@@ -42,5 +48,13 @@ namespace Trace.Domain.Models
         public List<PartAssemblyModel> PartAssemblies { get; set; }
         public List<TighteningResultModel> TighteningResults { get; set; }
         public List<CameraResultModel> CameraResults { get; set; }
+    }
+
+    enum enumFinalResult
+    {
+        NA = 0,
+        OK = 1,
+        NOK = 2,
+        ALARM = 3
     }
 }

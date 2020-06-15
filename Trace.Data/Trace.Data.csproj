@@ -130,6 +130,10 @@
     <Compile Include="Migrations\202006150243479_Alter datatype camera_result.Designer.cs">
       <DependentUpon>202006150243479_Alter datatype camera_result.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006150548358_Alter datatype traceability log.cs" />
+    <Compile Include="Migrations\202006150548358_Alter datatype traceability log.Designer.cs">
+      <DependentUpon>202006150548358_Alter datatype traceability log.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006150243479_Alter datatype camera_result.resx">
       <DependentUpon>202006150243479_Alter datatype camera_result.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006150548358_Alter datatype traceability log.resx">
+      <DependentUpon>202006150548358_Alter datatype traceability log.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

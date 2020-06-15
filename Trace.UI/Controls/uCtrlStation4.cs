@@ -45,16 +45,20 @@ namespace Trace.UI.Controls
                     txtItemCode.Text = _traceabilityLog.ItemCode;
                     partAssemblyModelBindingSource.DataSource = _traceabilityLog.PartAssemblies;
                     tighteningResultModelBindingSource.DataSource = _traceabilityLog.TighteningResults;
+                    lblFinalResult.Text = _traceabilityLog.FinalResultDesc;
 
-                    if (_traceabilityLog.FinalResult)
+                    if (_traceabilityLog.FinalResult == 1)
                     {
-                        lblFinalResult.Text = "OK";
+
                         lblFinalResult.BackColor = Color.LawnGreen;
+                    }
+                    else if (_traceabilityLog.FinalResult == 2)
+                    {
+                        lblFinalResult.BackColor = Color.Red;
                     }
                     else
                     {
-                        lblFinalResult.Text = "NOK";
-                        lblFinalResult.BackColor = Color.Red;
+                        lblFinalResult.BackColor = Color.Yellow;
                     }
                 }
                 else

@@ -51,16 +51,20 @@ namespace Trace.UI.Controls
                     txtUpperCurrentMaximum.Text = _traceabilityUpperLog.CurrentMaximum;
                     txtUpperOpenAngle.Text = _traceabilityUpperLog.OpenAngle;
                     txtUpperLineErrorCounter.Text = _traceabilityUpperLog.LineErrorCounter;
+                    lblUpperFinalResult.Text = _traceabilityUpperLog.FinalResultDesc;
 
-                    if (_traceabilityUpperLog.FinalResult)
+                    if (_traceabilityUpperLog.FinalResult == 1)
                     {
-                        lblUpperFinalResult.Text = "OK";
+
                         lblUpperFinalResult.BackColor = Color.LawnGreen;
+                    }
+                    else if (_traceabilityUpperLog.FinalResult == 2)
+                    {
+                        lblUpperFinalResult.BackColor = Color.Red;
                     }
                     else
                     {
-                        lblUpperFinalResult.Text = "NOK";
-                        lblUpperFinalResult.BackColor = Color.Red;
+                        lblUpperFinalResult.BackColor = Color.Yellow;
                     }
                 }
                 else
@@ -102,16 +106,20 @@ namespace Trace.UI.Controls
                     txtLowerCurrentMaximum.Text = _traceabilityLowerLog.CurrentMaximum;
                     txtLowerOpenAngle.Text = _traceabilityLowerLog.OpenAngle;
                     txtLowerLineErrorCounter.Text = _traceabilityLowerLog.LineErrorCounter;
+                    lblLowerFinalResult.Text = _traceabilityLowerLog.FinalResultDesc;
 
-                    if (_traceabilityLowerLog.FinalResult)
+                    if (_traceabilityLowerLog.FinalResult == 1)
                     {
-                        lblLowerFinalResult.Text = "OK";
+
                         lblLowerFinalResult.BackColor = Color.LawnGreen;
+                    }
+                    else if (_traceabilityLowerLog.FinalResult == 2)
+                    {
+                        lblLowerFinalResult.BackColor = Color.Red;
                     }
                     else
                     {
-                        lblLowerFinalResult.Text = "NOK";
-                        lblLowerFinalResult.BackColor = Color.Red;
+                        lblLowerFinalResult.BackColor = Color.Yellow;
                     }
                 }
                 else

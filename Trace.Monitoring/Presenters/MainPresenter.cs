@@ -119,7 +119,7 @@ namespace Trace.Monitoring.Presenters
                     trace.ItemCode = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST1Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST1ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
@@ -309,7 +309,7 @@ namespace Trace.Monitoring.Presenters
                     trace.ItemCode = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST2Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
@@ -434,7 +434,7 @@ namespace Trace.Monitoring.Presenters
                     trace.OpenAngle = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_2Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
@@ -477,7 +477,7 @@ namespace Trace.Monitoring.Presenters
                     trace.OpenAngle = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_1Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
@@ -511,7 +511,7 @@ namespace Trace.Monitoring.Presenters
                     trace.ItemCode = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST4Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
@@ -608,7 +608,7 @@ namespace Trace.Monitoring.Presenters
                     trace.Attribute1 = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_2Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
@@ -638,7 +638,7 @@ namespace Trace.Monitoring.Presenters
                     trace.Attribute1 = item.Value.ToString();
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_1Final_Judgment")
-                    trace.FinalResult = Convert.ToBoolean(item.Value);
+                    trace.FinalResult = Convert.ToInt32(item.Value);
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
