@@ -274,13 +274,13 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[8]")
                 {
                     cam.CameraName = "Lever Assy L";
-                    cam.TestResult = Convert.ToBoolean(item.Value);
+                    cam.TestResult = item.Value.ToString();
                 }
 
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[9]")
                 {
                     cam.CameraName = "Lever Assy R";
-                    cam.TestResult = Convert.ToBoolean(item.Value);
+                    cam.TestResult = item.Value.ToString();
                 }
 
                 trace.CameraResults.Add(cam);

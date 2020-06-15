@@ -38,26 +38,22 @@ namespace Trace.UI.Controls
             this.panel8 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtManchineName = new System.Windows.Forms.TextBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tighteningResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblFinalResult = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStationNumber = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traceabilityLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +64,15 @@ namespace Trace.UI.Controls
             this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partAssemblyModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStationNumber = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.testResultDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +83,7 @@ namespace Trace.UI.Controls
             this.targetDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.testResultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traceLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traceLogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,31 +91,26 @@ namespace Trace.UI.Controls
             this.lastUpdatedByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tighteningResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tighteningResultModelBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tighteningResultModelBindingSource)).BeginInit();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -173,6 +173,46 @@ namespace Trace.UI.Controls
             this.txtManchineName.ReadOnly = true;
             this.txtManchineName.Size = new System.Drawing.Size(353, 23);
             this.txtManchineName.TabIndex = 14;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label4);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(3, 60);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(353, 26);
+            this.panel12.TabIndex = 26;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(353, 24);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Code";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.txtItemCode);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(3, 92);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(353, 25);
+            this.panel13.TabIndex = 27;
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtItemCode.Location = new System.Drawing.Point(0, 0);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.ReadOnly = true;
+            this.txtItemCode.Size = new System.Drawing.Size(353, 23);
+            this.txtItemCode.TabIndex = 20;
             // 
             // panel5
             // 
@@ -270,6 +310,10 @@ namespace Trace.UI.Controls
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(563, 99);
             this.dataGridView1.TabIndex = 24;
+            // 
+            // tighteningResultModelBindingSource
+            // 
+            this.tighteningResultModelBindingSource.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
             // 
             // panel6
             // 
@@ -370,6 +414,89 @@ namespace Trace.UI.Controls
             this.dataGridView2.Size = new System.Drawing.Size(218, 99);
             this.dataGridView2.TabIndex = 22;
             // 
+            // partNameDataGridViewTextBoxColumn
+            // 
+            this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
+            this.partNameDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
+            this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.partNameDataGridViewTextBoxColumn.Width = 104;
+            // 
+            // serialNumberDataGridViewTextBoxColumn
+            // 
+            this.serialNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.serialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber";
+            this.serialNumberDataGridViewTextBoxColumn.HeaderText = "Serial No.";
+            this.serialNumberDataGridViewTextBoxColumn.Name = "serialNumberDataGridViewTextBoxColumn";
+            this.serialNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // traceabilityLogIdDataGridViewTextBoxColumn
+            // 
+            this.traceabilityLogIdDataGridViewTextBoxColumn.DataPropertyName = "TraceabilityLogId";
+            this.traceabilityLogIdDataGridViewTextBoxColumn.HeaderText = "TraceabilityLogId";
+            this.traceabilityLogIdDataGridViewTextBoxColumn.Name = "traceabilityLogIdDataGridViewTextBoxColumn";
+            this.traceabilityLogIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traceabilityLogIdDataGridViewTextBoxColumn.Visible = false;
+            this.traceabilityLogIdDataGridViewTextBoxColumn.Width = 141;
+            // 
+            // traceabilityLogDataGridViewTextBoxColumn
+            // 
+            this.traceabilityLogDataGridViewTextBoxColumn.DataPropertyName = "TraceabilityLog";
+            this.traceabilityLogDataGridViewTextBoxColumn.HeaderText = "TraceabilityLog";
+            this.traceabilityLogDataGridViewTextBoxColumn.Name = "traceabilityLogDataGridViewTextBoxColumn";
+            this.traceabilityLogDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traceabilityLogDataGridViewTextBoxColumn.Visible = false;
+            this.traceabilityLogDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 44;
+            // 
+            // lastUpdateDateDataGridViewTextBoxColumn
+            // 
+            this.lastUpdateDateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn.HeaderText = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn.Name = "lastUpdateDateDataGridViewTextBoxColumn";
+            this.lastUpdateDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastUpdateDateDataGridViewTextBoxColumn.Visible = false;
+            this.lastUpdateDateDataGridViewTextBoxColumn.Width = 136;
+            // 
+            // lastUpdatedByDataGridViewTextBoxColumn
+            // 
+            this.lastUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn.HeaderText = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn.Name = "lastUpdatedByDataGridViewTextBoxColumn";
+            this.lastUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastUpdatedByDataGridViewTextBoxColumn.Visible = false;
+            this.lastUpdatedByDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // creationDateDataGridViewTextBoxColumn
+            // 
+            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn.HeaderText = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
+            this.creationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.creationDateDataGridViewTextBoxColumn.Visible = false;
+            this.creationDateDataGridViewTextBoxColumn.Width = 116;
+            // 
+            // createdByDataGridViewTextBoxColumn
+            // 
+            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
+            this.createdByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdByDataGridViewTextBoxColumn.Visible = false;
+            this.createdByDataGridViewTextBoxColumn.Width = 99;
+            // 
+            // partAssemblyModelBindingSource
+            // 
+            this.partAssemblyModelBindingSource.DataSource = typeof(Trace.Domain.Models.PartAssemblyModel);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label5);
@@ -466,89 +593,6 @@ namespace Trace.UI.Controls
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // partNameDataGridViewTextBoxColumn
-            // 
-            this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
-            this.partNameDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
-            this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.partNameDataGridViewTextBoxColumn.Width = 104;
-            // 
-            // serialNumberDataGridViewTextBoxColumn
-            // 
-            this.serialNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.serialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber";
-            this.serialNumberDataGridViewTextBoxColumn.HeaderText = "Serial No.";
-            this.serialNumberDataGridViewTextBoxColumn.Name = "serialNumberDataGridViewTextBoxColumn";
-            this.serialNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // traceabilityLogIdDataGridViewTextBoxColumn
-            // 
-            this.traceabilityLogIdDataGridViewTextBoxColumn.DataPropertyName = "TraceabilityLogId";
-            this.traceabilityLogIdDataGridViewTextBoxColumn.HeaderText = "TraceabilityLogId";
-            this.traceabilityLogIdDataGridViewTextBoxColumn.Name = "traceabilityLogIdDataGridViewTextBoxColumn";
-            this.traceabilityLogIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traceabilityLogIdDataGridViewTextBoxColumn.Visible = false;
-            this.traceabilityLogIdDataGridViewTextBoxColumn.Width = 141;
-            // 
-            // traceabilityLogDataGridViewTextBoxColumn
-            // 
-            this.traceabilityLogDataGridViewTextBoxColumn.DataPropertyName = "TraceabilityLog";
-            this.traceabilityLogDataGridViewTextBoxColumn.HeaderText = "TraceabilityLog";
-            this.traceabilityLogDataGridViewTextBoxColumn.Name = "traceabilityLogDataGridViewTextBoxColumn";
-            this.traceabilityLogDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traceabilityLogDataGridViewTextBoxColumn.Visible = false;
-            this.traceabilityLogDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 44;
-            // 
-            // lastUpdateDateDataGridViewTextBoxColumn
-            // 
-            this.lastUpdateDateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn.HeaderText = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn.Name = "lastUpdateDateDataGridViewTextBoxColumn";
-            this.lastUpdateDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastUpdateDateDataGridViewTextBoxColumn.Visible = false;
-            this.lastUpdateDateDataGridViewTextBoxColumn.Width = 136;
-            // 
-            // lastUpdatedByDataGridViewTextBoxColumn
-            // 
-            this.lastUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn.HeaderText = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn.Name = "lastUpdatedByDataGridViewTextBoxColumn";
-            this.lastUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastUpdatedByDataGridViewTextBoxColumn.Visible = false;
-            this.lastUpdatedByDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // creationDateDataGridViewTextBoxColumn
-            // 
-            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn.HeaderText = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
-            this.creationDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.creationDateDataGridViewTextBoxColumn.Visible = false;
-            this.creationDateDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            this.createdByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdByDataGridViewTextBoxColumn.Visible = false;
-            this.createdByDataGridViewTextBoxColumn.Width = 99;
-            // 
-            // partAssemblyModelBindingSource
-            // 
-            this.partAssemblyModelBindingSource.DataSource = typeof(Trace.Domain.Models.PartAssemblyModel);
-            // 
             // noDataGridViewTextBoxColumn
             // 
             this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
@@ -625,6 +669,8 @@ namespace Trace.UI.Controls
             this.testResultDataGridViewCheckBoxColumn.DataPropertyName = "TestResult";
             this.testResultDataGridViewCheckBoxColumn.HeaderText = "[OK]";
             this.testResultDataGridViewCheckBoxColumn.Name = "testResultDataGridViewCheckBoxColumn";
+            this.testResultDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.testResultDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // traceLogIdDataGridViewTextBoxColumn
             // 
@@ -675,50 +721,6 @@ namespace Trace.UI.Controls
             this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
             this.createdByDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // tighteningResultModelBindingSource
-            // 
-            this.tighteningResultModelBindingSource.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.label4);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(3, 60);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(353, 26);
-            this.panel12.TabIndex = 26;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(353, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Code";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.txtItemCode);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 92);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(353, 25);
-            this.panel13.TabIndex = 27;
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtItemCode.Location = new System.Drawing.Point(0, 0);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.ReadOnly = true;
-            this.txtItemCode.Size = new System.Drawing.Size(353, 23);
-            this.txtItemCode.TabIndex = 20;
-            // 
             // uCtrlStation2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -738,25 +740,25 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tighteningResultModelBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.partAssemblyModelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tighteningResultModelBindingSource)).EndInit();
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -798,6 +800,11 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource partAssemblyModelBindingSource;
         private System.Windows.Forms.BindingSource tighteningResultModelBindingSource;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn testResultDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
@@ -808,7 +815,7 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.DataGridViewTextBoxColumn targetDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resultDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn testResultDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn testResultDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn traceLogIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn traceLogDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
@@ -816,10 +823,5 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox txtItemCode;
     }
 }
