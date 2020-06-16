@@ -37,7 +37,6 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\System.Buffers.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\K4os.Compression.LZ4.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\K4os.Hash.xxHash.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\System.Memory.xml
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.exe.config
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Controls.uCtrlStation1.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Controls.uCtrlStation2.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Controls.uCtrlStation3.resources
@@ -45,3 +44,8 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Controls.
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Controls.uCtrlStation5.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.CopyComplete
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.HomeForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\PagedList.dll
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\PagedList.xml
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.SearchForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.SearchDetailForm.resources

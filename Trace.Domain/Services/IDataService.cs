@@ -14,6 +14,10 @@ namespace Trace.Domain.Services
 
         Task<IEnumerable<T>> GetListByMachineID(int id, int takeRows);
 
+        Task<IEnumerable<T>> GetListByStationID(int id);
+
+        Task<IEnumerable<T>> GetListByItemCode(string itemCode);
+
         Task<IEnumerable<T>> GetByDateRange(DateTime startDate, DateTime endDate);
         
         Task<T> GetByID(int id);

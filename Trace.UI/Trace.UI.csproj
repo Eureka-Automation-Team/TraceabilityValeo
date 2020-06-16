@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -88,6 +91,8 @@
     <Compile Include="Presenters\CtrlStation4Presenter.cs" />
     <Compile Include="Presenters\CtrlStation5Presenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\SearchDetailPresenter.cs" />
+    <Compile Include="Presenters\SearchPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIs\HomeForm.cs">
@@ -96,7 +101,21 @@
     <Compile Include="UIs\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIs\SearchDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\SearchDetailForm.Designer.cs">
+      <DependentUpon>SearchDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIs\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\ISearchDetailView.cs" />
+    <Compile Include="Views\ISearchView.cs" />
     <Compile Include="Views\IStation1View.cs" />
     <Compile Include="Views\IStation2View.cs" />
     <Compile Include="Views\IStation3View.cs" />
@@ -132,9 +151,17 @@
     <EmbeddedResource Include="UIs\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIs\SearchDetailForm.resx">
+      <DependentUpon>SearchDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIs\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Trace.Domain.Models.CameraResultModel.datasource" />
     <None Include="Properties\DataSources\Trace.Domain.Models.PartAssemblyModel.datasource" />
     <None Include="Properties\DataSources\Trace.Domain.Models.TighteningResultModel.datasource" />
+    <None Include="Properties\DataSources\Trace.Domain.Models.TraceabilityLogModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

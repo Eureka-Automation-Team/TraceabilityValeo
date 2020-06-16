@@ -75,7 +75,17 @@ namespace Trace.Data.Service
             }
         }
 
+        public Task<IEnumerable<MachineModel>> GetListByItemCode(string itemCode)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<MachineModel>> GetListByMachineID(int id, int takeRows)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<MachineModel>> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }

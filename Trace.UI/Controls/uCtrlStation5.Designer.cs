@@ -98,7 +98,6 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panelQRCode = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel3.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -731,7 +730,7 @@ namespace Trace.UI.Controls
             // 
             this.lblLowerFinalResult.BackColor = System.Drawing.Color.White;
             this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblLowerFinalResult.ForeColor = System.Drawing.Color.White;
+            this.lblLowerFinalResult.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 26);
             this.lblLowerFinalResult.Name = "lblLowerFinalResult";
             this.lblLowerFinalResult.ReadOnly = true;
@@ -757,7 +756,7 @@ namespace Trace.UI.Controls
             this.panel15.Controls.Add(this.tableLayoutPanel4);
             this.panel15.Location = new System.Drawing.Point(3, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(92, 241);
+            this.panel15.Size = new System.Drawing.Size(92, 223);
             this.panel15.TabIndex = 21;
             // 
             // tableLayoutPanel4
@@ -827,7 +826,7 @@ namespace Trace.UI.Controls
             this.panel26.Controls.Add(this.tableLayoutPanel5);
             this.panel26.Location = new System.Drawing.Point(98, 124);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(1554, 119);
+            this.panel26.Size = new System.Drawing.Size(1554, 101);
             this.panel26.TabIndex = 23;
             // 
             // tableLayoutPanel5
@@ -841,17 +840,16 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1554, 119);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1554, 101);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // panelQRCode
             // 
             this.panelQRCode.Controls.Add(this.pictureBox1);
-            this.panelQRCode.Controls.Add(this.label9);
             this.panelQRCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelQRCode.Location = new System.Drawing.Point(3, 3);
             this.panelQRCode.Name = "panelQRCode";
-            this.panelQRCode.Size = new System.Drawing.Size(714, 113);
+            this.panelQRCode.Size = new System.Drawing.Size(714, 95);
             this.panelQRCode.TabIndex = 0;
             // 
             // pictureBox1
@@ -863,16 +861,6 @@ namespace Trace.UI.Controls
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label9.Location = new System.Drawing.Point(0, 96);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(714, 17);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "K7,9879941,01,21,V,001,A,12345,177663,13,13098P06621,093.5,1.4,T350614000";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timer1
             // 
@@ -890,7 +878,7 @@ namespace Trace.UI.Controls
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uCtrlStation5";
-            this.Size = new System.Drawing.Size(1655, 246);
+            this.Size = new System.Drawing.Size(1655, 228);
             this.Load += new System.EventHandler(this.uCtrlStation5_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -1007,7 +995,6 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panelQRCode;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Timer timer1;
     }
 }

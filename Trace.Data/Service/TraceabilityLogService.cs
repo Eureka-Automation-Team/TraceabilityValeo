@@ -48,7 +48,8 @@ namespace Trace.Data.Service
             using (TraceDbContext context = _contextFactory.Create())
             {
                 IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
-                                                    .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                                                    .Where(x => DbFunctions.TruncateTime(x.CreationDate) >= startDate.Date
+                                                    && DbFunctions.TruncateTime(x.CreationDate) <= endDate.Date)
                                                     .ToListAsync();
                 return entities;
             }
@@ -82,6 +83,18 @@ namespace Trace.Data.Service
             }
         }
 
+        public async Task<IEnumerable<TraceabilityLogModel>> GetListByItemCode(string itemCode)
+        {
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
+                                                    .Where(x => x.ItemCode == itemCode)
+                                                    .OrderByDescending(o => o.CreationDate)
+                                                    .ToListAsync();
+                return entities;
+            }
+        }
+
         public async Task<IEnumerable<TraceabilityLogModel>> GetListByMachineID(int id, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
@@ -90,6 +103,19 @@ namespace Trace.Data.Service
                                                     .Where(x => x.MachineId == id)
                                                     .OrderByDescending(o => o.CreationDate)
                                                     .Take(takeRows)
+                                                    .ToListAsync();
+                return entities;
+            }
+        }
+
+        public async Task<IEnumerable<TraceabilityLogModel>> GetListByStationID(int id)
+        {
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
+                                                    .Where(x => x.StationId == id)
+                                                    .OrderByDescending(o => o.CreationDate)
+                                                    //.Take(takeRows)
                                                     .ToListAsync();
                 return entities;
             }

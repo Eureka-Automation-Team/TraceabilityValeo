@@ -39,7 +39,7 @@ namespace Trace.UI.Presenters
             }
             else if (but.Name == "butSearchHistories")
             {
-                _view.LoadSubForm(new HomeForm());
+                _view.LoadSubForm(new SearchForm());
             }
         }
 
