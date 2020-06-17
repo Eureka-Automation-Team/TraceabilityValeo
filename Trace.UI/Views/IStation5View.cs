@@ -18,5 +18,6 @@ namespace Trace.UI.Views
         TraceabilityLogModel traceabilityLowerLog { get; set; }
 
         void EnableTimer(bool enable);
+        void GenerateQrCode();
     }
 }

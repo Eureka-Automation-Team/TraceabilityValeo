@@ -48,6 +48,9 @@ namespace Trace.UI.Presenters
         private void InitailizeControl(object sender, EventArgs e)
         {
             _view.EnableTimer(_view.MonitorFlag);
+
+            if (!_view.MonitorFlag)
+                _view.GenerateQrCode();
         }
     }
 }

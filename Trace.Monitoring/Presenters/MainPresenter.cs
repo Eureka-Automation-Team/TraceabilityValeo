@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -33,7 +35,7 @@ namespace Trace.Monitoring.Presenters
             _view.KeepLogging += KeepLogging;
         }
 
-        private void KeepLogging(object sender, EventArgs e)
+        private async void KeepLogging(object sender, EventArgs e)
         {
             if (_view.systemReady)
             {
@@ -50,8 +52,9 @@ namespace Trace.Monitoring.Presenters
                 //Station1
                 if (machine.Id == 1)
                 {
-                    KeepLogForMachine1(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock +  "ST1LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    //WriteWord(_view.tagMainBlock +  "ST1LoggingApp", 1);
+                    ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
                 }
 
                 //Station2
@@ -96,8 +99,9 @@ namespace Trace.Monitoring.Presenters
             }               
         }
 
-        private void KeepLogForMachine1(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private async Task<bool> KeepLogForMachine1(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
             var tagsPart = (from tag in machineTags
@@ -115,6 +119,7 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
+
                 if (item.ItemName == _view.tagMainBlock + "ST1Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -286,7 +291,17 @@ namespace Trace.Monitoring.Presenters
                 trace.CameraResults.Add(cam);
             }
 
-            _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+            
         }
 
         private void KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
@@ -684,6 +699,23 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
+        private bool ReactCompleteLog(string tagName, int val = 1)
+        {
+            bool result = false;
+
+            Task t = Task.Run(() => {
+                result = WriteWord(tagName, val);
+            });
+            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+
+            if (!t.Wait(ts))
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
         private void Connect(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(_view.serverUrl))
@@ -758,13 +790,21 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 //_hdaServer.Connect();
-                _view.daServer.Connect(url, new Opc.ConnectData(new System.Net.NetworkCredential()));
+                try
+                {
+                    _view.daServer.Connect(url, new Opc.ConnectData(new System.Net.NetworkCredential()));
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Connect OPC Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
                 //Console.WriteLine(String.Format("Connect to server {0}", serverName));
 
                 //3rd Create a group if items            
                 _view.groupStateRead = new SubscriptionState();
                 _view.groupStateRead.Name = "InterLockGroup";
-                _view.groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
+                _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
                 _view.groupStateRead.Active = true;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
                 _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
@@ -846,6 +886,54 @@ namespace Trace.Monitoring.Presenters
                 return false;
             }
             
+        }
+
+        [Obsolete]
+        private bool KeeppingFile(string itemCode, out string outTargetFilePath, out string outErrorMessage)
+        {
+            string sourceImagePath = ConfigurationSettings.AppSettings["sourcePath"].ToString();
+            string targetImagePath = ConfigurationSettings.AppSettings["targetPath"].ToString();
+
+            bool result = false;
+            string _errMsg = string.Empty;
+            string fileName = string.Empty;
+            string targetFile = string.Format(@"{0}\\{1}", targetImagePath, DateTime.Now.ToString("dd-MM-yyyy"));
+            targetFile = RemoveSpecialCharacters(targetFile);
+
+            //*** Create Folder
+            if (!Directory.Exists(targetFile))
+            {
+                Directory.CreateDirectory(targetFile);
+                //MessageBox.Show("Create Path : " + targetFile);
+            }
+
+            //*** Save File
+            try
+            {
+                string filePath = sourceImagePath + "\\" + itemCode + ".JPG";
+                filePath = RemoveSpecialCharacters(filePath);
+                fileName = Path.GetFileName(filePath);
+                File.Move(filePath, targetFile + fileName);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                _errMsg = ex.Message;
+                result = false;
+            }
+
+            outTargetFilePath = targetFile + fileName;
+            outErrorMessage = _errMsg;
+            return result;
+        }
+
+        public string RemoveSpecialCharacters(string str)
+        {
+            string spath = Regex.Replace(str, "[^a-zA-Z0-9_.:]+", "\\", RegexOptions.Compiled);
+            spath = spath.Replace("\\.", ".");
+            spath = spath.Replace("\\D", "D");
+            spath = spath.Replace("\\_", "_");
+            return spath.Replace("\\E", "E");
         }
 
     }

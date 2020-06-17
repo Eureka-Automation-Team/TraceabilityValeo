@@ -97,7 +97,7 @@ namespace Trace.UI.Controls
             this.panel26 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panelQRCode = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picQRCode = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel3.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -131,16 +131,16 @@ namespace Trace.UI.Controls
             this.panel26.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panelQRCode.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picQRCode)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 8;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 382F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 489F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
@@ -198,7 +198,7 @@ namespace Trace.UI.Controls
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(253, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(99, 48);
+            this.panel13.Size = new System.Drawing.Size(169, 48);
             this.panel13.TabIndex = 23;
             // 
             // label10
@@ -209,7 +209,7 @@ namespace Trace.UI.Controls
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 48);
+            this.label10.Size = new System.Drawing.Size(169, 48);
             this.label10.TabIndex = 7;
             this.label10.Text = "Code";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,9 +218,9 @@ namespace Trace.UI.Controls
             // 
             this.panel14.Controls.Add(this.label11);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(358, 3);
+            this.panel14.Location = new System.Drawing.Point(428, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(391, 48);
+            this.panel14.Size = new System.Drawing.Size(214, 48);
             this.panel14.TabIndex = 25;
             // 
             // label11
@@ -231,7 +231,7 @@ namespace Trace.UI.Controls
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(391, 48);
+            this.label11.Size = new System.Drawing.Size(214, 48);
             this.label11.TabIndex = 8;
             this.label11.Text = "Part Serial No.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -273,7 +273,7 @@ namespace Trace.UI.Controls
             this.panel3.Location = new System.Drawing.Point(253, 57);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(99, 59);
+            this.panel3.Size = new System.Drawing.Size(169, 59);
             this.panel3.TabIndex = 27;
             // 
             // txtLowerItemCode
@@ -282,7 +282,7 @@ namespace Trace.UI.Controls
             this.txtLowerItemCode.Location = new System.Drawing.Point(0, 26);
             this.txtLowerItemCode.Name = "txtLowerItemCode";
             this.txtLowerItemCode.ReadOnly = true;
-            this.txtLowerItemCode.Size = new System.Drawing.Size(99, 23);
+            this.txtLowerItemCode.Size = new System.Drawing.Size(169, 23);
             this.txtLowerItemCode.TabIndex = 18;
             // 
             // txtUpperItemCode
@@ -291,7 +291,7 @@ namespace Trace.UI.Controls
             this.txtUpperItemCode.Location = new System.Drawing.Point(0, 3);
             this.txtUpperItemCode.Name = "txtUpperItemCode";
             this.txtUpperItemCode.ReadOnly = true;
-            this.txtUpperItemCode.Size = new System.Drawing.Size(99, 23);
+            this.txtUpperItemCode.Size = new System.Drawing.Size(169, 23);
             this.txtUpperItemCode.TabIndex = 17;
             // 
             // panel4
@@ -299,10 +299,10 @@ namespace Trace.UI.Controls
             this.panel4.Controls.Add(this.txtLowerPartSerialNumber);
             this.panel4.Controls.Add(this.txtUpperPartSerialNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(358, 57);
+            this.panel4.Location = new System.Drawing.Point(428, 57);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(391, 59);
+            this.panel4.Size = new System.Drawing.Size(214, 59);
             this.panel4.TabIndex = 28;
             // 
             // txtLowerPartSerialNumber
@@ -311,7 +311,7 @@ namespace Trace.UI.Controls
             this.txtLowerPartSerialNumber.Location = new System.Drawing.Point(0, 26);
             this.txtLowerPartSerialNumber.Name = "txtLowerPartSerialNumber";
             this.txtLowerPartSerialNumber.ReadOnly = true;
-            this.txtLowerPartSerialNumber.Size = new System.Drawing.Size(391, 23);
+            this.txtLowerPartSerialNumber.Size = new System.Drawing.Size(214, 23);
             this.txtLowerPartSerialNumber.TabIndex = 18;
             // 
             // txtUpperPartSerialNumber
@@ -320,7 +320,7 @@ namespace Trace.UI.Controls
             this.txtUpperPartSerialNumber.Location = new System.Drawing.Point(0, 3);
             this.txtUpperPartSerialNumber.Name = "txtUpperPartSerialNumber";
             this.txtUpperPartSerialNumber.ReadOnly = true;
-            this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(391, 23);
+            this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(214, 23);
             this.txtUpperPartSerialNumber.TabIndex = 17;
             this.txtUpperPartSerialNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -328,16 +328,16 @@ namespace Trace.UI.Controls
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(755, 57);
+            this.panel5.Location = new System.Drawing.Point(648, 57);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(376, 59);
+            this.panel5.Size = new System.Drawing.Size(483, 59);
             this.panel5.TabIndex = 29;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.61077F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.16149F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.Controls.Add(this.panel20, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel21, 1, 0);
@@ -347,7 +347,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(376, 59);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(483, 59);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel20
@@ -357,7 +357,7 @@ namespace Trace.UI.Controls
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(3, 3);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(106, 53);
+            this.panel20.Size = new System.Drawing.Size(166, 53);
             this.panel20.TabIndex = 0;
             // 
             // txtLowerActuator
@@ -366,7 +366,7 @@ namespace Trace.UI.Controls
             this.txtLowerActuator.Location = new System.Drawing.Point(0, 23);
             this.txtLowerActuator.Name = "txtLowerActuator";
             this.txtLowerActuator.ReadOnly = true;
-            this.txtLowerActuator.Size = new System.Drawing.Size(106, 23);
+            this.txtLowerActuator.Size = new System.Drawing.Size(166, 23);
             this.txtLowerActuator.TabIndex = 22;
             // 
             // txtUpperActuator
@@ -375,7 +375,7 @@ namespace Trace.UI.Controls
             this.txtUpperActuator.Location = new System.Drawing.Point(0, 0);
             this.txtUpperActuator.Name = "txtUpperActuator";
             this.txtUpperActuator.ReadOnly = true;
-            this.txtUpperActuator.Size = new System.Drawing.Size(106, 23);
+            this.txtUpperActuator.Size = new System.Drawing.Size(166, 23);
             this.txtUpperActuator.TabIndex = 21;
             // 
             // panel21
@@ -383,9 +383,9 @@ namespace Trace.UI.Controls
             this.panel21.Controls.Add(this.txtLowerProductionDate);
             this.panel21.Controls.Add(this.txtUpperProductionDate);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(115, 3);
+            this.panel21.Location = new System.Drawing.Point(175, 3);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(144, 53);
+            this.panel21.Size = new System.Drawing.Size(159, 53);
             this.panel21.TabIndex = 1;
             // 
             // txtLowerProductionDate
@@ -394,7 +394,7 @@ namespace Trace.UI.Controls
             this.txtLowerProductionDate.Location = new System.Drawing.Point(0, 23);
             this.txtLowerProductionDate.Name = "txtLowerProductionDate";
             this.txtLowerProductionDate.ReadOnly = true;
-            this.txtLowerProductionDate.Size = new System.Drawing.Size(144, 23);
+            this.txtLowerProductionDate.Size = new System.Drawing.Size(159, 23);
             this.txtLowerProductionDate.TabIndex = 22;
             // 
             // txtUpperProductionDate
@@ -403,7 +403,7 @@ namespace Trace.UI.Controls
             this.txtUpperProductionDate.Location = new System.Drawing.Point(0, 0);
             this.txtUpperProductionDate.Name = "txtUpperProductionDate";
             this.txtUpperProductionDate.ReadOnly = true;
-            this.txtUpperProductionDate.Size = new System.Drawing.Size(144, 23);
+            this.txtUpperProductionDate.Size = new System.Drawing.Size(159, 23);
             this.txtUpperProductionDate.TabIndex = 21;
             // 
             // panel22
@@ -411,9 +411,9 @@ namespace Trace.UI.Controls
             this.panel22.Controls.Add(this.txtLowerSwNumber);
             this.panel22.Controls.Add(this.txtUpperSwNumber);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(265, 3);
+            this.panel22.Location = new System.Drawing.Point(340, 3);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(108, 53);
+            this.panel22.Size = new System.Drawing.Size(140, 53);
             this.panel22.TabIndex = 2;
             // 
             // txtLowerSwNumber
@@ -422,7 +422,7 @@ namespace Trace.UI.Controls
             this.txtLowerSwNumber.Location = new System.Drawing.Point(0, 23);
             this.txtLowerSwNumber.Name = "txtLowerSwNumber";
             this.txtLowerSwNumber.ReadOnly = true;
-            this.txtLowerSwNumber.Size = new System.Drawing.Size(108, 23);
+            this.txtLowerSwNumber.Size = new System.Drawing.Size(140, 23);
             this.txtLowerSwNumber.TabIndex = 22;
             // 
             // txtUpperSwNumber
@@ -431,7 +431,7 @@ namespace Trace.UI.Controls
             this.txtUpperSwNumber.Location = new System.Drawing.Point(0, 0);
             this.txtUpperSwNumber.Name = "txtUpperSwNumber";
             this.txtUpperSwNumber.ReadOnly = true;
-            this.txtUpperSwNumber.Size = new System.Drawing.Size(108, 23);
+            this.txtUpperSwNumber.Size = new System.Drawing.Size(140, 23);
             this.txtUpperSwNumber.TabIndex = 21;
             // 
             // panel6
@@ -439,16 +439,16 @@ namespace Trace.UI.Controls
             this.panel6.Controls.Add(this.tableLayoutPanel2);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(755, 3);
+            this.panel6.Location = new System.Drawing.Point(648, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(376, 48);
+            this.panel6.Size = new System.Drawing.Size(483, 48);
             this.panel6.TabIndex = 30;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.61077F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.16149F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.Controls.Add(this.panel23, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel24, 1, 0);
@@ -458,7 +458,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(376, 24);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(483, 24);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
             // panel23
@@ -467,7 +467,7 @@ namespace Trace.UI.Controls
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(106, 18);
+            this.panel23.Size = new System.Drawing.Size(166, 18);
             this.panel23.TabIndex = 0;
             // 
             // label6
@@ -478,18 +478,18 @@ namespace Trace.UI.Controls
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 18);
+            this.label6.Size = new System.Drawing.Size(166, 18);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Actuator";
+            this.label6.Text = "Actuator Serial No.";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel24
             // 
             this.panel24.Controls.Add(this.label7);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(115, 3);
+            this.panel24.Location = new System.Drawing.Point(175, 3);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(144, 18);
+            this.panel24.Size = new System.Drawing.Size(159, 18);
             this.panel24.TabIndex = 1;
             // 
             // label7
@@ -500,7 +500,7 @@ namespace Trace.UI.Controls
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 18);
+            this.label7.Size = new System.Drawing.Size(159, 18);
             this.label7.TabIndex = 9;
             this.label7.Text = "Production Date";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -509,9 +509,9 @@ namespace Trace.UI.Controls
             // 
             this.panel25.Controls.Add(this.label8);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(265, 3);
+            this.panel25.Location = new System.Drawing.Point(340, 3);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(108, 18);
+            this.panel25.Size = new System.Drawing.Size(140, 18);
             this.panel25.TabIndex = 2;
             // 
             // label8
@@ -522,7 +522,7 @@ namespace Trace.UI.Controls
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 18);
+            this.label8.Size = new System.Drawing.Size(140, 18);
             this.label8.TabIndex = 9;
             this.label8.Text = "SW Number";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -535,7 +535,7 @@ namespace Trace.UI.Controls
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(376, 24);
+            this.label1.Size = new System.Drawing.Size(483, 24);
             this.label1.TabIndex = 9;
             this.label1.Text = "Actuator Data";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -845,22 +845,22 @@ namespace Trace.UI.Controls
             // 
             // panelQRCode
             // 
-            this.panelQRCode.Controls.Add(this.pictureBox1);
+            this.panelQRCode.Controls.Add(this.picQRCode);
             this.panelQRCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelQRCode.Location = new System.Drawing.Point(3, 3);
             this.panelQRCode.Name = "panelQRCode";
             this.panelQRCode.Size = new System.Drawing.Size(714, 95);
             this.panelQRCode.TabIndex = 0;
             // 
-            // pictureBox1
+            // picQRCode
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.picQRCode.Image = ((System.Drawing.Image)(resources.GetObject("picQRCode.Image")));
+            this.picQRCode.Location = new System.Drawing.Point(4, 0);
+            this.picQRCode.Name = "picQRCode";
+            this.picQRCode.Size = new System.Drawing.Size(93, 90);
+            this.picQRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picQRCode.TabIndex = 1;
+            this.picQRCode.TabStop = false;
             // 
             // timer1
             // 
@@ -923,7 +923,7 @@ namespace Trace.UI.Controls
             this.panel26.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panelQRCode.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picQRCode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -994,7 +994,7 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panelQRCode;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picQRCode;
         private System.Windows.Forms.Timer timer1;
     }
 }

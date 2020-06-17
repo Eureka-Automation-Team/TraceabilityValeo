@@ -35,28 +35,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dgvList = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpendDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.txtpartSerialNo = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
             this.txtitemCode = new System.Windows.Forms.TextBox();
-            this.txtpartSerialNo = new System.Windows.Forms.TextBox();
-            this.dtpstartDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpendDate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvList = new System.Windows.Forms.DataGridView();
+            this.traceabilityLogModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavCategory = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -67,18 +67,17 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuRefresh = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSearch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuClear = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDetail = new System.Windows.Forms.ToolStripButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.stationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partSerialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelRunningDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partSerialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actuatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.swNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,23 +108,22 @@
             this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceabilityLogModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavCategory)).BeginInit();
             this.bindingNavCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -174,6 +172,205 @@
             this.panel1.Size = new System.Drawing.Size(1200, 133);
             this.panel1.TabIndex = 8;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1200, 133);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search by";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.28671F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.71329F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 484F));
+            this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel9, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 22);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1194, 108);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel15
+            // 
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(712, 69);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(479, 36);
+            this.panel15.TabIndex = 10;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label4);
+            this.panel14.Controls.Add(this.dtpendDate);
+            this.panel14.Controls.Add(this.dtpstartDate);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(239, 69);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(467, 36);
+            this.panel14.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(189, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "-";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpendDate
+            // 
+            this.dtpendDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpendDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpendDate.Location = new System.Drawing.Point(209, 0);
+            this.dtpendDate.Name = "dtpendDate";
+            this.dtpendDate.Size = new System.Drawing.Size(180, 26);
+            this.dtpendDate.TabIndex = 0;
+            // 
+            // dtpstartDate
+            // 
+            this.dtpstartDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpstartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpstartDate.Location = new System.Drawing.Point(3, 0);
+            this.dtpstartDate.Name = "dtpstartDate";
+            this.dtpstartDate.Size = new System.Drawing.Size(180, 26);
+            this.dtpstartDate.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(712, 36);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(479, 27);
+            this.panel12.TabIndex = 7;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.txtpartSerialNo);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(239, 36);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(467, 27);
+            this.panel11.TabIndex = 6;
+            // 
+            // txtpartSerialNo
+            // 
+            this.txtpartSerialNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtpartSerialNo.Location = new System.Drawing.Point(0, 0);
+            this.txtpartSerialNo.Name = "txtpartSerialNo";
+            this.txtpartSerialNo.Size = new System.Drawing.Size(467, 26);
+            this.txtpartSerialNo.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(712, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(479, 27);
+            this.panel9.TabIndex = 4;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(230, 27);
+            this.panel5.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(230, 24);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Item Code";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 36);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(230, 27);
+            this.panel6.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(230, 24);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Part Serial No.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 69);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(230, 36);
+            this.panel7.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(230, 24);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Date From-To";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.txtitemCode);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(239, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(467, 27);
+            this.panel8.TabIndex = 3;
+            // 
+            // txtitemCode
+            // 
+            this.txtitemCode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtitemCode.Location = new System.Drawing.Point(0, 0);
+            this.txtitemCode.Name = "txtitemCode";
+            this.txtitemCode.Size = new System.Drawing.Size(467, 26);
+            this.txtitemCode.TabIndex = 0;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dgvList);
@@ -183,14 +380,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1200, 368);
             this.panel3.TabIndex = 9;
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 532);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1200, 40);
-            this.panel4.TabIndex = 10;
             // 
             // dgvList
             // 
@@ -213,8 +402,8 @@
             this.stationIdDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.itemCodeDataGridViewTextBoxColumn,
-            this.partSerialNumberDataGridViewTextBoxColumn,
             this.modelRunningDataGridViewTextBoxColumn,
+            this.partSerialNumberDataGridViewTextBoxColumn,
             this.actuatorDataGridViewTextBoxColumn,
             this.productionDateDataGridViewTextBoxColumn,
             this.swNumberDataGridViewTextBoxColumn,
@@ -254,201 +443,11 @@
             this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvList.Size = new System.Drawing.Size(1200, 337);
             this.dgvList.TabIndex = 25;
+            this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             // 
-            // groupBox1
+            // traceabilityLogModelBindingSource
             // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1200, 133);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search by";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.28671F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.71329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 480F));
-            this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel9, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 22);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1194, 108);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(231, 27);
-            this.panel5.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(231, 24);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Item Code";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(231, 24);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Date From-To";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 69);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(231, 36);
-            this.panel7.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(231, 24);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Part Serial No.";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 36);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(231, 27);
-            this.panel6.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.txtitemCode);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(240, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(470, 27);
-            this.panel8.TabIndex = 3;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(716, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(475, 27);
-            this.panel9.TabIndex = 4;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.txtpartSerialNo);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(240, 36);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(470, 27);
-            this.panel11.TabIndex = 6;
-            // 
-            // panel12
-            // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(716, 36);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(475, 27);
-            this.panel12.TabIndex = 7;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.label4);
-            this.panel14.Controls.Add(this.dtpendDate);
-            this.panel14.Controls.Add(this.dtpstartDate);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(240, 69);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(470, 36);
-            this.panel14.TabIndex = 9;
-            // 
-            // panel15
-            // 
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(716, 69);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(475, 36);
-            this.panel15.TabIndex = 10;
-            // 
-            // txtitemCode
-            // 
-            this.txtitemCode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtitemCode.Location = new System.Drawing.Point(0, 0);
-            this.txtitemCode.Name = "txtitemCode";
-            this.txtitemCode.Size = new System.Drawing.Size(470, 26);
-            this.txtitemCode.TabIndex = 0;
-            // 
-            // txtpartSerialNo
-            // 
-            this.txtpartSerialNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtpartSerialNo.Location = new System.Drawing.Point(0, 0);
-            this.txtpartSerialNo.Name = "txtpartSerialNo";
-            this.txtpartSerialNo.Size = new System.Drawing.Size(470, 26);
-            this.txtpartSerialNo.TabIndex = 1;
-            // 
-            // dtpstartDate
-            // 
-            this.dtpstartDate.Location = new System.Drawing.Point(3, 0);
-            this.dtpstartDate.Name = "dtpstartDate";
-            this.dtpstartDate.Size = new System.Drawing.Size(180, 26);
-            this.dtpstartDate.TabIndex = 0;
-            // 
-            // dtpendDate
-            // 
-            this.dtpendDate.Location = new System.Drawing.Point(209, 0);
-            this.dtpendDate.Name = "dtpendDate";
-            this.dtpendDate.Size = new System.Drawing.Size(180, 26);
-            this.dtpendDate.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(189, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 20);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "-";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.traceabilityLogModelBindingSource.DataSource = typeof(Trace.Domain.Models.TraceabilityLogModel);
             // 
             // bindingNavCategory
             // 
@@ -472,8 +471,6 @@
             this.toolStripSeparator5,
             this.mnuSearch,
             this.toolStripSeparator7,
-            this.mnuRefresh,
-            this.toolStripSeparator1,
             this.mnuClear,
             this.toolStripSeparator2,
             this.mnuDetail});
@@ -565,21 +562,6 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
-            // mnuRefresh
-            // 
-            this.mnuRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.mnuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("mnuRefresh.Image")));
-            this.mnuRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.mnuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.mnuRefresh.Name = "mnuRefresh";
-            this.mnuRefresh.Size = new System.Drawing.Size(28, 28);
-            this.mnuRefresh.Text = "Refresh";
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 31);
-            // 
             // mnuSearch
             // 
             this.mnuSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -591,6 +573,11 @@
             this.mnuSearch.Text = "toolStripButton1";
             this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 31);
+            // 
             // mnuClear
             // 
             this.mnuClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -601,11 +588,6 @@
             this.mnuClear.Size = new System.Drawing.Size(28, 28);
             this.mnuClear.Text = "toolStripButton2";
             this.mnuClear.Click += new System.EventHandler(this.mnuClear_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripSeparator2
             // 
@@ -622,6 +604,14 @@
             this.mnuDetail.Size = new System.Drawing.Size(28, 28);
             this.mnuDetail.Text = "toolStripButton7";
             this.mnuDetail.Click += new System.EventHandler(this.mnuDetail_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 532);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1200, 40);
+            this.panel4.TabIndex = 10;
             // 
             // stationIdDataGridViewTextBoxColumn
             // 
@@ -642,22 +632,22 @@
             this.itemCodeDataGridViewTextBoxColumn.HeaderText = "Code";
             this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
             // 
-            // partSerialNumberDataGridViewTextBoxColumn
-            // 
-            this.partSerialNumberDataGridViewTextBoxColumn.DataPropertyName = "PartSerialNumber";
-            this.partSerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number";
-            this.partSerialNumberDataGridViewTextBoxColumn.Name = "partSerialNumberDataGridViewTextBoxColumn";
-            // 
             // modelRunningDataGridViewTextBoxColumn
             // 
             this.modelRunningDataGridViewTextBoxColumn.DataPropertyName = "ModelRunning";
             this.modelRunningDataGridViewTextBoxColumn.HeaderText = "Model";
             this.modelRunningDataGridViewTextBoxColumn.Name = "modelRunningDataGridViewTextBoxColumn";
             // 
+            // partSerialNumberDataGridViewTextBoxColumn
+            // 
+            this.partSerialNumberDataGridViewTextBoxColumn.DataPropertyName = "PartSerialNumber";
+            this.partSerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number";
+            this.partSerialNumberDataGridViewTextBoxColumn.Name = "partSerialNumberDataGridViewTextBoxColumn";
+            // 
             // actuatorDataGridViewTextBoxColumn
             // 
             this.actuatorDataGridViewTextBoxColumn.DataPropertyName = "Actuator";
-            this.actuatorDataGridViewTextBoxColumn.HeaderText = "Actuator";
+            this.actuatorDataGridViewTextBoxColumn.HeaderText = "Actuator Serial No.";
             this.actuatorDataGridViewTextBoxColumn.Name = "actuatorDataGridViewTextBoxColumn";
             // 
             // productionDateDataGridViewTextBoxColumn
@@ -858,10 +848,6 @@
             this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
             this.createdByDataGridViewTextBoxColumn.Visible = false;
             // 
-            // traceabilityLogModelBindingSource
-            // 
-            this.traceabilityLogModelBindingSource.DataSource = typeof(Trace.Domain.Models.TraceabilityLogModel);
-            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -880,24 +866,24 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavCategory)).EndInit();
             this.bindingNavCategory.ResumeLayout(false);
             this.bindingNavCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -941,18 +927,16 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton mnuRefresh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton mnuSearch;
         private System.Windows.Forms.ToolStripButton mnuClear;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton mnuDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn stationIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partSerialNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelRunningDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partSerialNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actuatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productionDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn swNumberDataGridViewTextBoxColumn;

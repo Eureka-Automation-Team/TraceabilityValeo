@@ -89,5 +89,11 @@ namespace Trace.UI.UIs
             if (Selected_Row != null)
                 Selected_Row(sender, e);
         }
+
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Selected_Row != null)
+                Selected_Row(sender, e);
+        }
     }
 }

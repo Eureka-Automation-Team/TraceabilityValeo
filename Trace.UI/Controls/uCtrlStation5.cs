@@ -164,5 +164,25 @@ namespace Trace.UI.Controls
             if (MonitoringRailTime != null)
                 MonitoringRailTime(sender, e);
         }
+
+        public void GenerateQrCode()
+        {
+            QRCoder.QRCodeGenerator qrGenerator = new QRCoder.QRCodeGenerator();
+            string partSerialNo = string.Empty;
+
+            if (traceabilityUpperLog != null)
+                partSerialNo = traceabilityUpperLog.PartSerialNumber;
+
+            if (traceabilityLowerLog != null)
+                partSerialNo = traceabilityLowerLog.PartSerialNumber;
+
+            if (string.IsNullOrEmpty(partSerialNo))
+            {
+                var qrData = qrGenerator.CreateQrCode(partSerialNo, QRCoder.QRCodeGenerator.ECCLevel.H);
+                var qrCode = new QRCoder.QRCode(qrData);
+                var image = qrCode.GetGraphic(150);
+                picQRCode.Image = image;
+            }
+        }
     }
 }

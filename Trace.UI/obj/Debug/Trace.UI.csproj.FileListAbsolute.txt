@@ -49,3 +49,4 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\PagedList.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.SearchForm.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.SearchDetailForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\QRCoder.dll
