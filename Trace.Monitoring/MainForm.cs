@@ -288,9 +288,9 @@ namespace Trace.Monitoring
                         delegate 
                         { 
                             butStatusMc1.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine1.OnlineFlag = receivedData;
                             SetButtonMachineStatusColor(butStatusMc1, receivedData);
-                        }
-                        ));                    
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1ReqLogging")
                 {
@@ -308,16 +308,25 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST1LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging1.Invoke(new EventHandler(delegate { butCompletedLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging1, Convert.ToBoolean(receivedData));
+                    butCompletedLogging1.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butCompletedLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper();
+                            SetButtonStatusColor(butCompletedLogging1, Convert.ToBoolean(receivedData));
+                        }));                    
                 }
 
                 //Machine 2
                 if (values[i].ItemName == tagMainBlock + "ST2StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc2.Invoke(new EventHandler(delegate { butStatusMc2.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM"); }));
-                    SetButtonMachineStatusColor(butStatusMc2, receivedData);
+                    butStatusMc2.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc2.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine2.OnlineFlag = receivedData;
+                            SetButtonMachineStatusColor(butStatusMc2, receivedData);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2ReqLogging")
                 {
@@ -343,8 +352,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST3_1StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc3.Invoke(new EventHandler(delegate { butStatusMc3.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM"); }));
-                    SetButtonMachineStatusColor(butStatusMc3, receivedData);
+                    butStatusMc3.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc3.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine3.OnlineFlag = receivedData;
+                            SetButtonMachineStatusColor(butStatusMc3, receivedData);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_1ReqLogging")
                 {
@@ -370,8 +384,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST3_2StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc4.Invoke(new EventHandler(delegate { butStatusMc4.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM"); }));
-                    SetButtonMachineStatusColor(butStatusMc4, receivedData);
+                    butStatusMc4.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc4.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine4.OnlineFlag = receivedData;
+                            SetButtonMachineStatusColor(butStatusMc4, receivedData);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_2ReqLogging")
                 {
@@ -397,8 +416,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST4StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc5.Invoke(new EventHandler(delegate { butStatusMc5.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM"); }));
-                    SetButtonMachineStatusColor(butStatusMc5, receivedData);
+                    butStatusMc5.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc5.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine5.OnlineFlag = receivedData;
+                            SetButtonMachineStatusColor(butStatusMc5, receivedData);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4ReqLogging")
                 {
@@ -424,8 +448,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST5_1StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc6.Invoke(new EventHandler(delegate { butStatusMc6.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM"); }));
-                    SetButtonMachineStatusColor(butStatusMc6, receivedData);
+                    butStatusMc6.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc6.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine6.OnlineFlag = receivedData;
+                            SetButtonMachineStatusColor(butStatusMc6, receivedData);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_1ReqLogging")
                 {
@@ -451,8 +480,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST5_2StatusMc")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butStatusMc7.Invoke(new EventHandler(delegate { butStatusMc7.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM"); }));
-                    SetButtonMachineStatusColor(butStatusMc7, receivedData);
+                    butStatusMc7.Invoke(new EventHandler(
+                        delegate 
+                        { 
+                            butStatusMc7.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
+                            this.machine7.OnlineFlag = receivedData;
+                            SetButtonMachineStatusColor(butStatusMc7, receivedData);
+                        }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqLogging")
                 {

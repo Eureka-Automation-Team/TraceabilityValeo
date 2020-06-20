@@ -13,6 +13,7 @@ namespace Trace.Monitoring
         event EventHandler FormLoad;
         event EventHandler Connect_Click;
         event EventHandler Disconnect_Click;
+
         event EventHandler InterLock;
         event EventHandler MakeReady;
         event EventHandler KeepLogging;

@@ -53,48 +53,68 @@ namespace Trace.Monitoring.Presenters
                 if (machine.Id == 1)
                 {
                     bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
-                    //WriteWord(_view.tagMainBlock +  "ST1LoggingApp", 1);
-                    ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                    }                    
                 }
 
                 //Station2
                 if (machine.Id == 2)
                 {
-                    KeepLogForMachine2(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "ST2LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
+                    }
                 }
 
                 //Station3
                 if (machine.Id == 3)
                 {
-                    KeepLogForMachine3(r, machine);
-                    WriteWord(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine3(r, machine);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                    }
                 }
 
                 if (machine.Id == 4)
                 {
-                    KeepLogForMachine4(r, machine);
-                    WriteWord(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine4(r, machine);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                    }
                 }
 
                 //Station4
                 if (machine.Id == 5)
                 {
-                    KeepLogForMachine5(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "ST4LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                    }
                 }
 
                 //Station5
                 if (machine.Id == 6)
                 {
-                    KeepLogForMachine6(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                    }
                 }
 
                 if (machine.Id == 7)
                 {
-                    KeepLogForMachine7(r, machine, machineTags);
-                    WriteWord(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+                    bool keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+                    }
                 }
             }               
         }
@@ -304,8 +324,9 @@ namespace Trace.Monitoring.Presenters
             
         }
 
-        private void KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private async Task<bool> KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
             var tagsPart = (from tag in machineTags
@@ -412,11 +433,21 @@ namespace Trace.Monitoring.Presenters
                 i++;
             }
 
-            _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
-        private void KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private async Task<bool> KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -455,11 +486,21 @@ namespace Trace.Monitoring.Presenters
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
-            _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
-        private void KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private async Task<bool> KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -498,7 +539,16 @@ namespace Trace.Monitoring.Presenters
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
-            _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -506,8 +556,9 @@ namespace Trace.Monitoring.Presenters
         /// </summary>
         /// <param name="r"></param>
         /// <param name="m"></param>
-        private void KeepLogForMachine5(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private async Task<bool> KeepLogForMachine5(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
             var tagsPart = (from tag in machineTags
@@ -599,7 +650,16 @@ namespace Trace.Monitoring.Presenters
                 i++;
             }
 
-                _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -607,8 +667,9 @@ namespace Trace.Monitoring.Presenters
         /// </summary>
         /// <param name="r"></param>
         /// <param name="m"></param>
-        private void KeepLogForMachine4(IEnumerable<ItemValueResult> r, MachineModel m)
+        private async Task<bool> KeepLogForMachine4(IEnumerable<ItemValueResult> r, MachineModel m)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -629,7 +690,16 @@ namespace Trace.Monitoring.Presenters
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
-            _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -637,8 +707,9 @@ namespace Trace.Monitoring.Presenters
         /// </summary>
         /// <param name="r"></param>
         /// <param name="m"></param>
-        private void KeepLogForMachine3(IEnumerable<ItemValueResult> r, MachineModel m)
+        private async Task<bool> KeepLogForMachine3(IEnumerable<ItemValueResult> r, MachineModel m)
         {
+            bool result = true;
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -659,7 +730,16 @@ namespace Trace.Monitoring.Presenters
                     trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
-            _serviceTraceLog.Create(trace);
+            try
+            {
+                await _serviceTraceLog.Create(trace);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         private void Disconnect_Click(object sender, EventArgs e)

@@ -47,3 +47,4 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migra
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Altercolumntype.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Alterdatatypecamera_result.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Alterdatatypetraceabilitylog.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Addcolumnonmachine.resources
