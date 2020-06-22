@@ -261,6 +261,7 @@ namespace Trace.Monitoring
         public event EventHandler InterLock;
         public event EventHandler MakeReady;
         public event EventHandler KeepLogging;
+        public event EventHandler CompleteAction;
 
         public MainForm()
         {
@@ -581,6 +582,48 @@ namespace Trace.Monitoring
         {
             if (MakeReady != null)
                 MakeReady(sender, e);
+        }
+
+        private void butCompletedLogging1_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
+        }
+
+        private void butCompletedLogging2_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
+        }
+
+        private void butCompletedLogging3_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
+        }
+
+        private void butCompletedLogging4_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
+        }
+
+        private void butCompletedLogging5_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
+        }
+
+        private void butCompletedLogging6_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
+        }
+
+        private void butCompletedLogging7_Click(object sender, EventArgs e)
+        {
+            if (CompleteAction != null)
+                CompleteAction(sender, e);
         }
     }
 }

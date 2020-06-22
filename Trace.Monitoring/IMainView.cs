@@ -17,6 +17,7 @@ namespace Trace.Monitoring
         event EventHandler InterLock;
         event EventHandler MakeReady;
         event EventHandler KeepLogging;
+        event EventHandler CompleteAction;
 
         Server daServer { get; set; }
         Subscription groupRead { get; set; }

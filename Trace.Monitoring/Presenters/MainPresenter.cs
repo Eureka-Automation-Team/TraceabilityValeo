@@ -33,6 +33,42 @@ namespace Trace.Monitoring.Presenters
             _view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
             _view.KeepLogging += KeepLogging;
+            _view.CompleteAction += CompleteAction;
+        }
+
+        private async void CompleteAction(object sender, EventArgs e)
+        {
+            Button but = sender as Button;
+            var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
+
+            if (but.Name == "butCompletedLogging1")
+            {
+                MachineModel machine = await _serviceMachine.GetByID(1);
+
+                var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                var tags = (from tag in machineTags
+                            where tag.MachineId == machine.Id
+                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                var tagName = _view.tagMainBlock + "ST1Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null) {
+                    ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                }
+                else
+                {
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                    }
+                }
+            }
         }
 
         private async void KeepLogging(object sender, EventArgs e)
@@ -812,12 +848,11 @@ namespace Trace.Monitoring.Presenters
             return true;
         }
 
-        [Obsolete]
         private async void FormLoad(object sender, EventArgs e)
         {
 
-            _view.serverUrl = ConfigurationSettings.AppSettings["DefaultUrl"].ToString();
-            _view.tagMainBlock = ConfigurationSettings.AppSettings["MainBlock"].ToString();
+            _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
+            _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
             var machines = await _serviceMachine.GetAll();
             int i = 1;
@@ -961,7 +996,7 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.groupWrite.Write(writeValues);
                 return true;
-            }catch(Exception ex)
+            }catch
             {
                 return false;
             }
