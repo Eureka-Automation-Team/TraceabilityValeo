@@ -167,6 +167,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName1.Tag = _machine1;
                     txtManchineName1.Text = _machine1.ManchineName;
+                    butRequestVerifyCode1.Text = _machine1.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult1.Text = _machine1.MessageResult;
                 }
             }
         }
@@ -181,6 +183,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName2.Tag = _machine2;
                     txtManchineName2.Text = _machine2.ManchineName;
+                    butRequestVerifyCode2.Text = _machine2.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult2.Text = _machine2.MessageResult;
                 }
             }
         }
@@ -195,6 +199,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName3.Tag = _machine3;
                     txtManchineName3.Text = _machine3.ManchineName;
+                    butRequestVerifyCode3.Text = _machine3.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult3.Text = _machine3.MessageResult;
                 }
             }
         }
@@ -209,6 +215,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName4.Tag = _machine4;
                     txtManchineName4.Text = _machine4.ManchineName;
+                    butRequestVerifyCode4.Text = _machine4.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult4.Text = _machine4.MessageResult;
                 }
             }
         }
@@ -223,6 +231,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName5.Tag = _machine5;
                     txtManchineName5.Text = _machine5.ManchineName;
+                    butRequestVerifyCode5.Text = _machine5.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult5.Text = _machine5.MessageResult;
                 }
             }
         }
@@ -237,6 +247,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName6.Tag = _machine6;
                     txtManchineName6.Text = _machine6.ManchineName;
+                    butRequestVerifyCode6.Text = _machine6.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult6.Text = _machine6.MessageResult;
                 }
             }
         }
@@ -251,6 +263,8 @@ namespace Trace.Monitoring
                 {
                     txtManchineName7.Tag = _machine7;
                     txtManchineName7.Text = _machine7.ManchineName;
+                    butRequestVerifyCode7.Text = _machine7.RequestVerifyCode.ToString().ToUpper();
+                    txtMessageResult7.Text = _machine7.MessageResult;
                 }
             }
         }
@@ -317,6 +331,16 @@ namespace Trace.Monitoring
                             SetButtonStatusColor(butCompletedLogging1, receivedData);
                         }));                    
                 }
+                if (values[i].ItemName == tagMainBlock + "ST1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine1.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode1, receivedData);
+                        }));
+                }
 
                 //Machine 2
                 if (values[i].ItemName == tagMainBlock + "ST2StatusMc")
@@ -353,6 +377,16 @@ namespace Trace.Monitoring
                             butCompletedLogging2.Text = this.machine2.CompletedLoggingDesc;
                             SetButtonStatusColor(butCompletedLogging2, receivedData);
                         }));                    
+                }
+                if (values[i].ItemName == tagMainBlock + "ST2ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine2.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode2, receivedData);
+                        }));
                 }
 
                 //Machine 3
@@ -391,6 +425,16 @@ namespace Trace.Monitoring
                             SetButtonStatusColor(butCompletedLogging3, receivedData);
                         }));                    
                 }
+                if (values[i].ItemName == tagMainBlock + "ST3_1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode3.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine3.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode3, receivedData);
+                        }));
+                }
 
                 //Machine 4
                 if (values[i].ItemName == tagMainBlock + "ST3_2StatusMc")
@@ -427,6 +471,16 @@ namespace Trace.Monitoring
                             butCompletedLogging4.Text = this.machine4.CompletedLoggingDesc;
                             SetButtonStatusColor(butCompletedLogging4, receivedData);
                         }));                    
+                }
+                if (values[i].ItemName == tagMainBlock + "ST3_2ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine4.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode4, receivedData);
+                        }));
                 }
 
                 //Machine 5
@@ -465,6 +519,16 @@ namespace Trace.Monitoring
                             SetButtonStatusColor(butCompletedLogging5, receivedData);
                         }));                    
                 }
+                if (values[i].ItemName == tagMainBlock + "ST4ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode5.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine5.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode5, receivedData);
+                        }));
+                }
 
                 //Machine 6
                 if (values[i].ItemName == tagMainBlock + "ST5_1StatusMc")
@@ -502,6 +566,16 @@ namespace Trace.Monitoring
                             SetButtonStatusColor(butCompletedLogging6, receivedData);
                         }));                    
                 }
+                if (values[i].ItemName == tagMainBlock + "ST5_1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode6.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine6.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode6, receivedData);
+                        }));
+                }
 
                 //Machine 7
                 if (values[i].ItemName == tagMainBlock + "ST5_2StatusMc")
@@ -538,6 +612,16 @@ namespace Trace.Monitoring
                             butCompletedLogging7.Text = this.machine7.CompletedLoggingDesc;
                             SetButtonStatusColor(butCompletedLogging7, receivedData);
                         }));                    
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_2ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode7.Invoke(new EventHandler(
+                        delegate
+                        {
+                            this.machine7.RequestVerifyCode = Convert.ToBoolean(receivedData);
+                            SetButtonStatusColor(butRequestVerifyCode7, receivedData);
+                        }));
                 }
             }
         }

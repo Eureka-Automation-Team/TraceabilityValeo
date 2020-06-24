@@ -261,7 +261,16 @@ namespace Trace.Monitoring.Presenters
                 //Station1
                 if (machine.Id == 1)
                 {
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = false;
+                    _view.machine1.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine1.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
@@ -271,7 +280,16 @@ namespace Trace.Monitoring.Presenters
                 //Station2
                 if (machine.Id == 2)
                 {
-                    bool keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                    bool keepLog = false;
+                    _view.machine2.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine2.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
@@ -281,7 +299,16 @@ namespace Trace.Monitoring.Presenters
                 //Station3
                 if (machine.Id == 3)
                 {
-                    bool keepLog = await KeepLogForMachine3(r, machine);
+                    bool keepLog = false;
+                    _view.machine3.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine3(r, machine);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine3.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
@@ -290,7 +317,16 @@ namespace Trace.Monitoring.Presenters
 
                 if (machine.Id == 4)
                 {
-                    bool keepLog = await KeepLogForMachine4(r, machine);
+                    bool keepLog = false;
+                    _view.machine4.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine4(r, machine);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine4.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
@@ -300,7 +336,16 @@ namespace Trace.Monitoring.Presenters
                 //Station4
                 if (machine.Id == 5)
                 {
-                    bool keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                    bool keepLog = false;
+                    _view.machine5.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine5.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
@@ -310,7 +355,16 @@ namespace Trace.Monitoring.Presenters
                 //Station5
                 if (machine.Id == 6)
                 {
-                    bool keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                    bool keepLog = false;
+                    _view.machine6.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine6.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
@@ -319,7 +373,16 @@ namespace Trace.Monitoring.Presenters
 
                 if (machine.Id == 7)
                 {
-                    bool keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                    bool keepLog = false;
+                    _view.machine7.MessageResult = string.Empty;
+                    try
+                    {
+                        keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.machine7.MessageResult = ex.Message;
+                    }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);

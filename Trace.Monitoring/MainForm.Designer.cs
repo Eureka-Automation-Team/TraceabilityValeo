@@ -182,10 +182,10 @@
             this.panel76 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode1 = new System.Windows.Forms.Button();
             this.panel77 = new System.Windows.Forms.Panel();
             this.panel78 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult1 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.panel79 = new System.Windows.Forms.Panel();
             this.panel80 = new System.Windows.Forms.Panel();
@@ -204,22 +204,22 @@
             this.panel93 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode2 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode3 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode4 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode5 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode6 = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode7 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult2 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult3 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult4 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult5 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult6 = new System.Windows.Forms.TextBox();
+            this.txtMessageResult7 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1982,7 +1982,7 @@
             // 
             // panel71
             // 
-            this.panel71.Controls.Add(this.button1);
+            this.panel71.Controls.Add(this.butRequestVerifyCode1);
             this.panel71.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel71.Location = new System.Drawing.Point(751, 33);
             this.panel71.Name = "panel71";
@@ -2000,7 +2000,7 @@
             // 
             // panel73
             // 
-            this.panel73.Controls.Add(this.button2);
+            this.panel73.Controls.Add(this.butRequestVerifyCode2);
             this.panel73.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel73.Location = new System.Drawing.Point(727, 33);
             this.panel73.Name = "panel73";
@@ -2040,12 +2040,12 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(134, 24);
             this.label27.TabIndex = 9;
-            this.label27.Text = "Verify Code";
+            this.label27.Text = "Request Verify";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel75
             // 
-            this.panel75.Controls.Add(this.button3);
+            this.panel75.Controls.Add(this.butRequestVerifyCode3);
             this.panel75.Location = new System.Drawing.Point(727, 33);
             this.panel75.Name = "panel75";
             this.panel75.Size = new System.Drawing.Size(134, 32);
@@ -2053,7 +2053,7 @@
             // 
             // panel76
             // 
-            this.panel76.Controls.Add(this.button4);
+            this.panel76.Controls.Add(this.butRequestVerifyCode4);
             this.panel76.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel76.Location = new System.Drawing.Point(727, 71);
             this.panel76.Name = "panel76";
@@ -2070,7 +2070,7 @@
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(134, 24);
             this.label28.TabIndex = 10;
-            this.label28.Text = "Verify Code";
+            this.label28.Text = "Request Verify";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label29
@@ -2083,21 +2083,21 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(134, 24);
             this.label29.TabIndex = 10;
-            this.label29.Text = "Verify Code";
+            this.label29.Text = "Request Verify";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // butRequestVerifyCode1
             // 
-            this.button1.BackColor = System.Drawing.Color.Gray;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 29);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode1.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode1.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode1.Name = "butRequestVerifyCode1";
+            this.butRequestVerifyCode1.Size = new System.Drawing.Size(134, 29);
+            this.butRequestVerifyCode1.TabIndex = 6;
+            this.butRequestVerifyCode1.UseVisualStyleBackColor = false;
             // 
             // panel77
             // 
@@ -2110,21 +2110,21 @@
             // 
             // panel78
             // 
-            this.panel78.Controls.Add(this.textBox6);
+            this.panel78.Controls.Add(this.txtMessageResult1);
             this.panel78.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel78.Location = new System.Drawing.Point(891, 33);
             this.panel78.Name = "panel78";
             this.panel78.Size = new System.Drawing.Size(294, 29);
             this.panel78.TabIndex = 35;
             // 
-            // textBox6
+            // txtMessageResult1
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(0, 0);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(294, 29);
-            this.textBox6.TabIndex = 8;
+            this.txtMessageResult1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult1.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult1.Multiline = true;
+            this.txtMessageResult1.Name = "txtMessageResult1";
+            this.txtMessageResult1.Size = new System.Drawing.Size(294, 29);
+            this.txtMessageResult1.TabIndex = 8;
             // 
             // label30
             // 
@@ -2150,7 +2150,7 @@
             // 
             // panel80
             // 
-            this.panel80.Controls.Add(this.button5);
+            this.panel80.Controls.Add(this.butRequestVerifyCode5);
             this.panel80.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel80.Location = new System.Drawing.Point(727, 33);
             this.panel80.Name = "panel80";
@@ -2168,7 +2168,7 @@
             // 
             // panel82
             // 
-            this.panel82.Controls.Add(this.button6);
+            this.panel82.Controls.Add(this.butRequestVerifyCode6);
             this.panel82.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel82.Location = new System.Drawing.Point(727, 33);
             this.panel82.Name = "panel82";
@@ -2177,7 +2177,7 @@
             // 
             // panel83
             // 
-            this.panel83.Controls.Add(this.button7);
+            this.panel83.Controls.Add(this.butRequestVerifyCode7);
             this.panel83.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel83.Location = new System.Drawing.Point(727, 71);
             this.panel83.Name = "panel83";
@@ -2195,7 +2195,7 @@
             // 
             // panel85
             // 
-            this.panel85.Controls.Add(this.textBox7);
+            this.panel85.Controls.Add(this.txtMessageResult2);
             this.panel85.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel85.Location = new System.Drawing.Point(867, 33);
             this.panel85.Name = "panel85";
@@ -2213,7 +2213,7 @@
             // 
             // panel87
             // 
-            this.panel87.Controls.Add(this.textBox8);
+            this.panel87.Controls.Add(this.txtMessageResult3);
             this.panel87.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel87.Location = new System.Drawing.Point(867, 33);
             this.panel87.Name = "panel87";
@@ -2222,7 +2222,7 @@
             // 
             // panel88
             // 
-            this.panel88.Controls.Add(this.textBox9);
+            this.panel88.Controls.Add(this.txtMessageResult4);
             this.panel88.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel88.Location = new System.Drawing.Point(867, 71);
             this.panel88.Name = "panel88";
@@ -2240,7 +2240,7 @@
             // 
             // panel90
             // 
-            this.panel90.Controls.Add(this.textBox10);
+            this.panel90.Controls.Add(this.txtMessageResult5);
             this.panel90.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel90.Location = new System.Drawing.Point(867, 33);
             this.panel90.Name = "panel90";
@@ -2258,7 +2258,7 @@
             // 
             // panel92
             // 
-            this.panel92.Controls.Add(this.textBox11);
+            this.panel92.Controls.Add(this.txtMessageResult6);
             this.panel92.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel92.Location = new System.Drawing.Point(867, 33);
             this.panel92.Name = "panel92";
@@ -2267,7 +2267,7 @@
             // 
             // panel93
             // 
-            this.panel93.Controls.Add(this.textBox12);
+            this.panel93.Controls.Add(this.txtMessageResult7);
             this.panel93.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel93.Location = new System.Drawing.Point(867, 71);
             this.panel93.Name = "panel93";
@@ -2284,7 +2284,7 @@
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(134, 24);
             this.label31.TabIndex = 11;
-            this.label31.Text = "Verify Code";
+            this.label31.Text = "Request Verify";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label32
@@ -2297,86 +2297,86 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(134, 24);
             this.label32.TabIndex = 11;
-            this.label32.Text = "Verify Code";
+            this.label32.Text = "Request Verify";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // butRequestVerifyCode2
             // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 29);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode2.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode2.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode2.Name = "butRequestVerifyCode2";
+            this.butRequestVerifyCode2.Size = new System.Drawing.Size(134, 29);
+            this.butRequestVerifyCode2.TabIndex = 7;
+            this.butRequestVerifyCode2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // butRequestVerifyCode3
             // 
-            this.button3.BackColor = System.Drawing.Color.Gray;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 32);
-            this.button3.TabIndex = 7;
-            this.button3.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode3.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode3.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode3.Name = "butRequestVerifyCode3";
+            this.butRequestVerifyCode3.Size = new System.Drawing.Size(134, 32);
+            this.butRequestVerifyCode3.TabIndex = 7;
+            this.butRequestVerifyCode3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // butRequestVerifyCode4
             // 
-            this.button4.BackColor = System.Drawing.Color.Gray;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(134, 32);
-            this.button4.TabIndex = 7;
-            this.button4.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode4.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode4.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode4.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode4.Name = "butRequestVerifyCode4";
+            this.butRequestVerifyCode4.Size = new System.Drawing.Size(134, 32);
+            this.butRequestVerifyCode4.TabIndex = 7;
+            this.butRequestVerifyCode4.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // butRequestVerifyCode5
             // 
-            this.button5.BackColor = System.Drawing.Color.Gray;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(0, 0);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(134, 29);
-            this.button5.TabIndex = 7;
-            this.button5.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode5.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode5.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode5.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode5.Name = "butRequestVerifyCode5";
+            this.butRequestVerifyCode5.Size = new System.Drawing.Size(134, 29);
+            this.butRequestVerifyCode5.TabIndex = 7;
+            this.butRequestVerifyCode5.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // butRequestVerifyCode6
             // 
-            this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 32);
-            this.button6.TabIndex = 7;
-            this.button6.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode6.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode6.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode6.Name = "butRequestVerifyCode6";
+            this.butRequestVerifyCode6.Size = new System.Drawing.Size(134, 32);
+            this.butRequestVerifyCode6.TabIndex = 7;
+            this.butRequestVerifyCode6.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // butRequestVerifyCode7
             // 
-            this.button7.BackColor = System.Drawing.Color.Gray;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(0, 0);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(134, 32);
-            this.button7.TabIndex = 7;
-            this.button7.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode7.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode7.Location = new System.Drawing.Point(0, 0);
+            this.butRequestVerifyCode7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode7.Name = "butRequestVerifyCode7";
+            this.butRequestVerifyCode7.Size = new System.Drawing.Size(134, 32);
+            this.butRequestVerifyCode7.TabIndex = 7;
+            this.butRequestVerifyCode7.UseVisualStyleBackColor = false;
             // 
             // label33
             // 
@@ -2430,59 +2430,59 @@
             this.label36.Text = "Message ";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox7
+            // txtMessageResult2
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(0, 0);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(318, 29);
-            this.textBox7.TabIndex = 9;
+            this.txtMessageResult2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult2.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult2.Multiline = true;
+            this.txtMessageResult2.Name = "txtMessageResult2";
+            this.txtMessageResult2.Size = new System.Drawing.Size(318, 29);
+            this.txtMessageResult2.TabIndex = 9;
             // 
-            // textBox8
+            // txtMessageResult3
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(0, 0);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(318, 32);
-            this.textBox8.TabIndex = 9;
+            this.txtMessageResult3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult3.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult3.Multiline = true;
+            this.txtMessageResult3.Name = "txtMessageResult3";
+            this.txtMessageResult3.Size = new System.Drawing.Size(318, 32);
+            this.txtMessageResult3.TabIndex = 9;
             // 
-            // textBox9
+            // txtMessageResult4
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(0, 0);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(318, 32);
-            this.textBox9.TabIndex = 9;
+            this.txtMessageResult4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult4.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult4.Multiline = true;
+            this.txtMessageResult4.Name = "txtMessageResult4";
+            this.txtMessageResult4.Size = new System.Drawing.Size(318, 32);
+            this.txtMessageResult4.TabIndex = 9;
             // 
-            // textBox10
+            // txtMessageResult5
             // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Location = new System.Drawing.Point(0, 0);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(318, 29);
-            this.textBox10.TabIndex = 9;
+            this.txtMessageResult5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult5.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult5.Multiline = true;
+            this.txtMessageResult5.Name = "txtMessageResult5";
+            this.txtMessageResult5.Size = new System.Drawing.Size(318, 29);
+            this.txtMessageResult5.TabIndex = 9;
             // 
-            // textBox11
+            // txtMessageResult6
             // 
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Location = new System.Drawing.Point(0, 0);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(318, 32);
-            this.textBox11.TabIndex = 9;
+            this.txtMessageResult6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult6.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult6.Multiline = true;
+            this.txtMessageResult6.Name = "txtMessageResult6";
+            this.txtMessageResult6.Size = new System.Drawing.Size(318, 32);
+            this.txtMessageResult6.TabIndex = 9;
             // 
-            // textBox12
+            // txtMessageResult7
             // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Location = new System.Drawing.Point(0, 0);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(318, 32);
-            this.textBox12.TabIndex = 9;
+            this.txtMessageResult7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult7.Location = new System.Drawing.Point(0, 0);
+            this.txtMessageResult7.Multiline = true;
+            this.txtMessageResult7.Name = "txtMessageResult7";
+            this.txtMessageResult7.Size = new System.Drawing.Size(318, 32);
+            this.txtMessageResult7.TabIndex = 9;
             // 
             // MainForm
             // 
@@ -2790,44 +2790,44 @@
         private System.Windows.Forms.Button butStatusMc4;
         private System.Windows.Forms.Panel panel75;
         private System.Windows.Forms.Panel panel76;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button butRequestVerifyCode1;
         private System.Windows.Forms.Panel panel77;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel78;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtMessageResult1;
+        private System.Windows.Forms.Button butRequestVerifyCode2;
         private System.Windows.Forms.Panel panel84;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel panel85;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtMessageResult2;
+        private System.Windows.Forms.Button butRequestVerifyCode3;
+        private System.Windows.Forms.Button butRequestVerifyCode4;
         private System.Windows.Forms.Panel panel86;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Panel panel87;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtMessageResult3;
         private System.Windows.Forms.Panel panel88;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtMessageResult4;
         private System.Windows.Forms.Panel panel79;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Panel panel80;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button butRequestVerifyCode5;
         private System.Windows.Forms.Panel panel89;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Panel panel90;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtMessageResult5;
         private System.Windows.Forms.Panel panel81;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Panel panel82;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button butRequestVerifyCode6;
         private System.Windows.Forms.Panel panel83;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button butRequestVerifyCode7;
         private System.Windows.Forms.Panel panel91;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel92;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtMessageResult6;
         private System.Windows.Forms.Panel panel93;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtMessageResult7;
     }
 }
 
