@@ -480,7 +480,7 @@ namespace Trace.UI.Controls
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(166, 18);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Actuator Serial No.";
+            this.label6.Text = "Actuator No.";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel24

@@ -43,15 +43,6 @@ namespace Trace.Monitoring.Presenters
 
             if (but.Name == "butCompletedLogging1")
             {
-                MachineModel machine = await _serviceMachine.GetByID(1);
-
-                var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
-                var tags = (from tag in machineTags
-                            where tag.MachineId == machine.Id
-                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
-
-                var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
-
                 var tagName = _view.tagMainBlock + "ST1Code";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
@@ -61,11 +52,193 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
+                    MachineModel machine = await _serviceMachine.GetByID(1);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
                     bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                    }
+                }
+            }
+
+            if (but.Name == "butCompletedLogging2")
+            {
+                var tagName = _view.tagMainBlock + "ST2Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null)
+                {
+                    ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
+                }
+                else
+                {
+                    MachineModel machine = await _serviceMachine.GetByID(2);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
+                    }
+                }
+            }
+
+            if (but.Name == "butCompletedLogging3")
+            {
+                var tagName = _view.tagMainBlock + "ST3_1Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null)
+                {
+                    ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                }
+                else
+                {
+                    MachineModel machine = await _serviceMachine.GetByID(3);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                    }
+                }
+            }
+
+            if (but.Name == "butCompletedLogging4")
+            {
+                var tagName = _view.tagMainBlock + "ST3_2Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null)
+                {
+                    ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                }
+                else
+                {
+                    MachineModel machine = await _serviceMachine.GetByID(4);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                    }
+                }
+            }
+
+            if (but.Name == "butCompletedLogging5")
+            {
+                var tagName = _view.tagMainBlock + "ST4Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null)
+                {
+                    ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                }
+                else
+                {
+                    MachineModel machine = await _serviceMachine.GetByID(5);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                    }
+                }
+            }
+
+            if (but.Name == "butCompletedLogging6")
+            {
+                var tagName = _view.tagMainBlock + "ST5_1Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null)
+                {
+                    ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                }
+                else
+                {
+                    MachineModel machine = await _serviceMachine.GetByID(6);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                    }
+                }
+            }
+
+            if (but.Name == "butCompletedLogging7")
+            {
+                var tagName = _view.tagMainBlock + "ST5_2Code";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                if (loggings != null)
+                {
+                    ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+                }
+                else
+                {
+                    MachineModel machine = await _serviceMachine.GetByID(7);
+
+                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    if (keepLog)
+                    {
+                        ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
                     }
                 }
             }

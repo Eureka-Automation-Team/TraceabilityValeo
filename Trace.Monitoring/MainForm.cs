@@ -288,8 +288,8 @@ namespace Trace.Monitoring
                     butStatusMc1.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc1.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine1.OnlineFlag = receivedData;
+                            butStatusMc1.Text = this.machine1.StatusName;
                             SetButtonMachineStatusColor(butStatusMc1, receivedData);
                         }));                    
                 }
@@ -301,7 +301,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging1.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging1, val);
+                            SetButtonStatusColor(butRequestLogging1, receivedData);
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName1.Tag, null);
                         }));
@@ -311,9 +311,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging1.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            butCompletedLogging1.Text = Convert.ToBoolean(receivedData).ToString().ToUpper();
-                            SetButtonStatusColor(butCompletedLogging1, Convert.ToBoolean(receivedData));
+                        {
+                            this.machine1.CompletedLogging = receivedData;
+                            butCompletedLogging1.Text = this.machine1.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging1, receivedData);
                         }));                    
                 }
 
@@ -324,8 +325,8 @@ namespace Trace.Monitoring
                     butStatusMc2.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc2.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine2.OnlineFlag = receivedData;
+                            butStatusMc2.Text = this.machine2.StatusName;
                             SetButtonMachineStatusColor(butStatusMc2, receivedData);
                         }));                    
                 }
@@ -337,7 +338,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging2.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging2, val);
+                            SetButtonStatusColor(butRequestLogging2, receivedData);
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName2.Tag, null);
                         }));
@@ -345,8 +346,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST2LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging2.Invoke(new EventHandler(delegate { butCompletedLogging2.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging2, Convert.ToBoolean(receivedData));
+                    butCompletedLogging2.Invoke(new EventHandler(
+                        delegate 
+                        {
+                            this.machine2.CompletedLogging = receivedData;
+                            butCompletedLogging2.Text = this.machine2.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging2, receivedData);
+                        }));                    
                 }
 
                 //Machine 3
@@ -356,8 +362,8 @@ namespace Trace.Monitoring
                     butStatusMc3.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc3.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine3.OnlineFlag = receivedData;
+                            butStatusMc3.Text = this.machine3.StatusName;
                             SetButtonMachineStatusColor(butStatusMc3, receivedData);
                         }));                    
                 }
@@ -369,7 +375,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging3.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging3, val);
+                            SetButtonStatusColor(butRequestLogging3, receivedData);
                             if(val)
                                 KeepLogging((MachineModel)txtManchineName3.Tag, null);
                         }));                    
@@ -377,8 +383,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST3_1LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging3.Invoke(new EventHandler(delegate { butCompletedLogging3.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging3, Convert.ToBoolean(receivedData));
+                    butCompletedLogging3.Invoke(new EventHandler(
+                        delegate 
+                        {
+                            this.machine3.CompletedLogging = receivedData;
+                            butCompletedLogging3.Text = this.machine3.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging3, receivedData);
+                        }));                    
                 }
 
                 //Machine 4
@@ -388,8 +399,8 @@ namespace Trace.Monitoring
                     butStatusMc4.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc4.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine4.OnlineFlag = receivedData;
+                            butStatusMc4.Text = this.machine4.StatusName;
                             SetButtonMachineStatusColor(butStatusMc4, receivedData);
                         }));                    
                 }
@@ -401,7 +412,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging4.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging4, val);
+                            SetButtonStatusColor(butRequestLogging4, receivedData);
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName4.Tag, null);
                         }));
@@ -409,8 +420,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST3_2LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging4.Invoke(new EventHandler(delegate { butCompletedLogging4.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging4, Convert.ToBoolean(receivedData));
+                    butCompletedLogging4.Invoke(new EventHandler(
+                        delegate 
+                        {
+                            this.machine4.CompletedLogging = receivedData;
+                            butCompletedLogging4.Text = this.machine4.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging4, receivedData);
+                        }));                    
                 }
 
                 //Machine 5
@@ -420,8 +436,8 @@ namespace Trace.Monitoring
                     butStatusMc5.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc5.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine5.OnlineFlag = receivedData;
+                            butStatusMc5.Text = this.machine5.StatusName;
                             SetButtonMachineStatusColor(butStatusMc5, receivedData);
                         }));                    
                 }
@@ -433,7 +449,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging5.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging5, val);
+                            SetButtonStatusColor(butRequestLogging5, receivedData);
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName5.Tag, null);
                         }));
@@ -441,8 +457,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST4LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging5.Invoke(new EventHandler(delegate { butCompletedLogging5.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging5, Convert.ToBoolean(receivedData));
+                    butCompletedLogging5.Invoke(new EventHandler(
+                        delegate 
+                        {
+                            this.machine5.CompletedLogging = receivedData;
+                            butCompletedLogging5.Text = this.machine5.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging5, receivedData);
+                        }));                    
                 }
 
                 //Machine 6
@@ -452,8 +473,8 @@ namespace Trace.Monitoring
                     butStatusMc6.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc6.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine6.OnlineFlag = receivedData;
+                            butStatusMc6.Text = this.machine6.StatusName;
                             SetButtonMachineStatusColor(butStatusMc6, receivedData);
                         }));                    
                 }
@@ -465,7 +486,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging6.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging6, val);
+                            SetButtonStatusColor(butRequestLogging6, receivedData);
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName6.Tag, null);
                         }));
@@ -473,8 +494,13 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST5_1LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging6.Invoke(new EventHandler(delegate { butCompletedLogging6.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging6, Convert.ToBoolean(receivedData));
+                    butCompletedLogging6.Invoke(new EventHandler(
+                        delegate 
+                        {
+                            this.machine6.CompletedLogging = receivedData;
+                            butCompletedLogging6.Text = this.machine6.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging6, receivedData);
+                        }));                    
                 }
 
                 //Machine 7
@@ -484,8 +510,8 @@ namespace Trace.Monitoring
                     butStatusMc7.Invoke(new EventHandler(
                         delegate 
                         { 
-                            butStatusMc7.Text = (receivedData == 0) ? "OFFLINE" : (receivedData == 1 ? "ONLINE" : "ALARM");
                             this.machine7.OnlineFlag = receivedData;
+                            butStatusMc7.Text = this.machine7.StatusName;
                             SetButtonMachineStatusColor(butStatusMc7, receivedData);
                         }));                    
                 }
@@ -497,7 +523,7 @@ namespace Trace.Monitoring
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             butRequestLogging7.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging7, val);
+                            SetButtonStatusColor(butRequestLogging7, receivedData);
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName7.Tag, null);
                         }));
@@ -505,21 +531,34 @@ namespace Trace.Monitoring
                 if (values[i].ItemName == tagMainBlock + "ST5_2LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging7.Invoke(new EventHandler(delegate { butCompletedLogging7.Text = Convert.ToBoolean(receivedData).ToString().ToUpper(); }));
-                    SetButtonStatusColor(butCompletedLogging7, Convert.ToBoolean(receivedData));
+                    butCompletedLogging7.Invoke(new EventHandler(
+                        delegate 
+                        {
+                            this.machine7.CompletedLogging = receivedData;
+                            butCompletedLogging7.Text = this.machine7.CompletedLoggingDesc;
+                            SetButtonStatusColor(butCompletedLogging7, receivedData);
+                        }));                    
                 }
             }
         }
 
-        private void SetButtonStatusColor(Button butStatus, bool v)
+        private void SetButtonStatusColor(Button butStatus, int v)
         {
-            if (v)
+            if (v == 0)
+            {
+                butStatus.BackColor = Color.Gray;
+            }
+            else if (v == 1)
             {
                 butStatus.BackColor = Color.GreenYellow;
             }
-            else
+            else if (v == 2)
             {
-                butStatus.BackColor = Color.Gray;
+                butStatus.BackColor = Color.OrangeRed;
+            }
+            else if (v == 3)
+            {
+                butStatus.BackColor = Color.Red;
             }
         }
 
@@ -527,11 +566,11 @@ namespace Trace.Monitoring
         {
             if (mcStatus == 0)
             {
-                butStatus.BackColor = Color.GreenYellow;
+                butStatus.BackColor = Color.Gray;
             }
             else if (mcStatus == 1)
             {
-                butStatus.BackColor = Color.Gray;
+                butStatus.BackColor = Color.GreenYellow;
             }
             else
             {
