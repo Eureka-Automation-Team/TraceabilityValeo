@@ -262,131 +262,175 @@ namespace Trace.Monitoring.Presenters
                 if (machine.Id == 1)
                 {
                     bool keepLog = false;
-                    _view.machine1.MessageResult = string.Empty;
-                    try
+                    var machineTmp = _view.machine1;
+                    machineTmp.MessageResult = string.Empty;
+
+                    var tagName = _view.tagMainBlock + "ST1Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == 1);
+
+                    if(loggings != null)
                     {
-                        keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        _view.machine1.MessageResult = ex.Message;
+                        try
+                        {
+                            keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            machineTmp.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                        }
                     }
-                    if (keepLog)
-                    {
-                        ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
-                    }                    
+
+                    _view.machine1 = machineTmp;
                 }
 
                 //Station2
                 if (machine.Id == 2)
                 {
                     bool keepLog = false;
-                    _view.machine2.MessageResult = string.Empty;
+                    var machineTmp = _view.machine2;
+                    machineTmp.MessageResult = string.Empty;
                     try
                     {
                         keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                        machineTmp.CompletedLogging = 1;
                     }
                     catch (Exception ex)
                     {
-                        _view.machine2.MessageResult = ex.Message;
+                        machineTmp.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
                     }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
                     }
+                    _view.machine2 = machineTmp;
                 }
 
                 //Station3
                 if (machine.Id == 3)
                 {
                     bool keepLog = false;
+                    var machineTmp = _view.machine3;
                     _view.machine3.MessageResult = string.Empty;
                     try
                     {
                         keepLog = await KeepLogForMachine3(r, machine);
+                        machineTmp.CompletedLogging = 1;
                     }
                     catch (Exception ex)
                     {
                         _view.machine3.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
                     }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
                     }
+                    _view.machine3 = machineTmp;
                 }
 
                 if (machine.Id == 4)
                 {
                     bool keepLog = false;
+                    var machineTmp = _view.machine4;
                     _view.machine4.MessageResult = string.Empty;
                     try
                     {
                         keepLog = await KeepLogForMachine4(r, machine);
+                        machineTmp.CompletedLogging = 1;
                     }
                     catch (Exception ex)
                     {
                         _view.machine4.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
                     }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
                     }
+                    _view.machine4 = machineTmp;
                 }
 
                 //Station4
                 if (machine.Id == 5)
                 {
                     bool keepLog = false;
+                    var machineTmp = _view.machine5;
                     _view.machine5.MessageResult = string.Empty;
                     try
                     {
                         keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                        machineTmp.CompletedLogging = 1;
                     }
                     catch (Exception ex)
                     {
                         _view.machine5.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+
                     }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
                     }
+                    _view.machine5 = machineTmp;
                 }
 
                 //Station5
                 if (machine.Id == 6)
                 {
                     bool keepLog = false;
+                    var machineTmp = _view.machine6;
                     _view.machine6.MessageResult = string.Empty;
                     try
                     {
                         keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                        machineTmp.CompletedLogging = 1;
                     }
                     catch (Exception ex)
                     {
                         _view.machine6.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
                     }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
                     }
+                    _view.machine6 = machineTmp;
                 }
 
                 if (machine.Id == 7)
                 {
                     bool keepLog = false;
+                    var machineTmp = _view.machine7;
                     _view.machine7.MessageResult = string.Empty;
                     try
                     {
                         keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                        machineTmp.CompletedLogging = 1;
                     }
                     catch (Exception ex)
                     {
                         _view.machine7.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
                     }
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
                     }
+                    _view.machine7 = machineTmp;
                 }
             }               
         }

@@ -2120,6 +2120,7 @@
             // txtMessageResult1
             // 
             this.txtMessageResult1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult1.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult1.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult1.Multiline = true;
             this.txtMessageResult1.Name = "txtMessageResult1";
@@ -2433,6 +2434,7 @@
             // txtMessageResult2
             // 
             this.txtMessageResult2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult2.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult2.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult2.Multiline = true;
             this.txtMessageResult2.Name = "txtMessageResult2";
@@ -2442,6 +2444,7 @@
             // txtMessageResult3
             // 
             this.txtMessageResult3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult3.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult3.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult3.Multiline = true;
             this.txtMessageResult3.Name = "txtMessageResult3";
@@ -2451,6 +2454,7 @@
             // txtMessageResult4
             // 
             this.txtMessageResult4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult4.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult4.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult4.Multiline = true;
             this.txtMessageResult4.Name = "txtMessageResult4";
@@ -2460,6 +2464,7 @@
             // txtMessageResult5
             // 
             this.txtMessageResult5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult5.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult5.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult5.Multiline = true;
             this.txtMessageResult5.Name = "txtMessageResult5";
@@ -2469,6 +2474,7 @@
             // txtMessageResult6
             // 
             this.txtMessageResult6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult6.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult6.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult6.Multiline = true;
             this.txtMessageResult6.Name = "txtMessageResult6";
@@ -2478,6 +2484,7 @@
             // txtMessageResult7
             // 
             this.txtMessageResult7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessageResult7.ForeColor = System.Drawing.Color.Red;
             this.txtMessageResult7.Location = new System.Drawing.Point(0, 0);
             this.txtMessageResult7.Multiline = true;
             this.txtMessageResult7.Name = "txtMessageResult7";
