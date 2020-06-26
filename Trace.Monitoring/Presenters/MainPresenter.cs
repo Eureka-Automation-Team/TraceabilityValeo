@@ -785,7 +785,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if(InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if(InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -842,7 +842,7 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -940,7 +940,7 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -969,7 +969,7 @@ namespace Trace.Monitoring.Presenters
                     cam.TestResult = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1035,7 +1035,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1074,7 +1074,7 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1132,7 +1132,7 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[3]").FirstOrDefault().Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1212,7 +1212,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1289,7 +1289,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1357,7 +1357,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1402,7 +1402,7 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1440,7 +1440,7 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[1]").FirstOrDefault().Value.ToString();
                 }
 
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
