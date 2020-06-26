@@ -52,18 +52,15 @@ namespace Trace.Monitoring.Presenters
 
                 if(loggings.Count() > 0)
                 {
-                    if(loggings.Count() > 1)
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
                     {
-                        var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                        if (loggings.Count() >= maxRework)
-                        {
-                            _machine.CodeVerifyResult = 3;  //Over rework time
-                        }
-                        else
-                        {
-                            var firstResult = loggings.FirstOrDefault();
-                            _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
-                        }
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
                     }
                 }
                 else
@@ -338,11 +335,9 @@ namespace Trace.Monitoring.Presenters
                         {
                             machineTmp.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
-                        }
-
-                        ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
+                        }                        
                     }
-
+                    ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine1 = machineTmp;
                 }
 
@@ -376,13 +371,9 @@ namespace Trace.Monitoring.Presenters
                             machineTmp.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
                         }
-                        if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
-                        }
                     }
                     #endregion
-
+                    ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", machineTmp.CompletedLogging);
                     _view.machine2 = machineTmp;
                 }
 
@@ -416,13 +407,9 @@ namespace Trace.Monitoring.Presenters
                             _view.machine3.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
                         }
-                        if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
-                        }
                     }
                     #endregion
-
+                    ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine3 = machineTmp;
                 }
 
@@ -455,13 +442,9 @@ namespace Trace.Monitoring.Presenters
                             _view.machine4.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
                         }
-                        if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
-                        }
                     }
                     #endregion
-
+                    ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", machineTmp.CompletedLogging);
                     _view.machine4 = machineTmp;
                 }
 
@@ -494,15 +477,10 @@ namespace Trace.Monitoring.Presenters
                         {
                             _view.machine5.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
-
-                        }
-                        if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
                         }
                     }
                     #endregion
-
+                    ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
                     _view.machine5 = machineTmp;
                 }
 
@@ -536,13 +514,9 @@ namespace Trace.Monitoring.Presenters
                             _view.machine6.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
                         }
-                        if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
-                        }
                     }
                     #endregion
-
+                    ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine6 = machineTmp;
                 }
 

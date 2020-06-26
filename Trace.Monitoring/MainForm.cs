@@ -179,6 +179,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode1.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -205,6 +206,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode2.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -231,6 +233,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode3.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -257,6 +260,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode4.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -283,6 +287,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode5.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -309,6 +314,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode6.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -335,6 +341,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode7.Text = string.Empty;
                     }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
                 }
             }
         }
@@ -409,8 +416,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine1.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode1, receivedData);
+                            var mac = this.machine1;
+                            mac.RequestVerifyCode = val;
+                            this.machine1 = mac;
                             if (val)
                                 VerityCode(this.machine1, null);
                         }));
@@ -459,8 +467,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine2.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode2, receivedData);
+                            var mac = this.machine2;
+                            mac.RequestVerifyCode = val;
+                            this.machine2 = mac;
                             if (val)
                                 VerityCode(this.machine2, null);
                         }));
@@ -509,8 +518,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine3.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode3, receivedData);
+                            var mac = this.machine3;
+                            mac.RequestVerifyCode = val;
+                            this.machine3 = mac;
                             if (val)
                                 VerityCode(this.machine3, null);
                         }));
@@ -559,8 +569,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine4.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode4, receivedData);
+                            var mac = this.machine4;
+                            mac.RequestVerifyCode = val;
+                            this.machine4 = mac;
                             if (val)
                                 VerityCode(this.machine4, null);
                         }));
@@ -609,8 +620,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine5.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode5, receivedData);
+                            var mac = this.machine5;
+                            mac.RequestVerifyCode = val;
+                            this.machine5 = mac;
                             if (val)
                                 VerityCode(this.machine5, null);
                         }));
@@ -659,8 +671,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine6.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode6, receivedData);
+                            var mac = this.machine6;
+                            mac.RequestVerifyCode = val;
+                            this.machine6 = mac;
                             if (val)
                                 VerityCode(this.machine6, null);
                         }));
@@ -697,9 +710,11 @@ namespace Trace.Monitoring
                     butCompletedLogging7.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine7.CompletedLogging = receivedData;
-                            butCompletedLogging7.Text = this.machine7.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging7, receivedData);
+                            var mac = this.machine7;
+                            mac.CompletedLogging = receivedData;
+                            this.machine7 = mac;
+                            //butCompletedLogging7.Text = this.machine7.CompletedLoggingDesc;
+                            //SetButtonStatusColor(butCompletedLogging7, receivedData);
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqChkCodeVerify")
@@ -709,8 +724,9 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            this.machine7.RequestVerifyCode = val;
-                            SetButtonStatusColor(butRequestVerifyCode7, receivedData);
+                            var mac = this.machine7;
+                            mac.RequestVerifyCode = val;
+                            this.machine7 = mac;
                             if (val)
                                 VerityCode(this.machine7, null);
                         }));
