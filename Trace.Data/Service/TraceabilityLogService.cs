@@ -89,7 +89,7 @@ namespace Trace.Data.Service
             {
                 IEnumerable<TraceabilityLogModel> entities = await context.TraceabilityLogs
                                                     .Where(x => x.ItemCode == itemCode)
-                                                    .OrderByDescending(o => o.CreationDate)
+                                                    //.OrderByDescending(o => o.CreationDate)
                                                     .ToListAsync();
                 return entities;
             }

@@ -22,6 +22,10 @@ namespace Trace.Domain.Models
         public bool RequestVerifyCode { get; set; }
         public string CodeVerify { get; set; }
         public int CodeVerifyResult { get; set; }
+        public string CodeVerifyResultDesc
+        {
+            get { return (Enum.GetName(typeof(enumVerifyCode), CodeVerifyResult)); }
+        }
         public string MessageResult { get; set; }
 
         public StationModel Station { get; set; }
@@ -40,5 +44,15 @@ namespace Trace.Domain.Models
         OFFLINE = 0,
         ONLINE = 1,
         ALARM = 2
+    }
+
+    //0=None, 1=OK, 2=NOK, 3=Over rework time, 4=Data not found
+    enum enumVerifyCode
+    {
+        NONE = 0,
+        OK = 1,
+        NOK = 2,
+        OVER_REWORK = 3,
+        NOT_FOUND = 4
     }
 }

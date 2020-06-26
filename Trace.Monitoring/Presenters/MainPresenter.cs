@@ -34,6 +34,46 @@ namespace Trace.Monitoring.Presenters
             _view.MakeReady += MakeReady;
             _view.KeepLogging += KeepLogging;
             _view.CompleteAction += CompleteAction;
+            _view.VerityCode += VerityCode;
+        }
+
+        private void VerityCode(object sender, EventArgs e)
+        {
+            MachineModel _machine = sender as MachineModel;
+            var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
+
+            if (_machine.Id == 1)
+            {
+                var tagName = _view.tagMainBlock + "ST1CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 1);
+
+                if(loggings.Count() > 0)
+                {
+                    if(loggings.Count() > 1)
+                    {
+                        var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                        if (loggings.Count() >= maxRework)
+                        {
+                            _machine.CodeVerifyResult = 3;  //Over rework time
+                        }
+                        else
+                        {
+                            var firstResult = loggings.FirstOrDefault();
+                            _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                        }
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine1 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
+            }
         }
 
         private async void CompleteAction(object sender, EventArgs e)
@@ -249,8 +289,19 @@ namespace Trace.Monitoring.Presenters
             if (_view.systemReady)
             {
                 MachineModel machine = (MachineModel)sender;
-                var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
+                ItemValueResult[] subscipt;
+                try
+                {
+                    subscipt = _view.groupRead.Read(_view.groupRead.Items);
+                }catch(Opc.ResultIDException ex)
+                {
+                    _view.connectedPlc = false;
+                    _view.systemReady = false;
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                var result = subscipt.ToList();
                 var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
                 var tags = (from tag in machineTags
                             where tag.MachineId == machine.Id
@@ -280,17 +331,16 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine1(r, machine, machineTags);
-                            machineTmp.CompletedLogging = 1;
+                            if(keepLog)
+                                machineTmp.CompletedLogging = 1;
                         }
                         catch (Exception ex)
                         {
                             machineTmp.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
                         }
-                        if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
-                        }
+
+                        ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
                     }
 
                     _view.machine1 = machineTmp;
@@ -770,23 +820,37 @@ namespace Trace.Monitoring.Presenters
                 trace.CameraResults.Add(cam);
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine1;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine1 = mac;
                 result = false;
             }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
 
-            return result;
-            
+            return result;            
         }
 
 
         private async Task<bool> KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
             var tagsPart = (from tag in machineTags
@@ -809,6 +873,15 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
             //Keep part Assemblies
@@ -838,6 +911,15 @@ namespace Trace.Monitoring.Presenters
                 {
                     part.PartName = "Blind vane";
                     part.SerialNumber = item.Value.ToString();
+                }
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
                 }
 
                 trace.PartAssemblies.Add(part);
@@ -889,17 +971,37 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[3]").FirstOrDefault().Value.ToString();
                 }
 
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 trace.TighteningResults.Add(t);
                 i++;
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine1;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine1 = mac;
                 result = false;
+            }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
             }
 
             return result;
@@ -908,6 +1010,10 @@ namespace Trace.Monitoring.Presenters
         private async Task<bool> KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -944,15 +1050,35 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine7;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine7 = mac;
                 result = false;
+            }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
             }
 
             return result;
@@ -961,6 +1087,10 @@ namespace Trace.Monitoring.Presenters
         private async Task<bool> KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -997,15 +1127,35 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine6;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine6 = mac;
                 result = false;
+            }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
             }
 
             return result;
@@ -1019,6 +1169,10 @@ namespace Trace.Monitoring.Presenters
         private async Task<bool> KeepLogForMachine5(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
             var tagsPart = (from tag in machineTags
@@ -1041,6 +1195,15 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
             //Keep part Assemblies
@@ -1077,6 +1240,16 @@ namespace Trace.Monitoring.Presenters
                     part.PartName = "Vane RH";
                     part.SerialNumber = item.Value.ToString();
                 }
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 trace.PartAssemblies.Add(part);
             }
 
@@ -1106,17 +1279,37 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[1]").FirstOrDefault().Value.ToString();
                 }
 
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 trace.TighteningResults.Add(t);
                 i++;
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine5;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine5 = mac;
                 result = false;
+            }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
             }
 
             return result;
@@ -1130,6 +1323,10 @@ namespace Trace.Monitoring.Presenters
         private async Task<bool> KeepLogForMachine4(IEnumerable<ItemValueResult> r, MachineModel m)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -1148,15 +1345,35 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine4;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine4 = mac;
                 result = false;
+            }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
             }
 
             return result;
@@ -1170,6 +1387,10 @@ namespace Trace.Monitoring.Presenters
         private async Task<bool> KeepLogForMachine3(IEnumerable<ItemValueResult> r, MachineModel m)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -1188,15 +1409,35 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
-            try
+            if (invalid)
             {
-                await _serviceTraceLog.Create(trace);
-            }
-            catch
-            {
+                var mac = _view.machine3;
+                mac.MessageResult = errMsg;
+                mac.CompletedLogging = 2;
+                _view.machine3 = mac;
                 result = false;
+            }
+            else
+            {
+                try
+                {
+                    await _serviceTraceLog.Create(trace);
+                }
+                catch
+                {
+                    result = false;
+                }
             }
 
             return result;
@@ -1482,7 +1723,7 @@ namespace Trace.Monitoring.Presenters
             bool result = false;
             string returnMsg = string.Empty;
             var tags = _view.plcTags;
-            var tag = tags.Where(x => x.PlcTag == tagName).FirstOrDefault();
+            var tag = tags.Where(x => _view.tagMainBlock + x.PlcTag == tagName).FirstOrDefault();
                         
             if(tag != null)
             {
@@ -1517,7 +1758,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (tag.DataType.ToUpper() == "BOOL")
                 {
-                    if (InvalidInt(value))
+                    if (InvalidBoolean(value))
                     {
                         returnMsg = tag.Description + " tag must be Boolean type.";
                         result = true;
@@ -1549,8 +1790,7 @@ namespace Trace.Monitoring.Presenters
 
         private bool InvalidBoolean(string number)
         {
-            bool myBool;
-            return Boolean.TryParse(number, out myBool);
+            return !(number == "0" || number == "1");
         }
     }
 }
