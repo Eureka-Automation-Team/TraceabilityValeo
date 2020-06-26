@@ -165,6 +165,12 @@ namespace Trace.Monitoring
 
                 if (_machine1 != null)
                 {
+                    butStatusMc1.Text = _machine1.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc1, _machine1.OnlineFlag);
+
+                    butRequestLogging1.Text = _machine1.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging1, Convert.ToInt32(_machine1.RequestLogging));
+
                     txtManchineName1.Tag = _machine1;
                     txtManchineName1.Text = _machine1.ManchineName;
                     txtMessageResult1.Text = _machine1.MessageResult;
@@ -192,6 +198,12 @@ namespace Trace.Monitoring
 
                 if (_machine2 != null)
                 {
+                    butStatusMc2.Text = _machine2.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc2, _machine2.OnlineFlag);
+
+                    butRequestLogging2.Text = _machine2.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging2, Convert.ToInt32(_machine2.RequestLogging));
+
                     txtManchineName2.Tag = _machine2;
                     txtManchineName2.Text = _machine2.ManchineName;
                     txtMessageResult2.Text = _machine2.MessageResult;
@@ -219,6 +231,12 @@ namespace Trace.Monitoring
 
                 if (_machine3 != null)
                 {
+                    butStatusMc3.Text = _machine3.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc3, _machine3.OnlineFlag);
+
+                    butRequestLogging3.Text = _machine3.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging3, Convert.ToInt32(_machine3.RequestLogging));
+
                     txtManchineName3.Tag = _machine3;
                     txtManchineName3.Text = _machine3.ManchineName;
                     txtMessageResult3.Text = _machine3.MessageResult;
@@ -246,6 +264,12 @@ namespace Trace.Monitoring
 
                 if (_machine4 != null)
                 {
+                    butStatusMc4.Text = _machine4.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc4, _machine4.OnlineFlag);
+
+                    butRequestLogging4.Text = _machine4.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging4, Convert.ToInt32(_machine4.RequestLogging));
+
                     txtManchineName4.Tag = _machine4;
                     txtManchineName4.Text = _machine4.ManchineName;
                     txtMessageResult4.Text = _machine4.MessageResult;
@@ -273,6 +297,12 @@ namespace Trace.Monitoring
 
                 if (_machine5 != null)
                 {
+                    butStatusMc5.Text = _machine5.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc5, _machine5.OnlineFlag);
+
+                    butRequestLogging5.Text = _machine5.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging5, Convert.ToInt32(_machine5.RequestLogging));
+
                     txtManchineName5.Tag = _machine5;
                     txtManchineName5.Text = _machine5.ManchineName;
                     txtMessageResult5.Text = _machine5.MessageResult;
@@ -300,6 +330,12 @@ namespace Trace.Monitoring
 
                 if (_machine6 != null)
                 {
+                    butStatusMc6.Text = _machine6.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc6, _machine6.OnlineFlag);
+
+                    butRequestLogging6.Text = _machine6.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging6, Convert.ToInt32(_machine6.RequestLogging));
+
                     txtManchineName6.Tag = _machine6;
                     txtManchineName6.Text = _machine6.ManchineName;
                     txtMessageResult6.Text = _machine6.MessageResult;
@@ -327,6 +363,12 @@ namespace Trace.Monitoring
 
                 if (_machine7 != null)
                 {
+                    butStatusMc7.Text = _machine7.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc7, _machine7.OnlineFlag);
+
+                    butRequestLogging7.Text = _machine7.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging7, Convert.ToInt32(_machine7.RequestLogging));
+
                     txtManchineName7.Tag = _machine7;
                     txtManchineName7.Text = _machine7.ManchineName;
                     txtMessageResult7.Text = _machine7.MessageResult;
@@ -379,10 +421,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc1.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine1.OnlineFlag = receivedData;
-                            butStatusMc1.Text = this.machine1.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc1, receivedData);
+                        {
+                            var mac = this.machine1;
+                            mac.OnlineFlag = receivedData;
+                            this.machine1 = mac;                            
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1ReqLogging")
@@ -392,8 +434,10 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging1.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging1, receivedData);
+                            var mac = this.machine1;
+                            mac.RequestLogging = val;
+                            this.machine1 = mac;
+
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName1.Tag, null);
                         }));
@@ -404,9 +448,9 @@ namespace Trace.Monitoring
                     butCompletedLogging1.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine1.CompletedLogging = receivedData;
-                            butCompletedLogging1.Text = this.machine1.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging1, receivedData);
+                            var mac = this.machine1;
+                            mac.CompletedLogging = receivedData;
+                            this.machine1 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1ReqChkCodeVerify")
@@ -430,10 +474,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc2.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine2.OnlineFlag = receivedData;
-                            butStatusMc2.Text = this.machine2.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc2, receivedData);
+                        {
+                            var mac = this.machine2;
+                            mac.OnlineFlag = receivedData;
+                            this.machine2 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2ReqLogging")
@@ -443,8 +487,10 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging2.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging2, receivedData);
+                            var mac = this.machine2;
+                            mac.RequestLogging = val;
+                            this.machine2 = mac;
+
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName2.Tag, null);
                         }));
@@ -455,9 +501,9 @@ namespace Trace.Monitoring
                     butCompletedLogging2.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine2.CompletedLogging = receivedData;
-                            butCompletedLogging2.Text = this.machine2.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging2, receivedData);
+                            var mac = this.machine2;
+                            mac.CompletedLogging = receivedData;
+                            this.machine2 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2ReqChkCodeVerify")
@@ -481,10 +527,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc3.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine3.OnlineFlag = receivedData;
-                            butStatusMc3.Text = this.machine3.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc3, receivedData);
+                        {
+                            var mac = this.machine3;
+                            mac.OnlineFlag = receivedData;
+                            this.machine3 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_1ReqLogging")
@@ -494,9 +540,11 @@ namespace Trace.Monitoring
                         delegate 
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging3.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging3, receivedData);
-                            if(val)
+                            var mac = this.machine3;
+                            mac.RequestLogging = val;
+                            this.machine3 = mac;
+
+                            if (val)
                                 KeepLogging((MachineModel)txtManchineName3.Tag, null);
                         }));                    
                 }
@@ -506,9 +554,9 @@ namespace Trace.Monitoring
                     butCompletedLogging3.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine3.CompletedLogging = receivedData;
-                            butCompletedLogging3.Text = this.machine3.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging3, receivedData);
+                            var mac = this.machine3;
+                            mac.CompletedLogging = receivedData;
+                            this.machine3 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_1ReqChkCodeVerify")
@@ -532,10 +580,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc4.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine4.OnlineFlag = receivedData;
-                            butStatusMc4.Text = this.machine4.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc4, receivedData);
+                        {
+                            var mac = this.machine4;
+                            mac.OnlineFlag = receivedData;
+                            this.machine4 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_2ReqLogging")
@@ -545,8 +593,10 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging4.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging4, receivedData);
+                            var mac = this.machine4;
+                            mac.RequestLogging = val;
+                            this.machine4 = mac;
+
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName4.Tag, null);
                         }));
@@ -557,9 +607,9 @@ namespace Trace.Monitoring
                     butCompletedLogging4.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine4.CompletedLogging = receivedData;
-                            butCompletedLogging4.Text = this.machine4.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging4, receivedData);
+                            var mac = this.machine4;
+                            mac.CompletedLogging = receivedData;
+                            this.machine4 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_2ReqChkCodeVerify")
@@ -583,10 +633,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc5.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine5.OnlineFlag = receivedData;
-                            butStatusMc5.Text = this.machine5.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc5, receivedData);
+                        {
+                            var mac = this.machine5;
+                            mac.OnlineFlag = receivedData;
+                            this.machine5 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4ReqLogging")
@@ -596,8 +646,10 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging5.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging5, receivedData);
+                            var mac = this.machine5;
+                            mac.RequestLogging = val;
+                            this.machine5 = mac;
+
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName5.Tag, null);
                         }));
@@ -608,9 +660,9 @@ namespace Trace.Monitoring
                     butCompletedLogging5.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine5.CompletedLogging = receivedData;
-                            butCompletedLogging5.Text = this.machine5.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging5, receivedData);
+                            var mac = this.machine5;
+                            mac.CompletedLogging = receivedData;
+                            this.machine5 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4ReqChkCodeVerify")
@@ -634,10 +686,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc6.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine6.OnlineFlag = receivedData;
-                            butStatusMc6.Text = this.machine6.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc6, receivedData);
+                        {
+                            var mac = this.machine6;
+                            mac.OnlineFlag = receivedData;
+                            this.machine6 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_1ReqLogging")
@@ -647,8 +699,10 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging6.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging6, receivedData);
+                            var mac = this.machine6;
+                            mac.RequestLogging = val;
+                            this.machine6 = mac;
+
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName6.Tag, null);
                         }));
@@ -659,9 +713,9 @@ namespace Trace.Monitoring
                     butCompletedLogging6.Invoke(new EventHandler(
                         delegate 
                         {
-                            this.machine6.CompletedLogging = receivedData;
-                            butCompletedLogging6.Text = this.machine6.CompletedLoggingDesc;
-                            SetButtonStatusColor(butCompletedLogging6, receivedData);
+                            var mac = this.machine6;
+                            mac.CompletedLogging = receivedData;
+                            this.machine6 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_1ReqChkCodeVerify")
@@ -685,10 +739,10 @@ namespace Trace.Monitoring
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc7.Invoke(new EventHandler(
                         delegate 
-                        { 
-                            this.machine7.OnlineFlag = receivedData;
-                            butStatusMc7.Text = this.machine7.StatusName;
-                            SetButtonMachineStatusColor(butStatusMc7, receivedData);
+                        {
+                            var mac = this.machine7;
+                            mac.OnlineFlag = receivedData;
+                            this.machine7 = mac;
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqLogging")
@@ -698,8 +752,10 @@ namespace Trace.Monitoring
                         delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
-                            butRequestLogging7.Text = val.ToString().ToUpper();
-                            SetButtonStatusColor(butRequestLogging7, receivedData);
+                            var mac = this.machine7;
+                            mac.RequestLogging = val;
+                            this.machine7 = mac;
+
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName7.Tag, null);
                         }));
@@ -712,9 +768,7 @@ namespace Trace.Monitoring
                         {
                             var mac = this.machine7;
                             mac.CompletedLogging = receivedData;
-                            this.machine7 = mac;
-                            //butCompletedLogging7.Text = this.machine7.CompletedLoggingDesc;
-                            //SetButtonStatusColor(butCompletedLogging7, receivedData);
+                            this.machine7 = mac;             
                         }));                    
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqChkCodeVerify")
@@ -817,6 +871,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging1_Click(object sender, EventArgs e)
         {
+            if (!this.machine1.RequestLogging)
+                return;
+
             if (this.machine1.CompletedLogging != 0)
                 return;
 
@@ -826,6 +883,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging2_Click(object sender, EventArgs e)
         {
+            if (!this.machine2.RequestLogging)
+                return;
+
             if (this.machine2.CompletedLogging != 0)
                 return;
 
@@ -835,6 +895,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging3_Click(object sender, EventArgs e)
         {
+            if (!this.machine3.RequestLogging)
+                return;
+
             if (this.machine3.CompletedLogging != 0)
                 return;
 
@@ -844,6 +907,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging4_Click(object sender, EventArgs e)
         {
+            if (!this.machine4.RequestLogging)
+                return;
+
             if (this.machine4.CompletedLogging != 0)
                 return;
 
@@ -853,6 +919,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging5_Click(object sender, EventArgs e)
         {
+            if (!this.machine5.RequestLogging)
+                return;
+
             if (this.machine5.CompletedLogging != 0)
                 return;
 
@@ -862,6 +931,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging6_Click(object sender, EventArgs e)
         {
+            if (!this.machine6.RequestLogging)
+                return;
+
             if (this.machine6.CompletedLogging != 0)
                 return;
 
@@ -871,6 +943,9 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging7_Click(object sender, EventArgs e)
         {
+            if (!this.machine7.RequestLogging)
+                return;
+
             if (this.machine7.CompletedLogging != 0)
                 return;
 

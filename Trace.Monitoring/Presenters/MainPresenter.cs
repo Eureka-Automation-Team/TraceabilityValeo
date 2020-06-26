@@ -42,6 +42,7 @@ namespace Trace.Monitoring.Presenters
             MachineModel _machine = sender as MachineModel;
             var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
 
+            //machine 1
             if (_machine.Id == 1)
             {
                 var tagName = _view.tagMainBlock + "ST1CodeVerify";
@@ -70,6 +71,192 @@ namespace Trace.Monitoring.Presenters
 
                 _view.machine1 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
+            }
+
+            //machine 2
+            if (_machine.Id == 2)
+            {
+                var tagName = _view.tagMainBlock + "ST2CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 2);
+
+                if (loggings.Count() > 0)
+                {
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
+                    {
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine2 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST2CodeVerifyResult", _machine.CodeVerifyResult);
+            }
+
+            //machine 3
+            if (_machine.Id == 3)
+            {
+                var tagName = _view.tagMainBlock + "ST3_1CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 3);
+
+                if (loggings.Count() > 0)
+                {
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
+                    {
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine3 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST3_1CodeVerifyResult", _machine.CodeVerifyResult);
+            }
+
+            //machine 4
+            if (_machine.Id == 4)
+            {
+                var tagName = _view.tagMainBlock + "ST3_2CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 4);
+
+                if (loggings.Count() > 0)
+                {
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
+                    {
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine4 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST3_2CodeVerifyResult", _machine.CodeVerifyResult);
+            }
+
+            //machine 5
+            if (_machine.Id == 5)
+            {
+                var tagName = _view.tagMainBlock + "ST4CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 5);
+
+                if (loggings.Count() > 0)
+                {
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
+                    {
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine5 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
+            }
+
+            //machine 6
+            if (_machine.Id == 6)
+            {
+                var tagName = _view.tagMainBlock + "ST5_1CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 6);
+
+                if (loggings.Count() > 0)
+                {
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
+                    {
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine6 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST5_1CodeVerifyResult", _machine.CodeVerifyResult);
+            }
+
+            //machine 7
+            if (_machine.Id == 7)
+            {
+                var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                               .Where(x => x.MachineId == 7);
+
+                if (loggings.Count() > 0)
+                {
+                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
+                    if (loggings.Count() >= maxRework)
+                    {
+                        _machine.CodeVerifyResult = 3;  //Over rework time
+                    }
+                    else
+                    {
+                        var firstResult = loggings.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
+                }
+                else
+                {
+                    _machine.CodeVerifyResult = 4; //Data not found
+                }
+
+                _view.machine7 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
             }
         }
 
