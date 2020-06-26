@@ -515,8 +515,10 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine1(r, machine, machineTags);
-                            if(keepLog)
+                            if (keepLog)
                                 machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
                         catch (Exception ex)
                         {
@@ -551,7 +553,10 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine2(r, machine, machineTags);
-                            machineTmp.CompletedLogging = 1;
+                            if (keepLog)
+                                machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
                         catch (Exception ex)
                         {
@@ -587,7 +592,10 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine3(r, machine);
-                            machineTmp.CompletedLogging = 1;
+                            if (keepLog)
+                                machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
                         catch (Exception ex)
                         {
@@ -622,7 +630,10 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine4(r, machine);
-                            machineTmp.CompletedLogging = 1;
+                            if (keepLog)
+                                machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
                         catch (Exception ex)
                         {
@@ -658,7 +669,10 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine5(r, machine, machineTags);
-                            machineTmp.CompletedLogging = 1;
+                            if (keepLog)
+                                machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
                         catch (Exception ex)
                         {
@@ -694,7 +708,10 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine6(r, machine, machineTags);
-                            machineTmp.CompletedLogging = 1;
+                            if (keepLog)
+                                machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
                         catch (Exception ex)
                         {
@@ -729,8 +746,12 @@ namespace Trace.Monitoring.Presenters
                         try
                         {
                             keepLog = await KeepLogForMachine7(r, machine, machineTags);
-                            machineTmp.CompletedLogging = 1;
+                            if (keepLog)
+                                machineTmp.CompletedLogging = 1;
+                            else
+                                machineTmp.CompletedLogging = 3;
                         }
+
                         catch (Exception ex)
                         {
                             _view.machine7.MessageResult = ex.Message;
@@ -785,7 +806,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if(InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if(InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -842,7 +863,7 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -940,7 +961,7 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -969,7 +990,7 @@ namespace Trace.Monitoring.Presenters
                     cam.TestResult = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -985,7 +1006,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine1;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine1 = mac;
                 result = false;
             }
@@ -1035,7 +1056,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1074,7 +1095,7 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1132,7 +1153,7 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[3]").FirstOrDefault().Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1149,7 +1170,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine1;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine1 = mac;
                 result = false;
             }
@@ -1212,7 +1233,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1226,7 +1247,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine7;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine7 = mac;
                 result = false;
             }
@@ -1289,7 +1310,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1303,7 +1324,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine6;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine6 = mac;
                 result = false;
             }
@@ -1357,7 +1378,7 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1402,7 +1423,7 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1440,7 +1461,7 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[1]").FirstOrDefault().Value.ToString();
                 }
 
-                if (InvalidDataTag(string.IsNullOrEmpty(item.Value.ToString()) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
                     if (!string.IsNullOrEmpty(errMsg))
@@ -1457,7 +1478,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine5;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine5 = mac;
                 result = false;
             }
@@ -1521,7 +1542,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine4;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine4 = mac;
                 result = false;
             }
@@ -1585,7 +1606,7 @@ namespace Trace.Monitoring.Presenters
             {
                 var mac = _view.machine3;
                 mac.MessageResult = errMsg;
-                mac.CompletedLogging = 2;
+                mac.CompletedLogging = 3;
                 _view.machine3 = mac;
                 result = false;
             }
