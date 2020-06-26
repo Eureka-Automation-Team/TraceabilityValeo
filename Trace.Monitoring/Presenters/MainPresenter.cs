@@ -477,7 +477,8 @@ namespace Trace.Monitoring.Presenters
                 try
                 {
                     subscipt = _view.groupRead.Read(_view.groupRead.Items);
-                }catch(Opc.ResultIDException ex)
+                }
+                catch (Opc.ResultIDException ex)
                 {
                     _view.connectedPlc = false;
                     _view.systemReady = false;
@@ -505,13 +506,13 @@ namespace Trace.Monitoring.Presenters
 
                     var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
 
-                    if(loggings.Count() > 0)
+                    if (loggings.Count() > 0)
                     {
-                        if(machineTmp.CompletedLogging != 1)
+                        if (machineTmp.CompletedLogging != 1)
                         {
                             machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
                             machineTmp.CompletedLogging = 2;
-                        }                        
+                        }
                     }
                     else
                     {
@@ -527,7 +528,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             machineTmp.MessageResult = ex.Message;
                             machineTmp.CompletedLogging = 3;
-                        }                        
+                        }
                     }
                     ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine1 = machineTmp;
@@ -548,8 +549,11 @@ namespace Trace.Monitoring.Presenters
 
                     if (loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if (machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }
                     }
                     else
                     {
@@ -587,8 +591,11 @@ namespace Trace.Monitoring.Presenters
 
                     if (loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if (machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }
                     }
                     else
                     {
@@ -625,8 +632,11 @@ namespace Trace.Monitoring.Presenters
 
                     if (loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if (machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }
                     }
                     else
                     {
@@ -664,8 +674,11 @@ namespace Trace.Monitoring.Presenters
 
                     if (loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if (machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }
                     }
                     else
                     {
@@ -703,8 +716,11 @@ namespace Trace.Monitoring.Presenters
 
                     if (loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if (machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }
                     }
                     else
                     {
@@ -741,8 +757,11 @@ namespace Trace.Monitoring.Presenters
 
                     if (loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if (machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }
                     }
                     else
                     {
@@ -769,7 +788,7 @@ namespace Trace.Monitoring.Presenters
 
                     _view.machine7 = machineTmp;
                 }
-            }               
+            }
         }
 
         private async Task<bool> KeepLogForMachine1(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
@@ -1839,15 +1858,124 @@ namespace Trace.Monitoring.Presenters
             var reqVerifyTag = _view.tagMainBlock + "ST1ReqChkCodeVerify";
             mac1.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag).FirstOrDefault().Value);
 
-            var verifyResultTag = _view.tagMainBlock + "ST2CodeVerifyResult";
+            var verifyResultTag = _view.tagMainBlock + "ST1CodeVerifyResult";
             mac1.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag).FirstOrDefault().Value);
 
             _view.machine1 = mac1;
 
+            //Machine 2
+            var mac2 = _view.machine2;
+            var onlineTag2 = _view.tagMainBlock + "ST2StatusMc";
+            mac2.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag2).FirstOrDefault().Value);
 
+            var reqLoggingTag2 = _view.tagMainBlock + "ST2ReqLogging";
+            mac2.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag2).FirstOrDefault().Value);
 
+            var completeLoggingTag2 = _view.tagMainBlock + "ST2LoggingApp";
+            mac2.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag2).FirstOrDefault().Value);
 
+            var reqVerifyTag2 = _view.tagMainBlock + "ST2ReqChkCodeVerify";
+            mac2.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag2).FirstOrDefault().Value);
 
+            var verifyResultTag2 = _view.tagMainBlock + "ST2CodeVerifyResult";
+            mac2.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag2).FirstOrDefault().Value);
+
+            _view.machine2 = mac2;
+
+            //Machine 3
+            var mac3 = _view.machine3;
+            var onlineTag3 = _view.tagMainBlock + "ST3_1StatusMc";
+            mac3.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag3).FirstOrDefault().Value);
+
+            var reqLoggingTag3 = _view.tagMainBlock + "ST3_1ReqLogging";
+            mac3.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag3).FirstOrDefault().Value);
+
+            var completeLoggingTag3 = _view.tagMainBlock + "ST3_1LoggingApp";
+            mac3.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag3).FirstOrDefault().Value);
+
+            var reqVerifyTag3 = _view.tagMainBlock + "ST3_1ReqChkCodeVerify";
+            mac3.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag3).FirstOrDefault().Value);
+
+            var verifyResultTag3 = _view.tagMainBlock + "ST3_1CodeVerifyResult";
+            mac3.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag3).FirstOrDefault().Value);
+
+            _view.machine3 = mac3;
+
+            //Machine 4
+            var mac4 = _view.machine4;
+            var onlineTag4 = _view.tagMainBlock + "ST3_2StatusMc";
+            mac4.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag4).FirstOrDefault().Value);
+
+            var reqLoggingTag4 = _view.tagMainBlock + "ST3_2ReqLogging";
+            mac4.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag4).FirstOrDefault().Value);
+
+            var completeLoggingTag4 = _view.tagMainBlock + "ST3_2LoggingApp";
+            mac4.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag4).FirstOrDefault().Value);
+
+            var reqVerifyTag4 = _view.tagMainBlock + "ST3_2ReqChkCodeVerify";
+            mac4.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag4).FirstOrDefault().Value);
+
+            var verifyResultTag4 = _view.tagMainBlock + "ST3_2CodeVerifyResult";
+            mac4.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag4).FirstOrDefault().Value);
+
+            _view.machine4 = mac4;
+
+            //Machine 5
+            var mac5 = _view.machine5;
+            var onlineTag5 = _view.tagMainBlock + "ST4StatusMc";
+            mac5.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag5).FirstOrDefault().Value);
+
+            var reqLoggingTag5 = _view.tagMainBlock + "ST4ReqLogging";
+            mac5.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag5).FirstOrDefault().Value);
+
+            var completeLoggingTag5 = _view.tagMainBlock + "ST4LoggingApp";
+            mac5.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag5).FirstOrDefault().Value);
+
+            var reqVerifyTag5 = _view.tagMainBlock + "ST4ReqChkCodeVerify";
+            mac5.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag5).FirstOrDefault().Value);
+
+            var verifyResultTag5 = _view.tagMainBlock + "ST4CodeVerifyResult";
+            mac5.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag5).FirstOrDefault().Value);
+
+            _view.machine5 = mac5;
+
+            //Machine 6
+            var mac6 = _view.machine6;
+            var onlineTag6 = _view.tagMainBlock + "ST5_1StatusMc";
+            mac6.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag6).FirstOrDefault().Value);
+
+            var reqLoggingTag6 = _view.tagMainBlock + "ST5_1ReqLogging";
+            mac6.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag6).FirstOrDefault().Value);
+
+            var completeLoggingTag6 = _view.tagMainBlock + "ST5_1LoggingApp";
+            mac6.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag6).FirstOrDefault().Value);
+
+            var reqVerifyTag6 = _view.tagMainBlock + "ST5_1ReqChkCodeVerify";
+            mac6.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag6).FirstOrDefault().Value);
+
+            var verifyResultTag6 = _view.tagMainBlock + "ST5_1CodeVerifyResult";
+            mac6.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag6).FirstOrDefault().Value);
+
+            _view.machine6 = mac6;
+
+            //Machine 7
+            var mac7 = _view.machine7;
+            var onlineTag7 = _view.tagMainBlock + "ST5_2StatusMc";
+            mac7.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag7).FirstOrDefault().Value);
+
+            var reqLoggingTag7 = _view.tagMainBlock + "ST5_2ReqLogging";
+            mac7.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag7).FirstOrDefault().Value);
+
+            var completeLoggingTag7 = _view.tagMainBlock + "ST5_2LoggingApp";
+            mac7.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag7).FirstOrDefault().Value);
+
+            var reqVerifyTag7 = _view.tagMainBlock + "ST5_2ReqChkCodeVerify";
+            mac7.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag7).FirstOrDefault().Value);
+
+            var verifyResultTag7 = _view.tagMainBlock + "ST5_2CodeVerifyResult";
+            mac7.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag7).FirstOrDefault().Value);
+
+            _view.machine7 = mac7;
 
             Cursor.Current = Cursors.Default;
         }
