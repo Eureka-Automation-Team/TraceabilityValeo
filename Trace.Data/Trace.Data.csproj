@@ -142,6 +142,10 @@
     <Compile Include="Migrations\202006231632565_Add Column message in machine table.Designer.cs">
       <DependentUpon>202006231632565_Add Column message in machine table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006250335132_Add Length column to PLCTag table.cs" />
+    <Compile Include="Migrations\202006250335132_Add Length column to PLCTag table.Designer.cs">
+      <DependentUpon>202006250335132_Add Length column to PLCTag table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
@@ -197,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006231632565_Add Column message in machine table.resx">
       <DependentUpon>202006231632565_Add Column message in machine table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006250335132_Add Length column to PLCTag table.resx">
+      <DependentUpon>202006250335132_Add Length column to PLCTag table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

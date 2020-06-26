@@ -169,6 +169,8 @@ namespace Trace.Monitoring
                     txtManchineName1.Text = _machine1.ManchineName;
                     butRequestVerifyCode1.Text = _machine1.RequestVerifyCode.ToString().ToUpper();
                     txtMessageResult1.Text = _machine1.MessageResult;
+                    butCompletedLogging1.Text = _machine1.CompletedLoggingDesc;
+                    SetButtonStatusColor(butCompletedLogging1, _machine1.CompletedLogging);
                 }
             }
         }
@@ -709,42 +711,63 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging1_Click(object sender, EventArgs e)
         {
+            if (this.machine1.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }
 
         private void butCompletedLogging2_Click(object sender, EventArgs e)
         {
+            if (this.machine2.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }
 
         private void butCompletedLogging3_Click(object sender, EventArgs e)
         {
+            if (this.machine3.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }
 
         private void butCompletedLogging4_Click(object sender, EventArgs e)
         {
+            if (this.machine4.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }
 
         private void butCompletedLogging5_Click(object sender, EventArgs e)
         {
+            if (this.machine5.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }
 
         private void butCompletedLogging6_Click(object sender, EventArgs e)
         {
+            if (this.machine6.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }
 
         private void butCompletedLogging7_Click(object sender, EventArgs e)
         {
+            if (this.machine7.CompletedLogging != 0)
+                return;
+
             if (CompleteAction != null)
                 CompleteAction(sender, e);
         }

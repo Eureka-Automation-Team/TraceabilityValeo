@@ -13,9 +13,10 @@ namespace Trace.Domain.Models
         public bool ReadAbleFlag { get; set; }
         public bool WriteAbleFlag { get; set; }        
         public string DataType { get; set; }
+        public int Length { get; set; }
         public string TypeCode { get; set; }
         public int MachineId { get; set; }
-        public int StationId { get; set; }
+        public int StationId { get; set; }        
 
         public MachineModel Machine { get; set; }
         public StationModel Station { get; set; }

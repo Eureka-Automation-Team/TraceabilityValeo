@@ -90,7 +90,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = await KeepLogForMachine2(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
@@ -119,7 +119,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = await KeepLogForMachine3(r, machine);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
@@ -148,7 +148,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = await KeepLogForMachine4(r, machine);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
@@ -177,7 +177,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = await KeepLogForMachine5(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
@@ -206,7 +206,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = await KeepLogForMachine6(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
@@ -235,7 +235,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = await KeepLogForMachine7(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
@@ -268,9 +268,9 @@ namespace Trace.Monitoring.Presenters
                     var tagName = _view.tagMainBlock + "ST1Code";
                     var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == 1);
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
 
-                    if(loggings != null)
+                    if(loggings.Count() > 0)
                     {
                         machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
                         machineTmp.CompletedLogging = 2;
@@ -302,20 +302,37 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine2;
                     machineTmp.MessageResult = string.Empty;
-                    try
+
+                    #region Check Dupplicate Item code
+                    var tagName = _view.tagMainBlock + "ST2Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
+
+                    if (loggings.Count() > 0)
                     {
-                        keepLog = await KeepLogForMachine2(r, machine, machineTags);
-                        machineTmp.CompletedLogging = 1;
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        machineTmp.MessageResult = ex.Message;
-                        machineTmp.CompletedLogging = 3;
+                        try
+                        {
+                            keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            machineTmp.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
+                        }
                     }
-                    if (keepLog)
-                    {
-                        ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
-                    }
+                    #endregion
+
                     _view.machine2 = machineTmp;
                 }
 
@@ -325,20 +342,37 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine3;
                     _view.machine3.MessageResult = string.Empty;
-                    try
+
+                    #region Check Dupplicate Item code
+                    var tagName = _view.tagMainBlock + "ST3_1Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
+
+                    if (loggings.Count() > 0)
                     {
-                        keepLog = await KeepLogForMachine3(r, machine);
-                        machineTmp.CompletedLogging = 1;
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        _view.machine3.MessageResult = ex.Message;
-                        machineTmp.CompletedLogging = 3;
+                        try
+                        {
+                            keepLog = await KeepLogForMachine3(r, machine);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            _view.machine3.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                        }
                     }
-                    if (keepLog)
-                    {
-                        ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
-                    }
+                    #endregion
+
                     _view.machine3 = machineTmp;
                 }
 
@@ -347,20 +381,37 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine4;
                     _view.machine4.MessageResult = string.Empty;
-                    try
+
+                    #region Check Dupplicate Item code
+                    var tagName = _view.tagMainBlock + "ST3_2Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
+
+                    if (loggings.Count() > 0)
                     {
-                        keepLog = await KeepLogForMachine4(r, machine);
-                        machineTmp.CompletedLogging = 1;
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        _view.machine4.MessageResult = ex.Message;
-                        machineTmp.CompletedLogging = 3;
+                        try
+                        {
+                            keepLog = await KeepLogForMachine4(r, machine);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            _view.machine4.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                        }
                     }
-                    if (keepLog)
-                    {
-                        ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
-                    }
+                    #endregion
+
                     _view.machine4 = machineTmp;
                 }
 
@@ -370,21 +421,38 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine5;
                     _view.machine5.MessageResult = string.Empty;
-                    try
-                    {
-                        keepLog = await KeepLogForMachine5(r, machine, machineTags);
-                        machineTmp.CompletedLogging = 1;
-                    }
-                    catch (Exception ex)
-                    {
-                        _view.machine5.MessageResult = ex.Message;
-                        machineTmp.CompletedLogging = 3;
 
-                    }
-                    if (keepLog)
+                    #region Check Dupplicate Item code
+                    var tagName = _view.tagMainBlock + "ST4Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
+
+                    if (loggings.Count() > 0)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
+                    else
+                    {
+                        try
+                        {
+                            keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            _view.machine5.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                        }
+                    }
+                    #endregion
+
                     _view.machine5 = machineTmp;
                 }
 
@@ -394,20 +462,37 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine6;
                     _view.machine6.MessageResult = string.Empty;
-                    try
+
+                    #region Check Dupplicate Item code
+                    var tagName = _view.tagMainBlock + "ST5_1Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
+
+                    if (loggings.Count() > 0)
                     {
-                        keepLog = await KeepLogForMachine6(r, machine, machineTags);
-                        machineTmp.CompletedLogging = 1;
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        _view.machine6.MessageResult = ex.Message;
-                        machineTmp.CompletedLogging = 3;
+                        try
+                        {
+                            keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            _view.machine6.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                        }
                     }
-                    if (keepLog)
-                    {
-                        ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
-                    }
+                    #endregion
+
                     _view.machine6 = machineTmp;
                 }
 
@@ -416,20 +501,37 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine7;
                     _view.machine7.MessageResult = string.Empty;
-                    try
+
+                    #region Check Dupplicate Item code
+                    var tagName = _view.tagMainBlock + "ST5_2Code";
+                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
+
+                    if (loggings.Count() > 0)
                     {
-                        keepLog = await KeepLogForMachine7(r, machine, machineTags);
-                        machineTmp.CompletedLogging = 1;
+                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                        machineTmp.CompletedLogging = 2;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        _view.machine7.MessageResult = ex.Message;
-                        machineTmp.CompletedLogging = 3;
+                        try
+                        {
+                            keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                            machineTmp.CompletedLogging = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            _view.machine7.MessageResult = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+                        if (keepLog)
+                        {
+                            ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+                        }
                     }
-                    if (keepLog)
-                    {
-                        ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
-                    }
+                    #endregion
+
                     _view.machine7 = machineTmp;
                 }
             }               
@@ -438,6 +540,10 @@ namespace Trace.Monitoring.Presenters
         private async Task<bool> KeepLogForMachine1(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
+            bool invalid = false;
+            string errMsg = string.Empty;
+            string tmpMsg = string.Empty;
+
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
             var tagsPart = (from tag in machineTags
@@ -455,7 +561,7 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
-
+                tmpMsg = string.Empty;
                 if (item.ItemName == _view.tagMainBlock + "ST1Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -467,12 +573,22 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
+
+                if(InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
             }
 
             //Keep part Assemblies
             trace.PartAssemblies = new List<PartAssemblyModel>();
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
+                tmpMsg = string.Empty;
                 PartAssemblyModel part = new PartAssemblyModel();
                 if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
                 {
@@ -513,6 +629,15 @@ namespace Trace.Monitoring.Presenters
                 {
                     part.PartName = "Space";
                     part.SerialNumber = item.Value.ToString();
+                }
+
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
                 }
 
                 trace.PartAssemblies.Add(part);
@@ -604,6 +729,15 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
                 }
 
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 trace.TighteningResults.Add(t);
                 i++;
             }
@@ -624,6 +758,15 @@ namespace Trace.Monitoring.Presenters
                     cam.TestResult = item.Value.ToString();
                 }
 
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 trace.CameraResults.Add(cam);
             }
 
@@ -639,6 +782,7 @@ namespace Trace.Monitoring.Presenters
             return result;
             
         }
+
 
         private async Task<bool> KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
@@ -1092,6 +1236,8 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.connectedPlc = false;
                 _view.systemReady = false;
+                MessageBox.Show("Connection failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Application.Exit();
             }
         }
 
@@ -1331,5 +1477,80 @@ namespace Trace.Monitoring.Presenters
             return spath.Replace("\\E", "E");
         }
 
+        private bool InvalidDataTag(string value, string tagName, out string tmpMsg)
+        {
+            bool result = false;
+            string returnMsg = string.Empty;
+            var tags = _view.plcTags;
+            var tag = tags.Where(x => x.PlcTag == tagName).FirstOrDefault();
+                        
+            if(tag != null)
+            {
+                if(tag.DataType.ToUpper() == "STRING")
+                {
+                    int len1 = value.Length;
+                    int len2 = tag.Length;
+                    if (InvalidString(len1, len2))
+                    {
+                        returnMsg = tag.Description + " tag must be " + len2 + " digits.";
+                        result = true;
+                    }
+                }
+
+                if (tag.DataType.ToUpper() == "DECIMAL")
+                {
+                    if (InvalidDecimal(value))
+                    {
+                        returnMsg = tag.Description + " tag must be Decimal type.";
+                        result = true;
+                    }
+                }
+
+                if (tag.DataType.ToUpper() == "INT")
+                {
+                    if (InvalidInt(value))
+                    {
+                        returnMsg = tag.Description + " tag must be Integer type.";
+                        result = true;
+                    }
+                }
+
+                if (tag.DataType.ToUpper() == "BOOL")
+                {
+                    if (InvalidInt(value))
+                    {
+                        returnMsg = tag.Description + " tag must be Boolean type.";
+                        result = true;
+                    }
+                }
+            }
+
+
+            tmpMsg = returnMsg;
+            return result;
+        }
+
+        private bool InvalidString(int len1, int len2)
+        {
+            return len1 == len2;
+        }
+
+        private bool InvalidDecimal(string number)
+        {
+            decimal myDecimal;
+            return decimal.TryParse(number, out myDecimal);
+        }
+
+        private bool InvalidInt(string number)
+        {
+            int myInt;
+            return int.TryParse(number, out myInt);
+        }
+
+        private bool InvalidBoolean(string number)
+        {
+            bool myBool;
+            return Boolean.TryParse(number, out myBool);
+        }
     }
 }
