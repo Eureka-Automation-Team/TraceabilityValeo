@@ -218,7 +218,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode2.Text = string.Empty;
                     }
-                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    SetButtonStatusColor(butRequestVerifyCode2, Convert.ToInt32(_machine2.RequestVerifyCode));
                 }
             }
         }
@@ -251,7 +251,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode3.Text = string.Empty;
                     }
-                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    SetButtonStatusColor(butRequestVerifyCode3, Convert.ToInt32(_machine3.RequestVerifyCode));
                 }
             }
         }
@@ -284,7 +284,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode4.Text = string.Empty;
                     }
-                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    SetButtonStatusColor(butRequestVerifyCode4, Convert.ToInt32(_machine4.RequestVerifyCode));
                 }
             }
         }
@@ -317,7 +317,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode5.Text = string.Empty;
                     }
-                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    SetButtonStatusColor(butRequestVerifyCode5, Convert.ToInt32(_machine5.RequestVerifyCode));
                 }
             }
         }
@@ -350,7 +350,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode6.Text = string.Empty;
                     }
-                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    SetButtonStatusColor(butRequestVerifyCode6, Convert.ToInt32(_machine6.RequestVerifyCode));
                 }
             }
         }
@@ -383,7 +383,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode7.Text = string.Empty;
                     }
-                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    SetButtonStatusColor(butRequestVerifyCode7, Convert.ToInt32(_machine7.RequestVerifyCode));
                 }
             }
         }
@@ -842,7 +842,11 @@ namespace Trace.Monitoring
             }else
             {
                 if (Connect_Click != null)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
                     Connect_Click(sender, e);
+                    Cursor.Current = Cursors.Default;
+                }                    
             }
         }
 
@@ -867,6 +871,13 @@ namespace Trace.Monitoring
         {
             if (MakeReady != null)
                 MakeReady(sender, e);
+
+            if (systemReady)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                group_DataChanged(null, null, groupRead.Read(groupRead.Items));
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void butCompletedLogging1_Click(object sender, EventArgs e)

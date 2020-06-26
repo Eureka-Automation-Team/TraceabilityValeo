@@ -507,8 +507,11 @@ namespace Trace.Monitoring.Presenters
 
                     if(loggings.Count() > 0)
                     {
-                        machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                        machineTmp.CompletedLogging = 2;
+                        if(machineTmp.CompletedLogging != 1)
+                        {
+                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
+                            machineTmp.CompletedLogging = 2;
+                        }                        
                     }
                     else
                     {
@@ -784,6 +787,9 @@ namespace Trace.Monitoring.Presenters
             var tagsTightening = (from tag in machineTags
                                   where tag.TypeCode == "DATA_TIGHTENING_RESULT"
                                   select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+            var tagsTighteningValue = (from tag in machineTags
+                                       where tag.TypeCode == "DATA_TIGHTENING"
+                                       select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
             var tagsCamera = (from tag in machineTags
                                   where tag.TypeCode == "DATA_CAMERA_RESULT"
                               select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
@@ -791,7 +797,12 @@ namespace Trace.Monitoring.Presenters
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
 
-            foreach (var item in r)
+            foreach (var item in r.Where(x =>
+                                            !tagsPart.Any(s => s.Tag == x.ItemName)
+                                            && !tagsTightening.Any(s => s.Tag == x.ItemName)
+                                            && !tagsTighteningValue.Any(s => s.Tag == x.ItemName)
+                                            && !tagsCamera.Any(s => s.Tag == x.ItemName)
+                                            ).OrderBy(o => o.ItemName))
             {
                 tmpMsg = string.Empty;
                 if (item.ItemName == _view.tagMainBlock + "ST1Code")
@@ -1771,6 +1782,7 @@ namespace Trace.Monitoring.Presenters
                 _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
                 _view.groupStateRead.Active = true;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                LoadCurrentValue(_view.groupRead);
                 _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)   
@@ -1806,6 +1818,38 @@ namespace Trace.Monitoring.Presenters
                                             , MessageBoxIcon.Error);
                 return false;
             }           
+        }
+
+        private void LoadCurrentValue(Subscription groupRead)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            var currentResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+
+            //Machine 1
+            var mac1 = _view.machine1;
+            var onlineTag = _view.tagMainBlock + "ST1StatusMc";
+            mac1.OnlineFlag = Convert.ToInt32(currentResult.Where(x => x.ItemName == onlineTag).FirstOrDefault().Value);
+
+            var reqLoggingTag = _view.tagMainBlock + "ST1ReqLogging";
+            mac1.RequestLogging = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqLoggingTag).FirstOrDefault().Value);
+
+            var completeLoggingTag = _view.tagMainBlock + "ST1LoggingApp";
+            mac1.CompletedLogging = Convert.ToInt32(currentResult.Where(x => x.ItemName == completeLoggingTag).FirstOrDefault().Value);
+
+            var reqVerifyTag = _view.tagMainBlock + "ST1ReqChkCodeVerify";
+            mac1.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag).FirstOrDefault().Value);
+
+            var verifyResultTag = _view.tagMainBlock + "ST2CodeVerifyResult";
+            mac1.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag).FirstOrDefault().Value);
+
+            _view.machine1 = mac1;
+
+
+
+
+
+
+            Cursor.Current = Cursors.Default;
         }
 
         private bool WriteWord(string tag, int value)
@@ -1955,19 +1999,19 @@ namespace Trace.Monitoring.Presenters
 
         private bool InvalidString(int len1, int len2)
         {
-            return len1 == len2;
+            return len1 != len2;
         }
 
         private bool InvalidDecimal(string number)
         {
             decimal myDecimal;
-            return decimal.TryParse(number, out myDecimal);
+            return !decimal.TryParse(number, out myDecimal);
         }
 
         private bool InvalidInt(string number)
         {
             int myInt;
-            return int.TryParse(number, out myInt);
+            return !int.TryParse(number, out myInt);
         }
 
         private bool InvalidBoolean(string number)
