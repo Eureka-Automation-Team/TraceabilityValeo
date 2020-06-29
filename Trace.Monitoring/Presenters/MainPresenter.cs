@@ -851,6 +851,15 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 tmpMsg = string.Empty;
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 PartAssemblyModel part = new PartAssemblyModel();
                 if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
                 {
@@ -893,6 +902,15 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
+                trace.PartAssemblies.Add(part);
+            }
+
+            //Keep Tightening
+            int i = 1;
+            trace.TighteningResults = new List<TighteningResultModel>();
+            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                tmpMsg = string.Empty;
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -902,14 +920,6 @@ namespace Trace.Monitoring.Presenters
                     errMsg += tmpMsg;
                 }
 
-                trace.PartAssemblies.Add(part);
-            }
-
-            //Keep Tightening
-            int i = 1;
-            trace.TighteningResults = new List<TighteningResultModel>();
-            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
-            {
                 TighteningResultModel t = new TighteningResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[0]")
                 {
@@ -991,6 +1001,14 @@ namespace Trace.Monitoring.Presenters
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
                 }
 
+                trace.TighteningResults.Add(t);
+                i++;
+            }
+
+            trace.CameraResults = new List<CameraResultModel>();
+            foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                tmpMsg = string.Empty;
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -1000,13 +1018,6 @@ namespace Trace.Monitoring.Presenters
                     errMsg += tmpMsg;
                 }
 
-                trace.TighteningResults.Add(t);
-                i++;
-            }
-
-            trace.CameraResults = new List<CameraResultModel>();
-            foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
-            {
                 CameraResultModel cam = new CameraResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[8]")
                 {
@@ -1018,15 +1029,6 @@ namespace Trace.Monitoring.Presenters
                 {
                     cam.CameraName = "Lever Assy R";
                     cam.TestResult = item.Value.ToString();
-                }
-
-                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
                 }
 
                 trace.CameraResults.Add(cam);
@@ -1077,15 +1079,7 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
-                if (item.ItemName == _view.tagMainBlock + "ST2Code")
-                    trace.ItemCode = item.Value.ToString();
-
-                if (item.ItemName == _view.tagMainBlock + "ST2Final_Judgment")
-                    trace.FinalResult = Convert.ToInt32(item.Value);
-
-                if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
-                    trace.RepairTime = Convert.ToInt32(item.Value);
-
+                tmpMsg = string.Empty;
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -1094,12 +1088,31 @@ namespace Trace.Monitoring.Presenters
 
                     errMsg += tmpMsg;
                 }
+
+                if (item.ItemName == _view.tagMainBlock + "ST2Code")
+                    trace.ItemCode = item.Value.ToString();
+
+                if (item.ItemName == _view.tagMainBlock + "ST2Final_Judgment")
+                    trace.FinalResult = Convert.ToInt32(item.Value);
+
+                if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
+                    trace.RepairTime = Convert.ToInt32(item.Value);
             }
 
             //Keep part Assemblies
             trace.PartAssemblies = new List<PartAssemblyModel>();
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
+                tmpMsg = string.Empty;
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 PartAssemblyModel part = new PartAssemblyModel();
                 if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[0]")
                 {
@@ -1125,6 +1138,15 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
+                trace.PartAssemblies.Add(part);
+            }
+
+            //Keep Tightening
+            int i = 1;
+            trace.TighteningResults = new List<TighteningResultModel>();
+            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                tmpMsg = string.Empty;
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -1134,14 +1156,6 @@ namespace Trace.Monitoring.Presenters
                     errMsg += tmpMsg;
                 }
 
-                trace.PartAssemblies.Add(part);
-            }
-
-            //Keep Tightening
-            int i = 1;
-            trace.TighteningResults = new List<TighteningResultModel>();
-            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
-            {
                 TighteningResultModel t = new TighteningResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST2TestResult[0]")
                 {
@@ -1181,15 +1195,6 @@ namespace Trace.Monitoring.Presenters
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[3]").FirstOrDefault().Value);
                     t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[3]").FirstOrDefault().Value);
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[3]").FirstOrDefault().Value.ToString();
-                }
-
-                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
                 }
 
                 trace.TighteningResults.Add(t);
@@ -1233,6 +1238,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
+                tmpMsg = string.Empty;
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 if (item.ItemName == _view.tagMainBlock + "ST5_2Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -1262,15 +1277,6 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
-
-                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
-                }
             }
 
             if (invalid)
@@ -1310,6 +1316,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
+                tmpMsg = string.Empty;
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 if (item.ItemName == _view.tagMainBlock + "ST5_1Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -1339,15 +1355,6 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
-
-                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
-                }
             }
 
             if (invalid)
@@ -1399,6 +1406,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
+                tmpMsg = string.Empty;
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 if (item.ItemName == _view.tagMainBlock + "ST4Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -1408,6 +1425,13 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                     trace.ModelRunning = item.Value.ToString();
 
+            }
+
+            //Keep part Assemblies
+            trace.PartAssemblies = new List<PartAssemblyModel>();
+            foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                tmpMsg = string.Empty;
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -1416,12 +1440,7 @@ namespace Trace.Monitoring.Presenters
 
                     errMsg += tmpMsg;
                 }
-            }
 
-            //Keep part Assemblies
-            trace.PartAssemblies = new List<PartAssemblyModel>();
-            foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
-            {
                 PartAssemblyModel part = new PartAssemblyModel();
                 if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[0]")
                 {
@@ -1453,6 +1472,15 @@ namespace Trace.Monitoring.Presenters
                     part.SerialNumber = item.Value.ToString();
                 }
 
+                trace.PartAssemblies.Add(part);
+            }
+
+            //Keep Tightening
+            int i = 1;
+            trace.TighteningResults = new List<TighteningResultModel>();
+            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                tmpMsg = string.Empty;
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -1462,14 +1490,6 @@ namespace Trace.Monitoring.Presenters
                     errMsg += tmpMsg;
                 }
 
-                trace.PartAssemblies.Add(part);
-            }
-
-            //Keep Tightening
-            int i = 1;
-            trace.TighteningResults = new List<TighteningResultModel>();
-            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
-            {
                 TighteningResultModel t = new TighteningResultModel();
                 if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]")
                 {                    
@@ -1489,15 +1509,6 @@ namespace Trace.Monitoring.Presenters
                     t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[1]").FirstOrDefault().Value);
                     t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[1]").FirstOrDefault().Value);
                     t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[1]").FirstOrDefault().Value.ToString();
-                }
-
-                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
                 }
 
                 trace.TighteningResults.Add(t);
@@ -1546,6 +1557,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
+                tmpMsg = string.Empty;
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 if (item.ItemName == _view.tagMainBlock + "ST3_2Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -1557,15 +1578,6 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_2RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
-
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
-                }
             }
 
             if (invalid)
@@ -1610,6 +1622,16 @@ namespace Trace.Monitoring.Presenters
 
             foreach (var item in r)
             {
+                tmpMsg = string.Empty;
+                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
+
+                    errMsg += tmpMsg;
+                }
+
                 if (item.ItemName == _view.tagMainBlock + "ST3_1Code")
                     trace.ItemCode = item.Value.ToString();
 
@@ -1621,15 +1643,6 @@ namespace Trace.Monitoring.Presenters
 
                 if (item.ItemName == _view.tagMainBlock + "ST3_1RepairTime")
                     trace.RepairTime = Convert.ToInt32(item.Value);
-
-                if (InvalidDataTag(item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
-
-                    errMsg += tmpMsg;
-                }
             }
 
             if (invalid)
@@ -1716,6 +1729,9 @@ namespace Trace.Monitoring.Presenters
             if (!string.IsNullOrEmpty(_view.serverUrl))
             {
                 _view.connectedPlc = Connect(_view.serverUrl);
+
+                if (_view.connectedPlc)
+                    LoadCurrentValue(_view.groupRead);
             }
         }
 
@@ -1801,7 +1817,6 @@ namespace Trace.Monitoring.Presenters
                 _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
                 _view.groupStateRead.Active = true;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
-                LoadCurrentValue(_view.groupRead);
                 _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)   
@@ -1973,7 +1988,7 @@ namespace Trace.Monitoring.Presenters
             mac7.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag7).FirstOrDefault().Value);
 
             var verifyResultTag7 = _view.tagMainBlock + "ST5_2CodeVerifyResult";
-            mac7.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag7).FirstOrDefault().Value);
+            mac7.CodeVerifyResult = 0;// Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag7).FirstOrDefault().Value);
 
             _view.machine7 = mac7;
 
@@ -2085,10 +2100,13 @@ namespace Trace.Monitoring.Presenters
                 {
                     int len1 = value.Length;
                     int len2 = tag.Length;
-                    if (InvalidString(len1, len2))
+                    if (len2 > 0)
                     {
-                        returnMsg = tag.Description + " tag must be " + len2 + " digits.";
-                        result = true;
+                        if (InvalidString(len1, len2))
+                        {
+                            returnMsg = tag.Description + " tag must be " + len2 + " digits.";
+                            result = true;
+                        }
                     }
                 }
 
@@ -2119,7 +2137,6 @@ namespace Trace.Monitoring.Presenters
                     }
                 }
             }
-
 
             tmpMsg = returnMsg;
             return result;

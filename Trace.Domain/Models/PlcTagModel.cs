@@ -16,8 +16,8 @@ namespace Trace.Domain.Models
         public int Length { get; set; }
         public string TypeCode { get; set; }
         public int MachineId { get; set; }
-        public int StationId { get; set; }        
-
+        public int StationId { get; set; }
+        public bool EnableFlag { get; set; }
         public MachineModel Machine { get; set; }
         public StationModel Station { get; set; }
     }
