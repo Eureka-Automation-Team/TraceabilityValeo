@@ -176,7 +176,7 @@ namespace Trace.UI.Controls
             if (traceabilityLowerLog != null)
                 partSerialNo = traceabilityLowerLog.PartSerialNumber;
 
-            if (string.IsNullOrEmpty(partSerialNo))
+            if (!string.IsNullOrEmpty(partSerialNo))
             {
                 var qrData = qrGenerator.CreateQrCode(partSerialNo, QRCoder.QRCodeGenerator.ECCLevel.H);
                 var qrCode = new QRCoder.QRCode(qrData);
