@@ -70,6 +70,14 @@ namespace Trace.Data
                 .Property(e => e.Target).HasPrecision(15, 2);
             modelBuilder.Entity<TighteningResultModel>()
                 .Property(e => e.Result).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningResultModel>()
+                .Property(e => e.JointMin).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningResultModel>()
+                .Property(e => e.JointMax).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningResultModel>()
+                .Property(e => e.JointTarget).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningResultModel>()
+                .Property(e => e.JointResult).HasPrecision(15, 2);
 
             ///camera_results
             modelBuilder.Entity<CameraResultModel>().ToTable("camera_results")

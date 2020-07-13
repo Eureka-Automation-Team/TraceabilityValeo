@@ -1013,6 +1013,94 @@ namespace Trace.Monitoring.Presenters
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
                     }
 
+                    //JointsControlAngle Result No.1
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[10]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[10]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[10]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[10]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[10]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.2
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[11]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[11]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[11]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[11]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[11]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.3
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[12]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[12]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[12]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[12]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[12]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.4
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[13]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[13]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[13]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[13]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[13]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.5
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[14]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[14]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[14]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[14]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[14]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.6
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[15]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[15]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[15]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[15]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[15]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.7
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[16]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[16]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[16]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[16]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[16]").FirstOrDefault().Value.ToString();
+                    }
+
+                    //JointsControlAngle Result No.8
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[17]")
+                    {
+                        t.No = i.ToString();
+                        t.JointResult = Convert.ToDecimal(item.Value);
+                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[17]").FirstOrDefault().Value);
+                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[17]").FirstOrDefault().Value);
+                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[17]").FirstOrDefault().Value);
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[17]").FirstOrDefault().Value.ToString();
+                    }
+
                     trace.TighteningResults.Add(t);
                 }
                 i++;

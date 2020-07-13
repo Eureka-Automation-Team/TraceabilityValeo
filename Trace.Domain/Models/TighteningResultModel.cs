@@ -30,6 +30,30 @@ namespace Trace.Domain.Models
             get { return Result.ToString("#0.0") + "Nm"; }
         }
 
+        //------------------------------------
+        public decimal JointMin { get; set; }
+        public string JointMinDesc
+        {
+            get { return JointMin.ToString("#0.0") + "Nm"; }
+        }
+        public decimal JointMax { get; set; }
+        public string JointMaxDesc
+        {
+            get { return JointMax.ToString("#0.0") + "Nm"; }
+        }
+        public decimal JointTarget { get; set; }
+        public string JointTargetDesc
+        {
+            get { return JointTarget.ToString("#0.0") + "Nm"; }
+        }
+        public decimal JointResult { get; set; }
+        public string JointResultDesc
+        {
+            get { return JointResult.ToString("#0.0") + "Nm"; }
+        }
+
+        //------------------------------------
+
         public string TestResult { get; set; }
         public string TestResultDescription
         {

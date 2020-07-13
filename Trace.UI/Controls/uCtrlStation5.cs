@@ -80,10 +80,8 @@ namespace Trace.UI.Controls
                     txtUpperOpenAngle.Text = string.Empty;
                     txtUpperLineErrorCounter.Text = string.Empty;
 
-
                     lblUpperFinalResult.Text = "";
                     lblUpperFinalResult.BackColor = Color.White;
-
                 }
             }
         }

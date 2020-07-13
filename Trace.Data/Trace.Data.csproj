@@ -150,6 +150,10 @@
     <Compile Include="Migrations\202006280251416_Add column EnableFlag to plc_tag.Designer.cs">
       <DependentUpon>202006280251416_Add column EnableFlag to plc_tag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007130436435_Add Joint column in TighteningResult table.cs" />
+    <Compile Include="Migrations\202007130436435_Add Joint column in TighteningResult table.Designer.cs">
+      <DependentUpon>202007130436435_Add Joint column in TighteningResult table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
@@ -211,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006280251416_Add column EnableFlag to plc_tag.resx">
       <DependentUpon>202006280251416_Add column EnableFlag to plc_tag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007130436435_Add Joint column in TighteningResult table.resx">
+      <DependentUpon>202007130436435_Add Joint column in TighteningResult table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
