@@ -54,3 +54,4 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Addtightening_repairstable.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddTighteningpositioncolumn.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddTraceLogIdcolumninrepairtable.resources
