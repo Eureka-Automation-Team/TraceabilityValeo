@@ -19,7 +19,9 @@ namespace Trace.Domain.Services
         Task<IEnumerable<T>> GetListByItemCode(string itemCode);
 
         Task<IEnumerable<T>> GetByDateRange(DateTime startDate, DateTime endDate);
-        
+
+        Task<IEnumerable<T>> GetByPrimary(T model);
+
         Task<T> GetByID(int id);
 
         Task<T> Create(T entity);

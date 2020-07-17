@@ -63,6 +63,17 @@ namespace Trace.Data.Service
             }
         }
 
+        public async Task<IEnumerable<TighteningResultModel>> GetByPrimary(TighteningResultModel model)
+        {
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<TighteningResultModel> entities = await context.TighteningResults
+                                                    .Where(x => x.TraceLogId == model.TraceLogId)
+                                                    .ToListAsync();
+                return entities;
+            }
+        }
+
         public async Task<IEnumerable<TighteningResultModel>> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())

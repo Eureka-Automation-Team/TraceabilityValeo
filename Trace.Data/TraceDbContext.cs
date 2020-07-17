@@ -23,6 +23,7 @@ namespace Trace.Data
         public DbSet<StationModel> Stations { get; set; }
         public DbSet<PartAssemblyModel> PartAssemblies { get; set; }
         public DbSet<TighteningResultModel> TighteningResults { get; set; }
+        public DbSet<TighteningRepairModel> TighteningRepairs { get; set; }
         public DbSet<CameraResultModel> CameraResults { get; set; }
         public DbSet<TraceabilityLogModel> TraceabilityLogs { get; set; }
         public DbSet<PlcTagModel> PlcTags { get; set; }
@@ -78,6 +79,36 @@ namespace Trace.Data
                 .Property(e => e.JointTarget).HasPrecision(15, 2);
             modelBuilder.Entity<TighteningResultModel>()
                 .Property(e => e.JointResult).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningResultModel>()
+                .Property(e => e.TestResult).HasMaxLength(10);
+            modelBuilder.Entity<TighteningResultModel>()
+                .Property(e => e.JointTestResult).HasMaxLength(10);
+
+            ///tightening_repairs
+            modelBuilder.Entity<TighteningRepairModel>().ToTable("tightening_repairs")
+                .HasKey(e => e.Id);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.No).IsRequired();
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.Min).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.Max).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.Target).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.Result).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.JointMin).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.JointMax).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.JointTarget).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.JointResult).HasPrecision(15, 2);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.TestResult).HasMaxLength(10);
+            modelBuilder.Entity<TighteningRepairModel>()
+                .Property(e => e.JointTestResult).HasMaxLength(10);
 
             ///camera_results
             modelBuilder.Entity<CameraResultModel>().ToTable("camera_results")

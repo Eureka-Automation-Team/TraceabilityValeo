@@ -175,6 +175,7 @@ namespace Trace.Monitoring
                     txtManchineName1.Text = _machine1.ManchineName;
                     txtMessageResult1.Text = _machine1.MessageResult;
                     butCompletedLogging1.Text = _machine1.CompletedLoggingDesc;
+                    txtPosition1.Text = _machine1.TighteningPosition.ToString();
                     SetButtonStatusColor(butCompletedLogging1, _machine1.CompletedLogging);
 
                     if (_machine1.RequestVerifyCode)
@@ -208,6 +209,7 @@ namespace Trace.Monitoring
                     txtManchineName2.Text = _machine2.ManchineName;
                     txtMessageResult2.Text = _machine2.MessageResult;
                     butCompletedLogging2.Text = _machine2.CompletedLoggingDesc;
+                    txtPosition2.Text = _machine2.TighteningPosition.ToString();
                     SetButtonStatusColor(butCompletedLogging2, _machine2.CompletedLogging);
 
                     if (_machine2.RequestVerifyCode)
@@ -273,7 +275,7 @@ namespace Trace.Monitoring
                     txtManchineName4.Tag = _machine4;
                     txtManchineName4.Text = _machine4.ManchineName;
                     txtMessageResult4.Text = _machine4.MessageResult;
-                    butCompletedLogging4.Text = _machine4.CompletedLoggingDesc;
+                    butCompletedLogging4.Text = _machine4.CompletedLoggingDesc;                    
                     SetButtonStatusColor(butCompletedLogging4, _machine4.CompletedLogging);
 
                     if (_machine4.RequestVerifyCode)
@@ -307,6 +309,7 @@ namespace Trace.Monitoring
                     txtManchineName5.Text = _machine5.ManchineName;
                     txtMessageResult5.Text = _machine5.MessageResult;
                     butCompletedLogging5.Text = _machine5.CompletedLoggingDesc;
+                    txtPosition4.Text = _machine5.TighteningPosition.ToString();
                     SetButtonStatusColor(butCompletedLogging5, _machine5.CompletedLogging);
 
                     if (_machine5.RequestVerifyCode)
@@ -467,6 +470,18 @@ namespace Trace.Monitoring
                                 VerityCode(this.machine1, null);
                         }));
                 }
+                if (values[i].ItemName == tagMainBlock + "ST1TestResult[19]")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    txtPosition1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine1;
+                            mac.RequestVerifyCode = val;
+                            this.machine1 = mac;
+                        }));
+                }
 
                 //Machine 2
                 if (values[i].ItemName == tagMainBlock + "ST2StatusMc")
@@ -518,6 +533,18 @@ namespace Trace.Monitoring
                             this.machine2 = mac;
                             if (val)
                                 VerityCode(this.machine2, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST2TestResult[19]")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    txtPosition2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine2;
+                            mac.RequestVerifyCode = val;
+                            this.machine2 = mac;
                         }));
                 }
 
@@ -677,6 +704,18 @@ namespace Trace.Monitoring
                             this.machine5 = mac;
                             if (val)
                                 VerityCode(this.machine5, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST4TestResult[19]")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    txtPosition4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine5;
+                            mac.RequestVerifyCode = val;
+                            this.machine5 = mac;
                         }));
                 }
 

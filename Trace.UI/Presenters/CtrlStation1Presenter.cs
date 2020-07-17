@@ -31,7 +31,7 @@ namespace Trace.UI.Presenters
         {
             var result = await _serviceTraceLog.GetListByMachineID(1, 1);
 
-            TraceabilityLogModel log = result.FirstOrDefault();
+            TraceabilityLogModel log = result.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
 
             if(log != null)
             {

@@ -55,6 +55,7 @@ namespace Trace.Domain.Models
         //------------------------------------
 
         public string TestResult { get; set; }
+        public string JointTestResult { get; set; }
         public string TestResultDescription
         {
             get { return TestResult; }
@@ -62,5 +63,7 @@ namespace Trace.Domain.Models
 
         public int TraceLogId { get; set; }
         public TraceabilityLogModel TraceLog { get; set; }
+
+        public List<TighteningRepairModel> TighteningRepairs { get; set; }
     }
 }

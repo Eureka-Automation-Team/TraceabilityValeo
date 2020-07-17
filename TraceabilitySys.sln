@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.Monitoring", "Trace.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.UI", "Trace.UI\Trace.UI.csproj", "{EDF0003F-2F5D-461A-AC05-55240B85FB04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandler", "Trace.OpcHandler\Trace.OpcHandler.csproj", "{CCDFD241-3B45-4ED8-B701-50AD91B80435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EDF0003F-2F5D-461A-AC05-55240B85FB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDF0003F-2F5D-461A-AC05-55240B85FB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDF0003F-2F5D-461A-AC05-55240B85FB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

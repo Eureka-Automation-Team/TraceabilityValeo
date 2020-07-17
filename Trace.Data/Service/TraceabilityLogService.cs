@@ -70,6 +70,11 @@ namespace Trace.Data.Service
             }
         }
 
+        public Task<IEnumerable<TraceabilityLogModel>> GetByPrimary(TraceabilityLogModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<TraceabilityLogModel>> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())

@@ -22,6 +22,8 @@ namespace Trace.Domain.Models
         public bool RequestVerifyCode { get; set; }
         public string CodeVerify { get; set; }
         public int CodeVerifyResult { get; set; }
+
+        public int TighteningPosition { get; set; }
         public string CodeVerifyResultDesc
         {
             get { return (Enum.GetName(typeof(enumVerifyCode), CodeVerifyResult)); }

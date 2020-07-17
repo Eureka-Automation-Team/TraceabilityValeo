@@ -41,7 +41,8 @@ namespace Trace.Domain.Models
 
         public string ImagePath { get; set; }
         public string QRCodePath { get; set; }
-        public int RepairTime { get; set; }       
+        public int RepairTime { get; set; }  
+        public bool FinishFlag { get; set; }
 
         public StationModel Station { get; set; }
         public MachineModel Machine { get; set; }
