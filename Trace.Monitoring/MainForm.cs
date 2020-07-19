@@ -472,13 +472,12 @@ namespace Trace.Monitoring
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1TestResult[19]")
                 {
-                    int receivedData = (Int16)values[i].Value;
+                    int receivedData = Convert.ToInt32(values[i].Value);
                     txtPosition1.Invoke(new EventHandler(
                         delegate
                         {
-                            bool val = Convert.ToBoolean(receivedData);
                             var mac = this.machine1;
-                            mac.RequestVerifyCode = val;
+                            mac.TighteningPosition = receivedData;
                             this.machine1 = mac;
                         }));
                 }
@@ -537,13 +536,12 @@ namespace Trace.Monitoring
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2TestResult[19]")
                 {
-                    int receivedData = (Int16)values[i].Value;
+                    int receivedData = Convert.ToInt32(values[i].Value);
                     txtPosition2.Invoke(new EventHandler(
                         delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
+                        {                           
                             var mac = this.machine2;
-                            mac.RequestVerifyCode = val;
+                            mac.TighteningPosition = receivedData;
                             this.machine2 = mac;
                         }));
                 }
@@ -708,13 +706,12 @@ namespace Trace.Monitoring
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4TestResult[19]")
                 {
-                    int receivedData = (Int16)values[i].Value;
+                    int receivedData = Convert.ToInt32(values[i].Value);
                     txtPosition4.Invoke(new EventHandler(
                         delegate
                         {
-                            bool val = Convert.ToBoolean(receivedData);
                             var mac = this.machine5;
-                            mac.RequestVerifyCode = val;
+                            mac.TighteningPosition = receivedData;
                             this.machine5 = mac;
                         }));
                 }

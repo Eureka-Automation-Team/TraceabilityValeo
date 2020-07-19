@@ -166,6 +166,10 @@
     <Compile Include="Migrations\202007171523508_Add TraceLogId column in repair table.Designer.cs">
       <DependentUpon>202007171523508_Add TraceLogId column in repair table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007180207187_delete column.cs" />
+    <Compile Include="Migrations\202007180207187_delete column.Designer.cs">
+      <DependentUpon>202007180207187_delete column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007171523508_Add TraceLogId column in repair table.resx">
       <DependentUpon>202007171523508_Add TraceLogId column in repair table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007180207187_delete column.resx">
+      <DependentUpon>202007180207187_delete column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

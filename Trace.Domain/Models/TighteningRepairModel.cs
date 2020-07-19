@@ -56,8 +56,8 @@ namespace Trace.Domain.Models
         //------------------------------------
 
         public string JointTestResult { get; set; }
-        public int TraceLogId { get; set; }
-        public TraceabilityLogModel TraceLog { get; set; }
+        //public int TraceLogId { get; set; }
+        //public TraceabilityLogModel TraceLog { get; set; }
         public int TighteningResultId { get; set; }
         public TighteningResultModel TighteningResult { get; set; }
     }
