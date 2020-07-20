@@ -11,6 +11,7 @@ namespace Trace.UI.Views
     {
         event EventHandler ControlLoad;
         event EventHandler MonitoringRailTime;
+        event EventHandler ShowTighteningRepairs;
 
         bool MonitorFlag { get; set; }
 

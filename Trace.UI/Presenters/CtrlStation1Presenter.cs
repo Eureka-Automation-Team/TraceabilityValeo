@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Trace.Data;
 using Trace.Data.Service;
 using Trace.Domain.Models;
 using Trace.Domain.Services;
+using Trace.UI.UIs;
 using Trace.UI.Views;
 
 namespace Trace.UI.Presenters
@@ -16,7 +18,8 @@ namespace Trace.UI.Presenters
         IDataService<MachineModel> _serviceMachine = new MachineService(new TraceDbContextFactory());
         IDataService<PlcTagModel> _servicePLCTag = new PLCTagService(new TraceDbContextFactory());
         IDataService<TraceabilityLogModel> _serviceTraceLog = new TraceabilityLogService(new TraceDbContextFactory());
-        
+        IDataService<TighteningRepairModel> _serviceTigtheningRepair = new TighteningRepairService(new TraceDbContextFactory());
+
         private readonly IStation1View _view;
 
         public CtrlStation1Presenter(IStation1View view)
@@ -25,15 +28,36 @@ namespace Trace.UI.Presenters
 
             _view.ControlLoad += InitailizeControl;
             _view.MonitoringRailTime += MonitoringRailTime;
+            _view.ShowTighteningRepairs += ShowTighteningRepairs;
+        }
+
+        private async void ShowTighteningRepairs(object sender, EventArgs e)
+        {
+            DataGridView grid = sender as DataGridView;
+            TighteningResultModel current = (TighteningResultModel)grid.CurrentRow.DataBoundItem;
+
+            if (current != null)
+            {
+                TighteningRepairModel repair = new TighteningRepairModel();
+                repair.TighteningResultId = current.Id;
+                var logsRepair = await _serviceTigtheningRepair.GetByPrimary(repair);
+
+                using (TigtheningRepairsForm frm = new TigtheningRepairsForm())
+                {
+                    frm.DataBinding.DataSource = logsRepair.ToList();
+                    frm.ShowDialog();
+                }
+            }
         }
 
         private async void MonitoringRailTime(object sender, EventArgs e)
         {
             var result = await _serviceTraceLog.GetListByMachineID(1, 1);
 
-            TraceabilityLogModel log = result.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            //TraceabilityLogModel log = result.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            TraceabilityLogModel log = result.FirstOrDefault();
 
-            if(log != null)
+            if (log != null)
             {
                 _view.traceabilityLog = await _serviceTraceLog.GetByID(log.Id);
             }            

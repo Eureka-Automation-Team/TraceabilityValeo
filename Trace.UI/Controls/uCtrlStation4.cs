@@ -77,6 +77,7 @@ namespace Trace.UI.Controls
 
         public event EventHandler ControlLoad;
         public event EventHandler MonitoringRailTime;
+        public event EventHandler ShowTighteningRepairs;
 
         public void EnableTimer(bool enable)
         {
@@ -94,6 +95,12 @@ namespace Trace.UI.Controls
         {
             if (MonitoringRailTime != null)
                 MonitoringRailTime(sender, e);
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ShowTighteningRepairs != null)
+                ShowTighteningRepairs(sender, e);
         }
     }
 }

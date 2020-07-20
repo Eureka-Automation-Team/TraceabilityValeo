@@ -99,6 +99,7 @@
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\SearchDetailPresenter.cs" />
     <Compile Include="Presenters\SearchPresenter.cs" />
+    <Compile Include="Presenters\TigtheningRepairsPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIs\HomeForm.cs">
@@ -119,6 +120,12 @@
     <Compile Include="UIs\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIs\TigtheningRepairsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\TigtheningRepairsForm.Designer.cs">
+      <DependentUpon>TigtheningRepairsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\ISearchDetailView.cs" />
     <Compile Include="Views\ISearchView.cs" />
@@ -127,6 +134,7 @@
     <Compile Include="Views\IStation3View.cs" />
     <Compile Include="Views\IStation4View.cs" />
     <Compile Include="Views\IStation5View.cs" />
+    <Compile Include="Views\ITigtheningRepairsView.cs" />
     <EmbeddedResource Include="Controls\uCtrlStation1.resx">
       <DependentUpon>uCtrlStation1.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,9 +171,13 @@
     <EmbeddedResource Include="UIs\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIs\TigtheningRepairsForm.resx">
+      <DependentUpon>TigtheningRepairsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Trace.Domain.Models.CameraResultModel.datasource" />
     <None Include="Properties\DataSources\Trace.Domain.Models.PartAssemblyModel.datasource" />
+    <None Include="Properties\DataSources\Trace.Domain.Models.TighteningRepairModel.datasource" />
     <None Include="Properties\DataSources\Trace.Domain.Models.TighteningResultModel.datasource" />
     <None Include="Properties\DataSources\Trace.Domain.Models.TraceabilityLogModel.datasource" />
     <None Include="Properties\Settings.settings">

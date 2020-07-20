@@ -1374,6 +1374,7 @@ namespace Trace.Monitoring.Presenters
 
             //Keep Tightening
             int i = 1;
+            int tigtheingNumber = 0;
             TighteningRepairModel tRepair = new TighteningRepairModel();
             trace.TighteningResults = new List<TighteningResultModel>();
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
@@ -1391,8 +1392,15 @@ namespace Trace.Monitoring.Presenters
                 if (!invalid)
                 {
                     TighteningResultModel t = new TighteningResultModel();
+                    if (trace.Id > 0)
+                    {
+                        t.TraceLogId = trace.Id;
+                        var tighteningResult = _serviceTigthening.GetByPrimary(t).Result;
+                        tigtheingNumber = tighteningResult.Where(x => x.TestResult == "OK").Count();
+                    }
+
                     //No.1
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[0]" && m.TighteningPosition == 1)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[0]" && tigtheingNumber == 0)
                     {
                         t.No = "Hollow Nut Screw L";
                         t.Result = Convert.ToDecimal(item.Value);
@@ -1413,7 +1421,7 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.2
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[1]" && m.TighteningPosition == 2)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[1]" && tigtheingNumber == 1)
                     {
                         t.No = "Hollow Nut Screw R";
                         t.Result = Convert.ToDecimal(item.Value);
@@ -1434,7 +1442,7 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.3
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[2]" && m.TighteningPosition == 3)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[2]" && tigtheingNumber == 2)
                     {
                         t.No = "Ejot Screw L";
                         t.Result = Convert.ToDecimal(item.Value);
@@ -1455,7 +1463,7 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.4
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[3]" && m.TighteningPosition == 4)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[3]" && tigtheingNumber == 3)
                     {
                         t.No = "Ejot Screw R";
                         t.Result = Convert.ToDecimal(item.Value);
@@ -1476,7 +1484,7 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.5
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[4]" && m.TighteningPosition == 5)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[4]" && tigtheingNumber == 4)
                     {
                         t.No = "Hollow Nut Deep";
                         t.Result = Convert.ToDecimal(item.Value);
@@ -1900,6 +1908,7 @@ namespace Trace.Monitoring.Presenters
 
             //Keep Tightening
             int i = 1;
+            int tigtheingNumber = 0;
             TighteningRepairModel tRepair = new TighteningRepairModel();
             trace.TighteningResults = new List<TighteningResultModel>();
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
@@ -1918,7 +1927,14 @@ namespace Trace.Monitoring.Presenters
                 {
                     TighteningResultModel t = new TighteningResultModel();
                     //No.1
-                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]" && m.TighteningPosition == 1)
+                    if (trace.Id > 0)
+                    {
+                        t.TraceLogId = trace.Id;
+                        var tighteningResult = _serviceTigthening.GetByPrimary(t).Result;
+                        tigtheingNumber = tighteningResult.Where(x => x.TestResult == "OK").Count();
+                    }
+
+                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]" && tigtheingNumber == 0)
                     {
                         t.No = i.ToString();
                         t.Result = Convert.ToDecimal(item.Value);
@@ -1939,7 +1955,7 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.2
-                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]" && m.TighteningPosition == 2)
+                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]" && tigtheingNumber == 1)
                     {
                         t.No = i.ToString();
                         t.Result = Convert.ToDecimal(item.Value);
