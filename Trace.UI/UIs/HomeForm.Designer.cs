@@ -62,7 +62,7 @@
             this.uCtrlStation51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation51.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation51.Location = new System.Drawing.Point(0, 759);
+            this.uCtrlStation51.Location = new System.Drawing.Point(0, 833);
             this.uCtrlStation51.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation51.MonitorFlag = false;
             this.uCtrlStation51.Name = "uCtrlStation51";
@@ -81,7 +81,7 @@
             this.uCtrlStation41.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation41.MonitorFlag = false;
             this.uCtrlStation41.Name = "uCtrlStation41";
-            this.uCtrlStation41.Size = new System.Drawing.Size(1325, 190);
+            this.uCtrlStation41.Size = new System.Drawing.Size(1325, 264);
             this.uCtrlStation41.TabIndex = 3;
             this.uCtrlStation41.traceabilityLog = null;
             // 
