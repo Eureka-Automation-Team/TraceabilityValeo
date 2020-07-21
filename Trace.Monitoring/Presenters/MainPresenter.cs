@@ -22,6 +22,7 @@ namespace Trace.Monitoring.Presenters
         IDataService<TraceabilityLogModel> _serviceTraceLog = new TraceabilityLogService(new TraceDbContextFactory());
         IDataService<TighteningResultModel> _serviceTigthening = new TighteningResultService(new TraceDbContextFactory());
         IDataService<TighteningRepairModel> _serviceTigtheningRepair = new TighteningRepairService(new TraceDbContextFactory());
+        IDataService<CameraResultModel> _serviceCameraResult = new CameraResultService(new TraceDbContextFactory());        
 
         private readonly IMainView _view;
 
@@ -1367,12 +1368,13 @@ namespace Trace.Monitoring.Presenters
             }
             else
             {
+                TraceabilityLogModel logResult = new TraceabilityLogModel();
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
                 if (trace.Id == 0)
                 {
-                    TraceabilityLogModel logResult = await _serviceTraceLog.Create(trace);
+                    logResult = await _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         var cRepair = tRepairs.Where(x => x.No == item.No).FirstOrDefault();
@@ -1385,7 +1387,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    TraceabilityLogModel logResult = await _serviceTraceLog.Update(trace);
+                    logResult = await _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         TighteningResultModel tigthening = new TighteningResultModel();
@@ -1408,6 +1410,23 @@ namespace Trace.Monitoring.Presenters
                                 await _serviceTigtheningRepair.Create(cRepair);
                             }
                         }
+                    }
+                }
+
+                if (trace.FinishFlag)
+                {
+                    CameraResultModel model = new CameraResultModel();
+                    model.TraceLogId = logResult.Id;
+                    var cams = await _serviceCameraResult.GetByPrimary(model);
+                    foreach (var item in trace.CameraResults)
+                    {
+                        var cam = cams.Where(x => x.CameraName == item.CameraName)
+                                .Select(c => {
+                                    c.TestResult = item.TestResult;
+                                    return c;
+                                }).FirstOrDefault();
+
+                        await _serviceCameraResult.Update(cam);
                     }
                 }
             }

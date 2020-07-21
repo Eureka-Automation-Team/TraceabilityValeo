@@ -63,9 +63,15 @@ namespace Trace.Data.Service
             }
         }
 
-        public Task<IEnumerable<CameraResultModel>> GetByPrimary(CameraResultModel model)
+        public async Task<IEnumerable<CameraResultModel>> GetByPrimary(CameraResultModel model)
         {
-            throw new NotImplementedException();
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<CameraResultModel> entities = await context.CameraResults
+                                                    .Where(x => x.TraceLogId == model.TraceLogId)
+                                                    .ToListAsync();
+                return entities;
+            }
         }
 
         public async Task<IEnumerable<CameraResultModel>> GetList(string whereClause, int takeRows)
