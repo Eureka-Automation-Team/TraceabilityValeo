@@ -48,13 +48,13 @@ namespace Trace.Domain.Models
         ALARM = 2
     }
 
-    //0=None, 1=OK, 2=NOK, 3=Over rework time, 4=Data not found
+    //0=None, 1=OK, 2=NOK, 3=Data not found, 4=Dupplicated
     enum enumVerifyCode
     {
         NONE = 0,
         OK = 1,
         NOK = 2,
-        OVER_REWORK = 3,
-        NOT_FOUND = 4
+        NOT_FOUND = 3,
+        DUPPLICATED = 4
     }
 }

@@ -62,7 +62,7 @@
             this.uCtrlStation51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation51.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation51.Location = new System.Drawing.Point(0, 833);
+            this.uCtrlStation51.Location = new System.Drawing.Point(0, 859);
             this.uCtrlStation51.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation51.MonitorFlag = false;
             this.uCtrlStation51.Name = "uCtrlStation51";
@@ -77,11 +77,11 @@
             this.uCtrlStation41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation41.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation41.Location = new System.Drawing.Point(0, 569);
+            this.uCtrlStation41.Location = new System.Drawing.Point(0, 543);
             this.uCtrlStation41.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation41.MonitorFlag = false;
             this.uCtrlStation41.Name = "uCtrlStation41";
-            this.uCtrlStation41.Size = new System.Drawing.Size(1325, 264);
+            this.uCtrlStation41.Size = new System.Drawing.Size(1325, 316);
             this.uCtrlStation41.TabIndex = 3;
             this.uCtrlStation41.traceabilityLog = null;
             // 
@@ -91,7 +91,7 @@
             this.uCtrlStation31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation31.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation31.Location = new System.Drawing.Point(0, 474);
+            this.uCtrlStation31.Location = new System.Drawing.Point(0, 448);
             this.uCtrlStation31.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation31.MonitorFlag = false;
             this.uCtrlStation31.Name = "uCtrlStation31";
@@ -106,7 +106,7 @@
             this.uCtrlStation21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation21.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation21.Location = new System.Drawing.Point(0, 290);
+            this.uCtrlStation21.Location = new System.Drawing.Point(0, 264);
             this.uCtrlStation21.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation21.MonitorFlag = false;
             this.uCtrlStation21.Name = "uCtrlStation21";
@@ -124,7 +124,7 @@
             this.uCtrlStation11.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation11.MonitorFlag = false;
             this.uCtrlStation11.Name = "uCtrlStation11";
-            this.uCtrlStation11.Size = new System.Drawing.Size(1325, 290);
+            this.uCtrlStation11.Size = new System.Drawing.Size(1325, 264);
             this.uCtrlStation11.TabIndex = 0;
             this.uCtrlStation11.traceabilityLog = null;
             // 

@@ -22,7 +22,7 @@ namespace Trace.Monitoring.Presenters
         IDataService<TraceabilityLogModel> _serviceTraceLog = new TraceabilityLogService(new TraceDbContextFactory());
         IDataService<TighteningResultModel> _serviceTigthening = new TighteningResultService(new TraceDbContextFactory());
         IDataService<TighteningRepairModel> _serviceTigtheningRepair = new TighteningRepairService(new TraceDbContextFactory());
-        IDataService<CameraResultModel> _serviceCameraResult = new CameraResultService(new TraceDbContextFactory());        
+        IDataService<CameraResultModel> _serviceCameraResult = new CameraResultService(new TraceDbContextFactory());
 
         private readonly IMainView _view;
 
@@ -54,22 +54,13 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
                                                .Where(x => x.MachineId == 1);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
-                    {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
-                    }
-                    else
-                    {
-                        var firstResult = loggings.FirstOrDefault();
-                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
-                    }
+                    _machine.CodeVerifyResult = 3;  //Data not found
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine1 = _machine;
@@ -83,24 +74,25 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                               .Where(x => x.MachineId == 1);
+                                               .Where(x => x.MachineId == 2);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                                                   .Where(x => x.MachineId == 1);
+                    if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
+                        _machine.CodeVerifyResult = 3;  //Data not found
                     }
                     else
                     {
-                        var firstResult = loggings.FirstOrDefault();
+                        var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
                     }
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine2 = _machine;
@@ -114,24 +106,25 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                               .Where(x => x.MachineId == 2);
+                               .Where(x => x.MachineId == 3);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                                                   .Where(x => x.MachineId == 2);
+                    if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
+                        _machine.CodeVerifyResult = 3;  //Data not found
                     }
                     else
                     {
-                        var firstResult = loggings.FirstOrDefault();
+                        var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
                     }
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine3 = _machine;
@@ -145,24 +138,25 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                               .Where(x => x.MachineId == 5);
+                               .Where(x => x.MachineId == 4);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                                                   .Where(x => x.MachineId == 5);
+                    if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
+                        _machine.CodeVerifyResult = 3;  //Data not found
                     }
                     else
                     {
-                        var firstResult = loggings.FirstOrDefault();
+                        var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
                     }
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine4 = _machine;
@@ -178,22 +172,13 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
                                                .Where(x => x.MachineId == 5);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
-                    {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
-                    }
-                    else
-                    {
-                        var firstResult = loggings.FirstOrDefault();
-                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
-                    }
+                    _machine.CodeVerifyResult = 3;  //Data not found
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine5 = _machine;
@@ -207,24 +192,25 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                               .Where(x => x.MachineId == 3);
+                               .Where(x => x.MachineId == 6);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                                                   .Where(x => x.MachineId == 3);
+                    if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
+                        _machine.CodeVerifyResult = 3;  //Data not found
                     }
                     else
                     {
-                        var firstResult = loggings.FirstOrDefault();
+                        var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
                     }
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine6 = _machine;
@@ -238,24 +224,25 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                               .Where(x => x.MachineId == 4);
+                               .Where(x => x.MachineId == 7);
 
-                if (loggings.Count() > 0)
+                if (loggings.Count() == 0)
                 {
-                    var maxRework = loggings.OrderBy(o => o.CreationDate).FirstOrDefault().RepairTime;
-                    if (loggings.Count() >= maxRework)
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                                                                   .Where(x => x.MachineId == 4);
+                    if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Over rework time
+                        _machine.CodeVerifyResult = 3;  //Data not found
                     }
                     else
                     {
-                        var firstResult = loggings.FirstOrDefault();
+                        var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
                     }
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Data not found
+                    _machine.CodeVerifyResult = 4; //Dupplicated
                 }
 
                 _view.machine7 = _machine;
@@ -505,39 +492,21 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine1;
                     machineTmp.MessageResult = string.Empty;
 
-                    var tagName = _view.tagMainBlock + "ST1Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    //Tightening Keep position #001
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                                    .Where(x =>
-                                                            x.MachineId == machine.Id
-                                                            && x.FinishFlag);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        //try
-                        //{
                         keepLog = await KeepLogForMachine1(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
                             machineTmp.CompletedLogging = 3;
-                        //}
-                        //catch (Exception ex)
-                        //{
-                        //    machineTmp.MessageResult = ex.Message;
-                        //    machineTmp.CompletedLogging = 3;
-                        //}
                     }
+                    catch (Exception ex)
+                    {
+                        machineTmp.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+
+
                     ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine1 = machineTmp;
                 }
@@ -549,37 +518,20 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine2;
                     machineTmp.MessageResult = string.Empty;
 
-                    #region Check Dupplicate Item code
-                    var tagName = _view.tagMainBlock + "ST2Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            keepLog = await KeepLogForMachine2(r, machine, machineTags);
-                            if (keepLog)
-                                machineTmp.CompletedLogging = 1;
-                            else
-                                machineTmp.CompletedLogging = 3;
-                        }
-                        catch (Exception ex)
-                        {
-                            machineTmp.MessageResult = ex.Message;
+                        keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                        if (keepLog)
+                            machineTmp.CompletedLogging = 1;
+                        else
                             machineTmp.CompletedLogging = 3;
-                        }
                     }
-                    #endregion
+                    catch (Exception ex)
+                    {
+                        machineTmp.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+
                     ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", machineTmp.CompletedLogging);
                     _view.machine2 = machineTmp;
                 }
@@ -591,37 +543,20 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine3;
                     _view.machine3.MessageResult = string.Empty;
 
-                    #region Check Dupplicate Item code
-                    var tagName = _view.tagMainBlock + "ST3_1Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            keepLog = await KeepLogForMachine3(r, machine);
-                            if (keepLog)
-                                machineTmp.CompletedLogging = 1;
-                            else
-                                machineTmp.CompletedLogging = 3;
-                        }
-                        catch (Exception ex)
-                        {
-                            _view.machine3.MessageResult = ex.Message;
+                        keepLog = await KeepLogForMachine3(r, machine);
+                        if (keepLog)
+                            machineTmp.CompletedLogging = 1;
+                        else
                             machineTmp.CompletedLogging = 3;
-                        }
                     }
-                    #endregion
+                    catch (Exception ex)
+                    {
+                        _view.machine3.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+
                     ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine3 = machineTmp;
                 }
@@ -632,37 +567,20 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine4;
                     _view.machine4.MessageResult = string.Empty;
 
-                    #region Check Dupplicate Item code
-                    var tagName = _view.tagMainBlock + "ST3_2Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            keepLog = await KeepLogForMachine4(r, machine);
-                            if (keepLog)
-                                machineTmp.CompletedLogging = 1;
-                            else
-                                machineTmp.CompletedLogging = 3;
-                        }
-                        catch (Exception ex)
-                        {
-                            _view.machine4.MessageResult = ex.Message;
+                        keepLog = await KeepLogForMachine4(r, machine);
+                        if (keepLog)
+                            machineTmp.CompletedLogging = 1;
+                        else
                             machineTmp.CompletedLogging = 3;
-                        }
                     }
-                    #endregion
+                    catch (Exception ex)
+                    {
+                        _view.machine4.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+
                     ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", machineTmp.CompletedLogging);
                     _view.machine4 = machineTmp;
                 }
@@ -674,37 +592,20 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine5;
                     _view.machine5.MessageResult = string.Empty;
 
-                    #region Check Dupplicate Item code
-                    var tagName = _view.tagMainBlock + "ST4Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            keepLog = await KeepLogForMachine5(r, machine, machineTags);
-                            if (keepLog)
-                                machineTmp.CompletedLogging = 1;
-                            else
-                                machineTmp.CompletedLogging = 3;
-                        }
-                        catch (Exception ex)
-                        {
-                            _view.machine5.MessageResult = ex.Message;
+                        keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                        if (keepLog)
+                            machineTmp.CompletedLogging = 1;
+                        else
                             machineTmp.CompletedLogging = 3;
-                        }
                     }
-                    #endregion
+                    catch (Exception ex)
+                    {
+                        _view.machine5.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+
                     ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
                     _view.machine5 = machineTmp;
                 }
@@ -716,37 +617,20 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine6;
                     _view.machine6.MessageResult = string.Empty;
 
-                    #region Check Dupplicate Item code
-                    var tagName = _view.tagMainBlock + "ST5_1Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            keepLog = await KeepLogForMachine6(r, machine, machineTags);
-                            if (keepLog)
-                                machineTmp.CompletedLogging = 1;
-                            else
-                                machineTmp.CompletedLogging = 3;
-                        }
-                        catch (Exception ex)
-                        {
-                            _view.machine6.MessageResult = ex.Message;
+                        keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                        if (keepLog)
+                            machineTmp.CompletedLogging = 1;
+                        else
                             machineTmp.CompletedLogging = 3;
-                        }
                     }
-                    #endregion
+                    catch (Exception ex)
+                    {
+                        _view.machine6.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+
                     ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", machineTmp.CompletedLogging);
                     _view.machine6 = machineTmp;
                 }
@@ -757,43 +641,21 @@ namespace Trace.Monitoring.Presenters
                     var machineTmp = _view.machine7;
                     _view.machine7.MessageResult = string.Empty;
 
-                    #region Check Dupplicate Item code
-                    var tagName = _view.tagMainBlock + "ST5_2Code";
-                    var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
-                    var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result.Where(x => x.MachineId == machine.Id);
-
-                    if (loggings.Count() > 0)
+                    try
                     {
-                        if (machineTmp.CompletedLogging != 1)
-                        {
-                            machineTmp.MessageResult = string.Format("Code :{0} is dupplicated.", value);
-                            machineTmp.CompletedLogging = 2;
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            keepLog = await KeepLogForMachine7(r, machine, machineTags);
-                            if (keepLog)
-                                machineTmp.CompletedLogging = 1;
-                            else
-                                machineTmp.CompletedLogging = 3;
-                        }
-
-                        catch (Exception ex)
-                        {
-                            _view.machine7.MessageResult = ex.Message;
-                            machineTmp.CompletedLogging = 3;
-                        }
+                        keepLog = await KeepLogForMachine7(r, machine, machineTags);
                         if (keepLog)
-                        {
-                            ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
-                        }
+                            machineTmp.CompletedLogging = 1;
+                        else
+                            machineTmp.CompletedLogging = 3;
                     }
-                    #endregion
-
+                    catch (Exception ex)
+                    {
+                        _view.machine7.MessageResult = ex.Message;
+                        machineTmp.CompletedLogging = 3;
+                    }
+                 
+                    ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);                               
                     _view.machine7 = machineTmp;
                 }
             }
@@ -901,41 +763,49 @@ namespace Trace.Monitoring.Presenters
                     PartAssemblyModel part = new PartAssemblyModel();
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
                     {
+                        part.LineNumber = 1;
                         part.PartName = "UPR Actuator P/N";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[1]")
                     {
+                        part.LineNumber = 2;
                         part.PartName = "UPR Actuator S/N";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[2]")
                     {
+                        part.LineNumber = 3;
                         part.PartName = "UPR Frame";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[3]")
                     {
+                        part.LineNumber = 4;
                         part.PartName = "UPR vane set LH";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[4]")
                     {
+                        part.LineNumber = 5;
                         part.PartName = "UPR vane set RH";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[5]")
                     {
+                        part.LineNumber = 6;
                         part.PartName = "Pull rod,";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[6]")
                     {
+                        part.LineNumber = 7;
                         part.PartName = "Lever, 4";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[7]")
                     {
+                        part.LineNumber = 8;
                         part.PartName = "Space";
                         part.SerialNumber = item.Value.ToString();
                     }
@@ -996,9 +866,13 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[10]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = 0;
+                        if (trace.TighteningResults != null)
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1041,9 +915,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[11]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1086,9 +961,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[12]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1131,9 +1007,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[13]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1176,9 +1053,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[14]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1221,9 +1099,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[15]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1266,9 +1145,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[16]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1311,9 +1191,10 @@ namespace Trace.Monitoring.Presenters
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[17]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1542,24 +1423,28 @@ namespace Trace.Monitoring.Presenters
                     PartAssemblyModel part = new PartAssemblyModel();
                     if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[0]")
                     {
+                        part.LineNumber = 1;
                         part.PartName = "Z support LH";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[1]")
                     {
+                        part.LineNumber = 2;
                         part.PartName = "Z support RH";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[2]")
                     {
+                        part.LineNumber = 3;
                         part.PartName = "Blind vane";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST2PartSerialNo[3]")
                     {
+                        part.LineNumber = 4;
                         part.PartName = "Blind vane";
                         part.SerialNumber = item.Value.ToString();
                     }
@@ -1609,7 +1494,7 @@ namespace Trace.Monitoring.Presenters
                 }
 
                 if (!invalid)
-                {                    
+                {
                     //No.1
                     if (item.ItemName == _view.tagMainBlock + "ST2TestResult[0]" && tigtheingNumber == 0)
                     {
@@ -1629,9 +1514,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[5]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1674,9 +1560,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[6]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1719,9 +1606,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[7]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1764,9 +1652,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[8]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1809,9 +1698,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[8]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1835,7 +1725,7 @@ namespace Trace.Monitoring.Presenters
                             tigtheingNumber++;
                     }
                 }
-               // i++;
+                // i++;
             }
 
             if (invalid)
@@ -2166,66 +2056,77 @@ namespace Trace.Monitoring.Presenters
                     PartAssemblyModel part = new PartAssemblyModel();
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[0]")
                     {
+                        part.LineNumber = 1;
                         part.PartName = "LWR Actuator P/N";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[1]")
                     {
+                        part.LineNumber = 2;
                         part.PartName = "LWR Actuator S/N";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[2]")
                     {
+                        part.LineNumber = 3;
                         part.PartName = "LWR Frame";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[3]")
                     {
+                        part.LineNumber = 4;
                         part.PartName = "Vane LH1";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[4]")
                     {
+                        part.LineNumber = 5;
                         part.PartName = "Vane LH2";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[5]")
                     {
+                        part.LineNumber = 6;
                         part.PartName = "Vane LH3";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[6]")
                     {
+                        part.LineNumber = 7;
                         part.PartName = "Vane RH1";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[7]")
                     {
+                        part.LineNumber = 8;
                         part.PartName = "Vane RH2";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[8]")
                     {
+                        part.LineNumber = 9;
                         part.PartName = "Vane RH3";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[9]")
                     {
+                        part.LineNumber = 10;
                         part.PartName = "COVER";
                         part.SerialNumber = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[10]")
                     {
+                        part.LineNumber = 11;
                         part.PartName = "Link Driver";
                         part.SerialNumber = item.Value.ToString();
                     }
@@ -2276,7 +2177,7 @@ namespace Trace.Monitoring.Presenters
                 }
 
                 if (!invalid)
-                {                    
+                {
                     //No.1
                     if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]" && tigtheingNumber == 0)
                     {
@@ -2296,9 +2197,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[3]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -2341,9 +2243,10 @@ namespace Trace.Monitoring.Presenters
                         //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[4]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        var tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-                        if (tExist.Count > 0)
+                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
+                        if (tExist > 0)
                         {
+                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;

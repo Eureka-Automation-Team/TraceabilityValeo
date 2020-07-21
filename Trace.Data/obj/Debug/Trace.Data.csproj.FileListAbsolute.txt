@@ -56,3 +56,4 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migra
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddTighteningpositioncolumn.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddTraceLogIdcolumninrepairtable.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.deletecolumn.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Update101.resources

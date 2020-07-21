@@ -61,6 +61,8 @@ namespace Trace.Domain.Models
             get { return TestResult; }
         }
 
+        public bool RepairFlag { get; set; }
+
         public int TraceLogId { get; set; }
         public TraceabilityLogModel TraceLog { get; set; }
 
