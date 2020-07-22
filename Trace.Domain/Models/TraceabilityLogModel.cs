@@ -8,6 +8,13 @@ namespace Trace.Domain.Models
 {
     public class TraceabilityLogModel : DomainObject
     {
+        public TraceabilityLogModel()
+        {
+            PartAssemblies = new List<PartAssemblyModel>();
+            TighteningResults = new List<TighteningResultModel>();
+            CameraResults = new List<CameraResultModel>();
+        }
+
         public int StationId { get; set; }
         public int MachineId { get; set; }
         public string ItemCode { get; set; }

@@ -472,7 +472,11 @@ namespace Trace.Monitoring
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1TestResult[19]")
                 {
-                    int receivedData = Convert.ToInt32(values[i].Value);
+                    int receivedData;
+                    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
+                    if (!succes)
+                        receivedData = 0;
+
                     txtPosition1.Invoke(new EventHandler(
                         delegate
                         {
@@ -536,7 +540,11 @@ namespace Trace.Monitoring
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2TestResult[19]")
                 {
-                    int receivedData = Convert.ToInt32(values[i].Value);
+                    int receivedData;
+                    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
+                    if (!succes)
+                        receivedData = 0;
+
                     txtPosition2.Invoke(new EventHandler(
                         delegate
                         {                           
@@ -706,7 +714,11 @@ namespace Trace.Monitoring
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4TestResult[19]")
                 {
-                    int receivedData = Convert.ToInt32(values[i].Value);
+                    int receivedData;
+                    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
+                    if (!succes)
+                        receivedData = 0;
+
                     txtPosition4.Invoke(new EventHandler(
                         delegate
                         {

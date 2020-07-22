@@ -654,8 +654,8 @@ namespace Trace.Monitoring.Presenters
                         _view.machine7.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
                     }
-                 
-                    ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);                               
+
+                    ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);
                     _view.machine7 = machineTmp;
                 }
             }
@@ -809,6 +809,54 @@ namespace Trace.Monitoring.Presenters
                         part.PartName = "Space";
                         part.SerialNumber = item.Value.ToString();
                     }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[8]")
+                    {
+                        part.LineNumber = 9;
+                        part.PartName = "Tether";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[9]")
+                    {
+                        part.LineNumber = 10;
+                        part.PartName = "UPR Actuator BOX S/N ";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[10]")
+                    {
+                        part.LineNumber = 11;
+                        part.PartName = "UPR Van set LH BOX S/N";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[11]")
+                    {
+                        part.LineNumber = 12;
+                        part.PartName = "UPR Van set RH BOX S/N";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[12]")
+                    {
+                        part.LineNumber = 13;
+                        part.PartName = "Tether BOX S/N";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[13]")
+                    {
+                        part.LineNumber = 14;
+                        part.PartName = "UPR Frame BOX S/N";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[14]")
+                    {
+                        part.LineNumber = 15;
+                        part.PartName = "PullRod BOX S/N";
+                        part.SerialNumber = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[15]")
+                    {
+                        part.LineNumber = 16;
+                        part.PartName = "Space BOX S/N";
+                        part.SerialNumber = item.Value.ToString();
+                    }
 
                     trace.PartAssemblies.Add(part);
                 }
@@ -872,7 +920,6 @@ namespace Trace.Monitoring.Presenters
 
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -885,6 +932,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -931,6 +979,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -977,6 +1026,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1023,6 +1073,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1069,6 +1120,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1115,6 +1167,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1161,6 +1214,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1207,6 +1261,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1374,7 +1429,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = loggings.FirstOrDefault();
+                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion Tightening Keep position #001
@@ -1517,7 +1572,6 @@ namespace Trace.Monitoring.Presenters
                         int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1530,6 +1584,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1563,7 +1618,6 @@ namespace Trace.Monitoring.Presenters
                         int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1576,6 +1630,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1609,7 +1664,6 @@ namespace Trace.Monitoring.Presenters
                         int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1622,6 +1676,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1655,7 +1710,6 @@ namespace Trace.Monitoring.Presenters
                         int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1668,6 +1722,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -1701,7 +1756,6 @@ namespace Trace.Monitoring.Presenters
                         int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -1714,6 +1768,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -2007,7 +2062,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = loggings.FirstOrDefault();
+                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion Tightening Keep position #001
@@ -2200,7 +2255,6 @@ namespace Trace.Monitoring.Presenters
                         int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
                         if (tExist > 0)
                         {
-                            t.RepairFlag = true;
                             trace.TighteningResults.Where(x => x.No == t.No)
                                 .Select(c => {
                                     c.Result = t.Result;
@@ -2213,6 +2267,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
@@ -2259,6 +2314,7 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
+                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
