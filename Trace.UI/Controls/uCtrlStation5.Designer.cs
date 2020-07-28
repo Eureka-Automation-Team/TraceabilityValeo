@@ -322,7 +322,6 @@ namespace Trace.UI.Controls
             this.txtUpperPartSerialNumber.ReadOnly = true;
             this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(214, 23);
             this.txtUpperPartSerialNumber.TabIndex = 17;
-            this.txtUpperPartSerialNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel5
             // 

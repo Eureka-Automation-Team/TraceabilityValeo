@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -980,6 +981,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1033,6 +1035,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1085,6 +1088,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1137,6 +1141,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1189,6 +1194,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1241,6 +1247,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1293,6 +1300,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -1459,14 +1467,14 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r)
             {
                 tmpMsg = string.Empty;
-                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                {
-                    invalid = true;
-                    if (!string.IsNullOrEmpty(errMsg))
-                        errMsg += Environment.NewLine;
+                //if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                //{
+                //    invalid = true;
+                //    if (!string.IsNullOrEmpty(errMsg))
+                //        errMsg += Environment.NewLine;
 
-                    errMsg += tmpMsg;
-                }
+                //    errMsg += tmpMsg;
+                //}
 
                 if (!invalid)
                 {
@@ -1565,17 +1573,17 @@ namespace Trace.Monitoring.Presenters
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Hollow Nut Screw L";
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[0]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[0]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[0]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[0]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[0]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[0]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[0]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[5]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[5]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[5]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[5]").FirstOrDefault().Value);
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[5]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[5]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[5]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[5]").FirstOrDefault().Value.ToString());
                         t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[5]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
@@ -1613,17 +1621,17 @@ namespace Trace.Monitoring.Presenters
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Hollow Nut Screw R";
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[1]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[1]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[1]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[1]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[1]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[1]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[1]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[6]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[6]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[6]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[6]").FirstOrDefault().Value);
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[6]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[6]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[6]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[6]").FirstOrDefault().Value.ToString());
                         t.JointTestResult = t.TestResult; // r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[6]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
@@ -1661,17 +1669,17 @@ namespace Trace.Monitoring.Presenters
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Ejot Screw L";
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[2]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[2]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[2]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[2]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[2]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[2]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[2]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[7]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[7]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[7]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[7]").FirstOrDefault().Value);
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[7]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[7]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[7]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[7]").FirstOrDefault().Value.ToString());
                         t.JointTestResult = t.TestResult; // r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[7]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
@@ -1705,21 +1713,21 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.4
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[3]" && tigtheingNumber == 3)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[3]")
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Ejot Screw R";
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[3]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[3]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[3]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[3]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[3]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[3]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[3]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[8]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[8]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[8]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[8]").FirstOrDefault().Value);
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[8]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[8]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[8]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[8]").FirstOrDefault().Value.ToString());
                         t.JointTestResult = t.TestResult; // r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[8]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
@@ -1753,21 +1761,21 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.5
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[4]" && tigtheingNumber == 4)
+                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[4]")
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Hollow Nut Deep";
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[4]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[4]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[4]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[4]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[4]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[4]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[4]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[9]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[9]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[9]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[9]").FirstOrDefault().Value);
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestResult[9]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[9]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[9]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter3[9]").FirstOrDefault().Value.ToString());
                         t.JointTestResult = t.TestResult; // r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[8]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
@@ -1807,10 +1815,10 @@ namespace Trace.Monitoring.Presenters
             #region Insert/Update Logging Detail
             if (invalid)
             {
-                var mac = _view.machine1;
+                var mac = _view.machine2;
                 mac.MessageResult = errMsg;
                 mac.CompletedLogging = 3;
-                _view.machine1 = mac;
+                _view.machine2 = mac;
                 result = false;
             }
             else
@@ -1988,7 +1996,7 @@ namespace Trace.Monitoring.Presenters
 
             return result;
         }
-              
+
         private async Task<bool> KeepLogForMachine5(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
@@ -2015,7 +2023,8 @@ namespace Trace.Monitoring.Presenters
                                             .Where(x =>
                                                    x.MachineId == m.Id
                                                    //&& x.CreationDate.Date == DateTime.Now.Date
-                                                   && !x.FinishFlag).ToList();
+                                                   //&& !x.FinishFlag
+                                                   ).ToList();
 
             if (loggings.Count > 0)
             {
@@ -2153,36 +2162,17 @@ namespace Trace.Monitoring.Presenters
 
             //Keep Tightening
             int i = 1;
-            int tigtheingNumber = 0;
             List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
             TighteningRepairModel tRepair = new TighteningRepairModel();
-            //trace.TighteningResults = new List<TighteningResultModel>();
             TighteningResultModel tmp = new TighteningResultModel();
 
-            //Get existing Tigthening count.
-            if (trace.Id > 0)
-            {
-                tmp.TraceLogId = trace.Id;
-                var tighteningResult = _serviceTigthening.GetByPrimary(tmp).Result;
-                tigtheingNumber = tighteningResult.Where(x => x.TestResult == "OK").Count();
-            }
-
-            //Is finish job.
-            List<ItemValueResult> valueResults = new List<ItemValueResult>();
-            if (trace.FinalResult != 0)
-            {
-                //Result for looping 8 time
-                valueResults = r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName).ToList();
-            }
-            else
-            {
-                string tag = _view.tagMainBlock + "ST1TestResult[" + tigtheingNumber.ToString() + "]";
-                valueResults = r.Where(x => x.ItemName == tag).Take(1).ToList();
-            }
+            if (trace.TighteningResults == null)
+                trace.TighteningResults = new List<TighteningResultModel>();
 
             foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
-                tmpMsg = string.Empty;
+                /*
+                tmpMsg = string.Empty;                
                 if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
                 {
                     invalid = true;
@@ -2190,34 +2180,42 @@ namespace Trace.Monitoring.Presenters
                         errMsg += Environment.NewLine;
 
                     errMsg += tmpMsg;
-                }
+                }*/
 
                 if (!invalid)
                 {
                     //No.1
-                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]" && tigtheingNumber == 0)
+                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]")
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = i.ToString();
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[0]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[0]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[0]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[0]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[0]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[0]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[0]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestResult[3]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[3]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[3]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[3]").FirstOrDefault().Value);
-                        //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[3]").FirstOrDefault().Value.ToString();
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestResult[3]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[3]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[3]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[3]").FirstOrDefault().Value.ToString());
+                        t.JointTestResult = t.TestResult; // r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[8]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
-                        if (tExist > 0)
+                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+                        if (tExist.Count() == 0)
                         {
-                            trace.TighteningResults.Where(x => x.No == t.No)
+                            trace.TighteningResults.Add(t);
+                            tRepairs.Add(tRepair);
+                        }
+                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                        {
+                            tRepairs.Add(tRepair);
+                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -2228,43 +2226,43 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
-                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
-                        else
-                            trace.TighteningResults.Add(t);
-
-                        tRepairs.Add(tRepair);
-                        if (trace.FinalResult != 0)
-                            tigtheingNumber++;
                     }
 
                     //No.2
-                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]" && tigtheingNumber == 1)
+                    if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]")
                     {
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = i.ToString();
-                        t.Result = Convert.ToDecimal(item.Value);
-                        t.Min = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[1]").FirstOrDefault().Value);
-                        t.Max = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[1]").FirstOrDefault().Value);
-                        t.Target = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[1]").FirstOrDefault().Value);
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[1]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[1]").FirstOrDefault().Value.ToString());
+                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[1]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[1]").FirstOrDefault().Value.ToString();
 
                         //JointsControlAngle Result 
-                        t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestResult[4]").FirstOrDefault().Value);
-                        t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[4]").FirstOrDefault().Value);
-                        t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[4]").FirstOrDefault().Value);
-                        t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[4]").FirstOrDefault().Value);
-                        //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestJudgment[4]").FirstOrDefault().Value.ToString();
+                        t.JointResult = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4TestResult[4]").FirstOrDefault().Value.ToString());
+                        t.JointMin = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[4]").FirstOrDefault().Value.ToString());
+                        t.JointMax = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[4]").FirstOrDefault().Value.ToString());
+                        t.JointTarget = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter3[4]").FirstOrDefault().Value.ToString());
+                        t.JointTestResult = t.TestResult; // r.Where(x => x.ItemName == _view.tagMainBlock + "ST2TestJudgment[8]").FirstOrDefault().Value.ToString();
 
                         tRepair = autoMappingRepair(t);
-                        int tExist = trace.TighteningResults.Where(x => x.No == t.No).Count();
-                        if (tExist > 0)
+                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+                        if (tExist.Count() == 0)
                         {
-                            t.RepairFlag = true;
-                            trace.TighteningResults.Where(x => x.No == t.No)
+                            trace.TighteningResults.Add(t);
+                            tRepairs.Add(tRepair);
+                        }
+                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                        {
+                            tRepairs.Add(tRepair);
+                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
                                 .Select(c => {
+                                    c.RepairFlag = (c.TestResult == "NOK");
                                     c.Result = t.Result;
                                     c.Min = t.Min;
                                     c.Max = t.Max;
@@ -2275,16 +2273,9 @@ namespace Trace.Monitoring.Presenters
                                     c.JointMax = t.JointMax;
                                     c.JointTarget = t.JointTarget;
                                     c.JointTestResult = t.TestResult;
-                                    c.RepairFlag = true;
                                     return c;
                                 }).ToList();
                         }
-                        else
-                            trace.TighteningResults.Add(t);
-
-                        tRepairs.Add(tRepair);
-                        if (trace.FinalResult != 0)
-                            tigtheingNumber++;
                     }
                 }
                 i++;
@@ -2311,8 +2302,11 @@ namespace Trace.Monitoring.Presenters
                         var cRepair = tRepairs.Where(x => x.No == item.No).FirstOrDefault();
                         if (cRepair != null)
                         {
-                            cRepair.TighteningResultId = item.Id;
-                            await _serviceTigtheningRepair.Create(cRepair);
+                            if (!string.IsNullOrEmpty(cRepair.TestResult))
+                            {
+                                cRepair.TighteningResultId = item.Id;
+                                await _serviceTigtheningRepair.Create(cRepair);
+                            }
                         }
                     }
                 }
@@ -2337,8 +2331,11 @@ namespace Trace.Monitoring.Presenters
                             var cRepair = tRepairs.Where(x => x.No == item.No).FirstOrDefault();
                             if (cRepair != null)
                             {
-                                cRepair.TighteningResultId = item.Id;
-                                await _serviceTigtheningRepair.Create(cRepair);
+                                if (!string.IsNullOrEmpty(cRepair.TestResult))
+                                {
+                                    cRepair.TighteningResultId = item.Id;
+                                    await _serviceTigtheningRepair.Create(cRepair);
+                                }
                             }
                         }
                     }
@@ -2346,6 +2343,20 @@ namespace Trace.Monitoring.Presenters
             }
 
             return result;
+        }
+
+        private decimal ConvertToDecimal(string number)
+        {
+            decimal myDecimal;
+            if (string.IsNullOrEmpty(number))
+                number = "0";
+
+            bool result = decimal.TryParse(number, out myDecimal);
+
+            if (result)
+                return myDecimal;
+            else
+                return 0;
         }
 
         private async Task<bool> KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
@@ -2401,7 +2412,7 @@ namespace Trace.Monitoring.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST5_1Code")
                         trace.ItemCode = item.Value.ToString();
 
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1ProductSerialNo")
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1_Product_Serial_No.")
                         trace.PartSerialNumber = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[0]")
@@ -2410,17 +2421,20 @@ namespace Trace.Monitoring.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[1]")
                     {
                         string strDate = item.Value.ToString();
-                        DateTime prodDate = DateTime.Now;
-                        try
-                        {
-                            prodDate = DateTime.ParseExact(strDate, "dd/MM/yy", null);
-                        }
-                        catch
-                        {
-                            prodDate = DateTime.Now;
-                        }
 
-                        trace.ProductionDate = prodDate;
+                        if(strDate.Length > 2)
+                        {
+                            trace.ProductionDate = GetProductionDate(strDate);
+                        }
+                        else
+                        {
+                            invalid = true;
+                            tmpMsg = "Production Date was not recognized as a valid DateTime.";
+                            if (!string.IsNullOrEmpty(errMsg))
+                                errMsg += Environment.NewLine;
+
+                            errMsg += tmpMsg;
+                        }
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[2]")
@@ -2458,19 +2472,24 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
+                string tartgetFile;
+                string errMessageFile;
+
                 if (trace.Id == 0)
                 {
                     await _serviceTraceLog.Create(trace);
+                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
                 else
                 {
                     await _serviceTraceLog.Update(trace);
+                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
             }
             #endregion
 
             return result;
-        }
+        }      
 
         private async Task<bool> KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
@@ -2525,14 +2544,30 @@ namespace Trace.Monitoring.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST5_2Code")
                         trace.ItemCode = item.Value.ToString();
 
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2ProductSerialNo")
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2_Product_Serial_No.")
                         trace.PartSerialNumber = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[0]")
                         trace.Actuator = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[1]")
-                        trace.ProductionDate = Convert.ToDateTime(item.Value);
+                    {
+                        string strDate = item.Value.ToString();
+
+                        if (strDate.Length > 2)
+                        {
+                            trace.ProductionDate = GetProductionDate(strDate);
+                        }
+                        else
+                        {
+                            invalid = true;
+                            tmpMsg = "Production Date was not recognized as a valid DateTime.";
+                            if (!string.IsNullOrEmpty(errMsg))
+                                errMsg += Environment.NewLine;
+
+                            errMsg += tmpMsg;
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[2]")
                         trace.SwNumber = item.Value.ToString();
@@ -2566,23 +2601,53 @@ namespace Trace.Monitoring.Presenters
             }
             else
             {
+                string tartgetFile;
+                string errMessageFile;
+
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
                 if (trace.Id == 0)
                 {
                     await _serviceTraceLog.Create(trace);
+                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
                 else
                 {
                     await _serviceTraceLog.Update(trace);
+                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
             }
             #endregion
 
             return result;
         }
-       
+
+        private DateTime GetProductionDate(string strDate)
+        {
+            DateTime prodDate = DateTime.Now;
+            try
+            {
+                DateTime resultYear;
+                int year = Convert.ToInt32(strDate.Substring(0, 2));
+                int day = Convert.ToInt32(strDate.Substring(2, 3));
+
+                bool canParse = DateTime.TryParseExact(year.ToString(),
+                    "yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultYear);
+
+                if (canParse)
+                    prodDate = resultYear;
+
+                prodDate = new DateTime(prodDate.Year, 1, 1).AddDays(day - 1);
+            }
+            catch
+            {
+                prodDate = DateTime.Now;
+            }
+
+            return prodDate;
+        }
+
         private void Disconnect_Click(object sender, EventArgs e)
         {
             _view.connectedPlc = !Disconnect();
@@ -2794,6 +2859,13 @@ namespace Trace.Monitoring.Presenters
                 var verifyResultTag = _view.tagMainBlock + "ST1CodeVerifyResult";
                 mac1.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag).FirstOrDefault().Value);
 
+                int receivedData;
+                var positionTag = _view.tagMainBlock + "ST1TestResult[19]";
+                var succes = Int32.TryParse(currentResult.Where(x => x.ItemName == positionTag).FirstOrDefault().Value.ToString(), out receivedData);
+                if (!succes)
+                    receivedData = 0;
+                mac1.TighteningPosition = receivedData;
+
                 _view.machine1 = mac1;
 
                 //Machine 2
@@ -2812,6 +2884,13 @@ namespace Trace.Monitoring.Presenters
 
                 var verifyResultTag2 = _view.tagMainBlock + "ST2CodeVerifyResult";
                 mac2.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag2).FirstOrDefault().Value);
+
+                int receivedData2;
+                var positionTag2 = _view.tagMainBlock + "ST2TestResult[19]";
+                var succes2 = Int32.TryParse(currentResult.Where(x => x.ItemName == positionTag2).FirstOrDefault().Value.ToString(), out receivedData2);
+                if (!succes2)
+                    receivedData2 = 0;
+                mac2.TighteningPosition = receivedData2;
 
                 _view.machine2 = mac2;
 
@@ -2869,6 +2948,13 @@ namespace Trace.Monitoring.Presenters
 
                 var verifyResultTag5 = _view.tagMainBlock + "ST4CodeVerifyResult";
                 mac5.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag5).FirstOrDefault().Value);
+
+                int receivedData5;
+                var positionTag5 = _view.tagMainBlock + "ST4TestResult[19]";
+                var succes5 = Int32.TryParse(currentResult.Where(x => x.ItemName == positionTag5).FirstOrDefault().Value.ToString(), out receivedData5);
+                if (!succes5)
+                    receivedData5 = 0;
+                mac5.TighteningPosition = receivedData5;
 
                 _view.machine5 = mac5;
 
@@ -3038,6 +3124,9 @@ namespace Trace.Monitoring.Presenters
 
                 if (tag.DataType.ToUpper() == "DECIMAL")
                 {
+                    if (string.IsNullOrEmpty(value))
+                        value = "0";
+
                     if (InvalidDecimal(value))
                     {
                         returnMsg = tag.PlcTag + " tag must be Decimal type.";
@@ -3047,6 +3136,9 @@ namespace Trace.Monitoring.Presenters
 
                 if (tag.DataType.ToUpper() == "INT")
                 {
+                    if (string.IsNullOrEmpty(value))
+                        value = "0";
+
                     if (InvalidInt(value))
                     {
                         returnMsg = tag.PlcTag + " tag must be Integer type.";
@@ -3056,6 +3148,9 @@ namespace Trace.Monitoring.Presenters
 
                 if (tag.DataType.ToUpper() == "BOOL")
                 {
+                    if (string.IsNullOrEmpty(value))
+                        value = "0";
+
                     if (InvalidBoolean(value))
                     {
                         returnMsg = tag.PlcTag + " tag must be Boolean type.";

@@ -68,11 +68,11 @@ namespace Trace.UI.Presenters
             ClearForm(null, null);
         }
 
-        private async Task<IPagedList<TraceabilityLogModel>> GetLogsListAsync(int pageNumber = 1, int pageSize = 50)
+        private async Task<IPagedList<TraceabilityLogModel>> GetLogsListAsync(int pageNumber = 1, int pageSize = 500)
         {
             return await Task.Factory.StartNew(() =>
             {
-                var result = _serviceTraceLog.GetListByStationID(5).Result.Where(x => x.CreationDate.Date >= _view.startDate.Date && x.CreationDate.Date <= _view.endDate.Date);
+                var result = _serviceTraceLog.GetList("",500).Result.Where(x => x.CreationDate.Date >= _view.startDate.Date && x.CreationDate.Date <= _view.endDate.Date);
 
                 if (!string.IsNullOrEmpty(_view.itemCode)) result = result.Where(x => x.ItemCode.ToUpper().Contains(_view.itemCode.ToUpper()));
                 if (!string.IsNullOrEmpty(_view.partSerialNo)) result = result.Where(x => x.PartSerialNumber.ToUpper().Contains(_view.partSerialNo.ToUpper()));
