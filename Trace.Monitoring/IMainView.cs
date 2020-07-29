@@ -19,6 +19,7 @@ namespace Trace.Monitoring
         event EventHandler KeepLogging;
         event EventHandler CompleteAction;
         event EventHandler VerityCode;
+        event EventHandler VerityActuater;
 
         Server daServer { get; set; }
         Subscription groupRead { get; set; }

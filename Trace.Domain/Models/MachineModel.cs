@@ -14,6 +14,12 @@ namespace Trace.Domain.Models
         }
 
         public bool RequestLogging { get; set; }
+        public bool RequestCodeActuater { get; set; }
+        public int ActuatorResult { get; set; }
+        public string ActuatorResultDesc
+        {
+            get { return (Enum.GetName(typeof(enumActuatorResult), ActuatorResult)); }
+        }
         public int CompletedLogging { get; set; }
         public string CompletedLoggingDesc
         {
@@ -56,5 +62,12 @@ namespace Trace.Domain.Models
         NOK = 2,
         NOT_FOUND = 3,
         DUPPLICATED = 4
+    }
+
+    enum enumActuatorResult
+    {
+        NONE = 0,
+        OK = 1,
+        NoData = 2
     }
 }

@@ -345,7 +345,7 @@ namespace Trace.Monitoring
                     butCompletedLogging6.Text = _machine6.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging6, _machine6.CompletedLogging);
 
-                    if (_machine5.RequestVerifyCode)
+                    if (_machine6.RequestVerifyCode)
                     {
                         butRequestVerifyCode6.Text = _machine6.CodeVerifyResultDesc;
                     }
@@ -354,6 +354,16 @@ namespace Trace.Monitoring
                         butRequestVerifyCode6.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode6, Convert.ToInt32(_machine6.RequestVerifyCode));
+                    //***********************
+                    if (_machine6.RequestCodeActuater)
+                    {
+                        butRequestCodeActuater1.Text = _machine6.ActuatorResultDesc;
+                    }
+                    else
+                    {
+                        butRequestCodeActuater1.Text = string.Empty;
+                    }
+                    SetButtonStatusColor(butRequestCodeActuater1, Convert.ToInt32(_machine6.RequestCodeActuater));
                 }
             }
         }
@@ -378,7 +388,7 @@ namespace Trace.Monitoring
                     butCompletedLogging7.Text = _machine7.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging7, _machine7.CompletedLogging);
 
-                    if (_machine5.RequestVerifyCode)
+                    if (_machine7.RequestVerifyCode)
                     {
                         butRequestVerifyCode7.Text = _machine7.CodeVerifyResultDesc;
                     }
@@ -387,6 +397,16 @@ namespace Trace.Monitoring
                         butRequestVerifyCode7.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode7, Convert.ToInt32(_machine7.RequestVerifyCode));
+                    //***********************
+                    if (_machine7.RequestCodeActuater)
+                    {
+                        butRequestCodeActuater2.Text = _machine7.ActuatorResultDesc;
+                    }
+                    else
+                    {
+                        butRequestCodeActuater2.Text = string.Empty;
+                    }
+                    SetButtonStatusColor(butRequestCodeActuater2, Convert.ToInt32(_machine7.RequestCodeActuater));
                 }
             }
         }
@@ -399,6 +419,7 @@ namespace Trace.Monitoring
         public event EventHandler KeepLogging;
         public event EventHandler CompleteAction;
         public event EventHandler VerityCode;
+        public event EventHandler VerityActuater;
 
         public MainForm()
         {
@@ -780,6 +801,20 @@ namespace Trace.Monitoring
                                 VerityCode(this.machine6, null);
                         }));
                 }
+                if (values[i].ItemName == tagMainBlock + "ST5_1ReqCodeActuater")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestCodeActuater1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine6;
+                            mac.RequestCodeActuater = val;
+                            this.machine6 = mac;
+                            if (val)
+                                VerityActuater(this.machine6, null);
+                        }));
+                }
 
                 //Machine 7
                 if (values[i].ItemName == tagMainBlock + "ST5_2StatusMc")
@@ -831,6 +866,20 @@ namespace Trace.Monitoring
                             this.machine7 = mac;
                             if (val)
                                 VerityCode(this.machine7, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_2ReqCodeActuater")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestCodeActuater2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine7;
+                            mac.RequestCodeActuater = val;
+                            this.machine7 = mac;
+                            if (val)
+                                VerityActuater(this.machine7, null);
                         }));
                 }
             }

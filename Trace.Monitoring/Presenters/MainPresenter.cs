@@ -24,6 +24,7 @@ namespace Trace.Monitoring.Presenters
         IDataService<TighteningResultModel> _serviceTigthening = new TighteningResultService(new TraceDbContextFactory());
         IDataService<TighteningRepairModel> _serviceTigtheningRepair = new TighteningRepairService(new TraceDbContextFactory());
         IDataService<CameraResultModel> _serviceCameraResult = new CameraResultService(new TraceDbContextFactory());
+        IDataService<PartAssemblyModel> _servicePartAssembly = new PartAssemblyService(new TraceDbContextFactory());
 
         private readonly IMainView _view;
 
@@ -39,6 +40,47 @@ namespace Trace.Monitoring.Presenters
             _view.KeepLogging += KeepLogging;
             _view.CompleteAction += CompleteAction;
             _view.VerityCode += VerityCode;
+            _view.VerityActuater += VerityActuater;
+        }
+
+        private async void VerityActuater(object sender, EventArgs e)
+        {
+            MachineModel _machine = sender as MachineModel;
+            var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+
+            //machine 6
+            if (_machine.Id == 6)
+            {
+                var tagItemCode = _view.tagMainBlock + "ST5_1Code";
+                var tagName = _view.tagMainBlock + "ST5_1ReceiveCodeActuateror";
+
+                var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
+                var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var result = await _serviceTraceLog.GetListByItemCode(itemCode.ToString());
+                var loggings = result.Where(x => x.MachineId == 1);
+
+                if (loggings.Count() == 0)
+                {
+                    _machine.ActuatorResult = 2;  //Data not found
+                }
+                else
+                {
+                    var partAssblies = await _servicePartAssembly.GetListByItemCode(itemCode.ToString());
+                    var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N");
+
+                    if (actuaterResult.Count() == 0)
+                    {
+                        _machine.ActuatorResult = 2;
+                    }
+                    else
+                        _machine.ActuatorResult = 1;
+                }
+
+                _view.machine6 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
+            }
+
         }
 
         private void VerityCode(object sender, EventArgs e)

@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.butRequestLogging1 = new System.Windows.Forms.Button();
+            this.txtPosition1 = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtManchineName1 = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -78,6 +79,7 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.txtPosition2 = new System.Windows.Forms.TextBox();
             this.butRequestLogging2 = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtManchineName2 = new System.Windows.Forms.TextBox();
@@ -154,6 +156,7 @@
             this.panel46 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
+            this.txtPosition4 = new System.Windows.Forms.TextBox();
             this.butRequestLogging5 = new System.Windows.Forms.Button();
             this.panel48 = new System.Windows.Forms.Panel();
             this.txtManchineName5 = new System.Windows.Forms.TextBox();
@@ -220,9 +223,8 @@
             this.panel69 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.txtPosition2 = new System.Windows.Forms.TextBox();
-            this.txtPosition4 = new System.Windows.Forms.TextBox();
-            this.txtPosition1 = new System.Windows.Forms.TextBox();
+            this.butRequestCodeActuater1 = new System.Windows.Forms.Button();
+            this.butRequestCodeActuater2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -529,6 +531,18 @@
             this.butRequestLogging1.Size = new System.Drawing.Size(122, 29);
             this.butRequestLogging1.TabIndex = 4;
             this.butRequestLogging1.UseVisualStyleBackColor = false;
+            // 
+            // txtPosition1
+            // 
+            this.txtPosition1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPosition1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtPosition1.Location = new System.Drawing.Point(122, 0);
+            this.txtPosition1.Multiline = true;
+            this.txtPosition1.Name = "txtPosition1";
+            this.txtPosition1.ReadOnly = true;
+            this.txtPosition1.Size = new System.Drawing.Size(22, 29);
+            this.txtPosition1.TabIndex = 5;
+            this.txtPosition1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel10
             // 
@@ -884,6 +898,18 @@
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(144, 29);
             this.panel19.TabIndex = 27;
+            // 
+            // txtPosition2
+            // 
+            this.txtPosition2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPosition2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtPosition2.Location = new System.Drawing.Point(122, 0);
+            this.txtPosition2.Multiline = true;
+            this.txtPosition2.Name = "txtPosition2";
+            this.txtPosition2.ReadOnly = true;
+            this.txtPosition2.Size = new System.Drawing.Size(22, 29);
+            this.txtPosition2.TabIndex = 6;
+            this.txtPosition2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // butRequestLogging2
             // 
@@ -1753,6 +1779,18 @@
             this.panel47.Size = new System.Drawing.Size(144, 29);
             this.panel47.TabIndex = 27;
             // 
+            // txtPosition4
+            // 
+            this.txtPosition4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPosition4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtPosition4.Location = new System.Drawing.Point(122, 0);
+            this.txtPosition4.Multiline = true;
+            this.txtPosition4.Name = "txtPosition4";
+            this.txtPosition4.ReadOnly = true;
+            this.txtPosition4.Size = new System.Drawing.Size(22, 29);
+            this.txtPosition4.TabIndex = 6;
+            this.txtPosition4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // butRequestLogging5
             // 
             this.butRequestLogging5.BackColor = System.Drawing.Color.Gray;
@@ -2336,6 +2374,7 @@
             // 
             // panel82
             // 
+            this.panel82.Controls.Add(this.butRequestCodeActuater1);
             this.panel82.Controls.Add(this.butRequestVerifyCode6);
             this.panel82.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel82.Location = new System.Drawing.Point(731, 33);
@@ -2346,18 +2385,19 @@
             // butRequestVerifyCode6
             // 
             this.butRequestVerifyCode6.BackColor = System.Drawing.Color.Gray;
-            this.butRequestVerifyCode6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode6.Dock = System.Windows.Forms.DockStyle.Left;
             this.butRequestVerifyCode6.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.butRequestVerifyCode6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butRequestVerifyCode6.Location = new System.Drawing.Point(0, 0);
             this.butRequestVerifyCode6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butRequestVerifyCode6.Name = "butRequestVerifyCode6";
-            this.butRequestVerifyCode6.Size = new System.Drawing.Size(134, 32);
+            this.butRequestVerifyCode6.Size = new System.Drawing.Size(71, 32);
             this.butRequestVerifyCode6.TabIndex = 7;
             this.butRequestVerifyCode6.UseVisualStyleBackColor = false;
             // 
             // panel83
             // 
+            this.panel83.Controls.Add(this.butRequestCodeActuater2);
             this.panel83.Controls.Add(this.butRequestVerifyCode7);
             this.panel83.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel83.Location = new System.Drawing.Point(731, 71);
@@ -2368,13 +2408,13 @@
             // butRequestVerifyCode7
             // 
             this.butRequestVerifyCode7.BackColor = System.Drawing.Color.Gray;
-            this.butRequestVerifyCode7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestVerifyCode7.Dock = System.Windows.Forms.DockStyle.Left;
             this.butRequestVerifyCode7.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.butRequestVerifyCode7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butRequestVerifyCode7.Location = new System.Drawing.Point(0, 0);
             this.butRequestVerifyCode7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butRequestVerifyCode7.Name = "butRequestVerifyCode7";
-            this.butRequestVerifyCode7.Size = new System.Drawing.Size(134, 32);
+            this.butRequestVerifyCode7.Size = new System.Drawing.Size(71, 32);
             this.butRequestVerifyCode7.TabIndex = 7;
             this.butRequestVerifyCode7.UseVisualStyleBackColor = false;
             // 
@@ -2497,41 +2537,31 @@
             this.textBox4.Text = "5";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtPosition2
+            // butRequestCodeActuater1
             // 
-            this.txtPosition2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPosition2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtPosition2.Location = new System.Drawing.Point(122, 0);
-            this.txtPosition2.Multiline = true;
-            this.txtPosition2.Name = "txtPosition2";
-            this.txtPosition2.ReadOnly = true;
-            this.txtPosition2.Size = new System.Drawing.Size(22, 29);
-            this.txtPosition2.TabIndex = 6;
-            this.txtPosition2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.butRequestCodeActuater1.BackColor = System.Drawing.Color.Silver;
+            this.butRequestCodeActuater1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestCodeActuater1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestCodeActuater1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestCodeActuater1.Location = new System.Drawing.Point(71, 0);
+            this.butRequestCodeActuater1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestCodeActuater1.Name = "butRequestCodeActuater1";
+            this.butRequestCodeActuater1.Size = new System.Drawing.Size(63, 32);
+            this.butRequestCodeActuater1.TabIndex = 8;
+            this.butRequestCodeActuater1.UseVisualStyleBackColor = false;
             // 
-            // txtPosition4
+            // butRequestCodeActuater2
             // 
-            this.txtPosition4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPosition4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtPosition4.Location = new System.Drawing.Point(122, 0);
-            this.txtPosition4.Multiline = true;
-            this.txtPosition4.Name = "txtPosition4";
-            this.txtPosition4.ReadOnly = true;
-            this.txtPosition4.Size = new System.Drawing.Size(22, 29);
-            this.txtPosition4.TabIndex = 6;
-            this.txtPosition4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPosition1
-            // 
-            this.txtPosition1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPosition1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtPosition1.Location = new System.Drawing.Point(122, 0);
-            this.txtPosition1.Multiline = true;
-            this.txtPosition1.Name = "txtPosition1";
-            this.txtPosition1.ReadOnly = true;
-            this.txtPosition1.Size = new System.Drawing.Size(22, 29);
-            this.txtPosition1.TabIndex = 5;
-            this.txtPosition1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.butRequestCodeActuater2.BackColor = System.Drawing.Color.Silver;
+            this.butRequestCodeActuater2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.butRequestCodeActuater2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestCodeActuater2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestCodeActuater2.Location = new System.Drawing.Point(71, 0);
+            this.butRequestCodeActuater2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestCodeActuater2.Name = "butRequestCodeActuater2";
+            this.butRequestCodeActuater2.Size = new System.Drawing.Size(63, 32);
+            this.butRequestCodeActuater2.TabIndex = 8;
+            this.butRequestCodeActuater2.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -2884,6 +2914,8 @@
         private System.Windows.Forms.TextBox txtPosition2;
         private System.Windows.Forms.TextBox txtPosition4;
         private System.Windows.Forms.TextBox txtPosition1;
+        private System.Windows.Forms.Button butRequestCodeActuater1;
+        private System.Windows.Forms.Button butRequestCodeActuater2;
     }
 }
 
