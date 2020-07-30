@@ -63,9 +63,15 @@ namespace Trace.Data.Service
             }
         }
 
-        public Task<IEnumerable<PartAssemblyModel>> GetByPrimary(PartAssemblyModel model)
+        public async Task<IEnumerable<PartAssemblyModel>> GetByPrimary(PartAssemblyModel model)
         {
-            throw new NotImplementedException();
+            using (TraceDbContext context = _contextFactory.Create())
+            {
+                IEnumerable<PartAssemblyModel> entities = await context.PartAssemblies
+                                                    .Where(x => x.TraceabilityLogId == model.TraceabilityLogId)
+                                                    .ToListAsync();
+                return entities;
+            }
         }
 
         public async Task<IEnumerable<PartAssemblyModel>> GetList(string whereClause, int takeRows)

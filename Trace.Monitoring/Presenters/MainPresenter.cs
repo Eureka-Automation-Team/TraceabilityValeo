@@ -66,8 +66,10 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    var partAssblies = await _servicePartAssembly.GetListByItemCode(itemCode.ToString());
-                    var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N");
+                    PartAssemblyModel model = new PartAssemblyModel();
+                    model.TraceabilityLogId = loggings.FirstOrDefault().Id;
+                    var partAssblies = await _servicePartAssembly.GetByPrimary(model);
+                    var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N" && x.SerialNumber == actuater.ToString());
 
                     if (actuaterResult.Count() == 0)
                     {
@@ -79,6 +81,41 @@ namespace Trace.Monitoring.Presenters
 
                 _view.machine6 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
+            }
+
+            //machine 7
+            if (_machine.Id == 7)
+            {
+                var tagItemCode = _view.tagMainBlock + "ST5_2Code";
+                var tagName = _view.tagMainBlock + "ST5_2ReceiveCodeActuateror";
+
+                var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
+                var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                var result = await _serviceTraceLog.GetListByItemCode(itemCode.ToString());
+                var loggings = result.Where(x => x.MachineId == 5);
+
+                if (loggings.Count() == 0)
+                {
+                    _machine.ActuatorResult = 2;  //Data not found
+                }
+                else
+                {
+                    PartAssemblyModel model = new PartAssemblyModel();
+                    model.TraceabilityLogId = loggings.FirstOrDefault().Id;
+                    var partAssblies = await _servicePartAssembly.GetByPrimary(model);
+                    var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N" && x.SerialNumber == actuater.ToString());
+
+                    if (actuaterResult.Count() == 0)
+                    {
+                        _machine.ActuatorResult = 2;
+                    }
+                    else
+                        _machine.ActuatorResult = 1;
+                }
+
+                _view.machine7 = _machine;
+                ReactCompleteLog(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
             }
 
         }
@@ -99,11 +136,15 @@ namespace Trace.Monitoring.Presenters
 
                 if (loggings.Count() == 0)
                 {
-                    _machine.CodeVerifyResult = 3;  //Data not found
+                    //Data not found
+                    //_machine.CodeVerifyResult = 3;  
+                    _machine.CodeVerifyResult = 1;
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4; 
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine1 = _machine;
@@ -125,7 +166,9 @@ namespace Trace.Monitoring.Presenters
                                                                    .Where(x => x.MachineId == 1);
                     if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Data not found
+                        //Data not found
+                        //_machine.CodeVerifyResult = 3;
+                        _machine.CodeVerifyResult = 2;
                     }
                     else
                     {
@@ -135,7 +178,9 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4;
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine2 = _machine;
@@ -157,7 +202,9 @@ namespace Trace.Monitoring.Presenters
                                                                    .Where(x => x.MachineId == 2);
                     if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Data not found
+                        //Data not found
+                        //_machine.CodeVerifyResult = 3;
+                        _machine.CodeVerifyResult = 2;
                     }
                     else
                     {
@@ -167,7 +214,9 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4;
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine3 = _machine;
@@ -189,7 +238,9 @@ namespace Trace.Monitoring.Presenters
                                                                    .Where(x => x.MachineId == 5);
                     if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Data not found
+                        //Data not found
+                        //_machine.CodeVerifyResult = 3;
+                        _machine.CodeVerifyResult = 2;
                     }
                     else
                     {
@@ -199,7 +250,9 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4;
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine4 = _machine;
@@ -217,11 +270,15 @@ namespace Trace.Monitoring.Presenters
 
                 if (loggings.Count() == 0)
                 {
-                    _machine.CodeVerifyResult = 3;  //Data not found
+                    //Data not found
+                    //_machine.CodeVerifyResult = 3;  
+                    _machine.CodeVerifyResult = 1;
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4; 
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine5 = _machine;
@@ -243,7 +300,9 @@ namespace Trace.Monitoring.Presenters
                                                                    .Where(x => x.MachineId == 3);
                     if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Data not found
+                        //Data not found
+                        //_machine.CodeVerifyResult = 3;
+                        _machine.CodeVerifyResult = 2;
                     }
                     else
                     {
@@ -253,7 +312,9 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4;
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine6 = _machine;
@@ -275,7 +336,9 @@ namespace Trace.Monitoring.Presenters
                                                                    .Where(x => x.MachineId == 4);
                     if (newJob.Count() == 0)
                     {
-                        _machine.CodeVerifyResult = 3;  //Data not found
+                        //Data not found
+                        //_machine.CodeVerifyResult = 3;
+                        _machine.CodeVerifyResult = 2;
                     }
                     else
                     {
@@ -285,7 +348,9 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    _machine.CodeVerifyResult = 4; //Dupplicated
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4;
+                    _machine.CodeVerifyResult = 2;
                 }
 
                 _view.machine7 = _machine;
@@ -3102,7 +3167,7 @@ namespace Trace.Monitoring.Presenters
             bool result = false;
             string _errMsg = string.Empty;
             string fileName = string.Empty;
-            string targetFile = string.Format(@"{0}\\{1}", targetImagePath, DateTime.Now.ToString("dd-MM-yyyy"));
+            string targetFile = string.Format(@"{0}\\{1}", targetImagePath, DateTime.Now.ToString("ddMMyyyy"));
             targetFile = RemoveSpecialCharacters(targetFile);
 
             //*** Create Folder
