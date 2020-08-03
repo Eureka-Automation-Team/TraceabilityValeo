@@ -46,12 +46,13 @@ namespace Trace.UI.Controls
                     txtUpperItemCode.Text = _traceabilityUpperLog.ItemCode;
                     txtUpperPartSerialNumber.Text = _traceabilityUpperLog.PartSerialNumber;
                     txtUpperActuator.Text = _traceabilityUpperLog.Actuator;
-                    txtUpperProductionDate.Text = _traceabilityUpperLog.ProductionDate.ToLongDateString();
+                    txtUpperProductionDate.Text = _traceabilityUpperLog.ProductionDate.ToString("dd/MM/yyyy HH:mm");
                     txtUpperSwNumber.Text = _traceabilityUpperLog.SwNumber;
                     txtUpperCurrentMaximum.Text = _traceabilityUpperLog.CurrentMaximum;
                     txtUpperOpenAngle.Text = _traceabilityUpperLog.OpenAngle;
                     txtUpperLineErrorCounter.Text = _traceabilityUpperLog.LineErrorCounter;
                     lblUpperFinalResult.Text = _traceabilityUpperLog.FinalResultDesc;
+                    txtUpperCameraCheck.Text = _traceabilityUpperLog.Attribute1;
 
                     if (_traceabilityUpperLog.FinalResult == 1)
                     {
@@ -79,6 +80,7 @@ namespace Trace.UI.Controls
                     txtUpperCurrentMaximum.Text = string.Empty;
                     txtUpperOpenAngle.Text = string.Empty;
                     txtUpperLineErrorCounter.Text = string.Empty;
+                    txtUpperCameraCheck.Text = string.Empty;
 
                     lblUpperFinalResult.Text = "";
                     lblUpperFinalResult.BackColor = Color.White;
@@ -99,12 +101,13 @@ namespace Trace.UI.Controls
                     txtLowerItemCode.Text = _traceabilityLowerLog.ItemCode;
                     txtLowerPartSerialNumber.Text = _traceabilityLowerLog.PartSerialNumber;
                     txtLowerActuator.Text = _traceabilityLowerLog.Actuator;
-                    txtLowerProductionDate.Text = _traceabilityLowerLog.ProductionDate.ToLongDateString();
+                    txtLowerProductionDate.Text = _traceabilityLowerLog.ProductionDate.ToString("dd/MM/yyyy HH:mm");
                     txtLowerSwNumber.Text = _traceabilityLowerLog.SwNumber;
                     txtLowerCurrentMaximum.Text = _traceabilityLowerLog.CurrentMaximum;
                     txtLowerOpenAngle.Text = _traceabilityLowerLog.OpenAngle;
                     txtLowerLineErrorCounter.Text = _traceabilityLowerLog.LineErrorCounter;
                     lblLowerFinalResult.Text = _traceabilityLowerLog.FinalResultDesc;
+                    txtLowerCameraCheck.Text = _traceabilityLowerLog.Attribute1;
 
                     if (_traceabilityLowerLog.FinalResult == 1)
                     {
@@ -132,7 +135,7 @@ namespace Trace.UI.Controls
                     txtLowerCurrentMaximum.Text = string.Empty;
                     txtLowerOpenAngle.Text = string.Empty;
                     txtLowerLineErrorCounter.Text = string.Empty;
-
+                    txtLowerCameraCheck.Text = string.Empty;
 
                     lblLowerFinalResult.Text = "";
                     lblLowerFinalResult.BackColor = Color.White;

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.picClose = new System.Windows.Forms.PictureBox();
@@ -188,7 +189,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.28671F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.71329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 486F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 487F));
             this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 1);
@@ -211,9 +212,9 @@
             // panel15
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(710, 69);
+            this.panel15.Location = new System.Drawing.Point(709, 69);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(481, 36);
+            this.panel15.Size = new System.Drawing.Size(482, 36);
             this.panel15.TabIndex = 10;
             // 
             // panel14
@@ -224,7 +225,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(238, 69);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(466, 36);
+            this.panel14.Size = new System.Drawing.Size(465, 36);
             this.panel14.TabIndex = 9;
             // 
             // label4
@@ -258,9 +259,9 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(710, 36);
+            this.panel12.Location = new System.Drawing.Point(709, 36);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(481, 27);
+            this.panel12.Size = new System.Drawing.Size(482, 27);
             this.panel12.TabIndex = 7;
             // 
             // panel11
@@ -269,7 +270,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(238, 36);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(466, 27);
+            this.panel11.Size = new System.Drawing.Size(465, 27);
             this.panel11.TabIndex = 6;
             // 
             // txtpartSerialNo
@@ -277,15 +278,15 @@
             this.txtpartSerialNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtpartSerialNo.Location = new System.Drawing.Point(0, 0);
             this.txtpartSerialNo.Name = "txtpartSerialNo";
-            this.txtpartSerialNo.Size = new System.Drawing.Size(466, 26);
+            this.txtpartSerialNo.Size = new System.Drawing.Size(465, 26);
             this.txtpartSerialNo.TabIndex = 1;
             // 
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(710, 3);
+            this.panel9.Location = new System.Drawing.Point(709, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(481, 27);
+            this.panel9.Size = new System.Drawing.Size(482, 27);
             this.panel9.TabIndex = 4;
             // 
             // panel5
@@ -360,7 +361,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(238, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(466, 27);
+            this.panel8.Size = new System.Drawing.Size(465, 27);
             this.panel8.TabIndex = 3;
             // 
             // txtitemCode
@@ -368,7 +369,7 @@
             this.txtitemCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtitemCode.Location = new System.Drawing.Point(0, 0);
             this.txtitemCode.Name = "txtitemCode";
-            this.txtitemCode.Size = new System.Drawing.Size(466, 26);
+            this.txtitemCode.Size = new System.Drawing.Size(465, 26);
             this.txtitemCode.TabIndex = 0;
             // 
             // panel3
@@ -570,7 +571,7 @@
             this.mnuSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuSearch.Name = "mnuSearch";
             this.mnuSearch.Size = new System.Drawing.Size(28, 28);
-            this.mnuSearch.Text = "toolStripButton1";
+            this.mnuSearch.Text = "Search";
             this.mnuSearch.Click += new System.EventHandler(this.mnuSearch_Click);
             // 
             // toolStripSeparator7
@@ -586,7 +587,7 @@
             this.mnuClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuClear.Name = "mnuClear";
             this.mnuClear.Size = new System.Drawing.Size(28, 28);
-            this.mnuClear.Text = "toolStripButton2";
+            this.mnuClear.Text = "Clear";
             this.mnuClear.Click += new System.EventHandler(this.mnuClear_Click);
             // 
             // toolStripSeparator2
@@ -602,7 +603,7 @@
             this.mnuDetail.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuDetail.Name = "mnuDetail";
             this.mnuDetail.Size = new System.Drawing.Size(28, 28);
-            this.mnuDetail.Text = "toolStripButton7";
+            this.mnuDetail.Text = "Detail";
             this.mnuDetail.Click += new System.EventHandler(this.mnuDetail_Click);
             // 
             // panel4
@@ -655,6 +656,9 @@
             // productionDateDataGridViewTextBoxColumn
             // 
             this.productionDateDataGridViewTextBoxColumn.DataPropertyName = "ProductionDate";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.productionDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.productionDateDataGridViewTextBoxColumn.HeaderText = "Production Date";
             this.productionDateDataGridViewTextBoxColumn.Name = "productionDateDataGridViewTextBoxColumn";
             // 

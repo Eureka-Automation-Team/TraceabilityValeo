@@ -55,6 +55,13 @@ namespace Trace.UI
             }
         }
 
+        public void HideSideBar()
+        {
+            panelMenu.Width = panelMenu.Width - 180;
+            pictureBox2.Visible = false;
+            pictureBox1.Visible = true;
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             if (FormLoad != null)

@@ -1,4 +1,5 @@
-﻿using Opc.Da;
+﻿using Google.Protobuf.WellKnownTypes;
+using Opc.Da;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -2485,6 +2486,7 @@ namespace Trace.Monitoring.Presenters
                 return 0;
         }
 
+        [Obsolete]
         private async Task<bool> KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
@@ -2620,8 +2622,9 @@ namespace Trace.Monitoring.Presenters
             #endregion
 
             return result;
-        }      
+        }
 
+        [Obsolete]
         private async Task<bool> KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
@@ -2770,6 +2773,7 @@ namespace Trace.Monitoring.Presenters
                 DateTime resultYear;
                 int year = Convert.ToInt32(strDate.Substring(0, 2));
                 int day = Convert.ToInt32(strDate.Substring(2, 3));
+                TimeSpan ts = new TimeSpan();
 
                 bool canParse = DateTime.TryParseExact(year.ToString(),
                     "yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultYear);
@@ -2778,6 +2782,7 @@ namespace Trace.Monitoring.Presenters
                     prodDate = resultYear;
 
                 prodDate = new DateTime(prodDate.Year, 1, 1).AddDays(day - 1);
+                prodDate = prodDate.Add(DateTime.Now.TimeOfDay);
             }
             catch
             {

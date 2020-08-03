@@ -45,7 +45,8 @@ namespace Trace.UI.Presenters
 
         private void InitializeForm(object sender, EventArgs e)
         {
-            
+            _view.HideSideBar();
+            _view.LoadSubForm(new HomeForm());
         }
     }
 }

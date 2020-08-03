@@ -12,5 +12,6 @@ namespace Trace.UI.Views
         event EventHandler OpenForm;
 
         void LoadSubForm(object form);
+        void HideSideBar();
     }
 }
