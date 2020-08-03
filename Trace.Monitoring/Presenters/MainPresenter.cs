@@ -167,7 +167,7 @@ namespace Trace.Monitoring.Presenters
                     if (newJob.Count() == 0)
                     {
                         //Data not found
-                        //_machine.CodeVerifyResult = 3;
+                        //_machine.CodeVerifyResult = 3;/
                         _machine.CodeVerifyResult = 2;
                     }
                     else
@@ -2501,7 +2501,7 @@ namespace Trace.Monitoring.Presenters
             }
             #endregion
 
-            #region Keep Master Logging
+            #region Validate Data
             foreach (var item in r)
             {
                 tmpMsg = string.Empty;
@@ -2513,7 +2513,12 @@ namespace Trace.Monitoring.Presenters
 
                     errMsg += tmpMsg;
                 }
+            }
+            #endregion
 
+            #region Keep Master Logging
+            foreach (var item in r)
+            {
                 if (!invalid)
                 {
                     if (item.ItemName == _view.tagMainBlock + "ST5_1Code")
@@ -2633,7 +2638,7 @@ namespace Trace.Monitoring.Presenters
             }
             #endregion
 
-            #region Keep Master Logging
+            #region Validate Data
             foreach (var item in r)
             {
                 tmpMsg = string.Empty;
@@ -2645,7 +2650,12 @@ namespace Trace.Monitoring.Presenters
 
                     errMsg += tmpMsg;
                 }
+            }
+            #endregion
 
+            #region Keep Master Logging
+            foreach (var item in r)
+            {
                 if (!invalid)
                 {
                     if (item.ItemName == _view.tagMainBlock + "ST5_2Code")
@@ -2687,6 +2697,9 @@ namespace Trace.Monitoring.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[5]")
                         trace.OpenAngle = item.Value.ToString();
+
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[6]")
+                        trace.Attribute1 = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2Final_Judgment")
                         trace.FinalResult = Convert.ToInt32(item.Value);
