@@ -225,6 +225,8 @@
             this.panel69 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.butRefresh = new System.Windows.Forms.Button();
+            this.timerConnect = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -360,6 +362,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butRefresh);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.butConnect);
             this.panel1.Controls.Add(this.txtServerUrl);
@@ -2571,6 +2574,27 @@
             this.textBox4.Text = "5";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // butRefresh
+            // 
+            this.butRefresh.BackColor = System.Drawing.SystemColors.Control;
+            this.butRefresh.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRefresh.Location = new System.Drawing.Point(949, 6);
+            this.butRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRefresh.Name = "butRefresh";
+            this.butRefresh.Size = new System.Drawing.Size(134, 35);
+            this.butRefresh.TabIndex = 3;
+            this.butRefresh.Text = "Refresh";
+            this.butRefresh.UseVisualStyleBackColor = false;
+            this.butRefresh.Visible = false;
+            this.butRefresh.Click += new System.EventHandler(this.butRefresh_Click);
+            // 
+            // timerConnect
+            // 
+            this.timerConnect.Enabled = true;
+            this.timerConnect.Interval = 5000;
+            this.timerConnect.Tick += new System.EventHandler(this.timerConnect_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2924,6 +2948,8 @@
         private System.Windows.Forms.TextBox txtPosition1;
         private System.Windows.Forms.Button butRequestCodeActuater1;
         private System.Windows.Forms.Button butRequestCodeActuater2;
+        private System.Windows.Forms.Button butRefresh;
+        private System.Windows.Forms.Timer timerConnect;
     }
 }
 

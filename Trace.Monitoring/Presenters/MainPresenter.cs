@@ -41,6 +41,13 @@ namespace Trace.Monitoring.Presenters
             _view.CompleteAction += CompleteAction;
             _view.VerityCode += VerityCode;
             _view.VerityActuater += VerityActuater;
+            _view.RefreshData += RefreshData;
+        }
+
+        private void RefreshData(object sender, EventArgs e)
+        {
+            if (_view.connectedPlc)
+                LoadCurrentValue(_view.groupRead);
         }
 
         private async void VerityActuater(object sender, EventArgs e)
@@ -69,14 +76,20 @@ namespace Trace.Monitoring.Presenters
                     PartAssemblyModel model = new PartAssemblyModel();
                     model.TraceabilityLogId = loggings.FirstOrDefault().Id;
                     var partAssblies = await _servicePartAssembly.GetByPrimary(model);
-                    var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N" && x.SerialNumber == actuater.ToString());
 
-                    if (actuaterResult.Count() == 0)
+                    if (partAssblies != null)
                     {
-                        _machine.ActuatorResult = 2;
+                        var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N" && x.SerialNumber == actuater.ToString());
+
+                        if (actuaterResult.Count() == 0)
+                        {
+                            _machine.ActuatorResult = 2;
+                        }
+                        else
+                            _machine.ActuatorResult = 1;
                     }
                     else
-                        _machine.ActuatorResult = 1;
+                        _machine.ActuatorResult = 2;
                 }
 
                 _view.machine6 = _machine;
@@ -103,15 +116,21 @@ namespace Trace.Monitoring.Presenters
                 {
                     PartAssemblyModel model = new PartAssemblyModel();
                     model.TraceabilityLogId = loggings.FirstOrDefault().Id;
-                    var partAssblies = await _servicePartAssembly.GetByPrimary(model);
-                    var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N" && x.SerialNumber == actuater.ToString());
+                    var partAssblies = await _servicePartAssembly.GetByPrimary(model);                    
 
-                    if (actuaterResult.Count() == 0)
+                    if (partAssblies != null)
                     {
-                        _machine.ActuatorResult = 2;
+                        var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N" && x.SerialNumber == actuater.ToString());
+
+                        if (actuaterResult.Count() == 0)
+                        {
+                            _machine.ActuatorResult = 2;
+                        }
+                        else
+                            _machine.ActuatorResult = 1;
                     }
                     else
-                        _machine.ActuatorResult = 1;
+                        _machine.ActuatorResult = 2;
                 }
 
                 _view.machine7 = _machine;
@@ -2906,7 +2925,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Connect OPC Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show(ex.Message, "Connect OPC Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 //Console.WriteLine(String.Format("Connect to server {0}", serverName));

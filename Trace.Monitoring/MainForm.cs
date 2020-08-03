@@ -145,12 +145,14 @@ namespace Trace.Monitoring
                 {
                     butMakeReady.Text = "Ready";
                     butMakeReady.BackColor = Color.GreenYellow;
+                    butRefresh.Visible = true;
                     EnableClock();
                 }
                 else
                 {
                     butMakeReady.Text = "Not ready";
                     butMakeReady.BackColor = Color.Gray;
+                    butRefresh.Visible = false;
                     DisableClock();
                 }
             }
@@ -420,6 +422,7 @@ namespace Trace.Monitoring
         public event EventHandler CompleteAction;
         public event EventHandler VerityCode;
         public event EventHandler VerityActuater;
+        public event EventHandler RefreshData;
 
         public MainForm()
         {
@@ -926,6 +929,7 @@ namespace Trace.Monitoring
             if (FormLoad != null)
                 FormLoad(sender, e);
 
+            timerConnect.Enabled = true;
             _connectedPlc = false;
             DisableClock();
         }
@@ -951,11 +955,13 @@ namespace Trace.Monitoring
         {
             timerInter.Interval = 2000;
             timerInter.Enabled = true;
+            timerConnect.Enabled = false;
         }
 
         public void DisableClock()
         {
             timerInter.Enabled = false;
+            timerConnect.Enabled = true;
         }
 
         private void timerInter_Tick(object sender, EventArgs e)
@@ -1059,6 +1065,18 @@ namespace Trace.Monitoring
 
             if (CompleteAction != null)
                 CompleteAction(sender, e);
+        }
+
+        private void butRefresh_Click(object sender, EventArgs e)
+        {
+            if (RefreshData != null)
+                RefreshData(sender, e);
+        }
+
+        private void timerConnect_Tick(object sender, EventArgs e)
+        {
+            if (Connect_Click != null)
+                Connect_Click(sender, e);
         }
     }
 }
