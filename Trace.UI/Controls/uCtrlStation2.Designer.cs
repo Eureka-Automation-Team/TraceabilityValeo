@@ -225,9 +225,9 @@ namespace Trace.UI.Controls
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.tableLayoutPanel1);
-            this.panel5.Location = new System.Drawing.Point(695, 2);
+            this.panel5.Location = new System.Drawing.Point(770, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(643, 137);
+            this.panel5.Size = new System.Drawing.Size(568, 137);
             this.panel5.TabIndex = 21;
             // 
             // tableLayoutPanel1
@@ -245,7 +245,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 137);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(568, 137);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -253,7 +253,7 @@ namespace Trace.UI.Controls
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(574, 3);
+            this.panel1.Location = new System.Drawing.Point(499, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(66, 24);
             this.panel1.TabIndex = 25;
@@ -318,7 +318,7 @@ namespace Trace.UI.Controls
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(563, 99);
+            this.dataGridView1.Size = new System.Drawing.Size(488, 99);
             this.dataGridView1.TabIndex = 24;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -333,7 +333,7 @@ namespace Trace.UI.Controls
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(565, 24);
+            this.panel6.Size = new System.Drawing.Size(490, 24);
             this.panel6.TabIndex = 17;
             // 
             // label9
@@ -343,7 +343,7 @@ namespace Trace.UI.Controls
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(0, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(565, 24);
+            this.label9.Size = new System.Drawing.Size(490, 24);
             this.label9.TabIndex = 5;
             this.label9.Text = "Tightening hollow";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -352,7 +352,7 @@ namespace Trace.UI.Controls
             // 
             this.panel7.Controls.Add(this.lblFinalResult);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(574, 33);
+            this.panel7.Location = new System.Drawing.Point(499, 33);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(66, 101);
             this.panel7.TabIndex = 26;
@@ -383,7 +383,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(226, 137);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(301, 137);
             this.tableLayoutPanel2.TabIndex = 22;
             // 
             // dataGridView2
@@ -422,7 +422,7 @@ namespace Trace.UI.Controls
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(218, 99);
+            this.dataGridView2.Size = new System.Drawing.Size(293, 99);
             this.dataGridView2.TabIndex = 22;
             // 
             // partNameDataGridViewTextBoxColumn
@@ -514,7 +514,7 @@ namespace Trace.UI.Controls
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(220, 24);
+            this.panel4.Size = new System.Drawing.Size(295, 24);
             this.panel4.TabIndex = 21;
             // 
             // label5
@@ -525,7 +525,7 @@ namespace Trace.UI.Controls
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 24);
+            this.label5.Size = new System.Drawing.Size(295, 24);
             this.label5.TabIndex = 6;
             this.label5.Text = "Parts Assembly";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -537,7 +537,7 @@ namespace Trace.UI.Controls
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Location = new System.Drawing.Point(463, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(226, 137);
+            this.panel3.Size = new System.Drawing.Size(301, 137);
             this.panel3.TabIndex = 23;
             // 
             // panel10
@@ -692,6 +692,7 @@ namespace Trace.UI.Controls
             this.JointMin.HeaderText = "Joint Min";
             this.JointMin.Name = "JointMin";
             this.JointMin.ReadOnly = true;
+            this.JointMin.Visible = false;
             this.JointMin.Width = 89;
             // 
             // JointMax
@@ -701,6 +702,7 @@ namespace Trace.UI.Controls
             this.JointMax.HeaderText = "Joint Max";
             this.JointMax.Name = "JointMax";
             this.JointMax.ReadOnly = true;
+            this.JointMax.Visible = false;
             this.JointMax.Width = 92;
             // 
             // JointTarget
@@ -710,6 +712,7 @@ namespace Trace.UI.Controls
             this.JointTarget.HeaderText = "Joint Target";
             this.JointTarget.Name = "JointTarget";
             this.JointTarget.ReadOnly = true;
+            this.JointTarget.Visible = false;
             this.JointTarget.Width = 109;
             // 
             // JointResult
@@ -719,6 +722,7 @@ namespace Trace.UI.Controls
             this.JointResult.HeaderText = "Joint Result";
             this.JointResult.Name = "JointResult";
             this.JointResult.ReadOnly = true;
+            this.JointResult.Visible = false;
             this.JointResult.Width = 107;
             // 
             // testResultDataGridViewCheckBoxColumn

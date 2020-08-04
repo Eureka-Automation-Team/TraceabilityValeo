@@ -75,7 +75,8 @@ namespace Trace.UI.Presenters
                 var result = _serviceTraceLog.GetList("",500).Result.Where(x => x.CreationDate.Date >= _view.startDate.Date && x.CreationDate.Date <= _view.endDate.Date);
 
                 if (!string.IsNullOrEmpty(_view.itemCode)) result = result.Where(x => x.ItemCode.ToUpper().Contains(_view.itemCode.ToUpper()));
-                if (!string.IsNullOrEmpty(_view.partSerialNo)) result = result.Where(x => x.PartSerialNumber.ToUpper().Contains(_view.partSerialNo.ToUpper()));
+                if (!string.IsNullOrEmpty(_view.partSerialNo)) result = result.Where(x => (string.IsNullOrEmpty(x.PartSerialNumber) ? "" : x.PartSerialNumber).ToUpper().Contains(_view.partSerialNo.ToUpper()));
+
 
                 return result.ToPagedList(pageNumber, pageSize);
             });

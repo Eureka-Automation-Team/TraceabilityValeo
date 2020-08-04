@@ -353,7 +353,7 @@ namespace Trace.Monitoring.Presenters
                 if (loggings.Count() == 0)
                 {
                     var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                                                   .Where(x => x.MachineId == 4);
+                                                                   .Where(x => x.MachineId == 5);
                     if (newJob.Count() == 0)
                     {
                         //Data not found
@@ -845,6 +845,7 @@ namespace Trace.Monitoring.Presenters
             //Default Station and Machine
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
+            trace.ProductionDate = DateTime.Now;
 
             #region Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST1Code";
@@ -1568,6 +1569,7 @@ namespace Trace.Monitoring.Presenters
             //Default Station and Machine
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
+            trace.ProductionDate = DateTime.Now;
 
             #region  Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST2Code";
@@ -1594,14 +1596,14 @@ namespace Trace.Monitoring.Presenters
             foreach (var item in r)
             {
                 tmpMsg = string.Empty;
-                //if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
-                //{
-                //    invalid = true;
-                //    if (!string.IsNullOrEmpty(errMsg))
-                //        errMsg += Environment.NewLine;
+                if (InvalidDataTag((item.Value == null) ? "" : item.Value.ToString(), item.ItemName, out tmpMsg))
+                {
+                    invalid = true;
+                    if (!string.IsNullOrEmpty(errMsg))
+                        errMsg += Environment.NewLine;
 
-                //    errMsg += tmpMsg;
-                //}
+                    errMsg += tmpMsg;
+                }
 
                 if (!invalid)
                 {
@@ -1682,7 +1684,7 @@ namespace Trace.Monitoring.Presenters
             #endregion
 
             #region Keep Tightening
-            int tigtheingNumber = 0;
+            //int tigtheingNumber = 0;
             List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
             TighteningRepairModel tRepair = new TighteningRepairModel();
             TighteningResultModel tmp = new TighteningResultModel();
@@ -1888,10 +1890,10 @@ namespace Trace.Monitoring.Presenters
                     }
 
                     //No.5
-                    if (item.ItemName == _view.tagMainBlock + "ST2TestResult[4]")
+                    /*if (item.ItemName == _view.tagMainBlock + "ST2TestResult[4]")
                     {
                         TighteningResultModel t = new TighteningResultModel();
-                        t.No = "Hollow Nut Deep";
+                        t.No = "Hollow nuts tightening depth";
                         t.Result = ConvertToDecimal(item.Value.ToString());
                         t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter2[4]").FirstOrDefault().Value.ToString());
                         t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST2Parameter1[4]").FirstOrDefault().Value.ToString());
@@ -1933,7 +1935,7 @@ namespace Trace.Monitoring.Presenters
                                     return c;
                                 }).ToList();
                         }
-                    }
+                    }*/
                 }
                 // i++;
             }
@@ -2009,6 +2011,7 @@ namespace Trace.Monitoring.Presenters
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
             trace.Description = "UPPER AGS FRAM";
+            trace.ProductionDate = DateTime.Now;
 
             foreach (var item in r)
             {
@@ -2071,6 +2074,7 @@ namespace Trace.Monitoring.Presenters
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
+            trace.ProductionDate = DateTime.Now;
             trace.Description = "LOWER AGS FRAM";
 
             foreach (var item in r)
@@ -2142,6 +2146,8 @@ namespace Trace.Monitoring.Presenters
 
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
+            trace.ProductionDate = DateTime.Now;
+
             #region Tightening Keep position #001
             //Tightening Keep position #001
             var tagName = _view.tagMainBlock + "ST4Code";
@@ -2773,7 +2779,7 @@ namespace Trace.Monitoring.Presenters
                 DateTime resultYear;
                 int year = Convert.ToInt32(strDate.Substring(0, 2));
                 int day = Convert.ToInt32(strDate.Substring(2, 3));
-                TimeSpan ts = new TimeSpan();
+                //TimeSpan ts = new TimeSpan();
 
                 bool canParse = DateTime.TryParseExact(year.ToString(),
                     "yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultYear);

@@ -650,7 +650,7 @@
             // actuatorDataGridViewTextBoxColumn
             // 
             this.actuatorDataGridViewTextBoxColumn.DataPropertyName = "Actuator";
-            this.actuatorDataGridViewTextBoxColumn.HeaderText = "Actuator Serial No.";
+            this.actuatorDataGridViewTextBoxColumn.HeaderText = "Actuator No";
             this.actuatorDataGridViewTextBoxColumn.Name = "actuatorDataGridViewTextBoxColumn";
             // 
             // productionDateDataGridViewTextBoxColumn
@@ -689,9 +689,8 @@
             // attribute1DataGridViewTextBoxColumn
             // 
             this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
-            this.attribute1DataGridViewTextBoxColumn.HeaderText = "Attribute1";
+            this.attribute1DataGridViewTextBoxColumn.HeaderText = "Camera Check";
             this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
-            this.attribute1DataGridViewTextBoxColumn.Visible = false;
             // 
             // attribute2DataGridViewTextBoxColumn
             // 
