@@ -30,13 +30,13 @@ namespace Trace.UI.Presenters
             _view.Selected_Row += Selected;
         }
 
-        private async void Selected(object sender, EventArgs e)
+        private void Selected(object sender, EventArgs e)
         {
             var current = (TraceabilityLogModel)_view.DataBinding.Current;
 
             if(current != null)
             {
-                var logsRelate = await _serviceTraceLog.GetListByItemCode(current.ItemCode);
+                var logsRelate = _serviceTraceLog.GetListByItemCode(current.ItemCode);
 
                 using(SearchDetailForm frm = new SearchDetailForm())
                 {
@@ -72,7 +72,7 @@ namespace Trace.UI.Presenters
         {
             return await Task.Factory.StartNew(() =>
             {
-                var result = _serviceTraceLog.GetList("",500).Result.Where(x => x.CreationDate.Date >= _view.startDate.Date && x.CreationDate.Date <= _view.endDate.Date);
+                var result = _serviceTraceLog.GetList("",500).Where(x => x.CreationDate.Date >= _view.startDate.Date && x.CreationDate.Date <= _view.endDate.Date);
 
                 if (!string.IsNullOrEmpty(_view.itemCode)) result = result.Where(x => x.ItemCode.ToUpper().Contains(_view.itemCode.ToUpper()));
                 if (!string.IsNullOrEmpty(_view.partSerialNo)) result = result.Where(x => (string.IsNullOrEmpty(x.PartSerialNumber) ? "" : x.PartSerialNumber).ToUpper().Contains(_view.partSerialNo.ToUpper()));

@@ -21,84 +21,84 @@ namespace Trace.Data.Service
             _nonQueryDataService = new NonQueryDataService<MachineModel>(contextFactory);
         }
 
-        public async Task<MachineModel> Create(MachineModel entity)
+        public MachineModel Create(MachineModel entity)
         {
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            return await _nonQueryDataService.Create(entity);
+            return _nonQueryDataService.Create(entity);
         }
 
-        public async Task<bool> DeleteByID(int id)
+        public bool DeleteByID(int id)
         {
-            return await _nonQueryDataService.Delete(id);
+            return _nonQueryDataService.Delete(id);
         }
 
-        public async Task<IEnumerable<MachineModel>> GetAll()
+        public IEnumerable<MachineModel> GetAll()
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<MachineModel> entities = await context.Machines.ToListAsync();
+                IEnumerable<MachineModel> entities = context.Machines.ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<MachineModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<MachineModel> GetByDateRange(DateTime startDate, DateTime endDate)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<MachineModel> entities = await context.Machines
-                                                                  .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                                  .ToListAsync();
+                IEnumerable<MachineModel> entities = context.Machines
+                                                            .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                                                            .ToList();
                 return entities;
             }
         }
 
-        public async Task<MachineModel> GetByID(int id)
+        public MachineModel GetByID(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                MachineModel entity = await context.Machines.FirstOrDefaultAsync((e) => e.Id == id);
+                MachineModel entity = context.Machines.FirstOrDefault((e) => e.Id == id);
                 return entity;
             }
         }
 
-        public Task<IEnumerable<MachineModel>> GetByPrimary(MachineModel model)
+        public IEnumerable<MachineModel> GetByPrimary(MachineModel model)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<MachineModel>> GetList(string whereClause, int takeRows)
+        public IEnumerable<MachineModel> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<MachineModel> entities = await context.Machines
-                                                                  //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                                  .Take(takeRows)
-                                                                  .ToListAsync();
+                IEnumerable<MachineModel> entities = context.Machines
+                                                            //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                                                            .Take(takeRows)
+                                                            .ToList();
                 return entities;
             }
         }
 
-        public Task<IEnumerable<MachineModel>> GetListByItemCode(string itemCode)
+        public IEnumerable<MachineModel> GetListByItemCode(string itemCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<MachineModel>> GetListByMachineID(int id, int takeRows)
+        public IEnumerable<MachineModel> GetListByMachineID(int id, int takeRows)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<MachineModel>> GetListByStationID(int id)
+        public IEnumerable<MachineModel> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<MachineModel> Update(MachineModel entity)
+        public MachineModel Update(MachineModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
-            return await _nonQueryDataService.Update(entity.Id, entity);
+            return _nonQueryDataService.Update(entity.Id, entity);
         }
     }
 }

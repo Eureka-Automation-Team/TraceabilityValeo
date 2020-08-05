@@ -51,7 +51,7 @@ namespace Trace.Monitoring.Presenters
                 LoadCurrentValue(_view.groupRead);
         }
 
-        private async void VerityActuater(object sender, EventArgs e)
+        private void VerityActuater(object sender, EventArgs e)
         {
             MachineModel _machine = sender as MachineModel;
             var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
@@ -65,8 +65,9 @@ namespace Trace.Monitoring.Presenters
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
                 //var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var result = await _serviceTraceLog.GetListByItemCode(itemCode.ToString());
+                var result =  _serviceTraceLog.GetListByItemCode(itemCode.ToString());
                 var loggings = result.Where(x => x.MachineId == 1);
+                string receiveActuatorCode = string.Empty;
 
                 if (loggings.Count() == 0)
                 {
@@ -76,7 +77,7 @@ namespace Trace.Monitoring.Presenters
                 {
                     PartAssemblyModel model = new PartAssemblyModel();
                     model.TraceabilityLogId = loggings.FirstOrDefault().Id;
-                    var partAssblies = await _servicePartAssembly.GetByPrimary(model);
+                    var partAssblies = _servicePartAssembly.GetByPrimary(model);
 
                     if (partAssblies.Count() > 0)
                     {
@@ -89,29 +90,31 @@ namespace Trace.Monitoring.Presenters
                         else
                         {
                             _machine.ActuatorResult = 1;
-                            ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror"
-                                , actuaterResult.FirstOrDefault().SerialNumber);
+                            receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
                         }                            
                     }
                     else
                         _machine.ActuatorResult = 2;
+
                 }
 
                 _view.machine6 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
+                ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror", receiveActuatorCode);
             }
 
             //machine 7
             if (_machine.Id == 7)
             {
                 var tagItemCode = _view.tagMainBlock + "ST5_2Code";
-                var tagName = _view.tagMainBlock + "ST5_2ReceiveCodeActuateror";
+                //var tagName = _view.tagMainBlock + "ST5_2ReceiveCodeActuateror";
 
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
-                var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+                //var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var result = await _serviceTraceLog.GetListByItemCode(itemCode.ToString());
+                var result = _serviceTraceLog.GetListByItemCode(itemCode.ToString());
                 var loggings = result.Where(x => x.MachineId == 5);
+                string receiveActuatorCode = string.Empty;
 
                 if (loggings.Count() == 0)
                 {
@@ -121,18 +124,21 @@ namespace Trace.Monitoring.Presenters
                 {
                     PartAssemblyModel model = new PartAssemblyModel();
                     model.TraceabilityLogId = loggings.FirstOrDefault().Id;
-                    var partAssblies = await _servicePartAssembly.GetByPrimary(model);                    
+                    var partAssblies = _servicePartAssembly.GetByPrimary(model);                    
 
                     if (partAssblies != null)
                     {
-                        var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N" && x.SerialNumber.Substring(0, 9) == actuater.ToString());
+                        var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N");
 
                         if (actuaterResult.Count() == 0)
                         {
                             _machine.ActuatorResult = 2;
                         }
                         else
+                        {
                             _machine.ActuatorResult = 1;
+                            receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
+                        }                            
                     }
                     else
                         _machine.ActuatorResult = 2;
@@ -140,6 +146,7 @@ namespace Trace.Monitoring.Presenters
 
                 _view.machine7 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
+                ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
             }
 
         }
@@ -155,7 +162,7 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 1);
 
                 if (loggings.Count() == 0)
@@ -181,12 +188,12 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 2);
 
                 if (loggings.Count() == 0)
                 {
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                                    .Where(x => x.MachineId == 1);
                     if (newJob.Count() == 0)
                     {
@@ -217,12 +224,12 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST3_1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 3);
 
                 if (loggings.Count() == 0)
                 {
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                                    .Where(x => x.MachineId == 2);
                     if (newJob.Count() == 0)
                     {
@@ -253,12 +260,12 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST3_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 4);
 
                 if (loggings.Count() == 0)
                 {
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                                    .Where(x => x.MachineId == 5);
                     if (newJob.Count() == 0)
                     {
@@ -289,7 +296,7 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST4CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 5);
 
                 if (loggings.Count() == 0)
@@ -315,13 +322,18 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST5_1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 6);
 
                 if (loggings.Count() == 0)
                 {
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
-                                                                   .Where(x => x.MachineId == 3);
+                    //var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
+                    //                                               .Where(x => x.MachineId == 3);
+
+                    //Skip Station 3
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
+                                                                   .Where(x => x.MachineId == 2);
+
                     if (newJob.Count() == 0)
                     {
                         //Data not found
@@ -351,12 +363,12 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 7);
 
                 if (loggings.Count() == 0)
                 {
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString()).Result
+                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                                    .Where(x => x.MachineId == 5);
                     if (newJob.Count() == 0)
                     {
@@ -382,7 +394,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private async void CompleteAction(object sender, EventArgs e)
+        private void CompleteAction(object sender, EventArgs e)
         {
             Button but = sender as Button;
             var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
@@ -399,16 +411,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(1);
+                    MachineModel machine = _serviceMachine.GetByID(1);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                    bool keepLog = KeepLogForMachine1(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
@@ -428,16 +440,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(2);
+                    MachineModel machine =  _serviceMachine.GetByID(2);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                    bool keepLog =  KeepLogForMachine2(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
@@ -457,16 +469,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(3);
+                    MachineModel machine =  _serviceMachine.GetByID(3);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine3(r, machine);
+                    bool keepLog =  KeepLogForMachine3(r, machine);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
@@ -486,16 +498,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(4);
+                    MachineModel machine =  _serviceMachine.GetByID(4);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine4(r, machine);
+                    bool keepLog = KeepLogForMachine4(r, machine);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
@@ -515,16 +527,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(5);
+                    MachineModel machine =  _serviceMachine.GetByID(5);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                    bool keepLog =  KeepLogForMachine5(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
@@ -544,16 +556,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(6);
+                    MachineModel machine =  _serviceMachine.GetByID(6);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                    bool keepLog =  KeepLogForMachine6(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
@@ -573,16 +585,16 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine = await _serviceMachine.GetByID(7);
+                    MachineModel machine =  _serviceMachine.GetByID(7);
 
-                    var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
                                 where tag.MachineId == machine.Id
                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                    bool keepLog =  KeepLogForMachine7(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
@@ -591,7 +603,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private async void KeepLogging(object sender, EventArgs e)
+        private void KeepLogging(object sender, EventArgs e)
         {
             if (_view.systemReady)
             {
@@ -610,7 +622,7 @@ namespace Trace.Monitoring.Presenters
                 }
 
                 var result = subscipt.ToList();
-                var machineTags = _servicePLCTag.GetAll().Result.ToList().Where(x => x.MachineId == machine.Id);
+                var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                 var tags = (from tag in machineTags
                             where tag.MachineId == machine.Id
                             select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
@@ -626,7 +638,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine1(r, machine, machineTags);
+                        keepLog = KeepLogForMachine1(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -653,7 +665,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine2(r, machine, machineTags);
+                        keepLog = KeepLogForMachine2(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -679,7 +691,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine3(r, machine);
+                        keepLog = KeepLogForMachine3(r, machine);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -703,7 +715,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine4(r, machine);
+                        keepLog = KeepLogForMachine4(r, machine);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -729,7 +741,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine5(r, machine, machineTags);
+                        keepLog = KeepLogForMachine5(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -755,7 +767,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine6(r, machine, machineTags);
+                        keepLog = KeepLogForMachine6(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -779,7 +791,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
-                        keepLog = await KeepLogForMachine7(r, machine, machineTags);
+                        keepLog = KeepLogForMachine7(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
                         else
@@ -822,7 +834,7 @@ namespace Trace.Monitoring.Presenters
             return tr;
         }
 
-        private async Task<bool> KeepLogForMachine1(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private bool KeepLogForMachine1(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
             bool invalid = false;
@@ -854,7 +866,7 @@ namespace Trace.Monitoring.Presenters
             #region Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST1Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
-            var loggings = _serviceTraceLog.GetListByItemCode(itemCode).Result
+            var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                     x.MachineId == m.Id
                                                     //&& x.CreationDate.Date == DateTime.Now.Date
@@ -867,7 +879,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
+                trace = _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion Tightening Keep position #001
@@ -1493,31 +1505,31 @@ namespace Trace.Monitoring.Presenters
 
                 if (trace.Id == 0)
                 {
-                    logResult = await _serviceTraceLog.Create(trace);
+                    logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         var cRepair = tRepairs.Where(x => x.No == item.No).FirstOrDefault();
                         if (cRepair != null)
                         {
                             cRepair.TighteningResultId = item.Id;
-                            await _serviceTigtheningRepair.Create(cRepair);
+                            _serviceTigtheningRepair.Create(cRepair);
                         }
                     }
                 }
                 else
                 {
-                    logResult = await _serviceTraceLog.Update(trace);
+                    logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         TighteningResultModel tigthening = new TighteningResultModel();
                         if (item.Id == 0)
                         {
                             item.TraceLogId = logResult.Id;
-                            tigthening = await _serviceTigthening.Create(item);
+                            tigthening = _serviceTigthening.Create(item);
                         }
                         else
                         {
-                            tigthening = await _serviceTigthening.Update(item);
+                            tigthening = _serviceTigthening.Update(item);
                         }
 
                         if (tigthening != null)
@@ -1526,7 +1538,7 @@ namespace Trace.Monitoring.Presenters
                             if (cRepair != null)
                             {
                                 cRepair.TighteningResultId = item.Id;
-                                await _serviceTigtheningRepair.Create(cRepair);
+                                _serviceTigtheningRepair.Create(cRepair);
                             }
                         }
                     }
@@ -1536,7 +1548,7 @@ namespace Trace.Monitoring.Presenters
                 {
                     CameraResultModel model = new CameraResultModel();
                     model.TraceLogId = logResult.Id;
-                    var cams = await _serviceCameraResult.GetByPrimary(model);
+                    var cams = _serviceCameraResult.GetByPrimary(model);
                     foreach (var item in trace.CameraResults)
                     {
                         var cam = cams.Where(x => x.CameraName == item.CameraName)
@@ -1545,7 +1557,7 @@ namespace Trace.Monitoring.Presenters
                                     return c;
                                 }).FirstOrDefault();
 
-                        await _serviceCameraResult.Update(cam);
+                        _serviceCameraResult.Update(cam);
                     }
                 }
             }
@@ -1554,7 +1566,7 @@ namespace Trace.Monitoring.Presenters
             return result;
         }
 
-        private async Task<bool> KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private bool KeepLogForMachine2(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
             bool invalid = false;
@@ -1578,7 +1590,7 @@ namespace Trace.Monitoring.Presenters
             #region  Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST2Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
-            var loggings = _serviceTraceLog.GetListByItemCode(itemCode).Result
+            var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                    x.MachineId == m.Id
                                                    //&& x.CreationDate.Date == DateTime.Now.Date
@@ -1591,7 +1603,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
+                trace = _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion
@@ -1961,31 +1973,31 @@ namespace Trace.Monitoring.Presenters
 
                 if (trace.Id == 0)
                 {
-                    TraceabilityLogModel logResult = await _serviceTraceLog.Create(trace);
+                    TraceabilityLogModel logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         var cRepair = tRepairs.Where(x => x.No == item.No).FirstOrDefault();
                         if (cRepair != null)
                         {
                             cRepair.TighteningResultId = item.Id;
-                            await _serviceTigtheningRepair.Create(cRepair);
+                            _serviceTigtheningRepair.Create(cRepair);
                         }
                     }
                 }
                 else
                 {
-                    TraceabilityLogModel logResult = await _serviceTraceLog.Update(trace);
+                    TraceabilityLogModel logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         TighteningResultModel tigthening = new TighteningResultModel();
                         if (item.Id == 0)
                         {
                             item.TraceLogId = logResult.Id;
-                            tigthening = await _serviceTigthening.Create(item);
+                            tigthening = _serviceTigthening.Create(item);
                         }
                         else
                         {
-                            tigthening = await _serviceTigthening.Update(item);
+                            tigthening = _serviceTigthening.Update(item);
                         }
 
                         if (tigthening != null)
@@ -1994,7 +2006,7 @@ namespace Trace.Monitoring.Presenters
                             if (cRepair != null)
                             {
                                 cRepair.TighteningResultId = item.Id;
-                                await _serviceTigtheningRepair.Create(cRepair);
+                                _serviceTigtheningRepair.Create(cRepair);
                             }
                         }
                     }
@@ -2004,7 +2016,7 @@ namespace Trace.Monitoring.Presenters
             return result;
         }
 
-        private async Task<bool> KeepLogForMachine3(IEnumerable<ItemValueResult> r, MachineModel m)
+        private bool KeepLogForMachine3(IEnumerable<ItemValueResult> r, MachineModel m)
         {
             bool result = true;
             bool invalid = false;
@@ -2057,7 +2069,7 @@ namespace Trace.Monitoring.Presenters
             {
                 try
                 {
-                    await _serviceTraceLog.Create(trace);
+                    _serviceTraceLog.Create(trace);
                 }
                 catch
                 {
@@ -2068,7 +2080,7 @@ namespace Trace.Monitoring.Presenters
             return result;
         }
 
-        private async Task<bool> KeepLogForMachine4(IEnumerable<ItemValueResult> r, MachineModel m)
+        private bool KeepLogForMachine4(IEnumerable<ItemValueResult> r, MachineModel m)
         {
             bool result = true;
             bool invalid = false;
@@ -2121,7 +2133,7 @@ namespace Trace.Monitoring.Presenters
             {
                 try
                 {
-                    await _serviceTraceLog.Create(trace);
+                    _serviceTraceLog.Create(trace);
                 }
                 catch
                 {
@@ -2132,7 +2144,7 @@ namespace Trace.Monitoring.Presenters
             return result;
         }
 
-        private async Task<bool> KeepLogForMachine5(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private bool KeepLogForMachine5(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
             bool invalid = false;
@@ -2156,7 +2168,7 @@ namespace Trace.Monitoring.Presenters
             //Tightening Keep position #001
             var tagName = _view.tagMainBlock + "ST4Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
-            var loggings = _serviceTraceLog.GetListByItemCode(itemCode).Result
+            var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                    x.MachineId == m.Id
                                                    //&& x.CreationDate.Date == DateTime.Now.Date
@@ -2169,7 +2181,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
+                trace = _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion Tightening Keep position #001
@@ -2433,7 +2445,7 @@ namespace Trace.Monitoring.Presenters
 
                 if (trace.Id == 0)
                 {
-                    TraceabilityLogModel logResult = await _serviceTraceLog.Create(trace);
+                    TraceabilityLogModel logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         var cRepair = tRepairs.Where(x => x.No == item.No).FirstOrDefault();
@@ -2442,25 +2454,25 @@ namespace Trace.Monitoring.Presenters
                             if (!string.IsNullOrEmpty(cRepair.TestResult))
                             {
                                 cRepair.TighteningResultId = item.Id;
-                                await _serviceTigtheningRepair.Create(cRepair);
+                                _serviceTigtheningRepair.Create(cRepair);
                             }
                         }
                     }
                 }
                 else
                 {
-                    TraceabilityLogModel logResult = await _serviceTraceLog.Update(trace);
+                    TraceabilityLogModel logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
                         TighteningResultModel tigthening = new TighteningResultModel();
                         if (item.Id == 0)
                         {
                             item.TraceLogId = logResult.Id;
-                            tigthening = await _serviceTigthening.Create(item);
+                            tigthening = _serviceTigthening.Create(item);
                         }
                         else
                         {
-                            tigthening = await _serviceTigthening.Update(item);
+                            tigthening = _serviceTigthening.Update(item);
                         }
 
                         if (tigthening != null)
@@ -2471,7 +2483,7 @@ namespace Trace.Monitoring.Presenters
                                 if (!string.IsNullOrEmpty(cRepair.TestResult))
                                 {
                                     cRepair.TighteningResultId = item.Id;
-                                    await _serviceTigtheningRepair.Create(cRepair);
+                                    _serviceTigtheningRepair.Create(cRepair);
                                 }
                             }
                         }
@@ -2496,7 +2508,7 @@ namespace Trace.Monitoring.Presenters
                 return 0;
         }
 
-        private async Task<bool> KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private bool KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
             bool invalid = false;
@@ -2513,7 +2525,7 @@ namespace Trace.Monitoring.Presenters
             #region Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST5_1Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
-            var loggings = _serviceTraceLog.GetListByItemCode(itemCode).Result
+            var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                     x.MachineId == m.Id
                                                     //&& x.CreationDate.Date == DateTime.Now.Date
@@ -2526,7 +2538,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
+                trace = _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion
@@ -2625,12 +2637,12 @@ namespace Trace.Monitoring.Presenters
 
                 if (trace.Id == 0)
                 {
-                    await _serviceTraceLog.Create(trace);
+                    _serviceTraceLog.Create(trace);
                     KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
                 else
                 {
-                    await _serviceTraceLog.Update(trace);
+                    _serviceTraceLog.Update(trace);
                     KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
             }
@@ -2639,7 +2651,7 @@ namespace Trace.Monitoring.Presenters
             return result;
         }
       
-        private async Task<bool> KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
+        private bool KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
             bool invalid = false;
@@ -2656,7 +2668,7 @@ namespace Trace.Monitoring.Presenters
             #region Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST5_2Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
-            var loggings = _serviceTraceLog.GetListByItemCode(itemCode).Result
+            var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                     x.MachineId == m.Id
                                                     //&& x.CreationDate.Date == DateTime.Now.Date
@@ -2669,7 +2681,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     finishFlag = true;
 
-                trace = await _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
+                trace = _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
                 trace.FinishFlag = finishFlag;
             }
             #endregion
@@ -2768,12 +2780,12 @@ namespace Trace.Monitoring.Presenters
 
                 if (trace.Id == 0)
                 {
-                    await _serviceTraceLog.Create(trace);
+                    _serviceTraceLog.Create(trace);
                     KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
                 else
                 {
-                    await _serviceTraceLog.Update(trace);
+                    _serviceTraceLog.Update(trace);
                     KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
                 }
             }
@@ -2901,13 +2913,13 @@ namespace Trace.Monitoring.Presenters
             return true;
         }
 
-        private async void FormLoad(object sender, EventArgs e)
+        private void FormLoad(object sender, EventArgs e)
         {
 
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
-            var machines = await _serviceMachine.GetAll();
+            var machines = _serviceMachine.GetAll();
             int i = 1;
             foreach (var mac in machines.ToList().OrderBy(o => o.Id))
             {
@@ -2929,7 +2941,7 @@ namespace Trace.Monitoring.Presenters
                 i++;
             }
 
-            var result = await _servicePLCTag.GetAll();
+            var result = _servicePLCTag.GetAll();
             _view.plcTags = result.ToList();
 
             if (_view.plcTags.Count > 0)

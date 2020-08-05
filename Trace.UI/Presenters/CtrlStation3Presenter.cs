@@ -27,22 +27,22 @@ namespace Trace.UI.Presenters
             _view.MonitoringRailTime += MonitoringRailTimeAsync;
         }
 
-        private async void MonitoringRailTimeAsync(object sender, EventArgs e)
+        private void MonitoringRailTimeAsync(object sender, EventArgs e)
         {
-            var result1 = await _serviceTraceLog.GetListByMachineID(3, 1);
-            var result2 = await _serviceTraceLog.GetListByMachineID(4, 1);
+            var result1 = _serviceTraceLog.GetListByMachineID(3, 1);
+            var result2 = _serviceTraceLog.GetListByMachineID(4, 1);
 
             TraceabilityLogModel log1 = result1.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
             TraceabilityLogModel log2 = result2.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
 
             if (log1 != null)
             {
-                _view.traceabilityUpperLog = await _serviceTraceLog.GetByID(log1.Id);                
+                _view.traceabilityUpperLog = _serviceTraceLog.GetByID(log1.Id);                
             }
 
             if(log2 != null)
             {
-                _view.traceabilityLowerLog = await _serviceTraceLog.GetByID(log2.Id);
+                _view.traceabilityLowerLog = _serviceTraceLog.GetByID(log2.Id);
             }
         }
 

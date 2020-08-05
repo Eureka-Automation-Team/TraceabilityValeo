@@ -21,90 +21,90 @@ namespace Trace.Data.Service
             _nonQueryDataService = new NonQueryDataService<TighteningResultModel>(contextFactory);
         }
 
-        public async Task<TighteningResultModel> Create(TighteningResultModel entity)
+        public TighteningResultModel Create(TighteningResultModel entity)
         {
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            return await _nonQueryDataService.Create(entity);
+            return _nonQueryDataService.Create(entity);
         }
 
-        public async Task<bool> DeleteByID(int id)
+        public bool DeleteByID(int id)
         {
-            return await _nonQueryDataService.Delete(id);
+            return _nonQueryDataService.Delete(id);
         }
 
-        public async Task<IEnumerable<TighteningResultModel>> GetAll()
+        public IEnumerable<TighteningResultModel> GetAll()
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningResultModel> entities = await context.TighteningResults.ToListAsync();
+                IEnumerable<TighteningResultModel> entities = context.TighteningResults.ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<TighteningResultModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<TighteningResultModel> GetByDateRange(DateTime startDate, DateTime endDate)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningResultModel> entities = await context.TighteningResults
+                IEnumerable<TighteningResultModel> entities = context.TighteningResults
                                                     .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<TighteningResultModel> GetByID(int id)
+        public TighteningResultModel GetByID(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                TighteningResultModel entity = await context.TighteningResults.FirstOrDefaultAsync((e) => e.Id == id);
+                TighteningResultModel entity = context.TighteningResults.FirstOrDefault((e) => e.Id == id);
                 return entity;
             }
         }
 
-        public async Task<IEnumerable<TighteningResultModel>> GetByPrimary(TighteningResultModel model)
+        public IEnumerable<TighteningResultModel> GetByPrimary(TighteningResultModel model)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningResultModel> entities = await context.TighteningResults
+                IEnumerable<TighteningResultModel> entities = context.TighteningResults
                                                     .Where(x => x.TraceLogId == model.TraceLogId)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<TighteningResultModel>> GetList(string whereClause, int takeRows)
+        public IEnumerable<TighteningResultModel> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningResultModel> entities = await context.TighteningResults
+                IEnumerable<TighteningResultModel> entities = context.TighteningResults
                                                     //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
                                                     .Take(takeRows)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public Task<IEnumerable<TighteningResultModel>> GetListByItemCode(string itemCode)
+        public IEnumerable<TighteningResultModel> GetListByItemCode(string itemCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TighteningResultModel>> GetListByMachineID(int id, int takeRows)
+        public IEnumerable<TighteningResultModel> GetListByMachineID(int id, int takeRows)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TighteningResultModel>> GetListByStationID(int id)
+        public IEnumerable<TighteningResultModel> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<TighteningResultModel> Update(TighteningResultModel entity)
+        public TighteningResultModel Update(TighteningResultModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
-            return await _nonQueryDataService.Update(entity.Id, entity);
+            return _nonQueryDataService.Update(entity.Id, entity);
         }
     }
 }

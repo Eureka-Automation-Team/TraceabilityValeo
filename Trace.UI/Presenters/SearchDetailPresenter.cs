@@ -28,7 +28,7 @@ namespace Trace.UI.Presenters
         {
             foreach(var item in _view.logList.OrderByDescending(o => o.StationId))
             {
-                var log =  _serviceTraceLog.GetByID(item.Id).Result;
+                var log =  _serviceTraceLog.GetByID(item.Id);
                 _view.LoadDetail(log);
             }
         }

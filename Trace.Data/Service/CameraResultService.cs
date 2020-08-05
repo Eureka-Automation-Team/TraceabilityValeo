@@ -21,90 +21,90 @@ namespace Trace.Data.Service
             _nonQueryDataService = new NonQueryDataService<CameraResultModel>(contextFactory);
         }
 
-        public async Task<CameraResultModel> Create(CameraResultModel entity)
+        public CameraResultModel Create(CameraResultModel entity)
         {
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            return await _nonQueryDataService.Create(entity);
+            return _nonQueryDataService.Create(entity);
         }
 
-        public async Task<bool> DeleteByID(int id)
+        public bool DeleteByID(int id)
         {
-            return await _nonQueryDataService.Delete(id);
+            return _nonQueryDataService.Delete(id);
         }
 
-        public async Task<IEnumerable<CameraResultModel>> GetAll()
+        public IEnumerable<CameraResultModel> GetAll()
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<CameraResultModel> entities = await context.CameraResults.ToListAsync();
+                IEnumerable<CameraResultModel> entities = context.CameraResults.ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<CameraResultModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<CameraResultModel> GetByDateRange(DateTime startDate, DateTime endDate)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<CameraResultModel> entities = await context.CameraResults
+                IEnumerable<CameraResultModel> entities = context.CameraResults
                                                     .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<CameraResultModel> GetByID(int id)
+        public CameraResultModel GetByID(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                CameraResultModel entity = await context.CameraResults.FirstOrDefaultAsync((e) => e.Id == id);
+                CameraResultModel entity = context.CameraResults.FirstOrDefault((e) => e.Id == id);
                 return entity;
             }
         }
 
-        public async Task<IEnumerable<CameraResultModel>> GetByPrimary(CameraResultModel model)
+        public IEnumerable<CameraResultModel> GetByPrimary(CameraResultModel model)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<CameraResultModel> entities = await context.CameraResults
+                IEnumerable<CameraResultModel> entities = context.CameraResults
                                                     .Where(x => x.TraceLogId == model.TraceLogId)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<CameraResultModel>> GetList(string whereClause, int takeRows)
+        public IEnumerable<CameraResultModel> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<CameraResultModel> entities = await context.CameraResults
+                IEnumerable<CameraResultModel> entities = context.CameraResults
                                                     //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
                                                     .Take(takeRows)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public Task<IEnumerable<CameraResultModel>> GetListByItemCode(string itemCode)
+        public IEnumerable<CameraResultModel> GetListByItemCode(string itemCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CameraResultModel>> GetListByMachineID(int id, int takeRows)
+        public IEnumerable<CameraResultModel> GetListByMachineID(int id, int takeRows)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CameraResultModel>> GetListByStationID(int id)
+        public IEnumerable<CameraResultModel> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<CameraResultModel> Update(CameraResultModel entity)
+        public CameraResultModel Update(CameraResultModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
-            return await _nonQueryDataService.Update(entity.Id, entity);
+            return _nonQueryDataService.Update(entity.Id, entity);
         }
     }
 }

@@ -17,39 +17,39 @@ namespace Trace.Data.Service.Common
             _contextFactory = contextFactory;
         }
 
-        public async Task<T> Create(T entity)
+        public T Create(T entity)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
                 T createdResult = context.Set<T>().Add(entity);
-                await context.SaveChangesAsync();
+                context.SaveChanges();
 
                 return createdResult;
             }
         }
 
-        public async Task<T> Update(int id, T entity)
+        public T Update(int id, T entity)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                T updatedResult = await context.Set<T>().FirstOrDefaultAsync((o) => o.Id == id);
+                T updatedResult = context.Set<T>().FirstOrDefault((o) => o.Id == id);
                 if (updatedResult != null)
                 {
                     context.Entry(updatedResult).CurrentValues.SetValues(entity);
-                    await context.SaveChangesAsync();
+                    context.SaveChanges();
                 }
 
                 return entity;
             }
         }
 
-        public async Task<bool> Delete(int id)
+        public bool Delete(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+                T entity =  context.Set<T>().FirstOrDefault((e) => e.Id == id);
                 context.Set<T>().Remove(entity);
-                await context.SaveChangesAsync();
+                 context.SaveChanges();
 
                 return true;
             }

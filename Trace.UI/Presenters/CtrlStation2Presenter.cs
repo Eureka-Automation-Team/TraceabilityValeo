@@ -32,7 +32,7 @@ namespace Trace.UI.Presenters
             _view.ShowTighteningRepairs += ShowTighteningRepairs;
         }
 
-        private async void ShowTighteningRepairs(object sender, EventArgs e)
+        private void ShowTighteningRepairs(object sender, EventArgs e)
         {
             DataGridView grid = sender as DataGridView;
             TighteningResultModel current = (TighteningResultModel)grid.CurrentRow.DataBoundItem;
@@ -41,7 +41,7 @@ namespace Trace.UI.Presenters
             {
                 TighteningRepairModel repair = new TighteningRepairModel();
                 repair.TighteningResultId = current.Id;
-                var logsRepair = await _serviceTigtheningRepair.GetByPrimary(repair);
+                var logsRepair = _serviceTigtheningRepair.GetByPrimary(repair);
 
                 using (TigtheningRepairsForm frm = new TigtheningRepairsForm())
                 {
@@ -51,15 +51,15 @@ namespace Trace.UI.Presenters
             }
         }
 
-        private async void MonitoringRailTimeAsync(object sender, EventArgs e)
+        private void MonitoringRailTimeAsync(object sender, EventArgs e)
         {
-            var result = await _serviceTraceLog.GetListByMachineID(2, 1);
+            var result = _serviceTraceLog.GetListByMachineID(2, 1);
 
             TraceabilityLogModel log = result.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
 
             if (log != null)
             {
-                _view.traceabilityLog = await _serviceTraceLog.GetByID(log.Id);
+                _view.traceabilityLog = _serviceTraceLog.GetByID(log.Id);
             }
         }
 

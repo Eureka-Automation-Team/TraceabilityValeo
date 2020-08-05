@@ -21,89 +21,89 @@ namespace Trace.Data.Service
             _nonQueryDataService = new NonQueryDataService<TighteningRepairModel>(contextFactory);
         }
 
-        public async Task<TighteningRepairModel> Create(TighteningRepairModel entity)
+        public TighteningRepairModel Create(TighteningRepairModel entity)
         {
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            return await _nonQueryDataService.Create(entity);
+            return _nonQueryDataService.Create(entity);
         }
 
-        public async Task<bool> DeleteByID(int id)
+        public bool DeleteByID(int id)
         {
-            return await _nonQueryDataService.Delete(id);
+            return _nonQueryDataService.Delete(id);
         }
 
-        public async Task<IEnumerable<TighteningRepairModel>> GetAll()
+        public IEnumerable<TighteningRepairModel> GetAll()
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningRepairModel> entities = await context.TighteningRepairs.ToListAsync();
+                IEnumerable<TighteningRepairModel> entities = context.TighteningRepairs.ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<TighteningRepairModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<TighteningRepairModel> GetByDateRange(DateTime startDate, DateTime endDate)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningRepairModel> entities = await context.TighteningRepairs
+                IEnumerable<TighteningRepairModel> entities = context.TighteningRepairs
                                                     .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<TighteningRepairModel> GetByID(int id)
+        public TighteningRepairModel GetByID(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                TighteningRepairModel entity = await context.TighteningRepairs.FirstOrDefaultAsync((e) => e.Id == id);
+                TighteningRepairModel entity = context.TighteningRepairs.FirstOrDefault((e) => e.Id == id);
                 return entity;
             }
         }
 
-        public async Task<IEnumerable<TighteningRepairModel>> GetByPrimary(TighteningRepairModel model)
+        public IEnumerable<TighteningRepairModel> GetByPrimary(TighteningRepairModel model)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningRepairModel> entities = await context.TighteningRepairs
+                IEnumerable<TighteningRepairModel> entities = context.TighteningRepairs
                                                     .Where(x => x.TighteningResultId == model.TighteningResultId)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<TighteningRepairModel>> GetList(string whereClause, int takeRows)
+        public IEnumerable<TighteningRepairModel> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<TighteningRepairModel> entities = await context.TighteningRepairs
+                IEnumerable<TighteningRepairModel> entities = context.TighteningRepairs
                                                     .Take(takeRows)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public Task<IEnumerable<TighteningRepairModel>> GetListByItemCode(string itemCode)
+        public IEnumerable<TighteningRepairModel> GetListByItemCode(string itemCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TighteningRepairModel>> GetListByMachineID(int id, int takeRows)
+        public IEnumerable<TighteningRepairModel> GetListByMachineID(int id, int takeRows)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TighteningRepairModel>> GetListByStationID(int id)
+        public IEnumerable<TighteningRepairModel> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<TighteningRepairModel> Update(TighteningRepairModel entity)
+        public TighteningRepairModel Update(TighteningRepairModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
-            return await _nonQueryDataService.Update(entity.Id, entity);
+            return _nonQueryDataService.Update(entity.Id, entity);
         }
     }
 }

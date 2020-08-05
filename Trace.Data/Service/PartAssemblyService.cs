@@ -21,90 +21,89 @@ namespace Trace.Data.Service
             _nonQueryDataService = new NonQueryDataService<PartAssemblyModel>(contextFactory);
         }
 
-        public async Task<PartAssemblyModel> Create(PartAssemblyModel entity)
+        public PartAssemblyModel Create(PartAssemblyModel entity)
         {
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            return await _nonQueryDataService.Create(entity);
+            return _nonQueryDataService.Create(entity);
         }
 
-        public async Task<bool> DeleteByID(int id)
+        public bool DeleteByID(int id)
         {
-            return await _nonQueryDataService.Delete(id);
+            return _nonQueryDataService.Delete(id);
         }
 
-        public async Task<IEnumerable<PartAssemblyModel>> GetAll()
+        public IEnumerable<PartAssemblyModel> GetAll()
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PartAssemblyModel> entities = await context.PartAssemblies.ToListAsync();
+                IEnumerable<PartAssemblyModel> entities = context.PartAssemblies.ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<PartAssemblyModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<PartAssemblyModel> GetByDateRange(DateTime startDate, DateTime endDate)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PartAssemblyModel> entities = await context.PartAssemblies
+                IEnumerable<PartAssemblyModel> entities = context.PartAssemblies
                                                     .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<PartAssemblyModel> GetByID(int id)
+        public PartAssemblyModel GetByID(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                PartAssemblyModel entity = await context.PartAssemblies.FirstOrDefaultAsync((e) => e.Id == id);
+                PartAssemblyModel entity = context.PartAssemblies.FirstOrDefault((e) => e.Id == id);
                 return entity;
             }
         }
 
-        public async Task<IEnumerable<PartAssemblyModel>> GetByPrimary(PartAssemblyModel model)
+        public IEnumerable<PartAssemblyModel> GetByPrimary(PartAssemblyModel model)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PartAssemblyModel> entities = await context.PartAssemblies
+                IEnumerable<PartAssemblyModel> entities = context.PartAssemblies
                                                     .Where(x => x.TraceabilityLogId == model.TraceabilityLogId)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<PartAssemblyModel>> GetList(string whereClause, int takeRows)
+        public IEnumerable<PartAssemblyModel> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PartAssemblyModel> entities = await context.PartAssemblies
-                                                    //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                IEnumerable<PartAssemblyModel> entities = context.PartAssemblies
                                                     .Take(takeRows)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public Task<IEnumerable<PartAssemblyModel>> GetListByItemCode(string itemCode)
+        public IEnumerable<PartAssemblyModel> GetListByItemCode(string itemCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<PartAssemblyModel>> GetListByMachineID(int id, int takeRows)
+        public IEnumerable<PartAssemblyModel> GetListByMachineID(int id, int takeRows)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<PartAssemblyModel>> GetListByStationID(int id)
+        public IEnumerable<PartAssemblyModel> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<PartAssemblyModel> Update(PartAssemblyModel entity)
+        public PartAssemblyModel Update(PartAssemblyModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
-            return await _nonQueryDataService.Update(entity.Id, entity);
+            return _nonQueryDataService.Update(entity.Id, entity);
         }
     }
 }

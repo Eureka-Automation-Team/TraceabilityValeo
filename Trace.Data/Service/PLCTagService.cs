@@ -21,84 +21,84 @@ namespace Trace.Data.Service
             _nonQueryDataService = new NonQueryDataService<PlcTagModel>(contextFactory);
         }
 
-        public async Task<PlcTagModel> Create(PlcTagModel entity)
+        public PlcTagModel Create(PlcTagModel entity)
         {
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            return await _nonQueryDataService.Create(entity);
+            return _nonQueryDataService.Create(entity);
         }
 
-        public async Task<bool> DeleteByID(int id)
+        public bool DeleteByID(int id)
         {
-            return await _nonQueryDataService.Delete(id);
+            return _nonQueryDataService.Delete(id);
         }
 
-        public async Task<IEnumerable<PlcTagModel>> GetAll()
+        public IEnumerable<PlcTagModel> GetAll()
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PlcTagModel> entities = await context.PlcTags.ToListAsync();
+                IEnumerable<PlcTagModel> entities = context.PlcTags.ToList();
                 return entities;
             }
         }
 
-        public async Task<IEnumerable<PlcTagModel>> GetByDateRange(DateTime startDate, DateTime endDate)
+        public IEnumerable<PlcTagModel> GetByDateRange(DateTime startDate, DateTime endDate)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PlcTagModel> entities = await context.PlcTags
-                                                    .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
-                                                    .ToListAsync();
+                IEnumerable<PlcTagModel> entities = context.PlcTags
+                                                        .Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
+                                                        .ToList();
                 return entities;
             }
         }
 
-        public async Task<PlcTagModel> GetByID(int id)
+        public PlcTagModel GetByID(int id)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                PlcTagModel entity = await context.PlcTags.FirstOrDefaultAsync((e) => e.Id == id);
+                PlcTagModel entity = context.PlcTags.FirstOrDefault((e) => e.Id == id);
                 return entity;
             }
         }
 
-        public Task<IEnumerable<PlcTagModel>> GetByPrimary(PlcTagModel model)
+        public IEnumerable<PlcTagModel> GetByPrimary(PlcTagModel model)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<PlcTagModel>> GetList(string whereClause, int takeRows)
+        public IEnumerable<PlcTagModel> GetList(string whereClause, int takeRows)
         {
             using (TraceDbContext context = _contextFactory.Create())
             {
-                IEnumerable<PlcTagModel> entities = await context.PlcTags
+                IEnumerable<PlcTagModel> entities = context.PlcTags
                                                     //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
                                                     .Take(takeRows)
-                                                    .ToListAsync();
+                                                    .ToList();
                 return entities;
             }
         }
 
-        public Task<IEnumerable<PlcTagModel>> GetListByItemCode(string itemCode)
+        public IEnumerable<PlcTagModel> GetListByItemCode(string itemCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<PlcTagModel>> GetListByMachineID(int id, int takeRows)
+        public IEnumerable<PlcTagModel> GetListByMachineID(int id, int takeRows)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<PlcTagModel>> GetListByStationID(int id)
+        public IEnumerable<PlcTagModel> GetListByStationID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<PlcTagModel> Update(PlcTagModel entity)
+        public PlcTagModel Update(PlcTagModel entity)
         {
             entity.LastUpdateDate = DateTime.Now;
-            return await _nonQueryDataService.Update(entity.Id, entity);
+            return _nonQueryDataService.Update(entity.Id, entity);
         }
     }
 }
