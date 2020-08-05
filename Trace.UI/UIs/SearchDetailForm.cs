@@ -41,6 +41,7 @@ namespace Trace.UI.UIs
                 uCtrlStation1 uc = new uCtrlStation1();
                 uc.MonitorFlag = false;
                 uc.traceabilityLog = log;
+                uc.Height = 264;
                 uc.Dock = DockStyle.Top;
                 this.panelContainer.Controls.Add(uc);
             }
@@ -50,6 +51,7 @@ namespace Trace.UI.UIs
                 uCtrlStation2 uc = new uCtrlStation2();
                 uc.MonitorFlag = false;
                 uc.traceabilityLog = log;
+                uc.Height = 184;
                 uc.Dock = DockStyle.Top;
                 this.panelContainer.Controls.Add(uc);
             }
@@ -71,6 +73,7 @@ namespace Trace.UI.UIs
                 uCtrlStation4 uc = new uCtrlStation4();
                 uc.MonitorFlag = false;
                 uc.traceabilityLog = log;
+                uc.Height = 316;
                 uc.Dock = DockStyle.Top;
                 this.panelContainer.Controls.Add(uc);
             }

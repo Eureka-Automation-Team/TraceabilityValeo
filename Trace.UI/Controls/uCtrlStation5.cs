@@ -53,6 +53,7 @@ namespace Trace.UI.Controls
                     txtUpperLineErrorCounter.Text = _traceabilityUpperLog.LineErrorCounter;
                     lblUpperFinalResult.Text = _traceabilityUpperLog.FinalResultDesc;
                     txtUpperCameraCheck.Text = _traceabilityUpperLog.Attribute1;
+                    txtUpperVaneCheck.Text = _traceabilityUpperLog.Attribute2;
 
                     if (_traceabilityUpperLog.FinalResult == 1)
                     {
@@ -81,6 +82,7 @@ namespace Trace.UI.Controls
                     txtUpperOpenAngle.Text = string.Empty;
                     txtUpperLineErrorCounter.Text = string.Empty;
                     txtUpperCameraCheck.Text = string.Empty;
+                    txtUpperVaneCheck.Text = string.Empty;
 
                     lblUpperFinalResult.Text = "";
                     lblUpperFinalResult.BackColor = Color.White;
@@ -108,6 +110,7 @@ namespace Trace.UI.Controls
                     txtLowerLineErrorCounter.Text = _traceabilityLowerLog.LineErrorCounter;
                     lblLowerFinalResult.Text = _traceabilityLowerLog.FinalResultDesc;
                     txtLowerCameraCheck.Text = _traceabilityLowerLog.Attribute1;
+                    txtLowerVaneCheck.Text = _traceabilityLowerLog.Attribute2;
 
                     if (_traceabilityLowerLog.FinalResult == 1)
                     {
@@ -136,6 +139,7 @@ namespace Trace.UI.Controls
                     txtLowerOpenAngle.Text = string.Empty;
                     txtLowerLineErrorCounter.Text = string.Empty;
                     txtLowerCameraCheck.Text = string.Empty;
+                    txtLowerVaneCheck.Text = string.Empty;
 
                     lblLowerFinalResult.Text = "";
                     lblLowerFinalResult.BackColor = Color.White;

@@ -77,6 +77,9 @@ namespace Trace.UI.Presenters
                 if (!string.IsNullOrEmpty(_view.itemCode)) result = result.Where(x => x.ItemCode.ToUpper().Contains(_view.itemCode.ToUpper()));
                 if (!string.IsNullOrEmpty(_view.partSerialNo)) result = result.Where(x => (string.IsNullOrEmpty(x.PartSerialNumber) ? "" : x.PartSerialNumber).ToUpper().Contains(_view.partSerialNo.ToUpper()));
 
+                result = result.OrderByDescending(o => o.CreationDate.Date)
+                               .OrderBy(o => o.ItemCode)
+                               .OrderByDescending(o => o.StationId);
 
                 return result.ToPagedList(pageNumber, pageSize);
             });
