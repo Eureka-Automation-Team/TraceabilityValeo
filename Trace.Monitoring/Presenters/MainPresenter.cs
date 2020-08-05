@@ -60,10 +60,10 @@ namespace Trace.Monitoring.Presenters
             if (_machine.Id == 6)
             {
                 var tagItemCode = _view.tagMainBlock + "ST5_1Code";
-                var tagName = _view.tagMainBlock + "ST5_1ReceiveCodeActuateror";
+                //var tagName = _view.tagMainBlock + "ST5_1ReceiveCodeActuateror";
 
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
-                var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+                //var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var result = await _serviceTraceLog.GetListByItemCode(itemCode.ToString());
                 var loggings = result.Where(x => x.MachineId == 1);
@@ -78,16 +78,20 @@ namespace Trace.Monitoring.Presenters
                     model.TraceabilityLogId = loggings.FirstOrDefault().Id;
                     var partAssblies = await _servicePartAssembly.GetByPrimary(model);
 
-                    if (partAssblies != null)
+                    if (partAssblies.Count() > 0)
                     {
-                        var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N" && x.SerialNumber.Substring(0, 9) == actuater.ToString());
+                        var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N");
 
                         if (actuaterResult.Count() == 0)
                         {
                             _machine.ActuatorResult = 2;
                         }
                         else
+                        {
                             _machine.ActuatorResult = 1;
+                            ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror"
+                                , actuaterResult.FirstOrDefault().SerialNumber);
+                        }                            
                     }
                     else
                         _machine.ActuatorResult = 2;
@@ -2861,6 +2865,23 @@ namespace Trace.Monitoring.Presenters
             return result;
         }
 
+        private bool ReactDataTag(string tagName, string val = "")
+        {
+            bool result = false;
+
+            Task t = Task.Run(() => {
+                result = WriteString(tagName, val);
+            });
+            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+
+            if (!t.Wait(ts))
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
         private void Connect(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(_view.serverUrl))
@@ -3164,6 +3185,51 @@ namespace Trace.Monitoring.Presenters
         }
 
         private bool WriteWord(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new Opc.Da.ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWrite.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWrite.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWrite.Items[_view.groupWrite.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWrite.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        private bool WriteString(string tag, string value)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
