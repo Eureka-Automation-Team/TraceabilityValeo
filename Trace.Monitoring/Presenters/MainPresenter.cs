@@ -47,10 +47,15 @@ namespace Trace.Monitoring.Presenters
 
         private void RefreshData(object sender, EventArgs e)
         {
+            //WriteLog("TracebilityLogs.txt", String.Format("Refresh action : {0}", DateTime.Now));
+            //WriteLog("TracebilityLogs.txt", String.Format("Start refresh time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+            //                                CultureInfo.InvariantCulture)));
             if (_view.connectedPlc)
                 LoadCurrentValue(_view.groupRead);
 
-            WriteLog("TracebilityLogs.txt", String.Format("Refresh action : {0}", DateTime.Now));
+            //WriteLog("TracebilityLogs.txt", String.Format("End refresh time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+            //                                CultureInfo.InvariantCulture)));
+            //WriteLog("TracebilityLogs.txt", String.Format("----------------------------------------------------------------------------------"));
         }
 
         private void VerityActuater(object sender, EventArgs e)
@@ -69,7 +74,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyActuaterUpper.txt", String.Format("Item Code : {0} => Time : {1}", itemCode, DateTime.Now));
 
-                var result =  _serviceTraceLog.GetListByItemCode(itemCode.ToString());
+                var result = _serviceTraceLog.GetListByItemCode(itemCode.ToString());
                 var loggings = result.Where(x => x.MachineId == 1);
                 string receiveActuatorCode = string.Empty;
 
@@ -95,7 +100,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             _machine.ActuatorResult = 1;
                             receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
-                        }                            
+                        }
                     }
                     else
                         _machine.ActuatorResult = 2;
@@ -136,7 +141,7 @@ namespace Trace.Monitoring.Presenters
                 {
                     PartAssemblyModel model = new PartAssemblyModel();
                     model.TraceabilityLogId = loggings.FirstOrDefault().Id;
-                    var partAssblies = _servicePartAssembly.GetByPrimary(model);                    
+                    var partAssblies = _servicePartAssembly.GetByPrimary(model);
 
                     if (partAssblies != null)
                     {
@@ -150,7 +155,7 @@ namespace Trace.Monitoring.Presenters
                         {
                             _machine.ActuatorResult = 1;
                             receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
-                        }                            
+                        }
                     }
                     else
                         _machine.ActuatorResult = 2;
@@ -160,7 +165,7 @@ namespace Trace.Monitoring.Presenters
                 _view.machine7 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
                 WriteLog("VerifyActuaterLower.txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_2ReceiveCodeResult", DateTime.Now));
-                var reactResult =ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
+                var reactResult = ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
                 WriteLog("VerifyActuaterLower.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_2ReceiveCodeActuateror"
                                                             , DateTime.Now
@@ -338,14 +343,20 @@ namespace Trace.Monitoring.Presenters
             //machine 5
             if (_machine.Id == 5)
             {
+                WriteLog("VerifyCodeST4.txt", String.Format("Start verify time : {0}", TimeSpan.TicksPerMillisecond.ToString()));
+                WriteLog("VerifyCodeST4.txt", String.Format("Start verify time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
                 var tagName = _view.tagMainBlock + "ST4CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-
+                WriteLog("VerifyCodeST4.txt", String.Format("Get PLC TAG value time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
                 WriteLog("VerifyCodeST4.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 5);
 
+                WriteLog("VerifyCodeST4.txt", String.Format("Get Database result time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
                 if (loggings.Count() == 0)
                 {
                     //Data not found
@@ -360,12 +371,13 @@ namespace Trace.Monitoring.Presenters
                 }
 
                 WriteLog("VerifyCodeST4.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
-                _view.machine5 = _machine;
                 var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST4CodeVerifyResult"
-                                                            , DateTime.Now
+                                                            , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
                                                             , reactResult.ToString()));
+
+                _view.machine5 = _machine;
             }
 
             //machine 6
@@ -419,14 +431,21 @@ namespace Trace.Monitoring.Presenters
             //machine 7
             if (_machine.Id == 7)
             {
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Start verify time : {0}", TimeSpan.TicksPerMillisecond.ToString()));
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Start verify time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
                 var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Get PLC TAG value time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                           CultureInfo.InvariantCulture)));
 
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 7);
 
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Get Database result time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
                 if (loggings.Count() == 0)
                 {
                     var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
@@ -455,7 +474,7 @@ namespace Trace.Monitoring.Presenters
                 var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_2CodeVerifyResult"
-                                                            , DateTime.Now
+                                                            , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
                                                             , reactResult.ToString()));
             }
         }
@@ -464,7 +483,6 @@ namespace Trace.Monitoring.Presenters
         {
             Button but = sender as Button;
             var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
-
             if (but.Name == "butCompletedLogging1")
             {
                 var tagName = _view.tagMainBlock + "ST1Code";
@@ -506,7 +524,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine =  _serviceMachine.GetByID(2);
+                    MachineModel machine = _serviceMachine.GetByID(2);
 
                     var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
@@ -515,7 +533,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog =  KeepLogForMachine2(r, machine, machineTags);
+                    bool keepLog = KeepLogForMachine2(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
@@ -535,7 +553,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine =  _serviceMachine.GetByID(3);
+                    MachineModel machine = _serviceMachine.GetByID(3);
 
                     var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
@@ -544,7 +562,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog =  KeepLogForMachine3(r, machine);
+                    bool keepLog = KeepLogForMachine3(r, machine);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
@@ -564,7 +582,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine =  _serviceMachine.GetByID(4);
+                    MachineModel machine = _serviceMachine.GetByID(4);
 
                     var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
@@ -583,6 +601,8 @@ namespace Trace.Monitoring.Presenters
 
             if (but.Name == "butCompletedLogging5")
             {
+                //var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                //ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
                 var tagName = _view.tagMainBlock + "ST4Code";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
@@ -593,7 +613,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine =  _serviceMachine.GetByID(5);
+                    MachineModel machine = _serviceMachine.GetByID(5);
 
                     var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
@@ -602,7 +622,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog =  KeepLogForMachine5(r, machine, machineTags);
+                    bool keepLog = KeepLogForMachine5(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
@@ -622,7 +642,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine =  _serviceMachine.GetByID(6);
+                    MachineModel machine = _serviceMachine.GetByID(6);
 
                     var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
@@ -631,7 +651,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog =  KeepLogForMachine6(r, machine, machineTags);
+                    bool keepLog = KeepLogForMachine6(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
@@ -651,7 +671,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 else
                 {
-                    MachineModel machine =  _serviceMachine.GetByID(7);
+                    MachineModel machine = _serviceMachine.GetByID(7);
 
                     var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
                     var tags = (from tag in machineTags
@@ -660,7 +680,7 @@ namespace Trace.Monitoring.Presenters
 
                     var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
-                    bool keepLog =  KeepLogForMachine7(r, machine, machineTags);
+                    bool keepLog = KeepLogForMachine7(r, machine, machineTags);
                     if (keepLog)
                     {
                         ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
@@ -869,11 +889,23 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST4.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
+
                     var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
-                    WriteLog("KeepLoggingST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                    if (reactResult)
+                    {
+                        WriteLog("KeepLoggingST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST4LoggingApp"
                                                             , DateTime.Now
-                                                            , reactResult.ToString()));
+                                                            , "TRUE"));
+                    }
+                    else
+                    {
+                        WriteLog("KeepLoggingST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST4LoggingApp"
+                                                            , DateTime.Now
+                                                            , "FALSE"));
+                    }
+
                     _view.machine5 = machineTmp;
                 }
                 #endregion
@@ -2310,6 +2342,7 @@ namespace Trace.Monitoring.Presenters
             //Tightening Keep position #001
             var tagName = _view.tagMainBlock + "ST4Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
+            WriteLog("KeepLoggingST4.txt", String.Format("Item Code = {0}", itemCode));
             var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                    x.MachineId == m.Id
@@ -2721,7 +2754,7 @@ namespace Trace.Monitoring.Presenters
                     {
                         string strDate = item.Value.ToString();
 
-                        if(strDate.Length > 2)
+                        if (strDate.Length > 2)
                         {
                             trace.ProductionDate = GetProductionDate(strDate);
                         }
@@ -2795,7 +2828,7 @@ namespace Trace.Monitoring.Presenters
 
             return result;
         }
-      
+
         private bool KeepLogForMachine7(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
@@ -2989,10 +3022,11 @@ namespace Trace.Monitoring.Presenters
         {
             bool result = false;
 
-            Task t = Task.Run(() => {
-                result = WriteWord(_view.tagClockReady, 1);
+            Task t = Task.Run(() =>
+            {
+                result = WriteWordInterLock(_view.tagClockReady, 1);
             });
-            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+            TimeSpan ts = TimeSpan.FromMilliseconds(5000);
             //if (!t.Wait(ts))
             //    Console.WriteLine("The timeout interval elapsed.");
 
@@ -3000,14 +3034,20 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.connectedPlc = false;
                 _view.systemReady = false;
-                MessageBox.Show("Connection failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Disconnect();
+                _view.strConnectionMessage = "Inter Lock failed!";
+                //MessageBox.Show("Connection failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Application.Exit();
+            }
+            else
+            {
+                _view.strConnectionMessage = "Inter Lock completed.";
             }
         }
 
         private bool ReactCompleteLog(string tagName, int val = 1)
         {
-             return WriteWord(tagName, val);
+            return WriteWord(tagName, val);
         }
 
         private bool ReactCompleteLog1(string tagName, int val = 1)
@@ -3337,7 +3377,7 @@ namespace Trace.Monitoring.Presenters
                 mac7.RequestVerifyCode = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqVerifyTag7).FirstOrDefault().Value);
 
                 var verifyResultTag7 = _view.tagMainBlock + "ST5_2CodeVerifyResult";
-                mac7.CodeVerifyResult = 0;// Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag7).FirstOrDefault().Value);
+                mac7.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag7).FirstOrDefault().Value);
 
                 _view.machine7 = mac7;
 
@@ -3348,6 +3388,50 @@ namespace Trace.Monitoring.Presenters
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Cursor.Current = Cursors.Default;
                 return;
+            }
+        }
+
+        private bool WriteWordInterLock(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new Opc.Da.ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWrite.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWrite.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWrite.Items[_view.groupWrite.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWrite.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

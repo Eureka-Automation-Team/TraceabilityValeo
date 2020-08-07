@@ -51,6 +51,8 @@ namespace Trace.Monitoring
         string tagClockReady { get; set; }
         string tagTraceabilityReady { get; set; }
 
+        string strConnectionMessage { get; set; }
+
         void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values);
 
         void EnableClock();

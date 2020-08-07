@@ -228,6 +228,8 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.timerConnect = new System.Windows.Forms.Timer(this.components);
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tslConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -331,6 +333,7 @@
             this.panel68.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.panel69.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // butConnect
@@ -410,7 +413,7 @@
             // 
             // timerInter
             // 
-            this.timerInter.Interval = 1000;
+            this.timerInter.Interval = 5000;
             this.timerInter.Tick += new System.EventHandler(this.timerInter_Tick);
             // 
             // panel2
@@ -2601,12 +2604,31 @@
             this.timerRefresh.Interval = 3000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslConnectionStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 472);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
+            this.statusStrip1.TabIndex = 10;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tslConnectionStatus
+            // 
+            this.tslConnectionStatus.AutoSize = false;
+            this.tslConnectionStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tslConnectionStatus.Name = "tslConnectionStatus";
+            this.tslConnectionStatus.Size = new System.Drawing.Size(104, 17);
+            this.tslConnectionStatus.Text = "Connection Status";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1370, 475);
+            this.ClientSize = new System.Drawing.Size(1370, 494);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel54);
             this.Controls.Add(this.panel42);
             this.Controls.Add(this.panel26);
@@ -2754,7 +2776,10 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.panel69.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2957,6 +2982,8 @@
         private System.Windows.Forms.Button butRefresh;
         private System.Windows.Forms.Timer timerConnect;
         private System.Windows.Forms.Timer timerRefresh;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tslConnectionStatus;
     }
 }
 

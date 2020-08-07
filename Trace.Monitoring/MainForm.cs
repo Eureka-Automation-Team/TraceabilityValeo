@@ -398,6 +398,7 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode7.Text = string.Empty;
                     }
+                    
                     SetButtonStatusColor(butRequestVerifyCode7, Convert.ToInt32(_machine7.RequestVerifyCode));
                     //***********************
                     if (_machine7.RequestCodeActuater)
@@ -411,6 +412,12 @@ namespace Trace.Monitoring
                     SetButtonStatusColor(butRequestCodeActuater2, Convert.ToInt32(_machine7.RequestCodeActuater));
                 }
             }
+        }
+
+        public string strConnectionMessage 
+        {
+            get { return tslConnectionStatus.Text; }
+            set { tslConnectionStatus.Text = value; }
         }
 
         public event EventHandler FormLoad;
@@ -1035,11 +1042,11 @@ namespace Trace.Monitoring
 
         private void butCompletedLogging5_Click(object sender, EventArgs e)
         {
-            if (!this.machine5.RequestLogging)
-                return;
+            //if (!this.machine5.RequestLogging)
+            //    return;
 
-            if (this.machine5.CompletedLogging != 0)
-                return;
+            //if (this.machine5.CompletedLogging != 0)
+            //    return;
 
             if (CompleteAction != null)
                 CompleteAction(sender, e);
