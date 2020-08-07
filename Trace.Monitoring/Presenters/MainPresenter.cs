@@ -49,6 +49,8 @@ namespace Trace.Monitoring.Presenters
         {
             if (_view.connectedPlc)
                 LoadCurrentValue(_view.groupRead);
+
+            WriteLog("TracebilityLogs.txt", String.Format("Refresh action : {0}", DateTime.Now));
         }
 
         private void VerityActuater(object sender, EventArgs e)
@@ -64,6 +66,8 @@ namespace Trace.Monitoring.Presenters
 
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
                 //var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyActuaterUpper.txt", String.Format("Item Code : {0} => Time : {1}", itemCode, DateTime.Now));
 
                 var result =  _serviceTraceLog.GetListByItemCode(itemCode.ToString());
                 var loggings = result.Where(x => x.MachineId == 1);
@@ -98,9 +102,15 @@ namespace Trace.Monitoring.Presenters
 
                 }
 
+                WriteLog("VerifyActuaterUpper.txt", String.Format("Actuator Result : {0} => Time : {1}", _machine.ActuatorResult, DateTime.Now));
                 _view.machine6 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
-                ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror", receiveActuatorCode);
+                WriteLog("VerifyActuaterUpper.txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_1ReceiveCodeResult", DateTime.Now));
+                var reactResult = ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror", receiveActuatorCode);
+                WriteLog("VerifyActuaterUpper.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST5_1ReceiveCodeActuateror"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 7
@@ -111,6 +121,8 @@ namespace Trace.Monitoring.Presenters
 
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
                 //var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyActuaterLower.txt", String.Format("Item Code : {0} => Time : {1}", itemCode, DateTime.Now));
 
                 var result = _serviceTraceLog.GetListByItemCode(itemCode.ToString());
                 var loggings = result.Where(x => x.MachineId == 5);
@@ -144,9 +156,15 @@ namespace Trace.Monitoring.Presenters
                         _machine.ActuatorResult = 2;
                 }
 
+                WriteLog("VerifyActuaterLower.txt", String.Format("Actuator Result : {0} => Time : {1}", _machine.ActuatorResult.ToString(), DateTime.Now));
                 _view.machine7 = _machine;
                 ReactCompleteLog(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
-                ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
+                WriteLog("VerifyActuaterLower.txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_2ReceiveCodeResult", DateTime.Now));
+                var reactResult =ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
+                WriteLog("VerifyActuaterLower.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST5_2ReceiveCodeActuateror"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
         }
@@ -161,6 +179,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST1.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 1);
@@ -178,8 +198,13 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
+                WriteLog("VerifyCodeST1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine1 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST1CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 2
@@ -187,6 +212,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 2);
@@ -213,9 +240,13 @@ namespace Trace.Monitoring.Presenters
                     //_machine.CodeVerifyResult = 4;
                     _machine.CodeVerifyResult = 2;
                 }
-
+                WriteLog("VerifyCodeST2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine2 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST2CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST2CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST2CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 3
@@ -223,6 +254,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST3_1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST3_1.txt", String.Format("Item Code : {0} => Completed time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 3);
@@ -250,8 +283,13 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
+                WriteLog("VerifyCodeST3_1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine3 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST3_1CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_1CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST3_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST3_1CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 4
@@ -259,6 +297,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST3_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST3_2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 4);
@@ -286,8 +326,13 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
+                WriteLog("VerifyCodeST3_2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine4 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST3_2CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_2CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST3_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST3_2CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 5
@@ -295,6 +340,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST4CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST4.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                                .Where(x => x.MachineId == 5);
@@ -312,8 +359,13 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
+                WriteLog("VerifyCodeST4.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine5 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST4CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 6
@@ -321,6 +373,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST5_1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 6);
@@ -353,8 +407,13 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine6 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST5_1CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_1CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST5_1CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
 
             //machine 7
@@ -362,6 +421,8 @@ namespace Trace.Monitoring.Presenters
             {
                 var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
                                .Where(x => x.MachineId == 7);
@@ -389,8 +450,13 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine7 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST5_2CodeVerifyResult"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
             }
         }
 
@@ -405,7 +471,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
                 }
@@ -434,7 +500,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
                 }
@@ -463,7 +529,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
                 }
@@ -492,7 +558,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
                 }
@@ -521,7 +587,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
                 }
@@ -550,7 +616,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
                 }
@@ -579,7 +645,7 @@ namespace Trace.Monitoring.Presenters
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-                if (loggings != null)
+                if (loggings.Count() > 0)
                 {
                     ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
                 }
@@ -638,6 +704,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST1.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine1(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -648,10 +715,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         machineTmp.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST1.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST1.txt", ex.Message);
+                        WriteLog("KeepLoggingST1.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-
-                    ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST1.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                            , machineTmp.CompletedLogging.ToString()
+                                                            , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST1LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine1 = machineTmp;
                 }
                 #endregion
@@ -665,6 +741,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST2.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine2(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -675,9 +752,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         machineTmp.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST2.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST2.txt", ex.Message);
+                        WriteLog("KeepLoggingST2.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-                    ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST2.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                            , machineTmp.CompletedLogging.ToString()
+                                                            , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST2LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine2 = machineTmp;
                 }
                 #endregion
@@ -691,6 +778,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST3_1.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine3(r, machine);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -701,9 +789,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         _view.machine3.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST3_1.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST3_1.txt", ex.Message);
+                        WriteLog("KeepLoggingST3_1.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-                    ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST3_1.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                            , machineTmp.CompletedLogging.ToString()
+                                                            , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST3_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST3_1LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine3 = machineTmp;
                 }
 
@@ -715,6 +813,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST3_2.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine4(r, machine);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -725,9 +824,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         _view.machine4.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST3_2.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST3_2.txt", ex.Message);
+                        WriteLog("KeepLoggingST3_2.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-                    ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST3_2.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                            , machineTmp.CompletedLogging.ToString()
+                                                            , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST3_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST3_2LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine4 = machineTmp;
                 }
                 #endregion
@@ -741,6 +850,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST4.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine5(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -751,9 +861,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         _view.machine5.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST4.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST4.txt", ex.Message);
+                        WriteLog("KeepLoggingST4.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-                    ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST4.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                            , machineTmp.CompletedLogging.ToString()
+                                                            , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST4LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine5 = machineTmp;
                 }
                 #endregion
@@ -767,6 +887,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST5_1.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine6(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -777,9 +898,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         _view.machine6.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST5_1.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST5_1.txt", ex.Message);
+                        WriteLog("KeepLoggingST5_1.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-                    ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST5_1.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                            , machineTmp.CompletedLogging.ToString()
+                                                            , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST5_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST5_1LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine6 = machineTmp;
                 }
 
@@ -791,6 +922,7 @@ namespace Trace.Monitoring.Presenters
 
                     try
                     {
+                        WriteLog("KeepLoggingST5_2.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
                         keepLog = KeepLogForMachine7(r, machine, machineTags);
                         if (keepLog)
                             machineTmp.CompletedLogging = 1;
@@ -801,9 +933,19 @@ namespace Trace.Monitoring.Presenters
                     {
                         _view.machine7.MessageResult = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLoggingST5_2.txt", "<<=================== Begin Error Exception ===================>>");
+                        WriteLog("KeepLoggingST5_2.txt", ex.Message);
+                        WriteLog("KeepLoggingST5_2.txt", "<<=================== End Error Exception ===================>>");
                     }
 
-                    ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST5_2.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
+                                                    , machineTmp.CompletedLogging.ToString()
+                                                    , DateTime.Now));
+                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);
+                    WriteLog("KeepLoggingST5_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                            , "ST5_2LoggingApp"
+                                                            , DateTime.Now
+                                                            , reactResult.ToString()));
                     _view.machine7 = machineTmp;
                 }
                 #endregion
@@ -2213,6 +2355,7 @@ namespace Trace.Monitoring.Presenters
 
             //Keep part Assemblies
             trace.PartAssemblies = new List<PartAssemblyModel>();
+            string partActuaterSN = string.Empty;
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 tmpMsg = string.Empty;
@@ -2233,13 +2376,15 @@ namespace Trace.Monitoring.Presenters
                         part.LineNumber = 1;
                         part.PartName = "LWR Actuator P/N";
                         part.SerialNumber = item.Value.ToString();
+                        if (!string.IsNullOrEmpty(part.SerialNumber))
+                            partActuaterSN = part.SerialNumber.Substring(11, (part.SerialNumber.Length - 11));
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[1]")
                     {
                         part.LineNumber = 2;
                         part.PartName = "LWR Actuator S/N";
-                        part.SerialNumber = item.Value.ToString();
+                        part.SerialNumber = partActuaterSN;// item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[2]")
@@ -2862,12 +3007,17 @@ namespace Trace.Monitoring.Presenters
 
         private bool ReactCompleteLog(string tagName, int val = 1)
         {
+             return WriteWord(tagName, val);
+        }
+
+        private bool ReactCompleteLog1(string tagName, int val = 1)
+        {
             bool result = false;
 
             Task t = Task.Run(() => {
                 result = WriteWord(tagName, val);
             });
-            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+            TimeSpan ts = TimeSpan.FromMilliseconds(4000);
 
             if (!t.Wait(ts))
             {
@@ -2879,12 +3029,17 @@ namespace Trace.Monitoring.Presenters
 
         private bool ReactDataTag(string tagName, string val = "")
         {
+            return WriteString(tagName, val);
+        }
+
+        private bool ReactDataTag1(string tagName, string val = "")
+        {
             bool result = false;
 
             Task t = Task.Run(() => {
                 result = WriteString(tagName, val);
             });
-            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+            TimeSpan ts = TimeSpan.FromMilliseconds(4000);
 
             if (!t.Wait(ts))
             {
@@ -3417,6 +3572,23 @@ namespace Trace.Monitoring.Presenters
         private bool InvalidBoolean(string number)
         {
             return !(number == "0" || number == "1");
+        }
+
+        public bool WriteLog(string strFileName, string strMessage)
+        {
+            try
+            {
+                FileStream objFilestream = new FileStream(string.Format("{0}\\{1}", Path.GetTempPath(), strFileName), FileMode.Append, FileAccess.Write);
+                StreamWriter objStreamWriter = new StreamWriter((Stream)objFilestream);
+                objStreamWriter.WriteLine(strMessage);
+                objStreamWriter.Close();
+                objFilestream.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
