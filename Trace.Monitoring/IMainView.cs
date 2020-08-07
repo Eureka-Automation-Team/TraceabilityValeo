@@ -28,7 +28,28 @@ namespace Trace.Monitoring
 
         Subscription groupWrite { get; set; }
         SubscriptionState groupStateWrite { get; set; }
-        
+
+        Subscription groupWriteMc1 { get; set; }
+        SubscriptionState groupStateWriteMc1 { get; set; }
+
+        Subscription groupWriteMc2 { get; set; }
+        SubscriptionState groupStateWriteMc2 { get; set; }
+
+        Subscription groupWriteMc3 { get; set; }
+        SubscriptionState groupStateWriteMc3 { get; set; }
+
+        Subscription groupWriteMc4 { get; set; }
+        SubscriptionState groupStateWriteMc4 { get; set; }
+
+        Subscription groupWriteMc5 { get; set; }
+        SubscriptionState groupStateWriteMc5 { get; set; }
+
+        Subscription groupWriteMc6 { get; set; }
+        SubscriptionState groupStateWriteMc6 { get; set; }
+
+        Subscription groupWriteMc7 { get; set; }
+        SubscriptionState groupStateWriteMc7 { get; set; }
+
 
         //initialization of the sample object that contains opc values
         OPCObject myOpcObject { get; set; }

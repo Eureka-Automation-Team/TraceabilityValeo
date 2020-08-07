@@ -22,6 +22,20 @@ namespace Trace.Monitoring
 
         private Subscription _groupWrite;
         private SubscriptionState _groupStateWrite;
+        private Subscription _groupWriteMc1;
+        private SubscriptionState _groupStateWriteMc1;
+        private Subscription _groupWriteMc2;
+        private SubscriptionState _groupStateWriteMc2;
+        private Subscription _groupWriteMc3;
+        private SubscriptionState _groupStateWriteMc3;
+        private Subscription _groupWriteMc4;
+        private SubscriptionState _groupStateWriteMc4;
+        private Subscription _groupWriteMc5;
+        private SubscriptionState _groupStateWriteMc5;
+        private Subscription _groupWriteMc6;
+        private SubscriptionState _groupStateWriteMc6;
+        private Subscription _groupWriteMc7;
+        private SubscriptionState _groupStateWriteMc7;
 
         private Item[] _items;
 
@@ -64,6 +78,7 @@ namespace Trace.Monitoring
             get { return _groupStateRead; }
             set { _groupStateRead = value; }
         }
+
         public Subscription groupWrite
         {
             get { return _groupWrite; }
@@ -74,6 +89,80 @@ namespace Trace.Monitoring
             get { return _groupStateWrite; }
             set { _groupStateWrite = value; }
         }
+
+        public Subscription groupWriteMc1
+        {
+            get { return _groupWriteMc1; }
+            set { _groupWriteMc1 = value; }
+        }
+        public SubscriptionState groupStateWriteMc1
+        {
+            get { return _groupStateWriteMc1; }
+            set { _groupStateWriteMc1 = value; }
+        }
+
+        public Subscription groupWriteMc2
+        {
+            get { return _groupWriteMc2; }
+            set { _groupWriteMc2 = value; }
+        }
+        public SubscriptionState groupStateWriteMc2
+        {
+            get { return _groupStateWriteMc2; }
+            set { _groupStateWriteMc2 = value; }
+        }
+        public Subscription groupWriteMc3
+        {
+            get { return _groupWriteMc3; }
+            set { _groupWriteMc3 = value; }
+        }
+        public SubscriptionState groupStateWriteMc3
+        {
+            get { return _groupStateWriteMc3; }
+            set { _groupStateWriteMc3 = value; }
+        }
+        public Subscription groupWriteMc4
+        {
+            get { return _groupWriteMc4; }
+            set { _groupWriteMc4 = value; }
+        }
+        public SubscriptionState groupStateWriteMc4
+        {
+            get { return _groupStateWriteMc4; }
+            set { _groupStateWriteMc4 = value; }
+        }
+        public Subscription groupWriteMc5
+        {
+            get { return _groupWriteMc5; }
+            set { _groupWriteMc5 = value; }
+        }
+        public SubscriptionState groupStateWriteMc5
+        {
+            get { return _groupStateWriteMc5; }
+            set { _groupStateWriteMc5 = value; }
+        }
+        public Subscription groupWriteMc6
+        {
+            get { return _groupWriteMc6; }
+            set { _groupWriteMc6 = value; }
+        }
+        public SubscriptionState groupStateWriteMc6
+        {
+            get { return _groupStateWriteMc6; }
+            set { _groupStateWriteMc6 = value; }
+        }
+        public Subscription groupWriteMc7
+        {
+            get { return _groupWriteMc7; }
+            set { _groupWriteMc7 = value; }
+        }
+        public SubscriptionState groupStateWriteMc7
+        {
+            get { return _groupStateWriteMc7; }
+            set { _groupStateWriteMc7 = value; }
+        }
+
+
         public OPCObject myOpcObject
         {
             get { return _myOpcObject; }

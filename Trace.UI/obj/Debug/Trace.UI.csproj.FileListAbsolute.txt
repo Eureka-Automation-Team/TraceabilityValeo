@@ -1,6 +1,7 @@
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.UI.exe.config
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.UI.exe
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.UI.pdb
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\DataMatrix.net.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\PagedList.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\QRCoder.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\Trace.Data.dll
@@ -45,10 +46,9 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.Propertie
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.HomeForm.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.SearchDetailForm.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.SearchForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.TigtheningRepairsForm.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.GenerateResource.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.CoreCompileInputs.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.CopyComplete
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.exe
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.pdb
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.TigtheningRepairsForm.resources
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\DataMatrix.net.dll

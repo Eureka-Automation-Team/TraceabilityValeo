@@ -230,7 +230,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.label37 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1921,7 +1920,6 @@
             // 
             // panel79
             // 
-            this.panel79.Controls.Add(this.label31);
             this.panel79.Controls.Add(this.label38);
             this.panel79.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel79.Location = new System.Drawing.Point(715, 3);
@@ -2597,20 +2595,20 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslConnectionStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 472);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 468);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1370, 26);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // tslConnectionStatus
             // 
-            this.tslConnectionStatus.AutoSize = false;
             this.tslConnectionStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tslConnectionStatus.Name = "tslConnectionStatus";
-            this.tslConnectionStatus.Size = new System.Drawing.Size(104, 17);
+            this.tslConnectionStatus.Size = new System.Drawing.Size(135, 21);
             this.tslConnectionStatus.Text = "Connection Status";
             // 
             // label37
@@ -2626,28 +2624,15 @@
             this.label37.Text = "Req. Actuater";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label31
-            // 
-            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label31.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(122, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(134, 24);
-            this.label31.TabIndex = 14;
-            this.label31.Text = "Req. Actuater";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label38
             // 
             this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label38.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label38.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.White;
             this.label38.Location = new System.Drawing.Point(0, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(122, 24);
+            this.label38.Size = new System.Drawing.Size(256, 24);
             this.label38.TabIndex = 13;
             this.label38.Text = "Verify Code";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3014,7 +2999,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tslConnectionStatus;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label38;
     }
 }

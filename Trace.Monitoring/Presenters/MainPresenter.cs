@@ -109,7 +109,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyActuaterUpper.txt", String.Format("Actuator Result : {0} => Time : {1}", _machine.ActuatorResult, DateTime.Now));
                 _view.machine6 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
+                ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
                 WriteLog("VerifyActuaterUpper.txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_1ReceiveCodeResult", DateTime.Now));
                 var reactResult = ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror", receiveActuatorCode);
                 WriteLog("VerifyActuaterUpper.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
@@ -163,7 +163,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyActuaterLower.txt", String.Format("Actuator Result : {0} => Time : {1}", _machine.ActuatorResult.ToString(), DateTime.Now));
                 _view.machine7 = _machine;
-                ReactCompleteLog(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
+                ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
                 WriteLog("VerifyActuaterLower.txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_2ReceiveCodeResult", DateTime.Now));
                 var reactResult = ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
                 WriteLog("VerifyActuaterLower.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
@@ -205,7 +205,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyCodeST1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine1 = _machine;
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc1(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST1CodeVerifyResult"
                                                             , DateTime.Now
@@ -247,7 +247,7 @@ namespace Trace.Monitoring.Presenters
                 }
                 WriteLog("VerifyCodeST2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine2 = _machine;
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST2CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc2(_view.tagMainBlock + "ST2CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST2CodeVerifyResult"
                                                             , DateTime.Now
@@ -290,7 +290,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyCodeST3_1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine3 = _machine;
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_1CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc3(_view.tagMainBlock + "ST3_1CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST3_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST3_1CodeVerifyResult"
                                                             , DateTime.Now
@@ -333,7 +333,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyCodeST3_2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine4 = _machine;
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_2CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc4(_view.tagMainBlock + "ST3_2CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST3_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST3_2CodeVerifyResult"
                                                             , DateTime.Now
@@ -371,7 +371,7 @@ namespace Trace.Monitoring.Presenters
                 }
 
                 WriteLog("VerifyCodeST4.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc5(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST4CodeVerifyResult"
                                                             , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
@@ -421,7 +421,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyCodeST5_1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine6 = _machine;
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_1CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST5_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_1CodeVerifyResult"
                                                             , DateTime.Now
@@ -471,7 +471,7 @@ namespace Trace.Monitoring.Presenters
 
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
                 _view.machine7 = _machine;
-                var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
+                var reactResult = ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_2CodeVerifyResult"
                                                             , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
@@ -491,7 +491,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                    ReactCompleteLogMc1(_view.tagMainBlock + "ST1LoggingApp", 1);
                 }
                 else
                 {
@@ -507,7 +507,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine1(r, machine, machineTags);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", 1);
+                        ReactCompleteLogMc1(_view.tagMainBlock + "ST1LoggingApp", 1);
                     }
                 }
             }
@@ -520,7 +520,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
+                    ReactCompleteLogMc2(_view.tagMainBlock + "ST2LoggingApp", 1);
                 }
                 else
                 {
@@ -536,7 +536,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine2(r, machine, machineTags);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", 1);
+                        ReactCompleteLogMc2(_view.tagMainBlock + "ST2LoggingApp", 1);
                     }
                 }
             }
@@ -549,7 +549,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                    ReactCompleteLogMc3(_view.tagMainBlock + "ST3_1LoggingApp", 1);
                 }
                 else
                 {
@@ -565,7 +565,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine3(r, machine);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+                        ReactCompleteLogMc3(_view.tagMainBlock + "ST3_1LoggingApp", 1);
                     }
                 }
             }
@@ -578,7 +578,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                    ReactCompleteLogMc4(_view.tagMainBlock + "ST3_2LoggingApp", 1);
                 }
                 else
                 {
@@ -594,7 +594,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine4(r, machine);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+                        ReactCompleteLogMc4(_view.tagMainBlock + "ST3_2LoggingApp", 1);
                     }
                 }
             }
@@ -609,7 +609,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                    ReactCompleteLogMc5(_view.tagMainBlock + "ST4LoggingApp", 1);
                 }
                 else
                 {
@@ -625,7 +625,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine5(r, machine, machineTags);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", 1);
+                        ReactCompleteLogMc5(_view.tagMainBlock + "ST4LoggingApp", 1);
                     }
                 }
             }
@@ -638,7 +638,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                    ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1LoggingApp", 1);
                 }
                 else
                 {
@@ -654,7 +654,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine6(r, machine, machineTags);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+                        ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1LoggingApp", 1);
                     }
                 }
             }
@@ -667,7 +667,7 @@ namespace Trace.Monitoring.Presenters
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
                 if (loggings.Count() > 0)
                 {
-                    ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+                    ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2LoggingApp", 1);
                 }
                 else
                 {
@@ -683,7 +683,7 @@ namespace Trace.Monitoring.Presenters
                     bool keepLog = KeepLogForMachine7(r, machine, machineTags);
                     if (keepLog)
                     {
-                        ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+                        ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2LoggingApp", 1);
                     }
                 }
             }
@@ -743,7 +743,7 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST1.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc1(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging);
                     WriteLog("KeepLoggingST1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST1LoggingApp"
                                                             , DateTime.Now
@@ -780,7 +780,7 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST2.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST2LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc2(_view.tagMainBlock + "ST2LoggingApp", machineTmp.CompletedLogging);
                     WriteLog("KeepLoggingST2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST2LoggingApp"
                                                             , DateTime.Now
@@ -817,7 +817,7 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST3_1.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_1LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc3(_view.tagMainBlock + "ST3_1LoggingApp", machineTmp.CompletedLogging);
                     WriteLog("KeepLoggingST3_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST3_1LoggingApp"
                                                             , DateTime.Now
@@ -852,7 +852,7 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST3_2.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST3_2LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc4(_view.tagMainBlock + "ST3_2LoggingApp", machineTmp.CompletedLogging);
                     WriteLog("KeepLoggingST3_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST3_2LoggingApp"
                                                             , DateTime.Now
@@ -890,7 +890,7 @@ namespace Trace.Monitoring.Presenters
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
 
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc5(_view.tagMainBlock + "ST4LoggingApp", machineTmp.CompletedLogging);
                     if (reactResult)
                     {
                         WriteLog("KeepLoggingST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
@@ -938,7 +938,7 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST5_1.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                             , machineTmp.CompletedLogging.ToString()
                                                             , DateTime.Now));
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_1LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1LoggingApp", machineTmp.CompletedLogging);
                     WriteLog("KeepLoggingST5_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_1LoggingApp"
                                                             , DateTime.Now
@@ -973,7 +973,7 @@ namespace Trace.Monitoring.Presenters
                     WriteLog("KeepLoggingST5_2.txt", String.Format("LoggingApp Result : {0} => Time : {1}"
                                                     , machineTmp.CompletedLogging.ToString()
                                                     , DateTime.Now));
-                    var reactResult = ReactCompleteLog(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);
+                    var reactResult = ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging);
                     WriteLog("KeepLoggingST5_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_2LoggingApp"
                                                             , DateTime.Now
@@ -3008,12 +3008,12 @@ namespace Trace.Monitoring.Presenters
         {
             if (_view.systemReady)
             {
-                if (WriteWord(_view.tagTraceabilityReady, 0))
+                if (WriteWordInterLock(_view.tagTraceabilityReady, 0))
                     _view.systemReady = false;
             }
             else
             {
-                if (WriteWord(_view.tagTraceabilityReady, 1))
+                if (WriteWordInterLock(_view.tagTraceabilityReady, 1))
                     _view.systemReady = true;
             }
         }
@@ -3045,49 +3045,79 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool ReactCompleteLog(string tagName, int val = 1)
+        private bool ReactCompleteLogMc1(string tagName, int val = 1)
         {
-            return WriteWord(tagName, val);
+            return WriteWordMc1(tagName, val);
         }
 
-        private bool ReactCompleteLog1(string tagName, int val = 1)
+        private bool ReactCompleteLogMc2(string tagName, int val = 1)
         {
-            bool result = false;
-
-            Task t = Task.Run(() => {
-                result = WriteWord(tagName, val);
-            });
-            TimeSpan ts = TimeSpan.FromMilliseconds(4000);
-
-            if (!t.Wait(ts))
-            {
-                result = false;
-            }
-
-            return result;
+            return WriteWordMc2(tagName, val);
         }
+
+        private bool ReactCompleteLogMc3(string tagName, int val = 1)
+        {
+            return WriteWordMc3(tagName, val);
+        }
+
+        private bool ReactCompleteLogMc4(string tagName, int val = 1)
+        {
+            return WriteWordMc4(tagName, val);
+        }
+
+        private bool ReactCompleteLogMc5(string tagName, int val = 1)
+        {
+            return WriteWordMc5(tagName, val);
+        }
+
+        private bool ReactCompleteLogMc6(string tagName, int val = 1)
+        {
+            return WriteWordMc6(tagName, val);
+        }
+
+        private bool ReactCompleteLogMc7(string tagName, int val = 1)
+        {
+            return WriteWordMc7(tagName, val);
+        }
+
+        //private bool ReactCompleteLog1(string tagName, int val = 1)
+        //{
+        //    bool result = false;
+
+        //    Task t = Task.Run(() => {
+        //        result = WriteWord(tagName, val);
+        //    });
+        //    TimeSpan ts = TimeSpan.FromMilliseconds(4000);
+
+        //    if (!t.Wait(ts))
+        //    {
+        //        result = false;
+        //    }
+
+        //    return result;
+        //}
 
         private bool ReactDataTag(string tagName, string val = "")
         {
             return WriteString(tagName, val);
         }
 
-        private bool ReactDataTag1(string tagName, string val = "")
-        {
-            bool result = false;
+        //private bool ReactDataTag1(string tagName, string val = "")
+        //{
+        //    bool result = false;
 
-            Task t = Task.Run(() => {
-                result = WriteString(tagName, val);
-            });
-            TimeSpan ts = TimeSpan.FromMilliseconds(4000);
+        //    Task t = Task.Run(() => {
+        //        result = WriteString(tagName, val);
+        //    });
+        //    TimeSpan ts = TimeSpan.FromMilliseconds(4000);
 
-            if (!t.Wait(ts))
-            {
-                result = false;
-            }
+        //    if (!t.Wait(ts))
+        //    {
+        //        result = false;
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         private void Connect(object sender, EventArgs e)
         {
@@ -3201,9 +3231,44 @@ namespace Trace.Monitoring.Presenters
                 _view.items = _view.groupRead.AddItems(_view.items);
 
                 _view.groupStateWrite = new SubscriptionState();
-                _view.groupStateWrite.Name = "Group Write";
+                _view.groupStateWrite.Name = "WriteInterLock";
                 _view.groupStateWrite.Active = false;//not needed to read if you want to write only
                 _view.groupWrite = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWrite);
+
+                _view.groupStateWriteMc1 = new SubscriptionState();
+                _view.groupStateWriteMc1.Name = "WriteMachine1";
+                _view.groupStateWriteMc1.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc1 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc1);
+
+                _view.groupStateWriteMc2 = new SubscriptionState();
+                _view.groupStateWriteMc2.Name = "WriteMachine2";
+                _view.groupStateWriteMc2.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc2 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc2);
+
+                _view.groupStateWriteMc3 = new SubscriptionState();
+                _view.groupStateWriteMc3.Name = "WriteMachine3";
+                _view.groupStateWriteMc3.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc3 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc3);
+
+                _view.groupStateWriteMc4 = new SubscriptionState();
+                _view.groupStateWriteMc4.Name = "WriteMachine4";
+                _view.groupStateWriteMc4.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc4 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc4);
+
+                _view.groupStateWriteMc5 = new SubscriptionState();
+                _view.groupStateWriteMc5.Name = "WriteMachine5";
+                _view.groupStateWriteMc5.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc5 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc5);
+
+                _view.groupStateWriteMc6 = new SubscriptionState();
+                _view.groupStateWriteMc6.Name = "WriteMachine6";
+                _view.groupStateWriteMc6.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc6 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc6);
+
+                _view.groupStateWriteMc7 = new SubscriptionState();
+                _view.groupStateWriteMc7.Name = "WriteMachine7";
+                _view.groupStateWriteMc7.Active = false;//not needed to read if you want to write only
+                _view.groupWriteMc7 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc7);
 
                 return true;
             }
@@ -3435,7 +3500,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWord(string tag, int value)
+        private bool WriteWordMc1(string tag, int value)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3443,12 +3508,12 @@ namespace Trace.Monitoring.Presenters
             itemToAdd[0].ItemName = tag;
 
             //create the item that contains the value to write
-            ItemValue[] writeValues = new Opc.Da.ItemValue[1];
+            ItemValue[] writeValues = new ItemValue[1];
             writeValues[0] = new ItemValue(itemToAdd[0]);
 
             //make a scan of group to see if it already contains the item
             bool itemFound = false;
-            foreach (Item item in _view.groupWrite.Items)
+            foreach (Item item in _view.groupWriteMc1.Items)
             {
                 if (item.ItemName == itemToAdd[0].ItemName)
                 {
@@ -3461,8 +3526,8 @@ namespace Trace.Monitoring.Presenters
             if (!itemFound)
             {
                 //if it doesn't find it, we add it
-                _view.groupWrite.AddItems(itemToAdd);
-                writeValues[0].ServerHandle = _view.groupWrite.Items[_view.groupWrite.Items.Length - 1].ServerHandle;
+                _view.groupWriteMc1.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc1.Items[_view.groupWriteMc1.Items.Length - 1].ServerHandle;
             }
             //set the value to write
             writeValues[0].Value = value;
@@ -3470,14 +3535,277 @@ namespace Trace.Monitoring.Presenters
 
             try
             {
-                _view.groupWrite.Write(writeValues);
+                _view.groupWriteMc1.Write(writeValues);
                 return true;
             }
             catch
             {
                 return false;
             }
+        }
 
+        private bool WriteWordMc2(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWriteMc2.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWriteMc2.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc2.Items[_view.groupWriteMc2.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWriteMc2.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool WriteWordMc3(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWriteMc3.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWriteMc3.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc3.Items[_view.groupWriteMc3.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWriteMc3.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool WriteWordMc4(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWriteMc4.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWriteMc4.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc4.Items[_view.groupWriteMc4.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWriteMc4.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool WriteWordMc5(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWriteMc5.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWriteMc5.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc5.Items[_view.groupWriteMc5.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWriteMc5.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool WriteWordMc6(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWriteMc6.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWriteMc6.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc6.Items[_view.groupWriteMc6.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWriteMc6.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool WriteWordMc7(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWriteMc7.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWriteMc7.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWriteMc7.Items[_view.groupWriteMc7.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWriteMc7.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private bool WriteString(string tag, string value)
