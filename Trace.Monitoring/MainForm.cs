@@ -956,12 +956,14 @@ namespace Trace.Monitoring
             timerInter.Interval = 2000;
             timerInter.Enabled = true;
             timerConnect.Enabled = false;
+            timerRefresh.Enabled = true;
         }
 
         public void DisableClock()
         {
             timerInter.Enabled = false;
             timerConnect.Enabled = true;
+            timerRefresh.Enabled = false;
         }
 
         private void timerInter_Tick(object sender, EventArgs e)
@@ -1077,6 +1079,12 @@ namespace Trace.Monitoring
         {
             if (Connect_Click != null)
                 Connect_Click(sender, e);
+        }
+
+        private void timerRefresh_Tick(object sender, EventArgs e)
+        {
+            if (RefreshData != null)
+                RefreshData(sender, e);
         }
     }
 }
