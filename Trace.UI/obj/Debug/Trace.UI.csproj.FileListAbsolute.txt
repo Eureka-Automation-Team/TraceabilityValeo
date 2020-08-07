@@ -51,3 +51,4 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.csproj.Co
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.exe
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.pdb
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\obj\Debug\Trace.UI.UIs.TigtheningRepairsForm.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.UI\bin\Debug\DataMatrix.net.dll

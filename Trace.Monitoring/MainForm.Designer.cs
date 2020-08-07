@@ -168,7 +168,6 @@
             this.panel51 = new System.Windows.Forms.Panel();
             this.butCompletedLogging5 = new System.Windows.Forms.Button();
             this.panel79 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
             this.panel80 = new System.Windows.Forms.Panel();
             this.butRequestVerifyCode5 = new System.Windows.Forms.Button();
             this.panel89 = new System.Windows.Forms.Panel();
@@ -230,6 +229,9 @@
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -671,7 +673,7 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(257, 24);
             this.label29.TabIndex = 10;
-            this.label29.Text = "Request Verify";
+            this.label29.Text = "Verify Code";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel71
@@ -1052,7 +1054,7 @@
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(256, 24);
             this.label28.TabIndex = 10;
-            this.label28.Text = "Request Verify";
+            this.label28.Text = "Verify Code";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel73
@@ -1253,7 +1255,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(256, 24);
             this.label27.TabIndex = 9;
-            this.label27.Text = "Request Verify";
+            this.label27.Text = "Verify Code";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel41
@@ -1920,24 +1922,12 @@
             // panel79
             // 
             this.panel79.Controls.Add(this.label31);
+            this.panel79.Controls.Add(this.label38);
             this.panel79.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel79.Location = new System.Drawing.Point(715, 3);
             this.panel79.Name = "panel79";
             this.panel79.Size = new System.Drawing.Size(256, 24);
             this.panel79.TabIndex = 32;
-            // 
-            // label31
-            // 
-            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label31.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(0, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(256, 24);
-            this.label31.TabIndex = 11;
-            this.label31.Text = "Request Verify";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel80
             // 
@@ -2380,6 +2370,7 @@
             // 
             // panel81
             // 
+            this.panel81.Controls.Add(this.label37);
             this.panel81.Controls.Add(this.label32);
             this.panel81.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel81.Location = new System.Drawing.Point(716, 3);
@@ -2390,14 +2381,14 @@
             // label32
             // 
             this.label32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label32.Dock = System.Windows.Forms.DockStyle.Left;
             this.label32.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.White;
             this.label32.Location = new System.Drawing.Point(0, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(255, 24);
+            this.label32.Size = new System.Drawing.Size(122, 24);
             this.label32.TabIndex = 11;
-            this.label32.Text = "Request Verify";
+            this.label32.Text = "Verify Code";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel82
@@ -2621,6 +2612,45 @@
             this.tslConnectionStatus.Name = "tslConnectionStatus";
             this.tslConnectionStatus.Size = new System.Drawing.Size(104, 17);
             this.tslConnectionStatus.Text = "Connection Status";
+            // 
+            // label37
+            // 
+            this.label37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label37.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.White;
+            this.label37.Location = new System.Drawing.Point(122, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(133, 24);
+            this.label37.TabIndex = 12;
+            this.label37.Text = "Req. Actuater";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label31.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(122, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(134, 24);
+            this.label31.TabIndex = 14;
+            this.label31.Text = "Req. Actuater";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label38.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label38.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(0, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(122, 24);
+            this.label38.TabIndex = 13;
+            this.label38.Text = "Verify Code";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -2955,7 +2985,6 @@
         private System.Windows.Forms.Panel panel88;
         private System.Windows.Forms.TextBox txtMessageResult4;
         private System.Windows.Forms.Panel panel79;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Panel panel80;
         private System.Windows.Forms.Button butRequestVerifyCode5;
         private System.Windows.Forms.Panel panel89;
@@ -2984,6 +3013,9 @@
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tslConnectionStatus;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label38;
     }
 }
 
