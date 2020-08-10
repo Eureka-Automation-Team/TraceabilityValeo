@@ -48,6 +48,29 @@ namespace Trace.UI.Controls
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.testResultDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JointMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JointMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JointTarget = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JointResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testResultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceLogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdateDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RepairFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tighteningResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -88,29 +111,6 @@ namespace Trace.UI.Controls
             this.label6 = new System.Windows.Forms.Label();
             this.txtStationNumber = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.testResultDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JointMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JointMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JointTarget = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JointResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceLogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RepairFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -244,7 +244,7 @@ namespace Trace.UI.Controls
             this.panel4.Controls.Add(this.tableLayoutPanel1);
             this.panel4.Location = new System.Drawing.Point(463, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(806, 184);
+            this.panel4.Size = new System.Drawing.Size(967, 184);
             this.panel4.TabIndex = 15;
             // 
             // tableLayoutPanel1
@@ -252,7 +252,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 374F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 278F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
@@ -268,16 +268,16 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(806, 184);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(967, 184);
             this.tableLayoutPanel1.TabIndex = 18;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(561, 3);
+            this.panel1.Location = new System.Drawing.Point(620, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(170, 24);
+            this.panel1.Size = new System.Drawing.Size(272, 24);
             this.panel1.TabIndex = 27;
             // 
             // label1
@@ -288,7 +288,7 @@ namespace Trace.UI.Controls
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 24);
+            this.label1.Size = new System.Drawing.Size(272, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Camera Result";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -343,9 +343,197 @@ namespace Trace.UI.Controls
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(176, 146);
+            this.dataGridView1.Size = new System.Drawing.Size(235, 146);
             this.dataGridView1.TabIndex = 24;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // testResultDescriptionDataGridViewTextBoxColumn
+            // 
+            this.testResultDescriptionDataGridViewTextBoxColumn.DataPropertyName = "TestResultDescription";
+            this.testResultDescriptionDataGridViewTextBoxColumn.HeaderText = "TestResultDescription";
+            this.testResultDescriptionDataGridViewTextBoxColumn.Name = "testResultDescriptionDataGridViewTextBoxColumn";
+            this.testResultDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.testResultDescriptionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // noDataGridViewTextBoxColumn
+            // 
+            this.noDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
+            this.noDataGridViewTextBoxColumn.HeaderText = "No";
+            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
+            this.noDataGridViewTextBoxColumn.Width = 51;
+            // 
+            // minDataGridViewTextBoxColumn
+            // 
+            this.minDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.minDataGridViewTextBoxColumn.DataPropertyName = "Min";
+            this.minDataGridViewTextBoxColumn.HeaderText = "Min";
+            this.minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
+            this.minDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // minDescDataGridViewTextBoxColumn
+            // 
+            this.minDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.minDescDataGridViewTextBoxColumn.DataPropertyName = "MinDesc";
+            this.minDescDataGridViewTextBoxColumn.HeaderText = "Min";
+            this.minDescDataGridViewTextBoxColumn.Name = "minDescDataGridViewTextBoxColumn";
+            this.minDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.minDescDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // maxDataGridViewTextBoxColumn
+            // 
+            this.maxDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
+            this.maxDataGridViewTextBoxColumn.HeaderText = "Max";
+            this.maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
+            this.maxDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // maxDescDataGridViewTextBoxColumn
+            // 
+            this.maxDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maxDescDataGridViewTextBoxColumn.DataPropertyName = "MaxDesc";
+            this.maxDescDataGridViewTextBoxColumn.HeaderText = "Max";
+            this.maxDescDataGridViewTextBoxColumn.Name = "maxDescDataGridViewTextBoxColumn";
+            this.maxDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maxDescDataGridViewTextBoxColumn.Width = 58;
+            // 
+            // targetDataGridViewTextBoxColumn
+            // 
+            this.targetDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.targetDataGridViewTextBoxColumn.DataPropertyName = "Target";
+            this.targetDataGridViewTextBoxColumn.HeaderText = "Target";
+            this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
+            this.targetDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // targetDescDataGridViewTextBoxColumn
+            // 
+            this.targetDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.targetDescDataGridViewTextBoxColumn.DataPropertyName = "TargetDesc";
+            this.targetDescDataGridViewTextBoxColumn.HeaderText = "Target";
+            this.targetDescDataGridViewTextBoxColumn.Name = "targetDescDataGridViewTextBoxColumn";
+            this.targetDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.targetDescDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // resultDataGridViewTextBoxColumn
+            // 
+            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
+            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
+            this.resultDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // resultDescDataGridViewTextBoxColumn
+            // 
+            this.resultDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.resultDescDataGridViewTextBoxColumn.DataPropertyName = "ResultDesc";
+            this.resultDescDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.resultDescDataGridViewTextBoxColumn.Name = "resultDescDataGridViewTextBoxColumn";
+            this.resultDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.resultDescDataGridViewTextBoxColumn.Width = 73;
+            // 
+            // JointMin
+            // 
+            this.JointMin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointMin.DataPropertyName = "JointMin";
+            this.JointMin.HeaderText = "Joint Min";
+            this.JointMin.Name = "JointMin";
+            this.JointMin.ReadOnly = true;
+            this.JointMin.Visible = false;
+            // 
+            // JointMax
+            // 
+            this.JointMax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointMax.DataPropertyName = "JointMax";
+            this.JointMax.HeaderText = "Joint Max";
+            this.JointMax.Name = "JointMax";
+            this.JointMax.ReadOnly = true;
+            this.JointMax.Visible = false;
+            // 
+            // JointTarget
+            // 
+            this.JointTarget.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointTarget.DataPropertyName = "JointTarget";
+            this.JointTarget.HeaderText = "Joint Target";
+            this.JointTarget.Name = "JointTarget";
+            this.JointTarget.ReadOnly = true;
+            this.JointTarget.Visible = false;
+            // 
+            // JointResult
+            // 
+            this.JointResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointResult.DataPropertyName = "JointResult";
+            this.JointResult.HeaderText = "Joint Result";
+            this.JointResult.Name = "JointResult";
+            this.JointResult.ReadOnly = true;
+            this.JointResult.Visible = false;
+            // 
+            // testResultDataGridViewCheckBoxColumn
+            // 
+            this.testResultDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.testResultDataGridViewCheckBoxColumn.DataPropertyName = "TestResult";
+            this.testResultDataGridViewCheckBoxColumn.HeaderText = "[OK]";
+            this.testResultDataGridViewCheckBoxColumn.Name = "testResultDataGridViewCheckBoxColumn";
+            this.testResultDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.testResultDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.testResultDataGridViewCheckBoxColumn.Width = 42;
+            // 
+            // traceLogIdDataGridViewTextBoxColumn
+            // 
+            this.traceLogIdDataGridViewTextBoxColumn.DataPropertyName = "TraceLogId";
+            this.traceLogIdDataGridViewTextBoxColumn.HeaderText = "TraceLogId";
+            this.traceLogIdDataGridViewTextBoxColumn.Name = "traceLogIdDataGridViewTextBoxColumn";
+            this.traceLogIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // traceLogDataGridViewTextBoxColumn
+            // 
+            this.traceLogDataGridViewTextBoxColumn.DataPropertyName = "TraceLog";
+            this.traceLogDataGridViewTextBoxColumn.HeaderText = "TraceLog";
+            this.traceLogDataGridViewTextBoxColumn.Name = "traceLogDataGridViewTextBoxColumn";
+            this.traceLogDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // lastUpdateDateDataGridViewTextBoxColumn1
+            // 
+            this.lastUpdateDateDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.HeaderText = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Name = "lastUpdateDateDataGridViewTextBoxColumn1";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // lastUpdatedByDataGridViewTextBoxColumn1
+            // 
+            this.lastUpdatedByDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.HeaderText = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Name = "lastUpdatedByDataGridViewTextBoxColumn1";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // creationDateDataGridViewTextBoxColumn1
+            // 
+            this.creationDateDataGridViewTextBoxColumn1.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn1.HeaderText = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn1.Name = "creationDateDataGridViewTextBoxColumn1";
+            this.creationDateDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // createdByDataGridViewTextBoxColumn1
+            // 
+            this.createdByDataGridViewTextBoxColumn1.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn1.HeaderText = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
+            this.createdByDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // RepairFlag
+            // 
+            this.RepairFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RepairFlag.DataPropertyName = "RepairFlag";
+            this.RepairFlag.HeaderText = "Repair";
+            this.RepairFlag.Name = "RepairFlag";
+            this.RepairFlag.ReadOnly = true;
+            this.RepairFlag.Visible = false;
+            this.RepairFlag.Width = 60;
             // 
             // tighteningResultModelBindingSource
             // 
@@ -502,7 +690,7 @@ namespace Trace.UI.Controls
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(377, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(178, 24);
+            this.panel3.Size = new System.Drawing.Size(237, 24);
             this.panel3.TabIndex = 23;
             // 
             // label5
@@ -513,7 +701,7 @@ namespace Trace.UI.Controls
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 24);
+            this.label5.Size = new System.Drawing.Size(237, 24);
             this.label5.TabIndex = 7;
             this.label5.Text = "Tightening";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -522,9 +710,9 @@ namespace Trace.UI.Controls
             // 
             this.panel10.Controls.Add(this.dataGridView3);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(561, 33);
+            this.panel10.Location = new System.Drawing.Point(620, 33);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(170, 148);
+            this.panel10.Size = new System.Drawing.Size(272, 148);
             this.panel10.TabIndex = 28;
             // 
             // dataGridView3
@@ -563,7 +751,7 @@ namespace Trace.UI.Controls
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(170, 148);
+            this.dataGridView3.Size = new System.Drawing.Size(272, 148);
             this.dataGridView3.TabIndex = 18;
             // 
             // Column1
@@ -663,7 +851,7 @@ namespace Trace.UI.Controls
             // 
             this.panel11.Controls.Add(this.label8);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(737, 3);
+            this.panel11.Location = new System.Drawing.Point(898, 3);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(66, 24);
             this.panel11.TabIndex = 29;
@@ -685,7 +873,7 @@ namespace Trace.UI.Controls
             // 
             this.panel12.Controls.Add(this.lblFinalResult);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(737, 33);
+            this.panel12.Location = new System.Drawing.Point(898, 33);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(66, 148);
             this.panel12.TabIndex = 30;
@@ -769,201 +957,6 @@ namespace Trace.UI.Controls
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // testResultDescriptionDataGridViewTextBoxColumn
-            // 
-            this.testResultDescriptionDataGridViewTextBoxColumn.DataPropertyName = "TestResultDescription";
-            this.testResultDescriptionDataGridViewTextBoxColumn.HeaderText = "TestResultDescription";
-            this.testResultDescriptionDataGridViewTextBoxColumn.Name = "testResultDescriptionDataGridViewTextBoxColumn";
-            this.testResultDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.testResultDescriptionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // noDataGridViewTextBoxColumn
-            // 
-            this.noDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
-            this.noDataGridViewTextBoxColumn.HeaderText = "No";
-            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
-            this.noDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // minDataGridViewTextBoxColumn
-            // 
-            this.minDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minDataGridViewTextBoxColumn.DataPropertyName = "Min";
-            this.minDataGridViewTextBoxColumn.HeaderText = "Min";
-            this.minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
-            this.minDataGridViewTextBoxColumn.Visible = false;
-            this.minDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // minDescDataGridViewTextBoxColumn
-            // 
-            this.minDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minDescDataGridViewTextBoxColumn.DataPropertyName = "MinDesc";
-            this.minDescDataGridViewTextBoxColumn.HeaderText = "Min";
-            this.minDescDataGridViewTextBoxColumn.Name = "minDescDataGridViewTextBoxColumn";
-            this.minDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.minDescDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // maxDataGridViewTextBoxColumn
-            // 
-            this.maxDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
-            this.maxDataGridViewTextBoxColumn.HeaderText = "Max";
-            this.maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
-            this.maxDataGridViewTextBoxColumn.Visible = false;
-            this.maxDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // maxDescDataGridViewTextBoxColumn
-            // 
-            this.maxDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.maxDescDataGridViewTextBoxColumn.DataPropertyName = "MaxDesc";
-            this.maxDescDataGridViewTextBoxColumn.HeaderText = "Max";
-            this.maxDescDataGridViewTextBoxColumn.Name = "maxDescDataGridViewTextBoxColumn";
-            this.maxDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maxDescDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // targetDataGridViewTextBoxColumn
-            // 
-            this.targetDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.targetDataGridViewTextBoxColumn.DataPropertyName = "Target";
-            this.targetDataGridViewTextBoxColumn.HeaderText = "Target";
-            this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
-            this.targetDataGridViewTextBoxColumn.Visible = false;
-            this.targetDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // targetDescDataGridViewTextBoxColumn
-            // 
-            this.targetDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.targetDescDataGridViewTextBoxColumn.DataPropertyName = "TargetDesc";
-            this.targetDescDataGridViewTextBoxColumn.HeaderText = "Target";
-            this.targetDescDataGridViewTextBoxColumn.Name = "targetDescDataGridViewTextBoxColumn";
-            this.targetDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.targetDescDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // resultDataGridViewTextBoxColumn
-            // 
-            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
-            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
-            this.resultDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // resultDescDataGridViewTextBoxColumn
-            // 
-            this.resultDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.resultDescDataGridViewTextBoxColumn.DataPropertyName = "ResultDesc";
-            this.resultDescDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.resultDescDataGridViewTextBoxColumn.Name = "resultDescDataGridViewTextBoxColumn";
-            this.resultDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.resultDescDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // JointMin
-            // 
-            this.JointMin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointMin.DataPropertyName = "JointMin";
-            this.JointMin.HeaderText = "Joint Min";
-            this.JointMin.Name = "JointMin";
-            this.JointMin.ReadOnly = true;
-            this.JointMin.Visible = false;
-            this.JointMin.Width = 89;
-            // 
-            // JointMax
-            // 
-            this.JointMax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointMax.DataPropertyName = "JointMax";
-            this.JointMax.HeaderText = "Joint Max";
-            this.JointMax.Name = "JointMax";
-            this.JointMax.ReadOnly = true;
-            this.JointMax.Visible = false;
-            this.JointMax.Width = 92;
-            // 
-            // JointTarget
-            // 
-            this.JointTarget.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointTarget.DataPropertyName = "JointTarget";
-            this.JointTarget.HeaderText = "Joint Target";
-            this.JointTarget.Name = "JointTarget";
-            this.JointTarget.ReadOnly = true;
-            this.JointTarget.Visible = false;
-            this.JointTarget.Width = 109;
-            // 
-            // JointResult
-            // 
-            this.JointResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointResult.DataPropertyName = "JointResult";
-            this.JointResult.HeaderText = "Joint Result";
-            this.JointResult.Name = "JointResult";
-            this.JointResult.ReadOnly = true;
-            this.JointResult.Visible = false;
-            this.JointResult.Width = 107;
-            // 
-            // testResultDataGridViewCheckBoxColumn
-            // 
-            this.testResultDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.testResultDataGridViewCheckBoxColumn.DataPropertyName = "TestResult";
-            this.testResultDataGridViewCheckBoxColumn.HeaderText = "[OK]";
-            this.testResultDataGridViewCheckBoxColumn.Name = "testResultDataGridViewCheckBoxColumn";
-            this.testResultDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.testResultDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.testResultDataGridViewCheckBoxColumn.Width = 42;
-            // 
-            // traceLogIdDataGridViewTextBoxColumn
-            // 
-            this.traceLogIdDataGridViewTextBoxColumn.DataPropertyName = "TraceLogId";
-            this.traceLogIdDataGridViewTextBoxColumn.HeaderText = "TraceLogId";
-            this.traceLogIdDataGridViewTextBoxColumn.Name = "traceLogIdDataGridViewTextBoxColumn";
-            this.traceLogIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // traceLogDataGridViewTextBoxColumn
-            // 
-            this.traceLogDataGridViewTextBoxColumn.DataPropertyName = "TraceLog";
-            this.traceLogDataGridViewTextBoxColumn.HeaderText = "TraceLog";
-            this.traceLogDataGridViewTextBoxColumn.Name = "traceLogDataGridViewTextBoxColumn";
-            this.traceLogDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // lastUpdateDateDataGridViewTextBoxColumn1
-            // 
-            this.lastUpdateDateDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.HeaderText = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Name = "lastUpdateDateDataGridViewTextBoxColumn1";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // lastUpdatedByDataGridViewTextBoxColumn1
-            // 
-            this.lastUpdatedByDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.HeaderText = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Name = "lastUpdatedByDataGridViewTextBoxColumn1";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // creationDateDataGridViewTextBoxColumn1
-            // 
-            this.creationDateDataGridViewTextBoxColumn1.DataPropertyName = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn1.HeaderText = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn1.Name = "creationDateDataGridViewTextBoxColumn1";
-            this.creationDateDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // createdByDataGridViewTextBoxColumn1
-            // 
-            this.createdByDataGridViewTextBoxColumn1.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn1.HeaderText = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
-            this.createdByDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // RepairFlag
-            // 
-            this.RepairFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.RepairFlag.DataPropertyName = "RepairFlag";
-            this.RepairFlag.HeaderText = "Repair";
-            this.RepairFlag.Name = "RepairFlag";
-            this.RepairFlag.ReadOnly = true;
-            this.RepairFlag.Visible = false;
-            this.RepairFlag.Width = 60;
-            // 
             // uCtrlStation1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -976,7 +969,7 @@ namespace Trace.UI.Controls
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uCtrlStation1";
-            this.Size = new System.Drawing.Size(1272, 189);
+            this.Size = new System.Drawing.Size(1433, 189);
             this.Load += new System.EventHandler(this.uCtrlStation1_Load);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

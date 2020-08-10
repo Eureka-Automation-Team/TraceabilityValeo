@@ -32,8 +32,12 @@ namespace Trace.UI.Presenters
             var result1 = _serviceTraceLog.GetListByMachineID(3, 1);
             var result2 = _serviceTraceLog.GetListByMachineID(4, 1);
 
-            TraceabilityLogModel log1 = result1.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
-            TraceabilityLogModel log2 = result2.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            //TraceabilityLogModel log1 = result1.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            //TraceabilityLogModel log2 = result2.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+
+            TraceabilityLogModel log1 = result1.FirstOrDefault();
+            TraceabilityLogModel log2 = result2.FirstOrDefault();
+
 
             if (log1 != null)
             {

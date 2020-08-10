@@ -268,6 +268,8 @@ namespace Trace.Monitoring
                     butCompletedLogging1.Text = _machine1.CompletedLoggingDesc;
                     txtPosition1.Text = _machine1.TighteningPosition.ToString();
                     SetButtonStatusColor(butCompletedLogging1, _machine1.CompletedLogging);
+                    if (_machine1.RequestLogging && _machine1.CompletedLogging == 0)
+                        KeepLogging(_machine1, null);
 
                     if (_machine1.RequestVerifyCode)
                     {
@@ -304,6 +306,8 @@ namespace Trace.Monitoring
                     butCompletedLogging2.Text = _machine2.CompletedLoggingDesc;
                     txtPosition2.Text = _machine2.TighteningPosition.ToString();
                     SetButtonStatusColor(butCompletedLogging2, _machine2.CompletedLogging);
+                    if (_machine2.RequestLogging && _machine2.CompletedLogging == 0)
+                        KeepLogging(_machine2, null);
 
                     if (_machine2.RequestVerifyCode)
                     {
@@ -339,6 +343,8 @@ namespace Trace.Monitoring
                     txtMessageResult3.Text = _machine3.MessageResult;
                     butCompletedLogging3.Text = _machine3.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging3, _machine3.CompletedLogging);
+                    if (_machine3.RequestLogging && _machine3.CompletedLogging == 0)
+                        KeepLogging(_machine3, null);
 
                     if (_machine3.RequestVerifyCode)
                     {
@@ -374,6 +380,8 @@ namespace Trace.Monitoring
                     txtMessageResult4.Text = _machine4.MessageResult;
                     butCompletedLogging4.Text = _machine4.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging4, _machine4.CompletedLogging);
+                    if (_machine4.RequestLogging && _machine4.CompletedLogging == 0)
+                        KeepLogging(_machine4, null);
 
                     if (_machine4.RequestVerifyCode)
                     {
@@ -410,6 +418,8 @@ namespace Trace.Monitoring
                     butCompletedLogging5.Text = _machine5.CompletedLoggingDesc;
                     txtPosition4.Text = _machine5.TighteningPosition.ToString();
                     SetButtonStatusColor(butCompletedLogging5, _machine5.CompletedLogging);
+                    if (_machine5.RequestLogging && _machine5.CompletedLogging == 0)
+                        KeepLogging(_machine5, null);
 
                     if (_machine5.RequestVerifyCode)
                     {
@@ -445,6 +455,8 @@ namespace Trace.Monitoring
                     txtMessageResult6.Text = _machine6.MessageResult;
                     butCompletedLogging6.Text = _machine6.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging6, _machine6.CompletedLogging);
+                    if (_machine6.RequestLogging && _machine6.CompletedLogging == 0)
+                        KeepLogging(_machine6, null);
 
                     if (_machine6.RequestVerifyCode)
                     {
@@ -493,6 +505,8 @@ namespace Trace.Monitoring
                     txtMessageResult7.Text = _machine7.MessageResult;
                     butCompletedLogging7.Text = _machine7.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging7, _machine7.CompletedLogging);
+                    if (_machine7.RequestLogging && _machine7.CompletedLogging == 0)
+                        KeepLogging(_machine7, null);
 
                     if (_machine7.RequestVerifyCode)
                     {
