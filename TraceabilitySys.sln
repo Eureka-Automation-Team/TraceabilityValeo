@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.Monitoring", "Trace.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.UI", "Trace.UI\Trace.UI.csproj", "{EDF0003F-2F5D-461A-AC05-55240B85FB04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandler", "Trace.OpcHandler\Trace.OpcHandler.csproj", "{CCDFD241-3B45-4ED8-B701-50AD91B80435}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine01", "Trace.OpcHandler\Trace.OpcHandlerMachine01.csproj", "{CCDFD241-3B45-4ED8-B701-50AD91B80435}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

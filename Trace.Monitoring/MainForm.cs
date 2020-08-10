@@ -17,7 +17,7 @@ namespace Trace.Monitoring
     {
         private readonly MainPresenter _presenter;
         private Server _daServer = null;
-        private Subscription _groupRead;        
+        private Subscription _groupRead;
         private SubscriptionState _groupStateRead;
 
         private Subscription _groupWrite;
@@ -57,7 +57,7 @@ namespace Trace.Monitoring
         private string _tagClockReady;
         private string _tagTraceabilityReady;
 
-        public string serverUrl 
+        public string serverUrl
         {
             get { return txtServerUrl.Text; }
             set { txtServerUrl.Text = value; }
@@ -177,8 +177,8 @@ namespace Trace.Monitoring
         public bool connectedPlc
         {
             get { return _connectedPlc; }
-            set 
-            { 
+            set
+            {
                 _connectedPlc = value;
                 txtServerUrl.ReadOnly = _connectedPlc;
                 butMakeReady.Visible = _connectedPlc;
@@ -205,9 +205,9 @@ namespace Trace.Monitoring
         public string tagTraceabilityReady
         {
             get { return _tagTraceabilityReady; }
-            set 
-            { 
-                _tagTraceabilityReady = value; 
+            set
+            {
+                _tagTraceabilityReady = value;
             }
         }
 
@@ -229,7 +229,7 @@ namespace Trace.Monitoring
             set
             {
                 _systemReady = value;
-                
+
                 if (_systemReady)
                 {
                     butMakeReady.Text = "Ready";
@@ -278,6 +278,8 @@ namespace Trace.Monitoring
                         butRequestVerifyCode1.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine1.RequestVerifyCode));
+                    if (_machine1.RequestVerifyCode && _machine1.CodeVerifyResult == 0)
+                        VerityCode(_machine1, null);
                 }
             }
         }
@@ -312,6 +314,8 @@ namespace Trace.Monitoring
                         butRequestVerifyCode2.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode2, Convert.ToInt32(_machine2.RequestVerifyCode));
+                    if (_machine2.RequestVerifyCode && _machine2.CodeVerifyResult == 0)
+                        VerityCode(_machine2, null);
                 }
             }
         }
@@ -345,6 +349,8 @@ namespace Trace.Monitoring
                         butRequestVerifyCode3.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode3, Convert.ToInt32(_machine3.RequestVerifyCode));
+                    if (_machine3.RequestVerifyCode && _machine3.CodeVerifyResult == 0)
+                        VerityCode(_machine3, null);
                 }
             }
         }
@@ -366,7 +372,7 @@ namespace Trace.Monitoring
                     txtManchineName4.Tag = _machine4;
                     txtManchineName4.Text = _machine4.ManchineName;
                     txtMessageResult4.Text = _machine4.MessageResult;
-                    butCompletedLogging4.Text = _machine4.CompletedLoggingDesc;                    
+                    butCompletedLogging4.Text = _machine4.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging4, _machine4.CompletedLogging);
 
                     if (_machine4.RequestVerifyCode)
@@ -378,6 +384,8 @@ namespace Trace.Monitoring
                         butRequestVerifyCode4.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode4, Convert.ToInt32(_machine4.RequestVerifyCode));
+                    if (_machine4.RequestVerifyCode && _machine4.CodeVerifyResult == 0)
+                        VerityCode(_machine4, null);
                 }
             }
         }
@@ -412,6 +420,8 @@ namespace Trace.Monitoring
                         butRequestVerifyCode5.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode5, Convert.ToInt32(_machine5.RequestVerifyCode));
+                    if (_machine5.RequestVerifyCode && _machine5.CodeVerifyResult == 0)
+                        VerityCode(_machine5, null);
                 }
             }
         }
@@ -445,16 +455,21 @@ namespace Trace.Monitoring
                         butRequestVerifyCode6.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestVerifyCode6, Convert.ToInt32(_machine6.RequestVerifyCode));
+                    if (_machine6.RequestVerifyCode && _machine6.CodeVerifyResult == 0)
+                        VerityCode(_machine6, null);
+
                     //***********************
                     if (_machine6.RequestCodeActuater)
                     {
-                        butRequestCodeActuater1.Text = _machine6.ActuatorResultDesc;
+                        butRequestCodeActuater1.Text = _machine6.ActuatorResultDesc;                        
                     }
                     else
                     {
                         butRequestCodeActuater1.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestCodeActuater1, Convert.ToInt32(_machine6.RequestCodeActuater));
+                    if (_machine6.RequestCodeActuater && _machine6.ActuatorResult == 0)
+                        VerityActuater(_machine6, null);
                 }
             }
         }
@@ -487,8 +502,10 @@ namespace Trace.Monitoring
                     {
                         butRequestVerifyCode7.Text = string.Empty;
                     }
-                    
+
                     SetButtonStatusColor(butRequestVerifyCode7, Convert.ToInt32(_machine7.RequestVerifyCode));
+                    if (_machine7.RequestVerifyCode && _machine7.CodeVerifyResult == 0)
+                        VerityCode(_machine7, null);
                     //***********************
                     if (_machine7.RequestCodeActuater)
                     {
@@ -499,11 +516,13 @@ namespace Trace.Monitoring
                         butRequestCodeActuater2.Text = string.Empty;
                     }
                     SetButtonStatusColor(butRequestCodeActuater2, Convert.ToInt32(_machine7.RequestCodeActuater));
+                    if (_machine7.RequestCodeActuater && _machine7.ActuatorResult == 0)
+                        VerityActuater(_machine7, null);
                 }
             }
         }
 
-        public string strConnectionMessage 
+        public string strConnectionMessage
         {
             get { return tslConnectionStatus.Text; }
             set { tslConnectionStatus.Text = value; }
@@ -532,7 +551,7 @@ namespace Trace.Monitoring
         {
             for (int i = 0; i < values.Length; i++)
             {
-                
+
                 //Machine 1
                 if (values[i].ItemName == this._tagTraceabilityReady)
                 {
@@ -543,12 +562,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc1.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine1;
                             mac.OnlineFlag = receivedData;
-                            this.machine1 = mac;                            
-                        }));                    
+                            this.machine1 = mac;
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1ReqLogging")
                 {
@@ -569,12 +588,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging1.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine1;
                             mac.CompletedLogging = receivedData;
                             this.machine1 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1ReqChkCodeVerify")
                 {
@@ -587,7 +606,7 @@ namespace Trace.Monitoring
                             mac.RequestVerifyCode = val;
                             this.machine1 = mac;
                             if (val)
-                                VerityCode(this.machine1, null);
+                                VerityCode(_machine1, null);
                         }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST1TestResult[19]")
@@ -611,12 +630,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc2.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine2;
                             mac.OnlineFlag = receivedData;
                             this.machine2 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2ReqLogging")
                 {
@@ -637,12 +656,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging2.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine2;
                             mac.CompletedLogging = receivedData;
                             this.machine2 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST2ReqChkCodeVerify")
                 {
@@ -667,7 +686,7 @@ namespace Trace.Monitoring
 
                     txtPosition2.Invoke(new EventHandler(
                         delegate
-                        {                           
+                        {
                             var mac = this.machine2;
                             mac.TighteningPosition = receivedData;
                             this.machine2 = mac;
@@ -679,18 +698,18 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc3.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine3;
                             mac.OnlineFlag = receivedData;
                             this.machine3 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_1ReqLogging")
                 {
                     int receivedData = (Int16)values[i].Value;
                     butRequestLogging3.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             bool val = Convert.ToBoolean(receivedData);
                             var mac = this.machine3;
@@ -699,18 +718,18 @@ namespace Trace.Monitoring
 
                             if (val)
                                 KeepLogging((MachineModel)txtManchineName3.Tag, null);
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_1LoggingApp")
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging3.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine3;
                             mac.CompletedLogging = receivedData;
                             this.machine3 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_1ReqChkCodeVerify")
                 {
@@ -732,12 +751,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc4.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine4;
                             mac.OnlineFlag = receivedData;
                             this.machine4 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_2ReqLogging")
                 {
@@ -758,12 +777,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging4.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine4;
                             mac.CompletedLogging = receivedData;
                             this.machine4 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST3_2ReqChkCodeVerify")
                 {
@@ -785,12 +804,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc5.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine5;
                             mac.OnlineFlag = receivedData;
                             this.machine5 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4ReqLogging")
                 {
@@ -811,12 +830,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging5.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine5;
                             mac.CompletedLogging = receivedData;
                             this.machine5 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST4ReqChkCodeVerify")
                 {
@@ -853,12 +872,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc6.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine6;
                             mac.OnlineFlag = receivedData;
                             this.machine6 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_1ReqLogging")
                 {
@@ -879,12 +898,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging6.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine6;
                             mac.CompletedLogging = receivedData;
                             this.machine6 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_1ReqChkCodeVerify")
                 {
@@ -897,7 +916,7 @@ namespace Trace.Monitoring
                             mac.RequestVerifyCode = val;
                             this.machine6 = mac;
                             if (val)
-                                VerityCode(this.machine6, null);
+                                VerityCode(_machine6, null);
                         }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_1ReqCodeActuater")
@@ -910,8 +929,8 @@ namespace Trace.Monitoring
                             var mac = this.machine6;
                             mac.RequestCodeActuater = val;
                             this.machine6 = mac;
-                            if (val)
-                                VerityActuater(this.machine6, null);
+                            _machine6.RequestCodeActuater = val;
+                            VerityActuater(_machine6, null);
                         }));
                 }
 
@@ -920,12 +939,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butStatusMc7.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine7;
                             mac.OnlineFlag = receivedData;
                             this.machine7 = mac;
-                        }));                    
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqLogging")
                 {
@@ -946,12 +965,12 @@ namespace Trace.Monitoring
                 {
                     int receivedData = (Int16)values[i].Value;
                     butCompletedLogging7.Invoke(new EventHandler(
-                        delegate 
+                        delegate
                         {
                             var mac = this.machine7;
                             mac.CompletedLogging = receivedData;
-                            this.machine7 = mac;             
-                        }));                    
+                            this.machine7 = mac;
+                        }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqChkCodeVerify")
                 {
@@ -964,7 +983,7 @@ namespace Trace.Monitoring
                             mac.RequestVerifyCode = val;
                             this.machine7 = mac;
                             if (val)
-                                VerityCode(this.machine7, null);
+                                VerityCode(_machine7, null);
                         }));
                 }
                 if (values[i].ItemName == tagMainBlock + "ST5_2ReqCodeActuater")
@@ -977,8 +996,8 @@ namespace Trace.Monitoring
                             var mac = this.machine7;
                             mac.RequestCodeActuater = val;
                             this.machine7 = mac;
-                            if (val)
-                                VerityActuater(this.machine7, null);
+                            _machine7.RequestCodeActuater = val;
+                            VerityActuater(_machine7, null);
                         }));
                 }
             }
@@ -1036,14 +1055,15 @@ namespace Trace.Monitoring
             {
                 if (Disconnect_Click != null)
                     Disconnect_Click(sender, e);
-            }else
+            }
+            else
             {
                 if (Connect_Click != null)
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     Connect_Click(sender, e);
                     Cursor.Current = Cursors.Default;
-                }                    
+                }
             }
         }
 

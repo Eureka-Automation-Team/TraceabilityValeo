@@ -48,8 +48,8 @@ namespace Trace.UI.Controls
                     txtUpperActuator.Text = _traceabilityUpperLog.Actuator;
                     txtUpperProductionDate.Text = _traceabilityUpperLog.ProductionDate.ToString("dd/MM/yyyy HH:mm");
                     txtUpperSwNumber.Text = _traceabilityUpperLog.SwNumber;
-                    txtUpperCurrentMaximum.Text = _traceabilityUpperLog.CurrentMaximum;
-                    txtUpperOpenAngle.Text = _traceabilityUpperLog.OpenAngle;
+                    //txtUpperCurrentMaximum.Text = _traceabilityUpperLog.CurrentMaximum;
+                    //txtUpperOpenAngle.Text = _traceabilityUpperLog.OpenAngle;
                     txtUpperLineErrorCounter.Text = _traceabilityUpperLog.LineErrorCounter;
                     lblUpperFinalResult.Text = _traceabilityUpperLog.FinalResultDesc;
                     txtUpperCameraCheck.Text = _traceabilityUpperLog.Attribute1;
@@ -78,8 +78,8 @@ namespace Trace.UI.Controls
                     txtUpperActuator.Text = string.Empty;
                     txtUpperProductionDate.Text = string.Empty;
                     txtUpperSwNumber.Text = string.Empty;
-                    txtUpperCurrentMaximum.Text = string.Empty;
-                    txtUpperOpenAngle.Text = string.Empty;
+                    //txtUpperCurrentMaximum.Text = string.Empty;
+                    //txtUpperOpenAngle.Text = string.Empty;
                     txtUpperLineErrorCounter.Text = string.Empty;
                     txtUpperCameraCheck.Text = string.Empty;
                     //txtUpperVaneCheck.Text = string.Empty;
@@ -105,8 +105,8 @@ namespace Trace.UI.Controls
                     txtLowerActuator.Text = _traceabilityLowerLog.Actuator;
                     txtLowerProductionDate.Text = _traceabilityLowerLog.ProductionDate.ToString("dd/MM/yyyy HH:mm");
                     txtLowerSwNumber.Text = _traceabilityLowerLog.SwNumber;
-                    txtLowerCurrentMaximum.Text = _traceabilityLowerLog.CurrentMaximum;
-                    txtLowerOpenAngle.Text = _traceabilityLowerLog.OpenAngle;
+                    //txtLowerCurrentMaximum.Text = _traceabilityLowerLog.CurrentMaximum;
+                    //txtLowerOpenAngle.Text = _traceabilityLowerLog.OpenAngle;
                     txtLowerLineErrorCounter.Text = _traceabilityLowerLog.LineErrorCounter;
                     lblLowerFinalResult.Text = _traceabilityLowerLog.FinalResultDesc;
                     txtLowerCameraCheck.Text = _traceabilityLowerLog.Attribute1;
@@ -135,8 +135,8 @@ namespace Trace.UI.Controls
                     txtLowerActuator.Text = string.Empty;
                     txtLowerProductionDate.Text = string.Empty;
                     txtLowerSwNumber.Text = string.Empty;
-                    txtLowerCurrentMaximum.Text = string.Empty;
-                    txtLowerOpenAngle.Text = string.Empty;
+                    //txtLowerCurrentMaximum.Text = string.Empty;
+                    //txtLowerOpenAngle.Text = string.Empty;
                     txtLowerLineErrorCounter.Text = string.Empty;
                     txtLowerCameraCheck.Text = string.Empty;
                     //txtLowerVaneCheck.Text = string.Empty;

@@ -61,15 +61,28 @@ namespace Trace.Monitoring.Presenters
         private void VerityActuater(object sender, EventArgs e)
         {
             MachineModel _machine = sender as MachineModel;
-            var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+            //if (!_machine.RequestCodeActuater)
+            //{
+            //    WriteLog("VerifyActuaterUpper.txt", String.Format("Time : {0} : RequestCodeActuater Return false", DateTime.Now));
+            //    return;
+            //}
 
+            var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+            WriteLog("VerifyActuaterUpper.txt", "");
+            WriteLog("VerifyActuaterUpper.txt", String.Format("Machine : {0} => Time : {1}", _machine.Id, DateTime.Now));
+            WriteLog("VerifyActuaterUpper.txt", String.Format("RequestCodeActuater : {0} ", _machine.RequestCodeActuater));
             //machine 6
-            if (_machine.Id == 6)
+            if (_machine.Id == 6 && _machine.RequestCodeActuater)
             {
                 var tagItemCode = _view.tagMainBlock + "ST5_1Code";
+                //var tagReqCodeActuaterCode = _view.tagMainBlock + "ST5_1ReqCodeActuater";
                 //var tagName = _view.tagMainBlock + "ST5_1ReceiveCodeActuateror";
 
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
+                //var reqCodeActuater = grpReadResult.Where(x => x.ItemName == tagReqCodeActuaterCode).FirstOrDefault().Value;
+
+                //if (reqCodeActuater.ToString() == "0")
+                //    return;
                 //var actuater = grpReadResult.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
                 WriteLog("VerifyActuaterUpper.txt", String.Format("Item Code : {0} => Time : {1}", itemCode, DateTime.Now));
@@ -119,7 +132,7 @@ namespace Trace.Monitoring.Presenters
             }
 
             //machine 7
-            if (_machine.Id == 7)
+            if (_machine.Id == 7 && _machine.RequestCodeActuater)
             {
                 var tagItemCode = _view.tagMainBlock + "ST5_2Code";
                 //var tagName = _view.tagMainBlock + "ST5_2ReceiveCodeActuateror";
@@ -182,15 +195,22 @@ namespace Trace.Monitoring.Presenters
             //machine 1
             if (_machine.Id == 1)
             {
+                WriteLog("VerifyCodeST1.txt", "");
+                WriteLog("VerifyCodeST1.txt", String.Format("Start verify time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
+
                 var tagName = _view.tagMainBlock + "ST1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                WriteLog("VerifyCodeST1.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
+                WriteLog("VerifyCodeST1.txt", String.Format("Get PLC TAG value time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                                           CultureInfo.InvariantCulture)));
+                WriteLog("VerifyCodeST1.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                           CultureInfo.InvariantCulture)));
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
-                                               .Where(x => x.MachineId == 1);
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                                               //.Where(x => x.MachineId == 1);
 
-                if (loggings.Count() == 0)
+                if (loggings.Where(x => x.MachineId == 1).Count() == 0)
                 {
                     //Data not found
                     //_machine.CodeVerifyResult = 3;  
@@ -203,13 +223,15 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
-                WriteLog("VerifyCodeST1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
+                WriteLog("VerifyCodeST1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
+                                              , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                 _view.machine1 = _machine;
                 var reactResult = ReactCompleteLogMc1(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
-                                                            , "ST1CodeVerifyResult"
-                                                            , DateTime.Now
+                                                            , "ST5_1CodeVerifyResult"
+                                                            , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
                                                             , reactResult.ToString()));
+                WriteLog("VerifyCodeST1.txt", "----------------------------------------------------------------------------------------------");
             }
 
             //machine 2
@@ -218,6 +240,7 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
+                WriteLog("VerifyCodeST2.txt", "");
                 WriteLog("VerifyCodeST2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
@@ -260,6 +283,7 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST3_1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
+                WriteLog("VerifyCodeST3_1.txt", "");
                 WriteLog("VerifyCodeST3_1.txt", String.Format("Item Code : {0} => Completed time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
@@ -303,6 +327,7 @@ namespace Trace.Monitoring.Presenters
                 var tagName = _view.tagMainBlock + "ST3_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
+                WriteLog("VerifyCodeST3_2.txt", "");
                 WriteLog("VerifyCodeST3_2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
 
                 var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
@@ -343,6 +368,7 @@ namespace Trace.Monitoring.Presenters
             //machine 5
             if (_machine.Id == 5)
             {
+                WriteLog("VerifyCodeST4.txt", "");
                 WriteLog("VerifyCodeST4.txt", String.Format("Start verify time : {0}", TimeSpan.TicksPerMillisecond.ToString()));
                 WriteLog("VerifyCodeST4.txt", String.Format("Start verify time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                             CultureInfo.InvariantCulture)));
@@ -383,22 +409,37 @@ namespace Trace.Monitoring.Presenters
             //machine 6
             if (_machine.Id == 6)
             {
+                WriteLog("VerifyCodeST5_1.txt", "");
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Start verify time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
+
                 var tagName = _view.tagMainBlock + "ST5_1CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
 
-                WriteLog("VerifyCodeST5_1.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Get PLC TAG value time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                                           CultureInfo.InvariantCulture)));
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                           CultureInfo.InvariantCulture)));
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
-                               .Where(x => x.MachineId == 6);
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                //.Where(x => x.MachineId == 6);
 
-                if (loggings.Count() == 0)
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Get Item Code from DB time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                            CultureInfo.InvariantCulture)));
+
+                if (loggings.Where(x => x.MachineId == 6).Count() == 0)
                 {
                     //var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
                     //                                               .Where(x => x.MachineId == 3);
 
                     //Skip Station 3
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
-                                                                   .Where(x => x.MachineId == 2);
+                    //var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
+                    //                                               .Where(x => x.MachineId == 2);
+
+                    var newJob = loggings.Where(x => x.MachineId == 2);
+
+                    WriteLog("VerifyCodeST5_1.txt", String.Format("Get Item Code from DB : {0} ", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                          CultureInfo.InvariantCulture)));
 
                     if (newJob.Count() == 0)
                     {
@@ -419,37 +460,45 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
-                WriteLog("VerifyCodeST5_1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
+                WriteLog("VerifyCodeST5_1.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
+                                              , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                 _view.machine6 = _machine;
                 var reactResult = ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST5_1.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_1CodeVerifyResult"
-                                                            , DateTime.Now
+                                                            , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
                                                             , reactResult.ToString()));
+                WriteLog("VerifyCodeST5_1.txt", "----------------------------------------------------------------------------------------------");
             }
 
             //machine 7
             if (_machine.Id == 7)
             {
-                WriteLog("VerifyCodeST5_2.txt", String.Format("Start verify time : {0}", TimeSpan.TicksPerMillisecond.ToString()));
+                WriteLog("VerifyCodeST5_2.txt", "");
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Start verify time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                             CultureInfo.InvariantCulture)));
+
                 var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
                 var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Get PLC TAG value time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                            CultureInfo.InvariantCulture)));
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                           CultureInfo.InvariantCulture)));
 
-                WriteLog("VerifyCodeST5_2.txt", String.Format("Item Code : {0} => Time : {1}", value.ToString(), DateTime.Now));
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                               //.Where(x => x.MachineId == 7);
 
-                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString())
-                               .Where(x => x.MachineId == 7);
-
-                WriteLog("VerifyCodeST5_2.txt", String.Format("Get Database result time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Get Item Code from DB time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                             CultureInfo.InvariantCulture)));
-                if (loggings.Count() == 0)
+
+                if (loggings.Where(x => x.MachineId == 7).Count() == 0)
                 {
-                    var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
-                                                                   .Where(x => x.MachineId == 5);
+                    //var newJob = _serviceTraceLog.GetListByItemCode(value.ToString())
+                    //                                               .Where(x => x.MachineId == 5);
+
+                    var newJob = loggings.Where(x => x.MachineId == 5);                  
+
                     if (newJob.Count() == 0)
                     {
                         //Data not found
@@ -469,13 +518,15 @@ namespace Trace.Monitoring.Presenters
                     _machine.CodeVerifyResult = 2;
                 }
 
-                WriteLog("VerifyCodeST5_2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString(), DateTime.Now));
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
+                                              , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                 _view.machine7 = _machine;
                 var reactResult = ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST5_2.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST5_2CodeVerifyResult"
                                                             , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
                                                             , reactResult.ToString()));
+                WriteLog("VerifyCodeST5_2.txt", "----------------------------------------------------------------------------------------------");
             }
         }
 
@@ -691,9 +742,16 @@ namespace Trace.Monitoring.Presenters
 
         private void KeepLogging(object sender, EventArgs e)
         {
+
             if (_view.systemReady)
             {
                 MachineModel machine = (MachineModel)sender;
+                //if (!machine.RequestLogging)
+                //{
+                //    WriteLog("KeepLoggingST1.txt", String.Format("Time : {0} : RequestLogging Return false", DateTime.Now));
+                //    return;
+                //}
+
                 ItemValueResult[] subscipt;
                 try
                 {
@@ -715,13 +773,17 @@ namespace Trace.Monitoring.Presenters
 
                 var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
 
+                WriteLog("KeepLogging.txt", String.Format("Machine Id : {0} => Time : {1}", machine.Id, DateTime.Now));
+                WriteLog("KeepLogging.txt", String.Format("RequestLogging : {0} ", machine.RequestLogging));
+
                 #region Station1
-                if (machine.Id == 1)
+                if (machine.Id == 1 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine1;
                     machineTmp.MessageResult = string.Empty;
 
+                    WriteLog("KeepLoggingST1.txt", "");
                     try
                     {
                         WriteLog("KeepLoggingST1.txt", String.Format("<<=================== Start time : {0} ===================>>", DateTime.Now));
@@ -753,7 +815,7 @@ namespace Trace.Monitoring.Presenters
                 #endregion
 
                 #region Station2
-                if (machine.Id == 2)
+                if (machine.Id == 2 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine2;
@@ -790,7 +852,7 @@ namespace Trace.Monitoring.Presenters
                 #endregion
 
                 #region Station3
-                if (machine.Id == 3)
+                if (machine.Id == 3 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine3;
@@ -825,7 +887,7 @@ namespace Trace.Monitoring.Presenters
                     _view.machine3 = machineTmp;
                 }
 
-                if (machine.Id == 4)
+                if (machine.Id == 4 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine4;
@@ -862,7 +924,7 @@ namespace Trace.Monitoring.Presenters
                 #endregion
 
                 #region Station4
-                if (machine.Id == 5)
+                if (machine.Id == 5 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine5;
@@ -911,7 +973,7 @@ namespace Trace.Monitoring.Presenters
                 #endregion
 
                 #region Station5
-                if (machine.Id == 6)
+                if (machine.Id == 6 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine6;
@@ -946,7 +1008,7 @@ namespace Trace.Monitoring.Presenters
                     _view.machine6 = machineTmp;
                 }
 
-                if (machine.Id == 7)
+                if (machine.Id == 7 && machine.RequestLogging)
                 {
                     bool keepLog = false;
                     var machineTmp = _view.machine7;
@@ -1655,6 +1717,23 @@ namespace Trace.Monitoring.Presenters
                 if (item.ItemName == _view.tagMainBlock + "ST1TestResult[9]")
                 {
                     cam.CameraName = "Lever Assy R";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[18]")
+                {
+                    cam.CameraName = "Check Spacer";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[19]")
+                {
+                    cam.CameraName = "Check Vane RH";
+                    cam.TestResult = item.Value.ToString();
+                }
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[20]")
+                {
+                    cam.CameraName = "Check Vane ";
                     cam.TestResult = item.Value.ToString();
                 }
 
@@ -2776,16 +2855,34 @@ namespace Trace.Monitoring.Presenters
                         trace.LineErrorCounter = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[4]")
+                    {
                         trace.CurrentMaximum = item.Value.ToString();
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[5]")
+                    {
                         trace.OpenAngle = item.Value.ToString();
+                    }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[6]")
+                    //Camera check Linkage
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[6]")
                         trace.Attribute1 = item.Value.ToString();
 
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[7]")
+                    //Upper VANSE Open LH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[7]")
                         trace.Attribute2 = item.Value.ToString();
+
+                    //Upper VANSES Closed LH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[8]")
+                        trace.Attribute3 = item.Value.ToString();
+
+                    //Upper VANSES Open RH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[9]")
+                        trace.Attribute4 = item.Value.ToString();
+
+                    //Upper VANSES Closed RH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[10]")
+                        trace.Attribute5 = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1Final_Judgment")
                         trace.FinalResult = Convert.ToInt32(item.Value);
@@ -2816,12 +2913,12 @@ namespace Trace.Monitoring.Presenters
                 if (trace.Id == 0)
                 {
                     _serviceTraceLog.Create(trace);
-                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
+                    KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
                 }
                 else
                 {
                     _serviceTraceLog.Update(trace);
-                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
+                    KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
                 }
             }
             #endregion
@@ -2919,16 +3016,34 @@ namespace Trace.Monitoring.Presenters
                         trace.LineErrorCounter = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[4]")
+                    {
                         trace.CurrentMaximum = item.Value.ToString();
+                    }                        
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[5]")
+                    {
                         trace.OpenAngle = item.Value.ToString();
+                    }
 
+                    //Camera check Linkage
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[6]")
                         trace.Attribute1 = item.Value.ToString();
 
+                    //Lower VANSE Open LH
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[7]")
                         trace.Attribute2 = item.Value.ToString();
+
+                    //Lower VANSES Closed LH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[8]")
+                        trace.Attribute3 = item.Value.ToString();
+
+                    //Lower VANSES Open RH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[9]")
+                        trace.Attribute4 = item.Value.ToString();
+
+                    //Lower VANSES Closed RH
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[10]")
+                        trace.Attribute5 = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2Final_Judgment")
                         trace.FinalResult = Convert.ToInt32(item.Value);
@@ -2959,12 +3074,12 @@ namespace Trace.Monitoring.Presenters
                 if (trace.Id == 0)
                 {
                     _serviceTraceLog.Create(trace);
-                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
+                    KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
                 }
                 else
                 {
                     _serviceTraceLog.Update(trace);
-                    KeeppingFile(trace.ItemCode, out tartgetFile, out errMessageFile);
+                    KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
                 }
             }
             #endregion
@@ -3047,37 +3162,37 @@ namespace Trace.Monitoring.Presenters
 
         private bool ReactCompleteLogMc1(string tagName, int val = 1)
         {
-            return WriteWordMc1(tagName, val);
+            return WriteWordMc1(tagName, val, 1);
         }
 
         private bool ReactCompleteLogMc2(string tagName, int val = 1)
         {
-            return WriteWordMc2(tagName, val);
+            return WriteWordMc2(tagName, val, 1);
         }
 
         private bool ReactCompleteLogMc3(string tagName, int val = 1)
         {
-            return WriteWordMc3(tagName, val);
+            return WriteWordMc3(tagName, val, 1);
         }
 
         private bool ReactCompleteLogMc4(string tagName, int val = 1)
         {
-            return WriteWordMc4(tagName, val);
+            return WriteWordMc4(tagName, val, 1);
         }
 
         private bool ReactCompleteLogMc5(string tagName, int val = 1)
         {
-            return WriteWordMc5(tagName, val);
+            return WriteWordMc5(tagName, val, 1);
         }
 
         private bool ReactCompleteLogMc6(string tagName, int val = 1)
         {
-            return WriteWordMc6(tagName, val);
+            return WriteWordMc6(tagName, val, 1);
         }
 
         private bool ReactCompleteLogMc7(string tagName, int val = 1)
         {
-            return WriteWordMc7(tagName, val);
+            return WriteWordMc7(tagName, val, 1);
         }
 
         //private bool ReactCompleteLog1(string tagName, int val = 1)
@@ -3097,7 +3212,7 @@ namespace Trace.Monitoring.Presenters
         //    return result;
         //}
 
-        private bool ReactDataTag(string tagName, string val = "")
+        private bool ReactDataTag(string tagName, string val)
         {
             return WriteString(tagName, val);
         }
@@ -3425,6 +3540,12 @@ namespace Trace.Monitoring.Presenters
                 var verifyResultTag6 = _view.tagMainBlock + "ST5_1CodeVerifyResult";
                 mac6.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag6).FirstOrDefault().Value);
 
+                var reqActuaterTag6 = _view.tagMainBlock + "ST5_1ReqCodeActuater";
+                mac6.RequestCodeActuater = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqActuaterTag6).FirstOrDefault().Value);
+
+                var reqActuaterResultTag6 = _view.tagMainBlock + "ST5_1ReceiveCodeResult";
+                mac6.ActuatorResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == reqActuaterResultTag6).FirstOrDefault().Value);
+
                 _view.machine6 = mac6;
 
                 //Machine 7
@@ -3443,6 +3564,12 @@ namespace Trace.Monitoring.Presenters
 
                 var verifyResultTag7 = _view.tagMainBlock + "ST5_2CodeVerifyResult";
                 mac7.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag7).FirstOrDefault().Value);
+
+                var reqActuaterTag7 = _view.tagMainBlock + "ST5_2ReqCodeActuater";
+                mac7.RequestCodeActuater = Convert.ToBoolean(currentResult.Where(x => x.ItemName == reqActuaterTag7).FirstOrDefault().Value);
+
+                var reqActuaterResultTag7 = _view.tagMainBlock + "ST5_2ReceiveCodeResult";
+                mac7.ActuatorResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == reqActuaterResultTag7).FirstOrDefault().Value);
 
                 _view.machine7 = mac7;
 
@@ -3500,7 +3627,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc1(string tag, int value)
+        private bool WriteWordMc1(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3536,6 +3663,14 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 _view.groupWriteMc1.Write(writeValues);
+
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine1.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc1(tag, value, count++);                    
+                //}
+
                 return true;
             }
             catch
@@ -3544,7 +3679,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc2(string tag, int value)
+        private bool WriteWordMc2(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3580,6 +3715,14 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 _view.groupWriteMc2.Write(writeValues);
+
+                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                {
+                    count = count + 1;
+                    WriteLog("RecurciveMachine2.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                    WriteWordMc2(tag, value, count++);                    
+                }
+
                 return true;
             }
             catch
@@ -3588,7 +3731,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc3(string tag, int value)
+        private bool WriteWordMc3(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3621,9 +3764,18 @@ namespace Trace.Monitoring.Presenters
             writeValues[0].Value = value;
             //write
 
+
             try
             {
                 _view.groupWriteMc3.Write(writeValues);
+
+                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                {
+                    count = count + 1;
+                    WriteLog("RecurciveMachine3.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                    WriteWordMc3(tag, value, count++);                    
+                }
+
                 return true;
             }
             catch
@@ -3632,7 +3784,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc4(string tag, int value)
+        private bool WriteWordMc4(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3668,6 +3820,14 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 _view.groupWriteMc4.Write(writeValues);
+
+                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                {
+                    count = count + 1;
+                    WriteLog("RecurciveMachine4.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                    WriteWordMc4(tag, value, count);                    
+                }
+
                 return true;
             }
             catch
@@ -3676,7 +3836,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc5(string tag, int value)
+        private bool WriteWordMc5(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3712,6 +3872,14 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 _view.groupWriteMc5.Write(writeValues);
+
+                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                {
+                    count = count + 1;
+                    WriteLog("RecurciveMachine5.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                    WriteWordMc5(tag, value, count);                    
+                }
+
                 return true;
             }
             catch
@@ -3720,7 +3888,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc6(string tag, int value)
+        private bool WriteWordMc6(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3756,6 +3924,14 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 _view.groupWriteMc6.Write(writeValues);
+
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine6.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc6(tag, value, count);
+                //}
+
                 return true;
             }
             catch
@@ -3764,7 +3940,7 @@ namespace Trace.Monitoring.Presenters
             }
         }
 
-        private bool WriteWordMc7(string tag, int value)
+        private bool WriteWordMc7(string tag, int value, int count)
         {
             //Create the item to write (if the group doesn't have it, we need to insert it)
             Item[] itemToAdd = new Item[1];
@@ -3800,12 +3976,63 @@ namespace Trace.Monitoring.Presenters
             try
             {
                 _view.groupWriteMc7.Write(writeValues);
+
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine7.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc7(tag, value, count);
+                //}
+
                 return true;
             }
             catch
             {
                 return false;
             }
+        }
+
+        private bool CheckWriteValue(string tag, string value)
+        {
+            bool result = false;
+
+            try
+            {
+                var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+                var valueCheck = grpReadResult.Where(x => x.ItemName == tag).FirstOrDefault().Value.ToString();
+
+                if (value.Trim().ToUpper() == valueCheck.Trim().ToUpper())
+                    result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        private string GetActuaterNumber(string plcTag)
+        {
+            string result;
+
+            try
+            {
+                var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+                //var valueCheck = string.IsNullOrEmpty(grpReadResult.Where(x => x.ItemName == plcTag).FirstOrDefault().Value.ToString()) ?
+                //                        "" : grpReadResult.Where(x => x.ItemName == plcTag).FirstOrDefault().Value.ToString();
+                string valueCheck = "";
+                if (string.IsNullOrEmpty(valueCheck))
+                    result = "";
+                else
+                    result = valueCheck;
+            }
+            catch
+            {
+                result = "";
+            }
+
+            return result;
         }
 
         private bool WriteString(string tag, string value)
