@@ -85,8 +85,8 @@ namespace Trace.Monitoring.Presenters
 
         private void RefreshData(object sender, EventArgs e)
         {
-            //if (_view.connectedPlc)
-            //    LoadCurrentValue(_view.groupRead);
+            if (_view.connectedPlc)
+                LoadCurrentValue(_view.groupRead);
         }
 
         private void VerityActuater(object sender, EventArgs e)

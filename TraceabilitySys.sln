@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.UI", "Trace.UI\Trace.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine01", "Trace.OpcHandler\Trace.OpcHandlerMachine01.csproj", "{CCDFD241-3B45-4ED8-B701-50AD91B80435}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine05", "Trace.OpcHandlerMachine05\Trace.OpcHandlerMachine05.csproj", "{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCDFD241-3B45-4ED8-B701-50AD91B80435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
