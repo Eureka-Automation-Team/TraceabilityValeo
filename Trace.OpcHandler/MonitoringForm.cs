@@ -71,7 +71,38 @@ namespace Trace.OpcHandler
         public MachineModel machine
         {
             get { return _machine; }
-            set { _machine = value; }
+            set
+            {
+                _machine = value;
+
+                if (_machine != null)
+                {
+                    butStatusMc.Text = _machine.StatusName;
+                    SetButtonMachineStatusColor(butStatusMc, _machine.OnlineFlag);
+
+                    butRequestLogging.Text = _machine.RequestLogging.ToString().ToUpper();
+                    SetButtonStatusColor(butRequestLogging, Convert.ToInt32(_machine.RequestLogging));
+
+                    this.Tag = _machine;
+                    this.Text = "Station 1 : " + _machine.ManchineName;
+                    butCompletedLogging.Text = _machine.CompletedLoggingDesc;
+                    SetButtonStatusColor(butCompletedLogging, _machine.CompletedLogging);
+                    if (_machine.RequestLogging && _machine.CompletedLogging == 0)
+                        KeepLogging(_machine, null);
+
+                    if (_machine.RequestVerifyCode)
+                    {
+                        butRequestVerifyCode1.Text = _machine.CodeVerifyResultDesc;
+                    }
+                    else
+                    {
+                        butRequestVerifyCode1.Text = string.Empty;
+                    }
+                    SetButtonStatusColor(butRequestVerifyCode1, Convert.ToInt32(_machine.RequestVerifyCode));
+                    //if (_machine.RequestVerifyCode && _machine.CodeVerifyResult == 0)
+                    //    VerityCode(_machine, null);
+                }
+            }
         }
 
 
@@ -177,7 +208,68 @@ namespace Trace.OpcHandler
 
         public void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == this._tagTraceabilityReady)
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butMakeReady.Invoke(new EventHandler(delegate { this.systemReady = Convert.ToBoolean(receivedData); }));
+                }
+
+                //Machine 1 Status
+                if (values[i].ItemName == tagMainBlock + "ST1StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine;
+                            mac.OnlineFlag = receivedData;
+                            this.machine = mac;
+                        }));
+                }
+
+                if (values[i].ItemName == tagMainBlock + "ST1ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine;
+                            mac.RequestLogging = val;
+                            this.machine = mac;
+
+                            if (val)
+                                KeepLogging(this.machine, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST1LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine;
+                            mac.CompletedLogging = receivedData;
+                            this.machine = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine;
+                            mac.RequestVerifyCode = val;
+                            this.machine = mac;
+                            if (val)
+                                VerityCode(this.machine, null);
+                        }));
+                }
+            }
         }
 
         private void MonitoringForm_Load(object sender, EventArgs e)
@@ -218,6 +310,73 @@ namespace Trace.OpcHandler
         {
             if (InterLock != null)
                 InterLock(sender, e);
+        }
+
+        private void SetButtonMachineStatusColor(Button butStatus, int mcStatus)
+        {
+            if (mcStatus == 0)
+            {
+                butStatus.BackColor = Color.Gray;
+            }
+            else if (mcStatus == 1)
+            {
+                butStatus.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+                butStatus.BackColor = Color.Orange;
+            }
+        }
+
+        private void SetButtonStatusColor(Button butStatus, int v)
+        {
+            if (v == 0)
+            {
+                butStatus.BackColor = Color.Gray;
+            }
+            else if (v == 1)
+            {
+                butStatus.BackColor = Color.GreenYellow;
+            }
+            else if (v == 2)
+            {
+                butStatus.BackColor = Color.OrangeRed;
+            }
+            else if (v == 3)
+            {
+                butStatus.BackColor = Color.Red;
+            }
+        }
+
+        private void butMakeReady_Click(object sender, EventArgs e)
+        {
+            if (MakeReady != null)
+                MakeReady(sender, e);
+
+            if (systemReady)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                group_DataChanged(null, null, groupRead.Read(groupRead.Items));
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+        private void butRefresh_Click(object sender, EventArgs e)
+        {
+            if (RefreshData != null)
+                RefreshData(sender, e);
+        }
+
+        private void butRequestLogging_Click(object sender, EventArgs e)
+        {
+            this.machine.RequestLogging = true;
+            KeepLogging(this.machine, null);
+        }
+
+        private void butRequestVerifyCode1_Click(object sender, EventArgs e)
+        {
+            this.machine.RequestVerifyCode = true;
+            VerityCode(this.machine, null);
         }
     }
 }

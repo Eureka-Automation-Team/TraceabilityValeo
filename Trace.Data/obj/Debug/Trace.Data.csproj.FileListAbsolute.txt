@@ -58,6 +58,7 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.cspro
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CopyComplete
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddrequiredfieldinPLCTagtable.resources
 C:\Valeo\TraceabilityValeo\Trace.Data\bin\Debug\Trace.Data.dll.config
 C:\Valeo\TraceabilityValeo\Trace.Data\bin\Debug\Trace.Data.dll
 C:\Valeo\TraceabilityValeo\Trace.Data\bin\Debug\Trace.Data.pdb
@@ -113,10 +114,9 @@ C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddTraceLo
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.deletecolumn.resources
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Update101.resources
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.NewActuatorverify.resources
+C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddrequiredfieldinPLCTagtable.resources
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.GenerateResource.cache
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CoreCompileInputs.cache
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CopyComplete
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
-C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddrequiredfieldinPLCTagtable.resources
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddrequiredfieldinPLCTagtable.resources

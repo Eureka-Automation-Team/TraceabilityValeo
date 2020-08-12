@@ -62,6 +62,7 @@
             this.butRefresh.Text = "Refresh";
             this.butRefresh.UseVisualStyleBackColor = false;
             this.butRefresh.Visible = false;
+            this.butRefresh.Click += new System.EventHandler(this.butRefresh_Click);
             // 
             // butConnect
             // 
@@ -99,6 +100,7 @@
             this.butMakeReady.Text = "Not ready";
             this.butMakeReady.UseVisualStyleBackColor = false;
             this.butMakeReady.Visible = false;
+            this.butMakeReady.Click += new System.EventHandler(this.butMakeReady_Click);
             // 
             // label4
             // 
@@ -195,6 +197,7 @@
             this.butRequestLogging.Size = new System.Drawing.Size(145, 24);
             this.butRequestLogging.TabIndex = 18;
             this.butRequestLogging.UseVisualStyleBackColor = false;
+            this.butRequestLogging.Click += new System.EventHandler(this.butRequestLogging_Click);
             // 
             // butCompletedLogging
             // 
@@ -221,6 +224,7 @@
             this.butRequestVerifyCode1.Size = new System.Drawing.Size(145, 24);
             this.butRequestVerifyCode1.TabIndex = 20;
             this.butRequestVerifyCode1.UseVisualStyleBackColor = false;
+            this.butRequestVerifyCode1.Click += new System.EventHandler(this.butRequestVerifyCode1_Click);
             // 
             // timerInter
             // 
@@ -254,6 +258,7 @@
             this.Controls.Add(this.butMakeReady);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MonitoringForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Station 1";
