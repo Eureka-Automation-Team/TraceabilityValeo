@@ -43,19 +43,50 @@ namespace Trace.Monitoring.Presenters
             _view.VerityCode += VerityCode;
             _view.VerityActuater += VerityActuater;
             _view.RefreshData += RefreshData;
+            _view.MonitoringTag += MonitoringTag;
+            _view.WriteTag += WriteTag;
+            _view.ReadTag += ReadTag;
+        }
+
+        private void ReadTag(object sender, EventArgs e)
+        {
+            ReactCompleteLogMc5(_view.tagMainBlock + "ST1LoggingApp", 0);
+            ReactCompleteLogMc5(_view.tagMainBlock + "ST2LoggingApp", 0);
+            ReactCompleteLogMc6(_view.tagMainBlock + "ST3_1LoggingApp", 0);
+            ReactCompleteLogMc7(_view.tagMainBlock + "ST3_2LoggingApp", 0);
+            ReactCompleteLogMc5(_view.tagMainBlock + "ST4LoggingApp", 0);
+            ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1LoggingApp", 0);
+            ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2LoggingApp", 0);
+        }
+
+        private void WriteTag(object sender, EventArgs e)
+        {
+            ReactCompleteLogMc5(_view.tagMainBlock + "ST1LoggingApp", 1);
+            ReactCompleteLogMc5(_view.tagMainBlock + "ST2LoggingApp", 1);
+            ReactCompleteLogMc6(_view.tagMainBlock + "ST3_1LoggingApp", 1);
+            ReactCompleteLogMc7(_view.tagMainBlock + "ST3_2LoggingApp", 1);
+            ReactCompleteLogMc5(_view.tagMainBlock + "ST4LoggingApp", 1);
+            ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1LoggingApp", 1);
+            ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2LoggingApp", 1);
+        }
+
+        private void MonitoringTag(object sender, EventArgs e)
+        {
+            var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+
+            var ST4ReqVerifyCode = grpReadResult.Where(x => x.ItemName == _view.tagMainBlock + "ST4ReqChkCodeVerify").FirstOrDefault().Value;
+            var ST5_1ReqVerifyCode = grpReadResult.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1ReqChkCodeVerify").FirstOrDefault().Value;
+            var ST5_2ReqVerifyCode = grpReadResult.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2ReqChkCodeVerify").FirstOrDefault().Value;
+
+            _view.machine5.RequestVerifyCode = Convert.ToBoolean(ST4ReqVerifyCode);
+            _view.machine6.RequestVerifyCode = Convert.ToBoolean(ST5_1ReqVerifyCode);
+            _view.machine7.RequestVerifyCode = Convert.ToBoolean(ST5_1ReqVerifyCode);
         }
 
         private void RefreshData(object sender, EventArgs e)
         {
-            //WriteLog("TracebilityLogs.txt", String.Format("Refresh action : {0}", DateTime.Now));
-            //WriteLog("TracebilityLogs.txt", String.Format("Start refresh time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
-            //                                CultureInfo.InvariantCulture)));
-            if (_view.connectedPlc)
-                LoadCurrentValue(_view.groupRead);
-
-            //WriteLog("TracebilityLogs.txt", String.Format("End refresh time : {0}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff",
-            //                                CultureInfo.InvariantCulture)));
-            //WriteLog("TracebilityLogs.txt", String.Format("----------------------------------------------------------------------------------"));
+            //if (_view.connectedPlc)
+            //    LoadCurrentValue(_view.groupRead);
         }
 
         private void VerityActuater(object sender, EventArgs e)
@@ -74,7 +105,7 @@ namespace Trace.Monitoring.Presenters
             //machine 6
             if (_machine.Id == 6 && _machine.RequestCodeActuater)
             {
-                var tagItemCode = _view.tagMainBlock + "ST5_1Code";
+                var tagItemCode = _view.tagMainBlock + "ST5_1CodeVerify";
                 //var tagReqCodeActuaterCode = _view.tagMainBlock + "ST5_1ReqCodeActuater";
                 //var tagName = _view.tagMainBlock + "ST5_1ReceiveCodeActuateror";
 
@@ -134,7 +165,7 @@ namespace Trace.Monitoring.Presenters
             //machine 7
             if (_machine.Id == 7 && _machine.RequestCodeActuater)
             {
-                var tagItemCode = _view.tagMainBlock + "ST5_2Code";
+                var tagItemCode = _view.tagMainBlock + "ST5_2CodeVerify";
                 //var tagName = _view.tagMainBlock + "ST5_2ReceiveCodeActuateror";
 
                 var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
@@ -400,7 +431,7 @@ namespace Trace.Monitoring.Presenters
                 var reactResult = ReactCompleteLogMc5(_view.tagMainBlock + "ST4CodeVerifyResult", _machine.CodeVerifyResult);
                 WriteLog("VerifyCodeST4.txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
                                                             , "ST4CodeVerifyResult"
-                                                            , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                            , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
                                                             , reactResult.ToString()));
 
                 _view.machine5 = _machine;
@@ -451,6 +482,33 @@ namespace Trace.Monitoring.Presenters
                     {
                         var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                        //if(_machine.CodeVerifyResult == 1)
+                        //{
+                        //    string receiveActuatorCode = string.Empty;
+                        //    PartAssemblyModel model = new PartAssemblyModel();
+                        //    model.TraceabilityLogId = loggings.FirstOrDefault().Id;
+                        //    var partAssblies = _servicePartAssembly.GetByPrimary(model);
+
+                        //    if (partAssblies != null)
+                        //    {
+                        //        var actuaterResult = partAssblies.Where(x => x.PartName == "UPR Actuator P/N");
+
+                        //        if (actuaterResult.Count() == 0)
+                        //        {
+                        //            _machine.ActuatorResult = 2;
+                        //        }
+                        //        else
+                        //        {
+                        //            _machine.ActuatorResult = 1;
+                        //            receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
+                        //        }
+                        //    }
+                        //    else
+                        //        _machine.ActuatorResult = 2;
+
+                        //    ReactCompleteLogMc6(_view.tagMainBlock + "ST5_1ReceiveCodeResult", _machine.ActuatorResult);
+                        //    var reactResult1 = ReactDataTag(_view.tagMainBlock + "ST5_1ReceiveCodeActuateror", receiveActuatorCode);
+                        //}
                     }
                 }
                 else
@@ -509,6 +567,33 @@ namespace Trace.Monitoring.Presenters
                     {
                         var firstResult = newJob.FirstOrDefault();
                         _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                        //if (_machine.CodeVerifyResult == 1)
+                        //{
+                        //    string receiveActuatorCode = string.Empty;
+                        //    PartAssemblyModel model = new PartAssemblyModel();
+                        //    model.TraceabilityLogId = loggings.FirstOrDefault().Id;
+                        //    var partAssblies = _servicePartAssembly.GetByPrimary(model);
+
+                        //    if (partAssblies != null)
+                        //    {
+                        //        var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N");
+
+                        //        if (actuaterResult.Count() == 0)
+                        //        {
+                        //            _machine.ActuatorResult = 2;
+                        //        }
+                        //        else
+                        //        {
+                        //            _machine.ActuatorResult = 1;
+                        //            receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
+                        //        }
+                        //    }
+                        //    else
+                        //        _machine.ActuatorResult = 2;
+
+                        //    ReactCompleteLogMc7(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult);
+                        //    var reactResult2 = ReactDataTag(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
+                        //}
                     }
                 }
                 else
@@ -1103,11 +1188,13 @@ namespace Trace.Monitoring.Presenters
             var tagName = _view.tagMainBlock + "ST1Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
             var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
-                                            .Where(x =>
-                                                    x.MachineId == m.Id
-                                                    //&& x.CreationDate.Date == DateTime.Now.Date
-                                                    //&& !x.FinishFlag
-                                                    ).ToList();
+                                            .Where(x => x.MachineId == m.Id).ToList();
+
+            //Exit if item code is null
+            if (string.IsNullOrEmpty(itemCode))
+            {
+                return true;
+            }
 
             if (loggings.Count > 0)
             {
@@ -1139,7 +1226,12 @@ namespace Trace.Monitoring.Presenters
                         trace.ItemCode = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST1Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST1ModelRunning")
                         trace.ModelRunning = item.Value.ToString();
@@ -1720,20 +1812,20 @@ namespace Trace.Monitoring.Presenters
                     cam.TestResult = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[18]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[17]")
                 {
                     cam.CameraName = "Check Spacer";
                     cam.TestResult = item.Value.ToString();
                 }
 
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[19]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[18]")
                 {
                     cam.CameraName = "Check Vane RH";
                     cam.TestResult = item.Value.ToString();
                 }
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[20]")
+                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[19]")
                 {
-                    cam.CameraName = "Check Vane ";
+                    cam.CameraName = "Check Vane LH";
                     cam.TestResult = item.Value.ToString();
                 }
 
@@ -1756,7 +1848,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
-                if (trace.Id == 0)
+                if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
@@ -1768,8 +1860,10 @@ namespace Trace.Monitoring.Presenters
                             _serviceTigtheningRepair.Create(cRepair);
                         }
                     }
+
+                    result = true;
                 }
-                else
+                else if (trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
@@ -1795,6 +1889,8 @@ namespace Trace.Monitoring.Presenters
                             }
                         }
                     }
+
+                    result = true;
                 }
 
                 if (trace.FinishFlag)
@@ -1850,6 +1946,12 @@ namespace Trace.Monitoring.Presenters
                                                    //&& !x.FinishFlag
                                                    ).ToList();
 
+            //Exit if item code is null
+            if (string.IsNullOrEmpty(itemCode))
+            {
+                return true;
+            }
+
             if (loggings.Count > 0)
             {
                 bool finishFlag = false;
@@ -1880,7 +1982,12 @@ namespace Trace.Monitoring.Presenters
                         trace.ItemCode = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST2Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
@@ -2224,7 +2331,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
-                if (trace.Id == 0)
+                if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     TraceabilityLogModel logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
@@ -2236,9 +2343,11 @@ namespace Trace.Monitoring.Presenters
                             _serviceTigtheningRepair.Create(cRepair);
                         }
                     }
+
+                    result = true;
                 }
-                else
-                {
+                else if(trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
+                    {
                     TraceabilityLogModel logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
@@ -2263,6 +2372,7 @@ namespace Trace.Monitoring.Presenters
                             }
                         }
                     }
+                    result = true;
                 }
             }
             #endregion
@@ -2303,7 +2413,12 @@ namespace Trace.Monitoring.Presenters
                         trace.Attribute1 = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST3_1Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST3_1RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
@@ -2318,11 +2433,12 @@ namespace Trace.Monitoring.Presenters
                 _view.machine3 = mac;
                 result = false;
             }
-            else
+            else if(!string.IsNullOrEmpty(trace.ItemCode))
             {
                 try
                 {
                     _serviceTraceLog.Create(trace);
+                    result = true;
                 }
                 catch
                 {
@@ -2367,7 +2483,12 @@ namespace Trace.Monitoring.Presenters
                         trace.Attribute1 = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST3_2Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST3_2RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
@@ -2382,11 +2503,12 @@ namespace Trace.Monitoring.Presenters
                 _view.machine4 = mac;
                 result = false;
             }
-            else
+            else if (!string.IsNullOrEmpty(trace.ItemCode))
             {
                 try
                 {
                     _serviceTraceLog.Create(trace);
+                    result = true;
                 }
                 catch
                 {
@@ -2429,6 +2551,12 @@ namespace Trace.Monitoring.Presenters
                                                    //&& !x.FinishFlag
                                                    ).ToList();
 
+            //Exit if item code is null
+            if (string.IsNullOrEmpty(itemCode))
+            {
+                return true;
+            }
+
             if (loggings.Count > 0)
             {
                 bool finishFlag = false;
@@ -2458,7 +2586,12 @@ namespace Trace.Monitoring.Presenters
                         trace.ItemCode = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST4Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                         trace.ModelRunning = item.Value.ToString();
@@ -2700,7 +2833,7 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
-                if (trace.Id == 0)
+                if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     TraceabilityLogModel logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
@@ -2715,8 +2848,9 @@ namespace Trace.Monitoring.Presenters
                             }
                         }
                     }
+                    result = true;
                 }
-                else
+                else if(trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     TraceabilityLogModel logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
@@ -2725,7 +2859,7 @@ namespace Trace.Monitoring.Presenters
                         if (item.Id == 0)
                         {
                             item.TraceLogId = logResult.Id;
-                            tigthening = _serviceTigthening.Create(item);
+                            tigthening = _serviceTigthening.Create(item);                            
                         }
                         else
                         {
@@ -2745,26 +2879,14 @@ namespace Trace.Monitoring.Presenters
                             }
                         }
                     }
+
+                    result = true;
                 }
             }
 
             return result;
         }
-
-        private decimal ConvertToDecimal(string number)
-        {
-            decimal myDecimal;
-            if (string.IsNullOrEmpty(number))
-                number = "0";
-
-            bool result = decimal.TryParse(number, out myDecimal);
-
-            if (result)
-                return myDecimal;
-            else
-                return 0;
-        }
-
+       
         private bool KeepLogForMachine6(IEnumerable<ItemValueResult> r, MachineModel m, IEnumerable<PlcTagModel> machineTags)
         {
             bool result = true;
@@ -2773,6 +2895,14 @@ namespace Trace.Monitoring.Presenters
             string tmpMsg = string.Empty;
 
             TraceabilityLogModel trace = new TraceabilityLogModel();
+
+            var tagsEOLResult = (from tag in machineTags
+                                 where tag.TypeCode == "DATA_EOL_RESULT"
+                                 select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+            var tagsVanses = (from tag in machineTags
+                              where tag.TypeCode == "DATA_VANSES_RESULT"
+                              select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
             //Default Station and Machine
             trace.StationId = m.StationId;
@@ -2788,6 +2918,12 @@ namespace Trace.Monitoring.Presenters
                                                     //&& x.CreationDate.Date == DateTime.Now.Date
                                                     //&& !x.FinishFlag
                                                     ).ToList();
+
+            //Exit if item code is null
+            if (string.IsNullOrEmpty(itemCode))
+            {
+                return true;
+            }
 
             if (loggings.Count > 0)
             {
@@ -2831,21 +2967,22 @@ namespace Trace.Monitoring.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[1]")
                     {
-                        string strDate = item.Value.ToString();
+                        trace.ProductionDate = DateTime.Now;
+                        //string strDate = item.Value.ToString();
 
-                        if (strDate.Length > 2)
-                        {
-                            trace.ProductionDate = GetProductionDate(strDate);
-                        }
-                        else
-                        {
-                            invalid = true;
-                            tmpMsg = "Production Date was not recognized as a valid DateTime.";
-                            if (!string.IsNullOrEmpty(errMsg))
-                                errMsg += Environment.NewLine;
+                        //if (strDate.Length > 2)
+                        //{
+                        //    trace.ProductionDate = GetProductionDate(strDate);
+                        //}
+                        //else
+                        //{
+                        //    invalid = true;
+                        //    tmpMsg = "Production Date was not recognized as a valid DateTime.";
+                        //    if (!string.IsNullOrEmpty(errMsg))
+                        //        errMsg += Environment.NewLine;
 
-                            errMsg += tmpMsg;
-                        }
+                        //    errMsg += tmpMsg;
+                        //}
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[2]")
@@ -2868,28 +3005,93 @@ namespace Trace.Monitoring.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[6]")
                         trace.Attribute1 = item.Value.ToString();
 
-                    //Upper VANSE Open LH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[7]")
-                        trace.Attribute2 = item.Value.ToString();
-
-                    //Upper VANSES Closed LH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[8]")
-                        trace.Attribute3 = item.Value.ToString();
-
-                    //Upper VANSES Open RH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[9]")
-                        trace.Attribute4 = item.Value.ToString();
-
-                    //Upper VANSES Closed RH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[10]")
-                        trace.Attribute5 = item.Value.ToString();
-
                     if (item.ItemName == _view.tagMainBlock + "ST5_1Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
                 }
+            }
+            #endregion
+
+            #region Keep EOL Result 
+            int i = 1;
+            List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
+            TighteningRepairModel tRepair = new TighteningRepairModel();
+            TighteningResultModel tmp = new TighteningResultModel();
+
+            if (trace.TighteningResults == null)
+                trace.TighteningResults = new List<TighteningResultModel>();
+
+            foreach (var item in r.Where(x => tagsEOLResult.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                if (!invalid)
+                {
+                    //No.1
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[4]")
+                    {
+                        TighteningResultModel t = new TighteningResultModel();
+                        t.No = "EOL Current(mA)";
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter1[0]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter2[0]").FirstOrDefault().Value.ToString());
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1TestJudgment[0]").FirstOrDefault().Value.ToString();
+
+                        trace.TighteningResults.Add(t);
+                    }
+
+                    //No.2
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[5]")
+                    {
+                        TighteningResultModel t = new TighteningResultModel();
+                        t.No = "Open Angle";
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter1[1]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter2[1]").FirstOrDefault().Value.ToString());
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1TestJudgment[1]").FirstOrDefault().Value.ToString();
+
+                        trace.TighteningResults.Add(t);
+                    }
+                }
+                i++;
+            }
+            #endregion
+
+            #region Keep Vanses Result
+            trace.CameraResults = new List<CameraResultModel>();
+            foreach (var item in r.Where(x => tagsVanses.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                CameraResultModel cam = new CameraResultModel();
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[7]")
+                {
+                    cam.CameraName = "VANES Open LH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[8]")
+                {
+                    cam.CameraName = "VANES Closed LH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[9]")
+                {
+                    cam.CameraName = "VANES Open RH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[10]")
+                {
+                    cam.CameraName = "VANES Closed RH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                trace.CameraResults.Add(cam);
             }
             #endregion
 
@@ -2910,15 +3112,17 @@ namespace Trace.Monitoring.Presenters
                 string tartgetFile;
                 string errMessageFile;
 
-                if (trace.Id == 0)
+                if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     _serviceTraceLog.Create(trace);
                     KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
+                    result = true;
                 }
-                else
+                else if (trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     _serviceTraceLog.Update(trace);
                     KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
+                    result = true;
                 }
             }
             #endregion
@@ -2935,6 +3139,14 @@ namespace Trace.Monitoring.Presenters
 
             TraceabilityLogModel trace = new TraceabilityLogModel();
 
+            var tagsEOLResult = (from tag in machineTags
+                                  where tag.TypeCode == "DATA_EOL_RESULT"
+                                  select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
+            var tagsVanses = (from tag in machineTags
+                              where tag.TypeCode == "DATA_VANSES_RESULT"
+                              select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
+
             //Default Station and Machine
             trace.StationId = m.StationId;
             trace.MachineId = m.Id;
@@ -2949,6 +3161,12 @@ namespace Trace.Monitoring.Presenters
                                                     //&& x.CreationDate.Date == DateTime.Now.Date
                                                     //&& !x.FinishFlag
                                                     ).ToList();
+
+            //Exit if item code is null
+            if (string.IsNullOrEmpty(itemCode))
+            {
+                return true;
+            }
 
             if (loggings.Count > 0)
             {
@@ -2992,21 +3210,22 @@ namespace Trace.Monitoring.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[1]")
                     {
-                        string strDate = item.Value.ToString();
+                        trace.ProductionDate = DateTime.Now;
+                        //string strDate = item.Value.ToString();
 
-                        if (strDate.Length > 2)
-                        {
-                            trace.ProductionDate = GetProductionDate(strDate);
-                        }
-                        else
-                        {
-                            invalid = true;
-                            tmpMsg = "Production Date was not recognized as a valid DateTime.";
-                            if (!string.IsNullOrEmpty(errMsg))
-                                errMsg += Environment.NewLine;
+                        //if (strDate.Length > 2)
+                        //{
+                        //    trace.ProductionDate = GetProductionDate(strDate);
+                        //}
+                        //else
+                        //{
+                        //    invalid = true;
+                        //    tmpMsg = "Production Date was not recognized as a valid DateTime.";
+                        //    if (!string.IsNullOrEmpty(errMsg))
+                        //        errMsg += Environment.NewLine;
 
-                            errMsg += tmpMsg;
-                        }
+                        //    errMsg += tmpMsg;
+                        //}
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[2]")
@@ -3029,28 +3248,93 @@ namespace Trace.Monitoring.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[6]")
                         trace.Attribute1 = item.Value.ToString();
 
-                    //Lower VANSE Open LH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[7]")
-                        trace.Attribute2 = item.Value.ToString();
-
-                    //Lower VANSES Closed LH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[8]")
-                        trace.Attribute3 = item.Value.ToString();
-
-                    //Lower VANSES Open RH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[9]")
-                        trace.Attribute4 = item.Value.ToString();
-
-                    //Lower VANSES Closed RH
-                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[10]")
-                        trace.Attribute5 = item.Value.ToString();
-
                     if (item.ItemName == _view.tagMainBlock + "ST5_2Final_Judgment")
-                        trace.FinalResult = Convert.ToInt32(item.Value);
+                    {
+                        if (Convert.ToInt32(item.Value) != 0)
+                        {
+                            trace.FinalResult = Convert.ToInt32(item.Value);
+                        }
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_2RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
                 }
+            }
+            #endregion
+
+            #region Keep EOL Result 
+            int i = 1;
+            List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
+            TighteningRepairModel tRepair = new TighteningRepairModel();
+            TighteningResultModel tmp = new TighteningResultModel();
+
+            if (trace.TighteningResults == null)
+                trace.TighteningResults = new List<TighteningResultModel>();
+
+            foreach (var item in r.Where(x => tagsEOLResult.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                if (!invalid)
+                {
+                    //No.1
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[4]")
+                    {
+                        TighteningResultModel t = new TighteningResultModel();
+                        t.No = "EOL Current(mA)";
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[0]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[1]").FirstOrDefault().Value.ToString());
+                        //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2TestJudgment[0]").FirstOrDefault().Value.ToString();
+
+                        trace.TighteningResults.Add(t);
+                    }
+
+                    //No.2
+                    if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[5]")
+                    {
+                        TighteningResultModel t = new TighteningResultModel();
+                        t.No = "Open Angle";
+                        t.Result = ConvertToDecimal(item.Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[2]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[3]").FirstOrDefault().Value.ToString());
+                        //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2TestJudgment[1]").FirstOrDefault().Value.ToString();
+
+                        trace.TighteningResults.Add(t);
+                    }
+                }
+                i++;
+            }
+            #endregion
+
+            #region Keep Vanses Result
+            trace.CameraResults = new List<CameraResultModel>();
+            foreach (var item in r.Where(x => tagsVanses.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            {
+                CameraResultModel cam = new CameraResultModel();
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[7]")
+                {
+                    cam.CameraName = "VANES Open LH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[8]")
+                {
+                    cam.CameraName = "VANES Closed LH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[9]")
+                {
+                    cam.CameraName = "VANES Open RH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                if (item.ItemName == _view.tagMainBlock + "ST5_2TestResult[10]")
+                {
+                    cam.CameraName = "VANES Closed RH";
+                    cam.TestResult = item.Value.ToString();
+                }
+
+                trace.CameraResults.Add(cam);
             }
             #endregion
 
@@ -3071,20 +3355,36 @@ namespace Trace.Monitoring.Presenters
                 if (trace.FinalResult != 0)
                     trace.FinishFlag = true;
 
-                if (trace.Id == 0)
+                if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     _serviceTraceLog.Create(trace);
                     KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
+                    result = true;
                 }
-                else
+                else if (trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
                     _serviceTraceLog.Update(trace);
                     KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
+                    result = true;
                 }
             }
             #endregion
 
             return result;
+        }
+
+        private decimal ConvertToDecimal(string number)
+        {
+            decimal myDecimal;
+            if (string.IsNullOrEmpty(number))
+                number = "0";
+
+            bool result = decimal.TryParse(number, out myDecimal);
+
+            if (result)
+                return myDecimal;
+            else
+                return 0;
         }
 
         private DateTime GetProductionDate(string strDate)
@@ -3303,6 +3603,8 @@ namespace Trace.Monitoring.Presenters
              * The Factory class casts the COM object (pointing to the HDA server) to the IServer interface.
              * All calls to the interface or proxied to the COM object.
              */
+
+           
             Opc.URL url = new Opc.URL(serverName);
             OpcCom.Factory fact = new OpcCom.Factory();
             _view.daServer = new Server(fact, url);
@@ -3321,7 +3623,9 @@ namespace Trace.Monitoring.Presenters
                 }
                 //Console.WriteLine(String.Format("Connect to server {0}", serverName));
 
-                //3rd Create a group if items            
+                //3rd Create a group if items  
+                #region Groups read
+                #region Group read interlock and Machine status
                 _view.groupStateRead = new SubscriptionState();
                 _view.groupStateRead.Name = "InterLockGroup";
                 _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
@@ -3344,7 +3648,88 @@ namespace Trace.Monitoring.Presenters
                     i++;
                 }
                 _view.items = _view.groupRead.AddItems(_view.items);
+                #endregion
 
+                #region Group read Machine 1 [Automatic Tightening upper frame M5]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine1_Interlock";
+                _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine1 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine1.DataChanged += new DataChangedEventHandler(_view.group_DataChanged1);//callback when the data are readed  
+                                                                                                             // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)   
+                _view.items = _view.groupReadMachine1.AddItems(_view.items);
+                #endregion
+
+                #region Group read Machine 2 [Semi -auto Tightening upper frame support M6]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine2_Interlock";
+                _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine2 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine2.DataChanged += new DataChangedEventHandler(_view.group_DataChanged2);//callback when the data are readed  
+
+                _view.items = _view.groupReadMachine2.AddItems(_view.items);
+                #endregion
+
+                #region Group read Machine 3 [UPPER AGS FRAM Auto gauge check]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine3_Interlock";
+                _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine3 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine3.DataChanged += new DataChangedEventHandler(_view.group_DataChanged3);//callback when the data are readed  
+
+                _view.items = _view.groupReadMachine3.AddItems(_view.items);
+                #endregion
+
+                #region Group read Machine 4 [LOWER AGS FRAM Auto gauge check]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine4_Interlock";
+                _view.groupStateRead.UpdateRate = 500;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine4 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine4.DataChanged += new DataChangedEventHandler(_view.group_DataChanged4);//callback when the data are readed  
+
+                _view.items = _view.groupReadMachine4.AddItems(_view.items);
+                #endregion
+
+                #region Group read Machine 5 [Semi -auto Tightening lower frame support M6]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine5_Interlock";
+                _view.groupStateRead.UpdateRate = 100;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine5 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine5.DataChanged += new DataChangedEventHandler(_view.group_DataChanged5);//callback when the data are readed  
+
+                _view.items = _view.groupReadMachine5.AddItems(_view.items);
+                #endregion
+
+                #region Group read Machine 6 [Upper  EOL laser marking and probe sensor check]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine6_Interlock";
+                _view.groupStateRead.UpdateRate = 100;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine6 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine6.DataChanged += new DataChangedEventHandler(_view.group_DataChanged6);//callback when the data are readed  
+
+                _view.items = _view.groupReadMachine6.AddItems(_view.items);
+                #endregion
+
+                #region Group read Machine 7 [Lower EOL laser marking and probe sensor check]
+                _view.groupStateRead = new SubscriptionState();
+                _view.groupStateRead.Name = "Machine7_Interlock";
+                _view.groupStateRead.UpdateRate = 100;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                _view.groupReadMachine7 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
+                _view.groupReadMachine7.DataChanged += new DataChangedEventHandler(_view.group_DataChanged7);//callback when the data are readed  
+
+                _view.items = _view.groupReadMachine7.AddItems(_view.items);
+                #endregion
+
+                #endregion
+
+                #region Group write
                 _view.groupStateWrite = new SubscriptionState();
                 _view.groupStateWrite.Name = "WriteInterLock";
                 _view.groupStateWrite.Active = false;//not needed to read if you want to write only
@@ -3384,6 +3769,7 @@ namespace Trace.Monitoring.Presenters
                 _view.groupStateWriteMc7.Name = "WriteMachine7";
                 _view.groupStateWriteMc7.Active = false;//not needed to read if you want to write only
                 _view.groupWriteMc7 = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWriteMc7);
+                #endregion
 
                 return true;
             }
@@ -3716,12 +4102,12 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.groupWriteMc2.Write(writeValues);
 
-                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
-                {
-                    count = count + 1;
-                    WriteLog("RecurciveMachine2.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
-                    WriteWordMc2(tag, value, count++);                    
-                }
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine2.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc2(tag, value, count++);                    
+                //}
 
                 return true;
             }
@@ -3769,12 +4155,12 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.groupWriteMc3.Write(writeValues);
 
-                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
-                {
-                    count = count + 1;
-                    WriteLog("RecurciveMachine3.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
-                    WriteWordMc3(tag, value, count++);                    
-                }
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine3.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc3(tag, value, count++);                    
+                //}
 
                 return true;
             }
@@ -3821,12 +4207,12 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.groupWriteMc4.Write(writeValues);
 
-                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
-                {
-                    count = count + 1;
-                    WriteLog("RecurciveMachine4.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
-                    WriteWordMc4(tag, value, count);                    
-                }
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine4.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc4(tag, value, count);                    
+                //}
 
                 return true;
             }
@@ -3873,12 +4259,12 @@ namespace Trace.Monitoring.Presenters
             {
                 _view.groupWriteMc5.Write(writeValues);
 
-                if (!CheckWriteValue(tag, value.ToString()) && count < 3)
-                {
-                    count = count + 1;
-                    WriteLog("RecurciveMachine5.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
-                    WriteWordMc5(tag, value, count);                    
-                }
+                //if (!CheckWriteValue(tag, value.ToString()) && count < 3)
+                //{
+                //    count = count + 1;
+                //    WriteLog("RecurciveMachine5.txt", String.Format("Tag Name : {0} => Value : {1} => Count : {2}", tag, value, count));
+                //    WriteWordMc5(tag, value, count);                    
+                //}
 
                 return true;
             }
@@ -4136,6 +4522,15 @@ namespace Trace.Monitoring.Presenters
 
             if (tag != null)
             {
+                if (tag.RequiredFlag)
+                {
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        returnMsg = tag.PlcTag + " is required value.";
+                        result = true;
+                    }
+                }
+
                 if (tag.DataType.ToUpper() == "STRING")
                 {
                     int len1 = value.Length;

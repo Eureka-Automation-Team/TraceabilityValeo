@@ -18,6 +18,7 @@ namespace Trace.Domain.Models
         public int MachineId { get; set; }
         public int StationId { get; set; }
         public bool EnableFlag { get; set; }
+        public bool RequiredFlag { get; set; }
         public MachineModel Machine { get; set; }
         public StationModel Station { get; set; }
     }

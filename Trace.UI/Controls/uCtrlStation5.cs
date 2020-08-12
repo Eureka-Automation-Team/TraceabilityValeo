@@ -55,6 +55,9 @@ namespace Trace.UI.Controls
                     txtUpperCameraCheck.Text = _traceabilityUpperLog.Attribute1;
                     //txtUpperVaneCheck.Text = _traceabilityUpperLog.Attribute2;
 
+                    tighteningResultBindingUpper.DataSource = _traceabilityUpperLog.TighteningResults;
+                    cameraResultBindingUpper.DataSource = _traceabilityUpperLog.CameraResults;
+
                     if (_traceabilityUpperLog.FinalResult == 1)
                     {
 
@@ -84,6 +87,9 @@ namespace Trace.UI.Controls
                     txtUpperCameraCheck.Text = string.Empty;
                     //txtUpperVaneCheck.Text = string.Empty;
 
+                    tighteningResultBindingUpper.DataSource = null;
+                    cameraResultBindingUpper.DataSource = null;
+
                     lblUpperFinalResult.Text = "";
                     lblUpperFinalResult.BackColor = Color.White;
                 }
@@ -111,6 +117,9 @@ namespace Trace.UI.Controls
                     lblLowerFinalResult.Text = _traceabilityLowerLog.FinalResultDesc;
                     txtLowerCameraCheck.Text = _traceabilityLowerLog.Attribute1;
                     //txtLowerVaneCheck.Text = _traceabilityLowerLog.Attribute2;
+
+                    tighteningResultBindingLower.DataSource = _traceabilityLowerLog.TighteningResults;
+                    cameraResultBindingLower.DataSource = _traceabilityLowerLog.CameraResults;
 
                     if (_traceabilityLowerLog.FinalResult == 1)
                     {
@@ -141,6 +150,9 @@ namespace Trace.UI.Controls
                     txtLowerCameraCheck.Text = string.Empty;
                     //txtLowerVaneCheck.Text = string.Empty;
 
+                    tighteningResultBindingLower.DataSource = null;
+                    cameraResultBindingLower.DataSource = null;
+
                     lblLowerFinalResult.Text = "";
                     lblLowerFinalResult.BackColor = Color.White;
 
@@ -155,7 +167,7 @@ namespace Trace.UI.Controls
         {
             timer1.Interval = 1000;
             timer1.Enabled = enable;
-            panelQRCode.Visible = !enable;
+            picQRCodeUpper.Visible = !enable;
         }
 
         private void uCtrlStation5_Load(object sender, EventArgs e)
@@ -186,7 +198,11 @@ namespace Trace.UI.Controls
                 var qrData = qrGenerator.CreateQrCode(partSerialNo, QRCoder.QRCodeGenerator.ECCLevel.H);
                 var qrCode = new QRCoder.QRCode(qrData);
                 var image = qrCode.GetGraphic(150);
-                picQRCode.Image = image;
+                if (traceabilityUpperLog != null)
+                    picQRCodeUpper.Image = image;
+
+                if (traceabilityLowerLog != null)
+                    picQRCodeLower.Image = image;
             }
         }
     }

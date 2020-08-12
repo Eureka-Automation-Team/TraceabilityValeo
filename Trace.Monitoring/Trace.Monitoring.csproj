@@ -154,9 +154,5 @@
       <Name>Trace.Domains</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="OpcNetApi Assemblies\OpcNetApi.Com.dll" />
-    <Content Include="OpcNetApi Assemblies\OpcNetApi.dll" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

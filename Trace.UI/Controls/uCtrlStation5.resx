@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="picQRCode.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picQRCodeUpper.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAfpJREFUSEvF
         lU9LVFEYh4cBYRJTwXRloCLMYr6FYqm7+g4FuRhbDLQJAluMG/0kghZF0eeIClr0x9EQwZVWajU+v3Pe
@@ -132,6 +132,62 @@
         O5d2K6GrVyte4DKet+4aqFTOALm709A5fn6oAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="picQRCodeLower.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAfpJREFUSEvF
+        lU9LVFEYh4cBYRJTwXRloCLMYr6FYqm7+g4FuRhbDLQJAluMG/0kghZF0eeIClr0x9EQwZVWajU+v3Pe
+        o+deb9zDuPCBB+593/ecc+97/5zKtdLtdkfxMb7BHTzFn/gVX+EDHLXydBjUj2t4hGUc4lO8YcMdnN+0
+        wywk6vgB8/zFA1N3kkdjbtscC9h2E8YQnMQOBv7hFs7j+RVxPIT3UG2K+YaP8DeuW7mHgNryGQPq+ayl
+        /ws1d3BfA3JcWuC5jzt2cdpSpVDbwD0NjLhYgJMx/OXCvi0zlkqCevVcbYnJLKC+BTYsnAT1ej7h4mIy
+        C7zzMcechZOgfhynChyxElekD0f8wX4L9wTjm/gEWyFQxRMU2y54BZhDb1+gT4E+f+zoWF3PMEdY4Bir
+        IdhC3VbTBXqE8QOoL158sbBLjGDRgxq3kiSov4uBtxZ2iXUfy6BXb95KkqB+0430PLRw4QL6aBYsnQT1
+        c6iPVOiXfstShQvos29YuhRq9Qf+oYHGM0t5CBS1SD+w0hZRo59dPPknrFnaQ0ALqC36ZXzHmNd4H4et
+        XPWDuIgvMbRFbOOElV1AsI2u5yrAj5hHm0zYcMKrGPMe627CPCQy2xvnNVxBPawytGWuYrYtKTBoGJdQ
+        O5d2K6GrVyte4DKet+4aqFTOALm709A5fn6oAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="JointMin.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="JointMax.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="JointTarget.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="JointResult.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RepairFlag.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tighteningResultBindingUpper.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>129, 19</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewCheckBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tighteningResultBindingLower.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>346, 19</value>
+  </metadata>
+  <metadata name="cameraResultBindingUpper.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>562, 19</value>
+  </metadata>
+  <metadata name="cameraResultBindingLower.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>800, 19</value>
+  </metadata>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>42, 19</value>
   </metadata>

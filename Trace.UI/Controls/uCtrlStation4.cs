@@ -40,10 +40,12 @@ namespace Trace.UI.Controls
 
                 if (_traceabilityLog != null)
                 {
+                    if (txtItemCode.Text.Trim() != _traceabilityLog.ItemCode.Trim())
+                        partAssemblyModelBindingSource.DataSource = _traceabilityLog.PartAssemblies;
+
                     txtStationNumber.Text = _traceabilityLog.Station.StationNumber;
                     txtManchineName.Text = _traceabilityLog.Machine.ManchineName;
-                    txtItemCode.Text = _traceabilityLog.ItemCode;
-                    partAssemblyModelBindingSource.DataSource = _traceabilityLog.PartAssemblies;
+                    txtItemCode.Text = _traceabilityLog.ItemCode;                   
                     tighteningResultModelBindingSource.DataSource = _traceabilityLog.TighteningResults;
                     lblFinalResult.Text = _traceabilityLog.FinalResultDesc;
 
