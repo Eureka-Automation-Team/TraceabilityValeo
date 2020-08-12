@@ -20,6 +20,21 @@ namespace Trace.Monitoring
         private Subscription _groupRead;
         private SubscriptionState _groupStateRead;
 
+        private Subscription _groupRead1;
+        private SubscriptionState _groupStateRead1;
+        private Subscription _groupRead2;
+        private SubscriptionState _groupStateRead2;
+        private Subscription _groupRead3;
+        private SubscriptionState _groupStateRead3;
+        private Subscription _groupRead4;
+        private SubscriptionState _groupStateRead4;
+        private Subscription _groupRead5;
+        private SubscriptionState _groupStateRead5;
+        private Subscription _groupRead6;
+        private SubscriptionState _groupStateRead6;
+        private Subscription _groupRead7;
+        private SubscriptionState _groupStateRead7;
+
         private Subscription _groupWrite;
         private SubscriptionState _groupStateWrite;
         private Subscription _groupWriteMc1;
@@ -38,6 +53,13 @@ namespace Trace.Monitoring
         private SubscriptionState _groupStateWriteMc7;
 
         private Item[] _items;
+        private Item[] _items1;
+        private Item[] _items2;
+        private Item[] _items3;
+        private Item[] _items4;
+        private Item[] _items5;
+        private Item[] _items6;
+        private Item[] _items7;
 
         //initialization of the sample object that contains opc values
         OPCObject _myOpcObject = new OPCObject();
@@ -172,6 +194,42 @@ namespace Trace.Monitoring
         {
             get { return _items; }
             set { _items = value; }
+        }
+
+        public Item[] items1
+        {
+            get { return _items1; }
+            set { _items1 = value; }
+        }
+        public Item[] items2
+        {
+            get { return _items2; }
+            set { _items2 = value; }
+        }
+        public Item[] items3
+        {
+            get { return _items3; }
+            set { _items3 = value; }
+        }
+        public Item[] items4
+        {
+            get { return _items4; }
+            set { _items4 = value; }
+        }
+        public Item[] items5
+        {
+            get { return _items5; }
+            set { _items5 = value; }
+        }
+        public Item[] items6
+        {
+            get { return _items6; }
+            set { _items6 = value; }
+        }
+        public Item[] items7
+        {
+            get { return _items7; }
+            set { _items7 = value; }
         }
 
         public bool connectedPlc
@@ -542,6 +600,78 @@ namespace Trace.Monitoring
             set { tslConnectionStatus.Text = value; }
         }
 
+        public string TagValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Subscription groupReadMachine1
+        {
+            get { return _groupRead1; }
+            set { _groupRead1 = value; }
+        }
+        public SubscriptionState groupStateReadMachine1
+        {
+            get { return _groupStateRead1; }
+            set { _groupStateRead1 = value; }
+        }
+        public Subscription groupReadMachine2
+        {
+            get { return _groupRead2; }
+            set { _groupRead2 = value; }
+        }
+        public SubscriptionState groupStateReadMachine2
+        {
+            get { return _groupStateRead2; }
+            set { _groupStateRead2 = value; }
+        }
+        public Subscription groupReadMachine3
+        {
+            get { return _groupRead3; }
+            set { _groupRead3 = value; }
+        }
+        public SubscriptionState groupStateReadMachine3
+        {
+            get { return _groupStateRead3; }
+            set { _groupStateRead3 = value; }
+        }
+        public Subscription groupReadMachine4
+        {
+            get { return _groupRead4; }
+            set { _groupRead4 = value; }
+        }
+        public SubscriptionState groupStateReadMachine4
+        {
+            get { return _groupStateRead4; }
+            set { _groupStateRead4 = value; }
+        }
+        public Subscription groupReadMachine5
+        {
+            get { return _groupRead5; }
+            set { _groupRead5 = value; }
+        }
+        public SubscriptionState groupStateReadMachine5
+        {
+            get { return _groupStateRead5; }
+            set { _groupStateRead5 = value; }
+        }
+        public Subscription groupReadMachine6
+        {
+            get { return _groupRead6; }
+            set { _groupRead6 = value; }
+        }
+        public SubscriptionState groupStateReadMachine6
+        {
+            get { return _groupStateRead6; }
+            set { _groupStateRead6 = value; }
+        }
+        public Subscription groupReadMachine7
+        {
+            get { return _groupRead7; }
+            set { _groupRead7 = value; }
+        }
+        public SubscriptionState groupStateReadMachine7
+        {
+            get { return _groupStateRead7; }
+            set { _groupStateRead7 = value; }
+        }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
@@ -552,6 +682,9 @@ namespace Trace.Monitoring
         public event EventHandler VerityCode;
         public event EventHandler VerityActuater;
         public event EventHandler RefreshData;
+        public event EventHandler ReadTag;
+        public event EventHandler WriteTag;
+        public event EventHandler MonitoringTag;
 
         public MainForm()
         {
@@ -559,464 +692,7 @@ namespace Trace.Monitoring
 
             this._presenter = new MainPresenter(this);
         }
-
-
-        public void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
-        {
-            for (int i = 0; i < values.Length; i++)
-            {
-
-                //Machine 1
-                if (values[i].ItemName == this._tagTraceabilityReady)
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butMakeReady.Invoke(new EventHandler(delegate { this.systemReady = Convert.ToBoolean(receivedData); }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST1StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc1.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine1;
-                            mac.OnlineFlag = receivedData;
-                            this.machine1 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST1ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging1.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine1;
-                            mac.RequestLogging = val;
-                            this.machine1 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName1.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST1LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging1.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine1;
-                            mac.CompletedLogging = receivedData;
-                            this.machine1 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST1ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode1.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine1;
-                            mac.RequestVerifyCode = val;
-                            this.machine1 = mac;
-                            if (val)
-                                VerityCode(_machine1, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST1TestResult[19]")
-                {
-                    int receivedData;
-                    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
-                    if (!succes)
-                        receivedData = 0;
-
-                    txtPosition1.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine1;
-                            mac.TighteningPosition = receivedData;
-                            this.machine1 = mac;
-                        }));
-                }
-
-                //Machine 2
-                if (values[i].ItemName == tagMainBlock + "ST2StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc2.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine2;
-                            mac.OnlineFlag = receivedData;
-                            this.machine2 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST2ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging2.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine2;
-                            mac.RequestLogging = val;
-                            this.machine2 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName2.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST2LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging2.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine2;
-                            mac.CompletedLogging = receivedData;
-                            this.machine2 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST2ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode2.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine2;
-                            mac.RequestVerifyCode = val;
-                            this.machine2 = mac;
-                            if (val)
-                                VerityCode(this.machine2, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST2TestResult[19]")
-                {
-                    int receivedData;
-                    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
-                    if (!succes)
-                        receivedData = 0;
-
-                    txtPosition2.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine2;
-                            mac.TighteningPosition = receivedData;
-                            this.machine2 = mac;
-                        }));
-                }
-
-                //Machine 3
-                if (values[i].ItemName == tagMainBlock + "ST3_1StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc3.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine3;
-                            mac.OnlineFlag = receivedData;
-                            this.machine3 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST3_1ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging3.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine3;
-                            mac.RequestLogging = val;
-                            this.machine3 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName3.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST3_1LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging3.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine3;
-                            mac.CompletedLogging = receivedData;
-                            this.machine3 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST3_1ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode3.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine3;
-                            mac.RequestVerifyCode = val;
-                            this.machine3 = mac;
-                            if (val)
-                                VerityCode(this.machine3, null);
-                        }));
-                }
-
-                //Machine 4
-                if (values[i].ItemName == tagMainBlock + "ST3_2StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc4.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine4;
-                            mac.OnlineFlag = receivedData;
-                            this.machine4 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST3_2ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging4.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine4;
-                            mac.RequestLogging = val;
-                            this.machine4 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName4.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST3_2LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging4.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine4;
-                            mac.CompletedLogging = receivedData;
-                            this.machine4 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST3_2ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode4.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine4;
-                            mac.RequestVerifyCode = val;
-                            this.machine4 = mac;
-                            if (val)
-                                VerityCode(this.machine4, null);
-                        }));
-                }
-
-                //Machine 5
-                if (values[i].ItemName == tagMainBlock + "ST4StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc5.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine5;
-                            mac.OnlineFlag = receivedData;
-                            this.machine5 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST4ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging5.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine5;
-                            mac.RequestLogging = val;
-                            this.machine5 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName5.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST4LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging5.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine5;
-                            mac.CompletedLogging = receivedData;
-                            this.machine5 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST4ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode5.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine5;
-                            mac.RequestVerifyCode = val;
-                            this.machine5 = mac;
-                            if (val)
-                                VerityCode(this.machine5, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST4TestResult[19]")
-                {
-                    int receivedData;
-                    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
-                    if (!succes)
-                        receivedData = 0;
-
-                    txtPosition4.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine5;
-                            mac.TighteningPosition = receivedData;
-                            this.machine5 = mac;
-                        }));
-                }
-
-                //Machine 6
-                if (values[i].ItemName == tagMainBlock + "ST5_1StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc6.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine6;
-                            mac.OnlineFlag = receivedData;
-                            this.machine6 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_1ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging6.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine6;
-                            mac.RequestLogging = val;
-                            this.machine6 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName6.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_1LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging6.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine6;
-                            mac.CompletedLogging = receivedData;
-                            this.machine6 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_1ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode6.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine6;
-                            mac.RequestVerifyCode = val;
-                            this.machine6 = mac;
-                            if (val)
-                                VerityCode(_machine6, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_1ReqCodeActuater")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestCodeActuater1.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine6;
-                            mac.RequestCodeActuater = val;
-                            this.machine6 = mac;
-                            _machine6.RequestCodeActuater = val;
-                            VerityActuater(_machine6, null);
-                        }));
-                }
-
-                //Machine 7
-                if (values[i].ItemName == tagMainBlock + "ST5_2StatusMc")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butStatusMc7.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine7;
-                            mac.OnlineFlag = receivedData;
-                            this.machine7 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_2ReqLogging")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestLogging7.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine7;
-                            mac.RequestLogging = val;
-                            this.machine7 = mac;
-
-                            if (val)
-                                KeepLogging((MachineModel)txtManchineName7.Tag, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_2LoggingApp")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butCompletedLogging7.Invoke(new EventHandler(
-                        delegate
-                        {
-                            var mac = this.machine7;
-                            mac.CompletedLogging = receivedData;
-                            this.machine7 = mac;
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_2ReqChkCodeVerify")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestVerifyCode7.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine7;
-                            mac.RequestVerifyCode = val;
-                            this.machine7 = mac;
-                            if (val)
-                                VerityCode(_machine7, null);
-                        }));
-                }
-                if (values[i].ItemName == tagMainBlock + "ST5_2ReqCodeActuater")
-                {
-                    int receivedData = (Int16)values[i].Value;
-                    butRequestCodeActuater2.Invoke(new EventHandler(
-                        delegate
-                        {
-                            bool val = Convert.ToBoolean(receivedData);
-                            var mac = this.machine7;
-                            mac.RequestCodeActuater = val;
-                            this.machine7 = mac;
-                            _machine7.RequestCodeActuater = val;
-                            VerityActuater(_machine7, null);
-                        }));
-                }
-            }
-        }
-
+        
         private void SetButtonStatusColor(Button butStatus, int v)
         {
             if (v == 0)
@@ -1085,6 +761,7 @@ namespace Trace.Monitoring
         {
             timerInter.Interval = 2000;
             timerInter.Enabled = true;
+            //timer1.Enabled = true;
             timerConnect.Enabled = false;
             timerRefresh.Enabled = true;
         }
@@ -1094,6 +771,7 @@ namespace Trace.Monitoring
             timerInter.Enabled = false;
             timerConnect.Enabled = true;
             timerRefresh.Enabled = false;
+            //timer1.Enabled = false;
         }
 
         private void timerInter_Tick(object sender, EventArgs e)
@@ -1215,6 +893,529 @@ namespace Trace.Monitoring
         {
             if (RefreshData != null)
                 RefreshData(sender, e);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (MonitoringTag != null)
+                MonitoringTag(sender, e);
+        }
+
+        public void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == this._tagTraceabilityReady)
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butMakeReady.Invoke(new EventHandler(delegate { this.systemReady = Convert.ToBoolean(receivedData); }));
+                }
+
+                //Machine 1 Status
+                if (values[i].ItemName == tagMainBlock + "ST1StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine1;
+                            mac.OnlineFlag = receivedData;
+                            this.machine1 = mac;
+                        }));
+                }
+
+                //Machine 2 Status
+                if (values[i].ItemName == tagMainBlock + "ST2StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine2;
+                            mac.OnlineFlag = receivedData;
+                            this.machine2 = mac;
+                        }));
+                }
+
+                //Machine 3 Status
+                if (values[i].ItemName == tagMainBlock + "ST3_1StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc3.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine3;
+                            mac.OnlineFlag = receivedData;
+                            this.machine3 = mac;
+                        }));
+                }
+
+                //Machine 4 Status
+                if (values[i].ItemName == tagMainBlock + "ST3_2StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine4;
+                            mac.OnlineFlag = receivedData;
+                            this.machine4 = mac;
+                        }));
+                }
+
+                //Machine 5 Status
+                if (values[i].ItemName == tagMainBlock + "ST4StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc5.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine5;
+                            mac.OnlineFlag = receivedData;
+                            this.machine5 = mac;
+                        }));
+                }
+
+                //Machine 6 Status
+                if (values[i].ItemName == tagMainBlock + "ST5_1StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc6.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine6;
+                            mac.OnlineFlag = receivedData;
+                            this.machine6 = mac;
+                        }));
+                }
+
+                //Machine 7 Status
+                if (values[i].ItemName == tagMainBlock + "ST5_2StatusMc")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butStatusMc7.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine7;
+                            mac.OnlineFlag = receivedData;
+                            this.machine7 = mac;
+                        }));
+                }
+            }
+        }
+
+        public void group_DataChanged1(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST1ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine1;
+                            mac.RequestLogging = val;
+                            this.machine1 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName1.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST1LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine1;
+                            mac.CompletedLogging = receivedData;
+                            this.machine1 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine1;
+                            mac.RequestVerifyCode = val;
+                            this.machine1 = mac;
+                            if (val)
+                                VerityCode(_machine1, null);
+                        }));
+                }
+                //if (values[i].ItemName == tagMainBlock + "ST1TestResult[19]")
+                //{
+                //    int receivedData;
+                //    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
+                //    if (!succes)
+                //        receivedData = 0;
+
+                //    txtPosition1.Invoke(new EventHandler(
+                //        delegate
+                //        {
+                //            var mac = this.machine1;
+                //            mac.TighteningPosition = receivedData;
+                //            this.machine1 = mac;
+                //        }));
+                //}
+            }
+        }
+
+        public void group_DataChanged2(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST2ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine2;
+                            mac.RequestLogging = val;
+                            this.machine2 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName2.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST2LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine2;
+                            mac.CompletedLogging = receivedData;
+                            this.machine2 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST2ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine2;
+                            mac.RequestVerifyCode = val;
+                            this.machine2 = mac;
+                            if (val)
+                                VerityCode(this.machine2, null);
+                        }));
+                }
+                //if (values[i].ItemName == tagMainBlock + "ST2TestResult[19]")
+                //{
+                //    int receivedData;
+                //    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
+                //    if (!succes)
+                //        receivedData = 0;
+
+                //    txtPosition2.Invoke(new EventHandler(
+                //        delegate
+                //        {
+                //            var mac = this.machine2;
+                //            mac.TighteningPosition = receivedData;
+                //            this.machine2 = mac;
+                //        }));
+                //}
+            }
+        }
+
+        public void group_DataChanged3(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST3_1ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging3.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine3;
+                            mac.RequestLogging = val;
+                            this.machine3 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName3.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST3_1LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging3.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine3;
+                            mac.CompletedLogging = receivedData;
+                            this.machine3 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST3_1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode3.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine3;
+                            mac.RequestVerifyCode = val;
+                            this.machine3 = mac;
+                            if (val)
+                                VerityCode(this.machine3, null);
+                        }));
+                }
+            }
+        }
+
+        public void group_DataChanged4(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST3_2ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine4;
+                            mac.RequestLogging = val;
+                            this.machine4 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName4.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST3_2LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine4;
+                            mac.CompletedLogging = receivedData;
+                            this.machine4 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST3_2ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode4.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine4;
+                            mac.RequestVerifyCode = val;
+                            this.machine4 = mac;
+                            if (val)
+                                VerityCode(this.machine4, null);
+                        }));
+                }
+            }
+        }
+
+        public void group_DataChanged5(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST4ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging5.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine5;
+                            mac.RequestLogging = val;
+                            this.machine5 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName5.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST4LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging5.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine5;
+                            mac.CompletedLogging = receivedData;
+                            this.machine5 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST4ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode5.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine5;
+                            mac.RequestVerifyCode = val;
+                            this.machine5 = mac;
+                            if (val)
+                                VerityCode(this.machine5, null);
+                        }));
+                }
+                //if (values[i].ItemName == tagMainBlock + "ST4TestResult[19]")
+                //{
+                //    int receivedData;
+                //    var succes = Int32.TryParse(values[i].Value.ToString(), out receivedData);
+                //    if (!succes)
+                //        receivedData = 0;
+
+                //    txtPosition4.Invoke(new EventHandler(
+                //        delegate
+                //        {
+                //            var mac = this.machine5;
+                //            mac.TighteningPosition = receivedData;
+                //            this.machine5 = mac;
+                //        }));
+                //}
+            }
+        }
+
+        public void group_DataChanged6(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST5_1ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging6.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine6;
+                            mac.RequestLogging = val;
+                            this.machine6 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName6.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_1LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging6.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine6;
+                            mac.CompletedLogging = receivedData;
+                            this.machine6 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_1ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode6.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine6;
+                            mac.RequestVerifyCode = val;
+                            this.machine6 = mac;
+                            if (val)
+                                VerityCode(_machine6, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_1ReqCodeActuater")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestCodeActuater1.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine6;
+                            mac.RequestCodeActuater = val;
+                            this.machine6 = mac;
+                            _machine6.RequestCodeActuater = val;
+                            VerityActuater(_machine6, null);
+                        }));
+                }
+            }
+        }
+
+        public void group_DataChanged7(object subscriptionHandle, object requestHandle, ItemValueResult[] values)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i].ItemName == tagMainBlock + "ST5_2ReqLogging")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestLogging7.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine7;
+                            mac.RequestLogging = val;
+                            this.machine7 = mac;
+
+                            if (val)
+                                KeepLogging((MachineModel)txtManchineName7.Tag, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_2LoggingApp")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butCompletedLogging7.Invoke(new EventHandler(
+                        delegate
+                        {
+                            var mac = this.machine7;
+                            mac.CompletedLogging = receivedData;
+                            this.machine7 = mac;
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_2ReqChkCodeVerify")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestVerifyCode7.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine7;
+                            mac.RequestVerifyCode = val;
+                            this.machine7 = mac;
+                            if (val)
+                                VerityCode(_machine7, null);
+                        }));
+                }
+                if (values[i].ItemName == tagMainBlock + "ST5_2ReqCodeActuater")
+                {
+                    int receivedData = (Int16)values[i].Value;
+                    butRequestCodeActuater2.Invoke(new EventHandler(
+                        delegate
+                        {
+                            bool val = Convert.ToBoolean(receivedData);
+                            var mac = this.machine7;
+                            mac.RequestCodeActuater = val;
+                            this.machine7 = mac;
+                            _machine7.RequestCodeActuater = val;
+                            VerityActuater(_machine7, null);
+                        }));
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (WriteTag != null)
+                WriteTag(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ReadTag != null)
+                ReadTag(sender, e);
         }
     }
 }

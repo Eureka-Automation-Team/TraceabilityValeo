@@ -231,6 +231,10 @@
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -2624,7 +2628,7 @@
             this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslConnectionStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 468);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 562);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1370, 26);
             this.statusStrip1.TabIndex = 10;
@@ -2637,12 +2641,48 @@
             this.tslConnectionStatus.Size = new System.Drawing.Size(136, 21);
             this.tslConnectionStatus.Text = "Connection Status";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(152, 496);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(79, 36);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "READ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(352, 496);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(77, 36);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "WRITE";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(477, 502);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 26);
+            this.textBox6.TabIndex = 13;
+            this.textBox6.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1370, 494);
+            this.ClientSize = new System.Drawing.Size(1370, 588);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel54);
             this.Controls.Add(this.panel42);
@@ -3000,6 +3040,10 @@
         private System.Windows.Forms.ToolStripStatusLabel tslConnectionStatus;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
