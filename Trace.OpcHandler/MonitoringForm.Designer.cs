@@ -28,22 +28,256 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitoringForm));
+            this.butRefresh = new System.Windows.Forms.Button();
+            this.butConnect = new System.Windows.Forms.Button();
+            this.txtServerUrl = new System.Windows.Forms.TextBox();
+            this.butMakeReady = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMessageResult = new System.Windows.Forms.TextBox();
+            this.butStatusMc = new System.Windows.Forms.Button();
+            this.butRequestLogging = new System.Windows.Forms.Button();
+            this.butCompletedLogging = new System.Windows.Forms.Button();
+            this.butRequestVerifyCode1 = new System.Windows.Forms.Button();
+            this.timerInter = new System.Windows.Forms.Timer(this.components);
+            this.timerConnect = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // butRefresh
+            // 
+            this.butRefresh.BackColor = System.Drawing.SystemColors.Control;
+            this.butRefresh.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.butRefresh.Location = new System.Drawing.Point(224, 34);
+            this.butRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRefresh.Name = "butRefresh";
+            this.butRefresh.Size = new System.Drawing.Size(83, 28);
+            this.butRefresh.TabIndex = 8;
+            this.butRefresh.Text = "Refresh";
+            this.butRefresh.UseVisualStyleBackColor = false;
+            this.butRefresh.Visible = false;
+            // 
+            // butConnect
+            // 
+            this.butConnect.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.butConnect.Location = new System.Drawing.Point(13, 34);
+            this.butConnect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butConnect.Name = "butConnect";
+            this.butConnect.Size = new System.Drawing.Size(112, 28);
+            this.butConnect.TabIndex = 6;
+            this.butConnect.Text = "Connect";
+            this.butConnect.UseVisualStyleBackColor = true;
+            // 
+            // txtServerUrl
+            // 
+            this.txtServerUrl.Location = new System.Drawing.Point(91, 9);
+            this.txtServerUrl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtServerUrl.Name = "txtServerUrl";
+            this.txtServerUrl.Size = new System.Drawing.Size(216, 20);
+            this.txtServerUrl.TabIndex = 4;
+            // 
+            // butMakeReady
+            // 
+            this.butMakeReady.BackColor = System.Drawing.Color.Gray;
+            this.butMakeReady.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butMakeReady.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butMakeReady.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.butMakeReady.Location = new System.Drawing.Point(133, 34);
+            this.butMakeReady.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butMakeReady.Name = "butMakeReady";
+            this.butMakeReady.Size = new System.Drawing.Size(83, 28);
+            this.butMakeReady.TabIndex = 7;
+            this.butMakeReady.Text = "Not ready";
+            this.butMakeReady.UseVisualStyleBackColor = false;
+            this.butMakeReady.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(12, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(143, 24);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Status";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(12, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 24);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Request Logging";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(12, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 24);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Completed Log";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(12, 160);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(143, 24);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "Verify Code";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "OPC URL";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtMessageResult
+            // 
+            this.txtMessageResult.Location = new System.Drawing.Point(13, 189);
+            this.txtMessageResult.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMessageResult.Multiline = true;
+            this.txtMessageResult.Name = "txtMessageResult";
+            this.txtMessageResult.Size = new System.Drawing.Size(294, 58);
+            this.txtMessageResult.TabIndex = 16;
+            // 
+            // butStatusMc
+            // 
+            this.butStatusMc.AutoSize = true;
+            this.butStatusMc.BackColor = System.Drawing.Color.Gray;
+            this.butStatusMc.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butStatusMc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butStatusMc.Location = new System.Drawing.Point(162, 67);
+            this.butStatusMc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butStatusMc.Name = "butStatusMc";
+            this.butStatusMc.Size = new System.Drawing.Size(145, 24);
+            this.butStatusMc.TabIndex = 17;
+            this.butStatusMc.UseVisualStyleBackColor = false;
+            // 
+            // butRequestLogging
+            // 
+            this.butRequestLogging.AutoSize = true;
+            this.butRequestLogging.BackColor = System.Drawing.Color.Gray;
+            this.butRequestLogging.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestLogging.Location = new System.Drawing.Point(162, 98);
+            this.butRequestLogging.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestLogging.Name = "butRequestLogging";
+            this.butRequestLogging.Size = new System.Drawing.Size(145, 24);
+            this.butRequestLogging.TabIndex = 18;
+            this.butRequestLogging.UseVisualStyleBackColor = false;
+            // 
+            // butCompletedLogging
+            // 
+            this.butCompletedLogging.AutoSize = true;
+            this.butCompletedLogging.BackColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butCompletedLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCompletedLogging.Location = new System.Drawing.Point(162, 129);
+            this.butCompletedLogging.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butCompletedLogging.Name = "butCompletedLogging";
+            this.butCompletedLogging.Size = new System.Drawing.Size(145, 24);
+            this.butCompletedLogging.TabIndex = 19;
+            this.butCompletedLogging.UseVisualStyleBackColor = false;
+            // 
+            // butRequestVerifyCode1
+            // 
+            this.butRequestVerifyCode1.AutoSize = true;
+            this.butRequestVerifyCode1.BackColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.butRequestVerifyCode1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butRequestVerifyCode1.Location = new System.Drawing.Point(162, 160);
+            this.butRequestVerifyCode1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butRequestVerifyCode1.Name = "butRequestVerifyCode1";
+            this.butRequestVerifyCode1.Size = new System.Drawing.Size(145, 24);
+            this.butRequestVerifyCode1.TabIndex = 20;
+            this.butRequestVerifyCode1.UseVisualStyleBackColor = false;
+            // 
+            // timerInter
+            // 
+            this.timerInter.Interval = 1000;
+            // 
+            // timerConnect
+            // 
+            this.timerConnect.Enabled = true;
+            this.timerConnect.Interval = 5000;
             // 
             // MonitoringForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 261);
+            this.ClientSize = new System.Drawing.Size(320, 261);
+            this.Controls.Add(this.butRequestVerifyCode1);
+            this.Controls.Add(this.butCompletedLogging);
+            this.Controls.Add(this.butRequestLogging);
+            this.Controls.Add(this.butStatusMc);
+            this.Controls.Add(this.txtMessageResult);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.butRefresh);
+            this.Controls.Add(this.butConnect);
+            this.Controls.Add(this.txtServerUrl);
+            this.Controls.Add(this.butMakeReady);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MonitoringForm";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Station 1";
+            this.Load += new System.EventHandler(this.MonitoringForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button butRefresh;
+        private System.Windows.Forms.Button butConnect;
+        private System.Windows.Forms.TextBox txtServerUrl;
+        private System.Windows.Forms.Button butMakeReady;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtMessageResult;
+        private System.Windows.Forms.Button butStatusMc;
+        private System.Windows.Forms.Button butRequestLogging;
+        private System.Windows.Forms.Button butCompletedLogging;
+        private System.Windows.Forms.Button butRequestVerifyCode1;
+        private System.Windows.Forms.Timer timerInter;
+        private System.Windows.Forms.Timer timerConnect;
     }
 }
 

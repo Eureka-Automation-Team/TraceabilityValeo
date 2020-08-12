@@ -119,3 +119,4 @@ C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CopyComplete
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddrequiredfieldinPLCTagtable.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.AddrequiredfieldinPLCTagtable.resources

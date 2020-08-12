@@ -33,7 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpcComRcw">
+      <HintPath>..\packages\OpcNetApi Assemblies\OpcComRcw.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetApi">
+      <HintPath>..\packages\OpcNetApi Assemblies\OpcNetApi.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetApi.Com">
+      <HintPath>..\packages\OpcNetApi Assemblies\OpcNetApi.Com.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,12 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMonitoringView.cs" />
     <Compile Include="MonitoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MonitoringForm.Designer.cs">
       <DependentUpon>MonitoringForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MonitoringForm.resx">
@@ -90,5 +102,6 @@
       <Name>Trace.Domains</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
