@@ -14,7 +14,6 @@ using Trace.Domain.Services;
 namespace Trace.OpcHandlerMachine01.Presenters
 {
 
-
     public class MainPresenter
     {
         IDataService<MachineModel> _serviceMachine = new MachineService(new TraceDbContextFactory());
@@ -32,6 +31,83 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
             _view.FormLoad += Initailization;
             _view.Connect_Click += Connect;
+            _view.Disconnect_Click += Disconnect;
+            _view.InterLock += InterLock;
+        }
+
+        private void InterLock(object sender, EventArgs e)
+        {
+            bool result = false;
+
+            Task t = Task.Run(() =>
+            {
+                result = WriteWordInterLock(_view.tagClockReady, 1);
+            });
+            TimeSpan ts = TimeSpan.FromMilliseconds(2000);
+            //if (!t.Wait(ts))
+            //    Console.WriteLine("The timeout interval elapsed.");
+
+            if (!t.Wait(ts))
+            {
+                _view.connectedPlc = false;
+                _view.systemReady = false;
+                Disconnect();
+                _view.ResultnMessage = "Inter Lock failed!";
+                //Application.Exit();
+            }
+            else
+            {
+                _view.ResultnMessage = "Inter Lock completed.";
+            }
+        }
+
+        private bool WriteWordInterLock(string tag, int value)
+        {
+            //Create the item to write (if the group doesn't have it, we need to insert it)
+            Item[] itemToAdd = new Item[1];
+            itemToAdd[0] = new Item();
+            itemToAdd[0].ItemName = tag;
+
+            //create the item that contains the value to write
+            ItemValue[] writeValues = new ItemValue[1];
+            writeValues[0] = new ItemValue(itemToAdd[0]);
+
+            //make a scan of group to see if it already contains the item
+            bool itemFound = false;
+            foreach (Item item in _view.groupWrite.Items)
+            {
+                if (item.ItemName == itemToAdd[0].ItemName)
+                {
+                    // if it find the item i set the new value
+                    writeValues[0].ServerHandle = item.ServerHandle;
+                    itemFound = true;
+                }
+            }
+
+            if (!itemFound)
+            {
+                //if it doesn't find it, we add it
+                _view.groupWrite.AddItems(itemToAdd);
+                writeValues[0].ServerHandle = _view.groupWrite.Items[_view.groupWrite.Items.Length - 1].ServerHandle;
+            }
+            //set the value to write
+            writeValues[0].Value = value;
+            //write
+
+            try
+            {
+                _view.groupWrite.Write(writeValues);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void Disconnect(object sender, EventArgs e)
+        {
+            _view.connectedPlc = !Disconnect();
         }
 
         private void Connect(object sender, EventArgs e)
@@ -69,7 +145,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 }
                 catch (Exception ex)
                 {
-                    _view.strConnectionMessage = ex.Message;
+                    _view.ResultnMessage = ex.Message;
                     return false;
                 }
                 //Console.WriteLine(String.Format("Connect to server {0}", serverName));
@@ -120,6 +196,14 @@ namespace Trace.OpcHandlerMachine01.Presenters
                                             , MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        private bool Disconnect()
+        {
+            if (_view.daServer != null && _view.daServer.IsConnected)
+                _view.daServer.Disconnect();
+
+            return true;
         }
 
         private void Initailization(object sender, EventArgs e)
@@ -183,7 +267,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             }
             catch (Exception ex)
             {
-                _view.strConnectionMessage = ex.Message;
+                _view.ResultnMessage = ex.Message;
                 Cursor.Current = Cursors.Default;
                 return;
             }

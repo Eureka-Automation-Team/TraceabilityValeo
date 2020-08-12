@@ -140,7 +140,7 @@ namespace Trace.OpcHandler
             get { return _tagTraceabilityReady; }
             set { _tagTraceabilityReady = value; }
         }
-        public string strConnectionMessage
+        public string ResultnMessage
         {
             get { return txtMessageResult.Text; }
             set { txtMessageResult.Text = value; }
@@ -188,6 +188,36 @@ namespace Trace.OpcHandler
             timerConnect.Enabled = true;
             _connectedPlc = false;
             DisableClock();
+        }
+
+        private void butConnect_Click(object sender, EventArgs e)
+        {
+            if (this.connectedPlc)
+            {
+                if (Disconnect_Click != null)
+                    Disconnect_Click(sender, e);
+            }
+            else
+            {
+                if (Connect_Click != null)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    Connect_Click(sender, e);
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+        }
+
+        private void timerConnect_Tick(object sender, EventArgs e)
+        {
+            if (Connect_Click != null)
+                Connect_Click(sender, e);
+        }
+
+        private void timerInter_Tick(object sender, EventArgs e)
+        {
+            if (InterLock != null)
+                InterLock(sender, e);
         }
     }
 }

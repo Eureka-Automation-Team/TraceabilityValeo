@@ -75,6 +75,7 @@
             this.butConnect.TabIndex = 6;
             this.butConnect.Text = "Connect";
             this.butConnect.UseVisualStyleBackColor = true;
+            this.butConnect.Click += new System.EventHandler(this.butConnect_Click);
             // 
             // txtServerUrl
             // 
@@ -224,11 +225,13 @@
             // timerInter
             // 
             this.timerInter.Interval = 1000;
+            this.timerInter.Tick += new System.EventHandler(this.timerInter_Tick);
             // 
             // timerConnect
             // 
             this.timerConnect.Enabled = true;
             this.timerConnect.Interval = 5000;
+            this.timerConnect.Tick += new System.EventHandler(this.timerConnect_Tick);
             // 
             // MonitoringForm
             // 
