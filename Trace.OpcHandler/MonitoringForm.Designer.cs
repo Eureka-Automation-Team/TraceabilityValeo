@@ -80,10 +80,10 @@
             // 
             // txtServerUrl
             // 
-            this.txtServerUrl.Location = new System.Drawing.Point(91, 9);
+            this.txtServerUrl.Location = new System.Drawing.Point(93, 9);
             this.txtServerUrl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtServerUrl.Name = "txtServerUrl";
-            this.txtServerUrl.Size = new System.Drawing.Size(216, 20);
+            this.txtServerUrl.Size = new System.Drawing.Size(214, 20);
             this.txtServerUrl.TabIndex = 4;
             // 
             // butMakeReady

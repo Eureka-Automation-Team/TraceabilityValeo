@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine01",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine05", "Trace.OpcHandlerMachine05\Trace.OpcHandlerMachine05.csproj", "{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine06", "Trace.OpcHandlerMachine06\Trace.OpcHandlerMachine06.csproj", "{5BDCA2FF-8754-4AED-8C27-E333732EB568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trace.OpcHandlerMachine07", "Trace.OpcHandlerMachine07\Trace.OpcHandlerMachine07.csproj", "{BEF553C4-7611-4981-8F3F-28E48E840F47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53CE067D-D5E0-4939-B212-E7A2D9D3F1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BDCA2FF-8754-4AED-8C27-E333732EB568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDCA2FF-8754-4AED-8C27-E333732EB568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDCA2FF-8754-4AED-8C27-E333732EB568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDCA2FF-8754-4AED-8C27-E333732EB568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF553C4-7611-4981-8F3F-28E48E840F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF553C4-7611-4981-8F3F-28E48E840F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF553C4-7611-4981-8F3F-28E48E840F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF553C4-7611-4981-8F3F-28E48E840F47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

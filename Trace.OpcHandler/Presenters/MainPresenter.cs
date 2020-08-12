@@ -1229,7 +1229,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
-            var m = _serviceMachine.GetByID(1);
+            var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {
                 _view.machine = m;

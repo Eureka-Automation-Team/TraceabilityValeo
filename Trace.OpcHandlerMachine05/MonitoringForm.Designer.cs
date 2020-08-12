@@ -204,10 +204,10 @@
             // 
             // txtServerUrl
             // 
-            this.txtServerUrl.Location = new System.Drawing.Point(92, 11);
+            this.txtServerUrl.Location = new System.Drawing.Point(95, 11);
             this.txtServerUrl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtServerUrl.Name = "txtServerUrl";
-            this.txtServerUrl.Size = new System.Drawing.Size(216, 20);
+            this.txtServerUrl.Size = new System.Drawing.Size(213, 20);
             this.txtServerUrl.TabIndex = 21;
             // 
             // butMakeReady
@@ -256,8 +256,11 @@
             this.Controls.Add(this.butConnect);
             this.Controls.Add(this.txtServerUrl);
             this.Controls.Add(this.butMakeReady);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "MonitoringForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Station 4";
             this.Load += new System.EventHandler(this.MonitoringForm_Load);
             this.ResumeLayout(false);

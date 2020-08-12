@@ -59,7 +59,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
                                                                 , value.ToString()
                                                                 , DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
 
-            if (loggings.Where(x => x.MachineId == 1).Count() == 0)
+            if (loggings.Count() == 0)
             {
                 //Data not found
                 //_machine.CodeVerifyResult = 3;  
@@ -836,7 +836,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
-            var m = _serviceMachine.GetByID(1);
+            var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {
                 _view.machine = m;
