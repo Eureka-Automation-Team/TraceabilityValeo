@@ -214,6 +214,7 @@ namespace Trace.OpcHandlerMachine03.Presenters
             {
                 var mac = _view.machine;
                 mac.MessageResult = errMsg;
+                _view.ResultnMessage = mac.MessageResult;
                 mac.CompletedLogging = 3;
                 _view.machine = mac;
                 result = false;
@@ -380,10 +381,6 @@ namespace Trace.OpcHandlerMachine03.Presenters
                 Disconnect();
                 _view.ResultnMessage = "Inter Lock failed!";
                 //Application.Exit();
-            }
-            else
-            {
-                _view.ResultnMessage = "Inter Lock completed.";
             }
         }
 
@@ -582,7 +579,7 @@ namespace Trace.OpcHandlerMachine03.Presenters
 
 
                 _view.machine = mac3;
-
+                _view.ResultnMessage = string.Empty;
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)

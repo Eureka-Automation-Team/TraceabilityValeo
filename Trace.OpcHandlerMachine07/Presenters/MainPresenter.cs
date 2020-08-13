@@ -464,6 +464,7 @@ namespace Trace.OpcHandlerMachine07.Presenters
             {
                 var mac = _view.machine;
                 mac.MessageResult = errMsg;
+                _view.ResultnMessage = mac.MessageResult;
                 mac.CompletedLogging = 3;
                 _view.machine = mac;
                 result = false;
@@ -679,10 +680,6 @@ namespace Trace.OpcHandlerMachine07.Presenters
                 _view.ResultnMessage = "Inter Lock failed!";
                 //Application.Exit();
             }
-            else
-            {
-                _view.ResultnMessage = "Inter Lock completed.";
-            }
         }
 
         private bool WriteWordInterLock(string tag, int value)
@@ -886,7 +883,7 @@ namespace Trace.OpcHandlerMachine07.Presenters
 
 
                 _view.machine = mac6;
-
+                _view.ResultnMessage = string.Empty;
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)

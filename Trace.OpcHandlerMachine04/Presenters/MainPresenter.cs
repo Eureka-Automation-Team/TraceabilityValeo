@@ -214,6 +214,8 @@ namespace Trace.OpcHandlerMachine04.Presenters
             {
                 var mac = _view.machine;
                 mac.MessageResult = errMsg;
+                _view.ResultnMessage = errMsg;
+                _view.ResultnMessage = mac.MessageResult;
                 mac.CompletedLogging = 3;
                 _view.machine = mac;
                 result = false;
@@ -379,11 +381,6 @@ namespace Trace.OpcHandlerMachine04.Presenters
                 _view.systemReady = false;
                 Disconnect();
                 _view.ResultnMessage = "Inter Lock failed!";
-                //Application.Exit();
-            }
-            else
-            {
-                _view.ResultnMessage = "Inter Lock completed.";
             }
         }
 
@@ -581,7 +578,7 @@ namespace Trace.OpcHandlerMachine04.Presenters
                 mac4.CodeVerifyResult = Convert.ToInt32(currentResult.Where(x => x.ItemName == verifyResultTag4).FirstOrDefault().Value);
 
                 _view.machine = mac4;
-
+                _view.ResultnMessage = string.Empty;
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
