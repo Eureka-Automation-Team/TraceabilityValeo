@@ -1,4 +1,3 @@
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\obj\Debug\Trace.OpcHandlerMachine04.csprojAssemblyReference.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\obj\Debug\Trace.OpcHandlerMachine04.exe.config
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\obj\Debug\Trace.OpcHandlerMachine04.MonitoringForm.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\obj\Debug\Trace.OpcHandlerMachine04.Properties.Resources.resources

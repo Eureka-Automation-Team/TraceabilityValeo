@@ -244,9 +244,8 @@ namespace Trace.OpcHandlerMachine02.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST2Final_Judgment")
                     {
                         if (Convert.ToInt32(item.Value) != 0)
-                        {
                             trace.FinalResult = Convert.ToInt32(item.Value);
-                        }
+                        
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST2RepairTime")

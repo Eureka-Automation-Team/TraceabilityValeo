@@ -171,6 +171,8 @@ namespace Trace.OpcHandlerMachine07.Presenters
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
             _view.machine = _machine;
+            _machine.RequestCodeActuater = true;
+            VerityActuater(_machine, e);
         }
 
         private void RefreshData(object sender, EventArgs e)

@@ -77,7 +77,6 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\bin\Debug\S
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\bin\Debug\K4os.Compression.LZ4.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\bin\Debug\K4os.Hash.xxHash.xml
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\bin\Debug\System.Memory.xml
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\obj\Debug\Trace.OpcHandlerMachine07.csprojAssemblyReference.cache
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\obj\Debug\Trace.OpcHandlerMachine07.exe.config
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\obj\Debug\Trace.OpcHandlerMachine07.MonitoringForm.resources
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine07\obj\Debug\Trace.OpcHandlerMachine07.Properties.Resources.resources
