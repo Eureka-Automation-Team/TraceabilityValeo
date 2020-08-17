@@ -248,6 +248,9 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST1RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
+
+                    if (item.ItemName == _view.tagMainBlock + "ST1ModelRunning2")
+                        trace.ModelRunningFlag = Convert.ToInt32(item.Value);
                 }
             }
             #endregion

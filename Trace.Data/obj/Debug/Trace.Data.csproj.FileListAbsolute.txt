@@ -120,3 +120,4 @@ C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CoreCompileInp
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.csproj.CopyComplete
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.NewModelrunning.resources

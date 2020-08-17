@@ -240,6 +240,9 @@ namespace Trace.OpcHandlerMachine05.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning")
                         trace.ModelRunning = item.Value.ToString();
+
+                    if (item.ItemName == _view.tagMainBlock + "ST4ModelRunning2")
+                        trace.ModelRunningFlag = Convert.ToInt32(item.Value);
                 }
             }
 

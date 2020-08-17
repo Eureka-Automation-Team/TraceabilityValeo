@@ -50,6 +50,11 @@ namespace Trace.Domain.Models
         public string QRCodePath { get; set; }
         public int RepairTime { get; set; }  
         public bool FinishFlag { get; set; }
+        public int ModelRunningFlag { get; set; }
+        public string ModelRunningDesc
+        {
+            get { return (Enum.GetName(typeof(enumModelRunningResult), ModelRunningFlag)); }
+        }
 
         public StationModel Station { get; set; }
         public MachineModel Machine { get; set; }
@@ -64,5 +69,12 @@ namespace Trace.Domain.Models
         OK = 1,
         NOK = 2,
         ALARM = 3
+    }
+
+    enum enumModelRunningResult
+    {
+        //NA = 0,
+        Active = 1,
+        Passive = 2
     }
 }

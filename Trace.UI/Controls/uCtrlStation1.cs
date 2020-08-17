@@ -46,6 +46,7 @@ namespace Trace.UI.Controls
                     tighteningResultModelBindingSource.DataSource = _traceabilityLog.TighteningResults;
                     cameraResultModelBindingSource.DataSource = _traceabilityLog.CameraResults;
                     lblFinalResult.Text = _traceabilityLog.FinalResultDesc;
+                    txtModelRunningFlag.Text = _traceabilityLog.ModelRunningDesc;
 
                     if (_traceabilityLog.FinalResult == 1)
                     {
@@ -69,6 +70,7 @@ namespace Trace.UI.Controls
                     partAssemblyModelBindingSource.DataSource = null;
                     tighteningResultModelBindingSource.DataSource = null;
                     cameraResultModelBindingSource.DataSource = null;
+                    txtModelRunningFlag.Text = string.Empty;
 
                     lblFinalResult.Text = "";
                     lblFinalResult.BackColor = Color.White;
