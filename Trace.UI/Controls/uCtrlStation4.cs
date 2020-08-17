@@ -48,7 +48,7 @@ namespace Trace.UI.Controls
                     txtItemCode.Text = _traceabilityLog.ItemCode;                   
                     tighteningResultModelBindingSource.DataSource = _traceabilityLog.TighteningResults;
                     lblFinalResult.Text = _traceabilityLog.FinalResultDesc;
-                    txtModelRunningFlag.Text = _traceabilityLog.ModelRunningDesc;
+                    txtModelRunningFlag.Text = "LOWER " + _traceabilityLog.ModelRunningDesc.Replace("_", " ");
 
                     if (_traceabilityLog.FinalResult == 1)
                     {
@@ -99,12 +99,29 @@ namespace Trace.UI.Controls
         {
             if (MonitoringRailTime != null)
                 MonitoringRailTime(sender, e);
+
+            SetGrid();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (ShowTighteningRepairs != null)
                 ShowTighteningRepairs(sender, e);
+        }
+
+        public void SetGrid()
+        {
+            if (this.traceabilityLog != null)
+            {
+                if (this.traceabilityLog.ModelRunningFlag == 1)
+                {
+                    dataGridView1.Columns[13].Visible = true;
+                }
+                else if (this.traceabilityLog.ModelRunningFlag == 2)
+                {
+                    dataGridView1.Columns[13].Visible = false;
+                }
+            }
         }
     }
 }

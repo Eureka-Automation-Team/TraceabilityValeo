@@ -32,10 +32,10 @@ namespace Trace.UI.Controls
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uCtrlStation5));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -298,9 +298,9 @@ namespace Trace.UI.Controls
             // 
             this.tableLayoutPanel3.ColumnCount = 7;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 765F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 636F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
@@ -355,7 +355,7 @@ namespace Trace.UI.Controls
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(178, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(142, 48);
+            this.panel13.Size = new System.Drawing.Size(185, 48);
             this.panel13.TabIndex = 23;
             // 
             // label10
@@ -366,7 +366,7 @@ namespace Trace.UI.Controls
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(142, 48);
+            this.label10.Size = new System.Drawing.Size(185, 48);
             this.label10.TabIndex = 7;
             this.label10.Text = "Code";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -375,9 +375,9 @@ namespace Trace.UI.Controls
             // 
             this.panel14.Controls.Add(this.label11);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(326, 3);
+            this.panel14.Location = new System.Drawing.Point(369, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(394, 48);
+            this.panel14.Size = new System.Drawing.Size(480, 48);
             this.panel14.TabIndex = 25;
             // 
             // label11
@@ -388,7 +388,7 @@ namespace Trace.UI.Controls
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(394, 48);
+            this.label11.Size = new System.Drawing.Size(480, 48);
             this.label11.TabIndex = 8;
             this.label11.Text = "Part Serial No.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -447,7 +447,7 @@ namespace Trace.UI.Controls
             this.panel3.Location = new System.Drawing.Point(178, 57);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(142, 234);
+            this.panel3.Size = new System.Drawing.Size(185, 234);
             this.panel3.TabIndex = 27;
             // 
             // splitContainer2
@@ -465,7 +465,7 @@ namespace Trace.UI.Controls
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.txtLowerItemCode);
-            this.splitContainer2.Size = new System.Drawing.Size(142, 231);
+            this.splitContainer2.Size = new System.Drawing.Size(185, 231);
             this.splitContainer2.SplitterDistance = 108;
             this.splitContainer2.TabIndex = 19;
             // 
@@ -475,7 +475,7 @@ namespace Trace.UI.Controls
             this.txtUpperItemCode.Location = new System.Drawing.Point(0, 0);
             this.txtUpperItemCode.Name = "txtUpperItemCode";
             this.txtUpperItemCode.ReadOnly = true;
-            this.txtUpperItemCode.Size = new System.Drawing.Size(142, 23);
+            this.txtUpperItemCode.Size = new System.Drawing.Size(185, 23);
             this.txtUpperItemCode.TabIndex = 18;
             // 
             // txtLowerItemCode
@@ -484,17 +484,17 @@ namespace Trace.UI.Controls
             this.txtLowerItemCode.Location = new System.Drawing.Point(0, 0);
             this.txtLowerItemCode.Name = "txtLowerItemCode";
             this.txtLowerItemCode.ReadOnly = true;
-            this.txtLowerItemCode.Size = new System.Drawing.Size(142, 23);
+            this.txtLowerItemCode.Size = new System.Drawing.Size(185, 23);
             this.txtLowerItemCode.TabIndex = 19;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.splitContainer3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(326, 57);
+            this.panel4.Location = new System.Drawing.Point(369, 57);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(394, 234);
+            this.panel4.Size = new System.Drawing.Size(480, 234);
             this.panel4.TabIndex = 28;
             // 
             // splitContainer3
@@ -514,7 +514,7 @@ namespace Trace.UI.Controls
             // 
             this.splitContainer3.Panel2.Controls.Add(this.picQRCodeLower);
             this.splitContainer3.Panel2.Controls.Add(this.txtLowerPartSerialNumber);
-            this.splitContainer3.Size = new System.Drawing.Size(394, 231);
+            this.splitContainer3.Size = new System.Drawing.Size(480, 231);
             this.splitContainer3.SplitterDistance = 108;
             this.splitContainer3.TabIndex = 19;
             // 
@@ -534,7 +534,7 @@ namespace Trace.UI.Controls
             this.txtUpperPartSerialNumber.Location = new System.Drawing.Point(0, 0);
             this.txtUpperPartSerialNumber.Name = "txtUpperPartSerialNumber";
             this.txtUpperPartSerialNumber.ReadOnly = true;
-            this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(394, 23);
+            this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(480, 23);
             this.txtUpperPartSerialNumber.TabIndex = 18;
             // 
             // picQRCodeLower
@@ -553,26 +553,26 @@ namespace Trace.UI.Controls
             this.txtLowerPartSerialNumber.Location = new System.Drawing.Point(0, 0);
             this.txtLowerPartSerialNumber.Name = "txtLowerPartSerialNumber";
             this.txtLowerPartSerialNumber.ReadOnly = true;
-            this.txtLowerPartSerialNumber.Size = new System.Drawing.Size(394, 23);
+            this.txtLowerPartSerialNumber.Size = new System.Drawing.Size(480, 23);
             this.txtLowerPartSerialNumber.TabIndex = 19;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(726, 57);
+            this.panel5.Location = new System.Drawing.Point(855, 57);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(759, 234);
+            this.panel5.Size = new System.Drawing.Size(630, 234);
             this.panel5.TabIndex = 29;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.19355F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.67742F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.12903F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.29078F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.70922F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 366F));
             this.tableLayoutPanel1.Controls.Add(this.panel20, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel21, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel22, 2, 0);
@@ -583,7 +583,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 234);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(630, 234);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel20
@@ -592,7 +592,7 @@ namespace Trace.UI.Controls
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(3, 3);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(100, 228);
+            this.panel20.Size = new System.Drawing.Size(124, 228);
             this.panel20.TabIndex = 0;
             // 
             // splitContainer4
@@ -610,7 +610,7 @@ namespace Trace.UI.Controls
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.txtLowerActuator);
-            this.splitContainer4.Size = new System.Drawing.Size(100, 228);
+            this.splitContainer4.Size = new System.Drawing.Size(124, 228);
             this.splitContainer4.SplitterDistance = 109;
             this.splitContainer4.TabIndex = 23;
             // 
@@ -620,7 +620,7 @@ namespace Trace.UI.Controls
             this.txtUpperActuator.Location = new System.Drawing.Point(0, 0);
             this.txtUpperActuator.Name = "txtUpperActuator";
             this.txtUpperActuator.ReadOnly = true;
-            this.txtUpperActuator.Size = new System.Drawing.Size(100, 23);
+            this.txtUpperActuator.Size = new System.Drawing.Size(124, 23);
             this.txtUpperActuator.TabIndex = 22;
             // 
             // txtLowerActuator
@@ -629,16 +629,16 @@ namespace Trace.UI.Controls
             this.txtLowerActuator.Location = new System.Drawing.Point(0, 0);
             this.txtLowerActuator.Name = "txtLowerActuator";
             this.txtLowerActuator.ReadOnly = true;
-            this.txtLowerActuator.Size = new System.Drawing.Size(100, 23);
+            this.txtLowerActuator.Size = new System.Drawing.Size(124, 23);
             this.txtLowerActuator.TabIndex = 23;
             // 
             // panel21
             // 
             this.panel21.Controls.Add(this.splitContainer5);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(109, 3);
+            this.panel21.Location = new System.Drawing.Point(133, 3);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(117, 228);
+            this.panel21.Size = new System.Drawing.Size(127, 228);
             this.panel21.TabIndex = 1;
             // 
             // splitContainer5
@@ -656,7 +656,7 @@ namespace Trace.UI.Controls
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.txtLowerProductionDate);
-            this.splitContainer5.Size = new System.Drawing.Size(117, 228);
+            this.splitContainer5.Size = new System.Drawing.Size(127, 228);
             this.splitContainer5.SplitterDistance = 109;
             this.splitContainer5.TabIndex = 23;
             // 
@@ -666,7 +666,7 @@ namespace Trace.UI.Controls
             this.txtUpperProductionDate.Location = new System.Drawing.Point(0, 0);
             this.txtUpperProductionDate.Name = "txtUpperProductionDate";
             this.txtUpperProductionDate.ReadOnly = true;
-            this.txtUpperProductionDate.Size = new System.Drawing.Size(117, 23);
+            this.txtUpperProductionDate.Size = new System.Drawing.Size(127, 23);
             this.txtUpperProductionDate.TabIndex = 22;
             // 
             // txtLowerProductionDate
@@ -675,16 +675,16 @@ namespace Trace.UI.Controls
             this.txtLowerProductionDate.Location = new System.Drawing.Point(0, 0);
             this.txtLowerProductionDate.Name = "txtLowerProductionDate";
             this.txtLowerProductionDate.ReadOnly = true;
-            this.txtLowerProductionDate.Size = new System.Drawing.Size(117, 23);
+            this.txtLowerProductionDate.Size = new System.Drawing.Size(127, 23);
             this.txtLowerProductionDate.TabIndex = 23;
             // 
             // panel22
             // 
             this.panel22.Controls.Add(this.splitContainer6);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(232, 3);
+            this.panel22.Location = new System.Drawing.Point(266, 3);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(74, 228);
+            this.panel22.Size = new System.Drawing.Size(1, 228);
             this.panel22.TabIndex = 2;
             // 
             // splitContainer6
@@ -702,7 +702,7 @@ namespace Trace.UI.Controls
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.txtLowerSwNumber);
-            this.splitContainer6.Size = new System.Drawing.Size(74, 228);
+            this.splitContainer6.Size = new System.Drawing.Size(1, 228);
             this.splitContainer6.SplitterDistance = 108;
             this.splitContainer6.TabIndex = 23;
             // 
@@ -712,7 +712,7 @@ namespace Trace.UI.Controls
             this.txtUpperSwNumber.Location = new System.Drawing.Point(0, 0);
             this.txtUpperSwNumber.Name = "txtUpperSwNumber";
             this.txtUpperSwNumber.ReadOnly = true;
-            this.txtUpperSwNumber.Size = new System.Drawing.Size(74, 23);
+            this.txtUpperSwNumber.Size = new System.Drawing.Size(1, 23);
             this.txtUpperSwNumber.TabIndex = 22;
             // 
             // txtLowerSwNumber
@@ -721,16 +721,16 @@ namespace Trace.UI.Controls
             this.txtLowerSwNumber.Location = new System.Drawing.Point(0, 0);
             this.txtLowerSwNumber.Name = "txtLowerSwNumber";
             this.txtLowerSwNumber.ReadOnly = true;
-            this.txtLowerSwNumber.Size = new System.Drawing.Size(74, 23);
+            this.txtLowerSwNumber.Size = new System.Drawing.Size(1, 23);
             this.txtLowerSwNumber.TabIndex = 23;
             // 
             // panel28
             // 
             this.panel28.Controls.Add(this.splitContainer7);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(312, 3);
+            this.panel28.Location = new System.Drawing.Point(266, 3);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(122, 228);
+            this.panel28.Size = new System.Drawing.Size(1, 228);
             this.panel28.TabIndex = 3;
             // 
             // splitContainer7
@@ -748,7 +748,7 @@ namespace Trace.UI.Controls
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.txtLowerLineErrorCounter);
-            this.splitContainer7.Size = new System.Drawing.Size(122, 228);
+            this.splitContainer7.Size = new System.Drawing.Size(1, 228);
             this.splitContainer7.SplitterDistance = 108;
             this.splitContainer7.TabIndex = 23;
             // 
@@ -758,7 +758,7 @@ namespace Trace.UI.Controls
             this.txtUpperLineErrorCounter.Location = new System.Drawing.Point(0, 0);
             this.txtUpperLineErrorCounter.Name = "txtUpperLineErrorCounter";
             this.txtUpperLineErrorCounter.ReadOnly = true;
-            this.txtUpperLineErrorCounter.Size = new System.Drawing.Size(122, 23);
+            this.txtUpperLineErrorCounter.Size = new System.Drawing.Size(1, 23);
             this.txtUpperLineErrorCounter.TabIndex = 22;
             // 
             // txtLowerLineErrorCounter
@@ -767,16 +767,16 @@ namespace Trace.UI.Controls
             this.txtLowerLineErrorCounter.Location = new System.Drawing.Point(0, 0);
             this.txtLowerLineErrorCounter.Name = "txtLowerLineErrorCounter";
             this.txtLowerLineErrorCounter.ReadOnly = true;
-            this.txtLowerLineErrorCounter.Size = new System.Drawing.Size(122, 23);
+            this.txtLowerLineErrorCounter.Size = new System.Drawing.Size(1, 23);
             this.txtLowerLineErrorCounter.TabIndex = 23;
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.splitContainer8);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(440, 3);
+            this.panel8.Location = new System.Drawing.Point(266, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(316, 228);
+            this.panel8.Size = new System.Drawing.Size(361, 228);
             this.panel8.TabIndex = 4;
             // 
             // splitContainer8
@@ -794,7 +794,7 @@ namespace Trace.UI.Controls
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.dgvEOLLower);
-            this.splitContainer8.Size = new System.Drawing.Size(316, 228);
+            this.splitContainer8.Size = new System.Drawing.Size(361, 228);
             this.splitContainer8.SplitterDistance = 108;
             this.splitContainer8.TabIndex = 0;
             // 
@@ -806,14 +806,14 @@ namespace Trace.UI.Controls
             this.dgvEOLUpper.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEOLUpper.BackgroundColor = System.Drawing.Color.White;
             this.dgvEOLUpper.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEOLUpper.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEOLUpper.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvEOLUpper.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEOLUpper.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.JointMin,
@@ -856,7 +856,7 @@ namespace Trace.UI.Controls
             this.dgvEOLUpper.Name = "dgvEOLUpper";
             this.dgvEOLUpper.RowHeadersVisible = false;
             this.dgvEOLUpper.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEOLUpper.Size = new System.Drawing.Size(316, 108);
+            this.dgvEOLUpper.Size = new System.Drawing.Size(361, 108);
             this.dgvEOLUpper.TabIndex = 25;
             // 
             // JointMin
@@ -1146,14 +1146,14 @@ namespace Trace.UI.Controls
             this.dgvEOLLower.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEOLLower.BackgroundColor = System.Drawing.Color.White;
             this.dgvEOLLower.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEOLLower.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEOLLower.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvEOLLower.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEOLLower.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1196,7 +1196,7 @@ namespace Trace.UI.Controls
             this.dgvEOLLower.Name = "dgvEOLLower";
             this.dgvEOLLower.RowHeadersVisible = false;
             this.dgvEOLLower.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEOLLower.Size = new System.Drawing.Size(316, 116);
+            this.dgvEOLLower.Size = new System.Drawing.Size(361, 116);
             this.dgvEOLLower.TabIndex = 26;
             // 
             // dataGridViewTextBoxColumn1
@@ -1483,19 +1483,19 @@ namespace Trace.UI.Controls
             this.panel6.Controls.Add(this.tableLayoutPanel2);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(726, 3);
+            this.panel6.Location = new System.Drawing.Point(855, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(759, 48);
+            this.panel6.Size = new System.Drawing.Size(630, 48);
             this.panel6.TabIndex = 30;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.71758F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.46243F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.01156F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 323F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.82079F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.17921F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 369F));
             this.tableLayoutPanel2.Controls.Add(this.panel23, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel24, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel25, 2, 0);
@@ -1506,7 +1506,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(759, 24);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(630, 24);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
             // panel23
@@ -1515,7 +1515,7 @@ namespace Trace.UI.Controls
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(97, 18);
+            this.panel23.Size = new System.Drawing.Size(124, 18);
             this.panel23.TabIndex = 0;
             // 
             // label6
@@ -1526,7 +1526,7 @@ namespace Trace.UI.Controls
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 18);
+            this.label6.Size = new System.Drawing.Size(124, 18);
             this.label6.TabIndex = 9;
             this.label6.Text = "Actuator No.";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1535,9 +1535,9 @@ namespace Trace.UI.Controls
             // 
             this.panel24.Controls.Add(this.label7);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(106, 3);
+            this.panel24.Location = new System.Drawing.Point(133, 3);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(118, 18);
+            this.panel24.Size = new System.Drawing.Size(124, 18);
             this.panel24.TabIndex = 1;
             // 
             // label7
@@ -1548,7 +1548,7 @@ namespace Trace.UI.Controls
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 18);
+            this.label7.Size = new System.Drawing.Size(124, 18);
             this.label7.TabIndex = 9;
             this.label7.Text = "Production Date";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1557,9 +1557,9 @@ namespace Trace.UI.Controls
             // 
             this.panel25.Controls.Add(this.label8);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(230, 3);
+            this.panel25.Location = new System.Drawing.Point(263, 3);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(74, 18);
+            this.panel25.Size = new System.Drawing.Size(1, 18);
             this.panel25.TabIndex = 2;
             // 
             // label8
@@ -1570,7 +1570,7 @@ namespace Trace.UI.Controls
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 18);
+            this.label8.Size = new System.Drawing.Size(1, 18);
             this.label8.TabIndex = 9;
             this.label8.Text = "SW No.";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1579,9 +1579,9 @@ namespace Trace.UI.Controls
             // 
             this.panel27.Controls.Add(this.label5);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel27.Location = new System.Drawing.Point(310, 3);
+            this.panel27.Location = new System.Drawing.Point(263, 3);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(121, 18);
+            this.panel27.Size = new System.Drawing.Size(1, 18);
             this.panel27.TabIndex = 3;
             // 
             // label5
@@ -1592,7 +1592,7 @@ namespace Trace.UI.Controls
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 18);
+            this.label5.Size = new System.Drawing.Size(1, 18);
             this.label5.TabIndex = 10;
             this.label5.Text = "LIN Error Code";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1601,9 +1601,9 @@ namespace Trace.UI.Controls
             // 
             this.panel7.Controls.Add(this.label3);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(437, 3);
+            this.panel7.Location = new System.Drawing.Point(263, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(319, 18);
+            this.panel7.Size = new System.Drawing.Size(364, 18);
             this.panel7.TabIndex = 4;
             // 
             // label3
@@ -1614,7 +1614,7 @@ namespace Trace.UI.Controls
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(319, 18);
+            this.label3.Size = new System.Drawing.Size(364, 18);
             this.label3.TabIndex = 11;
             this.label3.Text = "Result";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1627,7 +1627,7 @@ namespace Trace.UI.Controls
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(759, 24);
+            this.label1.Size = new System.Drawing.Size(630, 24);
             this.label1.TabIndex = 9;
             this.label1.Text = "EOL Test";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1833,14 +1833,14 @@ namespace Trace.UI.Controls
             this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cameraNameDataGridViewTextBoxColumn,
@@ -1954,14 +1954,14 @@ namespace Trace.UI.Controls
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn32,

@@ -180,6 +180,8 @@ namespace Trace.UI.Controls
         {
             if (MonitoringRailTime != null)
                 MonitoringRailTime(sender, e);
+
+            SetGrid();
         }
 
         public void GenerateQrCode()
@@ -203,6 +205,37 @@ namespace Trace.UI.Controls
 
                 if (traceabilityLowerLog != null)
                     picQRCodeLower.Image = image;
+            }
+        }
+
+        public void SetGrid()
+        {
+            if (this.traceabilityUpperLog != null)
+            {
+                if (this.traceabilityUpperLog.ModelRunningFlag == 1)
+                {
+                    dgvEOLUpper.Columns[22].Visible = true;
+                    dataGridView3.Columns[1].Visible = true;
+                }
+                else if (this.traceabilityUpperLog.ModelRunningFlag == 2)
+                {
+                    dgvEOLUpper.Columns[22].Visible = false;
+                    dataGridView3.Columns[1].Visible = false;
+                }
+            }
+
+            if (this.traceabilityLowerLog != null)
+            { 
+                if (this.traceabilityLowerLog.ModelRunningFlag == 1)
+                {
+                    dgvEOLLower.Columns[22].Visible = true;
+                    dataGridView1.Columns[1].Visible = true;
+                }
+                else if (this.traceabilityLowerLog.ModelRunningFlag == 2)
+                {
+                    dgvEOLLower.Columns[22].Visible = false;
+                    dataGridView1.Columns[1].Visible = false;
+                }
             }
         }
     }

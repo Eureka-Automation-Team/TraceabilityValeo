@@ -32,18 +32,26 @@ namespace Trace.UI.Presenters
 
         private void Selected(object sender, EventArgs e)
         {
-            var current = (TraceabilityLogModel)_view.DataBinding.Current;
-
-            if(current != null)
+            try
             {
-                var logsRelate = _serviceTraceLog.GetListByItemCode(current.ItemCode);
+                var current = (TraceabilityLogModel)_view.DataBinding.Current;
 
-                using(SearchDetailForm frm = new SearchDetailForm())
+                if (current != null)
                 {
-                    frm.logList = logsRelate.ToList();
-                    frm.ShowDialog();
+                    var logsRelate = _serviceTraceLog.GetListByItemCode(current.ItemCode);
+
+                    using (SearchDetailForm frm = new SearchDetailForm())
+                    {
+                        frm.logList = logsRelate.ToList();
+                        frm.ShowDialog();
+                    }
                 }
             }
+            catch
+            {
+                return;
+            }
+
         }
 
         private async void Search(object sender, EventArgs e)

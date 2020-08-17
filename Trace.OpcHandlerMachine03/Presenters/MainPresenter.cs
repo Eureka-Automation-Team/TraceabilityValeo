@@ -34,7 +34,7 @@ namespace Trace.OpcHandlerMachine03.Presenters
             _view.FormLoad += Initailization;
             _view.Connect_Click += Connect;
             _view.Disconnect_Click += Disconnect;
-            _view.InterLock += InterLock;
+            //_view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
             _view.KeepLogging += KeepLogging;
             _view.RefreshData += RefreshData;

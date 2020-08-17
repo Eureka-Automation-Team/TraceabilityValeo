@@ -74,7 +74,7 @@ namespace Trace.Domain.Models
     enum enumModelRunningResult
     {
         //NA = 0,
-        Active = 1,
-        Passive = 2
+        ACTIVE_AGS = 1,
+        PASSIVE_AGS = 2
     }
 }

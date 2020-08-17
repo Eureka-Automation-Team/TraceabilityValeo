@@ -46,7 +46,7 @@ namespace Trace.UI.Controls
                     tighteningResultModelBindingSource.DataSource = _traceabilityLog.TighteningResults;
                     cameraResultModelBindingSource.DataSource = _traceabilityLog.CameraResults;
                     lblFinalResult.Text = _traceabilityLog.FinalResultDesc;
-                    txtModelRunningFlag.Text = _traceabilityLog.ModelRunningDesc;
+                    txtModelRunningFlag.Text = "UPPER " + _traceabilityLog.ModelRunningDesc.Replace("_", " ");
 
                     if (_traceabilityLog.FinalResult == 1)
                     {
@@ -98,12 +98,29 @@ namespace Trace.UI.Controls
         {
             if (MonitoringRailTime != null)
                 MonitoringRailTime(sender, e);
+
+            SetGrid();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (ShowTighteningRepairs != null)
                 ShowTighteningRepairs(sender, e);
+        }
+
+        public void SetGrid()
+        {
+            if(this.traceabilityLog != null)
+            {
+                if(this.traceabilityLog.ModelRunningFlag == 1)
+                {
+                    dataGridView1.Columns[14].Visible = true;
+                }
+                else if (this.traceabilityLog.ModelRunningFlag == 2)
+                {
+                    dataGridView1.Columns[14].Visible = false;
+                }
+            }
         }
     }
 }

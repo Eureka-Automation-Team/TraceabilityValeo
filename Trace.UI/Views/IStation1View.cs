@@ -18,5 +18,7 @@ namespace Trace.UI.Views
         TraceabilityLogModel traceabilityLog { get; set; }
 
         void EnableTimer(bool enable);
+
+        void SetGrid();
     }
 }

@@ -57,6 +57,23 @@
             this.txtitemCode = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvList = new System.Windows.Forms.DataGridView();
+            this.traceabilityLogModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavCategory = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuSearch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuClear = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuDetail = new System.Windows.Forms.ToolStripButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.stationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,23 +109,6 @@
             this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceabilityLogModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavCategory = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuSearch = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuClear = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuDetail = new System.Windows.Forms.ToolStripButton();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -141,7 +141,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(41, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -189,7 +189,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.28671F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.71329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 489F));
             this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 1);
@@ -212,9 +212,9 @@
             // panel15
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(708, 69);
+            this.panel15.Location = new System.Drawing.Point(707, 69);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(483, 36);
+            this.panel15.Size = new System.Drawing.Size(484, 36);
             this.panel15.TabIndex = 10;
             // 
             // panel14
@@ -223,7 +223,7 @@
             this.panel14.Controls.Add(this.dtpendDate);
             this.panel14.Controls.Add(this.dtpstartDate);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(238, 69);
+            this.panel14.Location = new System.Drawing.Point(237, 69);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(464, 36);
             this.panel14.TabIndex = 9;
@@ -259,16 +259,16 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(708, 36);
+            this.panel12.Location = new System.Drawing.Point(707, 36);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(483, 27);
+            this.panel12.Size = new System.Drawing.Size(484, 27);
             this.panel12.TabIndex = 7;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.txtpartSerialNo);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(238, 36);
+            this.panel11.Location = new System.Drawing.Point(237, 36);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(464, 27);
             this.panel11.TabIndex = 6;
@@ -284,9 +284,9 @@
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(708, 3);
+            this.panel9.Location = new System.Drawing.Point(707, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(483, 27);
+            this.panel9.Size = new System.Drawing.Size(484, 27);
             this.panel9.TabIndex = 4;
             // 
             // panel5
@@ -295,18 +295,18 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(229, 27);
+            this.panel5.Size = new System.Drawing.Size(228, 27);
             this.panel5.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(229, 24);
+            this.label6.Size = new System.Drawing.Size(228, 24);
             this.label6.TabIndex = 7;
             this.label6.Text = "Item Code";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,18 +317,18 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 36);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(229, 27);
+            this.panel6.Size = new System.Drawing.Size(228, 27);
             this.panel6.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(229, 24);
+            this.label2.Size = new System.Drawing.Size(228, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Part Serial No.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -339,18 +339,18 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 69);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(229, 36);
+            this.panel7.Size = new System.Drawing.Size(228, 36);
             this.panel7.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 24);
+            this.label3.Size = new System.Drawing.Size(228, 24);
             this.label3.TabIndex = 8;
             this.label3.Text = "Date From-To";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -359,7 +359,7 @@
             // 
             this.panel8.Controls.Add(this.txtitemCode);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(238, 3);
+            this.panel8.Location = new System.Drawing.Point(237, 3);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(464, 27);
             this.panel8.TabIndex = 3;
@@ -445,245 +445,6 @@
             this.dgvList.Size = new System.Drawing.Size(1200, 337);
             this.dgvList.TabIndex = 25;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
-            // 
-            // stationIdDataGridViewTextBoxColumn
-            // 
-            this.stationIdDataGridViewTextBoxColumn.DataPropertyName = "StationId";
-            this.stationIdDataGridViewTextBoxColumn.HeaderText = "Station";
-            this.stationIdDataGridViewTextBoxColumn.Name = "stationIdDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Machine";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemCodeDataGridViewTextBoxColumn
-            // 
-            this.itemCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.itemCodeDataGridViewTextBoxColumn.DataPropertyName = "ItemCode";
-            this.itemCodeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
-            this.itemCodeDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // modelRunningDataGridViewTextBoxColumn
-            // 
-            this.modelRunningDataGridViewTextBoxColumn.DataPropertyName = "ModelRunning";
-            this.modelRunningDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelRunningDataGridViewTextBoxColumn.Name = "modelRunningDataGridViewTextBoxColumn";
-            // 
-            // partSerialNumberDataGridViewTextBoxColumn
-            // 
-            this.partSerialNumberDataGridViewTextBoxColumn.DataPropertyName = "PartSerialNumber";
-            this.partSerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number";
-            this.partSerialNumberDataGridViewTextBoxColumn.Name = "partSerialNumberDataGridViewTextBoxColumn";
-            // 
-            // actuatorDataGridViewTextBoxColumn
-            // 
-            this.actuatorDataGridViewTextBoxColumn.DataPropertyName = "Actuator";
-            this.actuatorDataGridViewTextBoxColumn.HeaderText = "Actuator No";
-            this.actuatorDataGridViewTextBoxColumn.Name = "actuatorDataGridViewTextBoxColumn";
-            // 
-            // productionDateDataGridViewTextBoxColumn
-            // 
-            this.productionDateDataGridViewTextBoxColumn.DataPropertyName = "ProductionDate";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.productionDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.productionDateDataGridViewTextBoxColumn.HeaderText = "Production Date";
-            this.productionDateDataGridViewTextBoxColumn.Name = "productionDateDataGridViewTextBoxColumn";
-            // 
-            // swNumberDataGridViewTextBoxColumn
-            // 
-            this.swNumberDataGridViewTextBoxColumn.DataPropertyName = "SwNumber";
-            this.swNumberDataGridViewTextBoxColumn.HeaderText = "SW Number";
-            this.swNumberDataGridViewTextBoxColumn.Name = "swNumberDataGridViewTextBoxColumn";
-            // 
-            // currentMaximumDataGridViewTextBoxColumn
-            // 
-            this.currentMaximumDataGridViewTextBoxColumn.DataPropertyName = "CurrentMaximum";
-            this.currentMaximumDataGridViewTextBoxColumn.HeaderText = "Current Maximum";
-            this.currentMaximumDataGridViewTextBoxColumn.Name = "currentMaximumDataGridViewTextBoxColumn";
-            // 
-            // openAngleDataGridViewTextBoxColumn
-            // 
-            this.openAngleDataGridViewTextBoxColumn.DataPropertyName = "OpenAngle";
-            this.openAngleDataGridViewTextBoxColumn.HeaderText = "Open Angle";
-            this.openAngleDataGridViewTextBoxColumn.Name = "openAngleDataGridViewTextBoxColumn";
-            // 
-            // lineErrorCounterDataGridViewTextBoxColumn
-            // 
-            this.lineErrorCounterDataGridViewTextBoxColumn.DataPropertyName = "LineErrorCounter";
-            this.lineErrorCounterDataGridViewTextBoxColumn.HeaderText = "Line Error Counter";
-            this.lineErrorCounterDataGridViewTextBoxColumn.Name = "lineErrorCounterDataGridViewTextBoxColumn";
-            // 
-            // attribute1DataGridViewTextBoxColumn
-            // 
-            this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
-            this.attribute1DataGridViewTextBoxColumn.HeaderText = "Camera Check";
-            this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
-            // 
-            // attribute2DataGridViewTextBoxColumn
-            // 
-            this.attribute2DataGridViewTextBoxColumn.DataPropertyName = "Attribute2";
-            this.attribute2DataGridViewTextBoxColumn.HeaderText = "Attribute2";
-            this.attribute2DataGridViewTextBoxColumn.Name = "attribute2DataGridViewTextBoxColumn";
-            this.attribute2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute3DataGridViewTextBoxColumn
-            // 
-            this.attribute3DataGridViewTextBoxColumn.DataPropertyName = "Attribute3";
-            this.attribute3DataGridViewTextBoxColumn.HeaderText = "Attribute3";
-            this.attribute3DataGridViewTextBoxColumn.Name = "attribute3DataGridViewTextBoxColumn";
-            this.attribute3DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute4DataGridViewTextBoxColumn
-            // 
-            this.attribute4DataGridViewTextBoxColumn.DataPropertyName = "Attribute4";
-            this.attribute4DataGridViewTextBoxColumn.HeaderText = "Attribute4";
-            this.attribute4DataGridViewTextBoxColumn.Name = "attribute4DataGridViewTextBoxColumn";
-            this.attribute4DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute5DataGridViewTextBoxColumn
-            // 
-            this.attribute5DataGridViewTextBoxColumn.DataPropertyName = "Attribute5";
-            this.attribute5DataGridViewTextBoxColumn.HeaderText = "Attribute5";
-            this.attribute5DataGridViewTextBoxColumn.Name = "attribute5DataGridViewTextBoxColumn";
-            this.attribute5DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute6DataGridViewTextBoxColumn
-            // 
-            this.attribute6DataGridViewTextBoxColumn.DataPropertyName = "Attribute6";
-            this.attribute6DataGridViewTextBoxColumn.HeaderText = "Attribute6";
-            this.attribute6DataGridViewTextBoxColumn.Name = "attribute6DataGridViewTextBoxColumn";
-            this.attribute6DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute7DataGridViewTextBoxColumn
-            // 
-            this.attribute7DataGridViewTextBoxColumn.DataPropertyName = "Attribute7";
-            this.attribute7DataGridViewTextBoxColumn.HeaderText = "Attribute7";
-            this.attribute7DataGridViewTextBoxColumn.Name = "attribute7DataGridViewTextBoxColumn";
-            this.attribute7DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute8DataGridViewTextBoxColumn
-            // 
-            this.attribute8DataGridViewTextBoxColumn.DataPropertyName = "Attribute8";
-            this.attribute8DataGridViewTextBoxColumn.HeaderText = "Attribute8";
-            this.attribute8DataGridViewTextBoxColumn.Name = "attribute8DataGridViewTextBoxColumn";
-            this.attribute8DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute9DataGridViewTextBoxColumn
-            // 
-            this.attribute9DataGridViewTextBoxColumn.DataPropertyName = "Attribute9";
-            this.attribute9DataGridViewTextBoxColumn.HeaderText = "Attribute9";
-            this.attribute9DataGridViewTextBoxColumn.Name = "attribute9DataGridViewTextBoxColumn";
-            this.attribute9DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // attribute10DataGridViewTextBoxColumn
-            // 
-            this.attribute10DataGridViewTextBoxColumn.DataPropertyName = "Attribute10";
-            this.attribute10DataGridViewTextBoxColumn.HeaderText = "Attribute10";
-            this.attribute10DataGridViewTextBoxColumn.Name = "attribute10DataGridViewTextBoxColumn";
-            this.attribute10DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // maxRepairTimeDataGridViewTextBoxColumn
-            // 
-            this.maxRepairTimeDataGridViewTextBoxColumn.DataPropertyName = "MaxRepairTime";
-            this.maxRepairTimeDataGridViewTextBoxColumn.HeaderText = "MaxRepairTime";
-            this.maxRepairTimeDataGridViewTextBoxColumn.Name = "maxRepairTimeDataGridViewTextBoxColumn";
-            this.maxRepairTimeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // resultDataGridViewTextBoxColumn
-            // 
-            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
-            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
-            this.resultDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // finalResultDataGridViewTextBoxColumn
-            // 
-            this.finalResultDataGridViewTextBoxColumn.DataPropertyName = "FinalResult";
-            this.finalResultDataGridViewTextBoxColumn.HeaderText = "FinalResult";
-            this.finalResultDataGridViewTextBoxColumn.Name = "finalResultDataGridViewTextBoxColumn";
-            this.finalResultDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // finalResultDescDataGridViewTextBoxColumn
-            // 
-            this.finalResultDescDataGridViewTextBoxColumn.DataPropertyName = "FinalResultDesc";
-            this.finalResultDescDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.finalResultDescDataGridViewTextBoxColumn.Name = "finalResultDescDataGridViewTextBoxColumn";
-            this.finalResultDescDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // imagePathDataGridViewTextBoxColumn
-            // 
-            this.imagePathDataGridViewTextBoxColumn.DataPropertyName = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.HeaderText = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.Name = "imagePathDataGridViewTextBoxColumn";
-            this.imagePathDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // qRCodePathDataGridViewTextBoxColumn
-            // 
-            this.qRCodePathDataGridViewTextBoxColumn.DataPropertyName = "QRCodePath";
-            this.qRCodePathDataGridViewTextBoxColumn.HeaderText = "QRCodePath";
-            this.qRCodePathDataGridViewTextBoxColumn.Name = "qRCodePathDataGridViewTextBoxColumn";
-            this.qRCodePathDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // repairTimeDataGridViewTextBoxColumn
-            // 
-            this.repairTimeDataGridViewTextBoxColumn.DataPropertyName = "RepairTime";
-            this.repairTimeDataGridViewTextBoxColumn.HeaderText = "RepairTime";
-            this.repairTimeDataGridViewTextBoxColumn.Name = "repairTimeDataGridViewTextBoxColumn";
-            this.repairTimeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // stationDataGridViewTextBoxColumn
-            // 
-            this.stationDataGridViewTextBoxColumn.DataPropertyName = "Station";
-            this.stationDataGridViewTextBoxColumn.HeaderText = "Station";
-            this.stationDataGridViewTextBoxColumn.Name = "stationDataGridViewTextBoxColumn";
-            this.stationDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // machineDataGridViewTextBoxColumn
-            // 
-            this.machineDataGridViewTextBoxColumn.DataPropertyName = "Machine";
-            this.machineDataGridViewTextBoxColumn.HeaderText = "Machine";
-            this.machineDataGridViewTextBoxColumn.Name = "machineDataGridViewTextBoxColumn";
-            this.machineDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // lastUpdateDateDataGridViewTextBoxColumn
-            // 
-            this.lastUpdateDateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn.HeaderText = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn.Name = "lastUpdateDateDataGridViewTextBoxColumn";
-            this.lastUpdateDateDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // lastUpdatedByDataGridViewTextBoxColumn
-            // 
-            this.lastUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn.HeaderText = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn.Name = "lastUpdatedByDataGridViewTextBoxColumn";
-            this.lastUpdatedByDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // creationDateDataGridViewTextBoxColumn
-            // 
-            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn.HeaderText = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
-            this.creationDateDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            this.createdByDataGridViewTextBoxColumn.Visible = false;
             // 
             // traceabilityLogModelBindingSource
             // 
@@ -852,6 +613,247 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1200, 40);
             this.panel4.TabIndex = 10;
+            // 
+            // stationIdDataGridViewTextBoxColumn
+            // 
+            this.stationIdDataGridViewTextBoxColumn.DataPropertyName = "StationId";
+            this.stationIdDataGridViewTextBoxColumn.HeaderText = "Station";
+            this.stationIdDataGridViewTextBoxColumn.Name = "stationIdDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Machine";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemCodeDataGridViewTextBoxColumn
+            // 
+            this.itemCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.itemCodeDataGridViewTextBoxColumn.DataPropertyName = "ItemCode";
+            this.itemCodeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
+            this.itemCodeDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // modelRunningDataGridViewTextBoxColumn
+            // 
+            this.modelRunningDataGridViewTextBoxColumn.DataPropertyName = "ModelRunning";
+            this.modelRunningDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelRunningDataGridViewTextBoxColumn.Name = "modelRunningDataGridViewTextBoxColumn";
+            // 
+            // partSerialNumberDataGridViewTextBoxColumn
+            // 
+            this.partSerialNumberDataGridViewTextBoxColumn.DataPropertyName = "PartSerialNumber";
+            this.partSerialNumberDataGridViewTextBoxColumn.HeaderText = "Part Serial No.";
+            this.partSerialNumberDataGridViewTextBoxColumn.Name = "partSerialNumberDataGridViewTextBoxColumn";
+            // 
+            // actuatorDataGridViewTextBoxColumn
+            // 
+            this.actuatorDataGridViewTextBoxColumn.DataPropertyName = "Actuator";
+            this.actuatorDataGridViewTextBoxColumn.HeaderText = "Actuator No";
+            this.actuatorDataGridViewTextBoxColumn.Name = "actuatorDataGridViewTextBoxColumn";
+            // 
+            // productionDateDataGridViewTextBoxColumn
+            // 
+            this.productionDateDataGridViewTextBoxColumn.DataPropertyName = "ProductionDate";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.productionDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.productionDateDataGridViewTextBoxColumn.HeaderText = "Production Date";
+            this.productionDateDataGridViewTextBoxColumn.Name = "productionDateDataGridViewTextBoxColumn";
+            // 
+            // swNumberDataGridViewTextBoxColumn
+            // 
+            this.swNumberDataGridViewTextBoxColumn.DataPropertyName = "SwNumber";
+            this.swNumberDataGridViewTextBoxColumn.HeaderText = "SW Number";
+            this.swNumberDataGridViewTextBoxColumn.Name = "swNumberDataGridViewTextBoxColumn";
+            this.swNumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // currentMaximumDataGridViewTextBoxColumn
+            // 
+            this.currentMaximumDataGridViewTextBoxColumn.DataPropertyName = "CurrentMaximum";
+            this.currentMaximumDataGridViewTextBoxColumn.HeaderText = "EOL Current (mA)";
+            this.currentMaximumDataGridViewTextBoxColumn.Name = "currentMaximumDataGridViewTextBoxColumn";
+            // 
+            // openAngleDataGridViewTextBoxColumn
+            // 
+            this.openAngleDataGridViewTextBoxColumn.DataPropertyName = "OpenAngle";
+            this.openAngleDataGridViewTextBoxColumn.HeaderText = "Open Angle";
+            this.openAngleDataGridViewTextBoxColumn.Name = "openAngleDataGridViewTextBoxColumn";
+            // 
+            // lineErrorCounterDataGridViewTextBoxColumn
+            // 
+            this.lineErrorCounterDataGridViewTextBoxColumn.DataPropertyName = "LineErrorCounter";
+            this.lineErrorCounterDataGridViewTextBoxColumn.HeaderText = "Line Error Counter";
+            this.lineErrorCounterDataGridViewTextBoxColumn.Name = "lineErrorCounterDataGridViewTextBoxColumn";
+            this.lineErrorCounterDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute1DataGridViewTextBoxColumn
+            // 
+            this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
+            this.attribute1DataGridViewTextBoxColumn.HeaderText = "Camera Check Linkage";
+            this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
+            // 
+            // attribute2DataGridViewTextBoxColumn
+            // 
+            this.attribute2DataGridViewTextBoxColumn.DataPropertyName = "Attribute2";
+            this.attribute2DataGridViewTextBoxColumn.HeaderText = "Attribute2";
+            this.attribute2DataGridViewTextBoxColumn.Name = "attribute2DataGridViewTextBoxColumn";
+            this.attribute2DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute3DataGridViewTextBoxColumn
+            // 
+            this.attribute3DataGridViewTextBoxColumn.DataPropertyName = "Attribute3";
+            this.attribute3DataGridViewTextBoxColumn.HeaderText = "Attribute3";
+            this.attribute3DataGridViewTextBoxColumn.Name = "attribute3DataGridViewTextBoxColumn";
+            this.attribute3DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute4DataGridViewTextBoxColumn
+            // 
+            this.attribute4DataGridViewTextBoxColumn.DataPropertyName = "Attribute4";
+            this.attribute4DataGridViewTextBoxColumn.HeaderText = "Attribute4";
+            this.attribute4DataGridViewTextBoxColumn.Name = "attribute4DataGridViewTextBoxColumn";
+            this.attribute4DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute5DataGridViewTextBoxColumn
+            // 
+            this.attribute5DataGridViewTextBoxColumn.DataPropertyName = "Attribute5";
+            this.attribute5DataGridViewTextBoxColumn.HeaderText = "Attribute5";
+            this.attribute5DataGridViewTextBoxColumn.Name = "attribute5DataGridViewTextBoxColumn";
+            this.attribute5DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute6DataGridViewTextBoxColumn
+            // 
+            this.attribute6DataGridViewTextBoxColumn.DataPropertyName = "Attribute6";
+            this.attribute6DataGridViewTextBoxColumn.HeaderText = "Attribute6";
+            this.attribute6DataGridViewTextBoxColumn.Name = "attribute6DataGridViewTextBoxColumn";
+            this.attribute6DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute7DataGridViewTextBoxColumn
+            // 
+            this.attribute7DataGridViewTextBoxColumn.DataPropertyName = "Attribute7";
+            this.attribute7DataGridViewTextBoxColumn.HeaderText = "Attribute7";
+            this.attribute7DataGridViewTextBoxColumn.Name = "attribute7DataGridViewTextBoxColumn";
+            this.attribute7DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute8DataGridViewTextBoxColumn
+            // 
+            this.attribute8DataGridViewTextBoxColumn.DataPropertyName = "Attribute8";
+            this.attribute8DataGridViewTextBoxColumn.HeaderText = "Attribute8";
+            this.attribute8DataGridViewTextBoxColumn.Name = "attribute8DataGridViewTextBoxColumn";
+            this.attribute8DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute9DataGridViewTextBoxColumn
+            // 
+            this.attribute9DataGridViewTextBoxColumn.DataPropertyName = "Attribute9";
+            this.attribute9DataGridViewTextBoxColumn.HeaderText = "Attribute9";
+            this.attribute9DataGridViewTextBoxColumn.Name = "attribute9DataGridViewTextBoxColumn";
+            this.attribute9DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // attribute10DataGridViewTextBoxColumn
+            // 
+            this.attribute10DataGridViewTextBoxColumn.DataPropertyName = "Attribute10";
+            this.attribute10DataGridViewTextBoxColumn.HeaderText = "Attribute10";
+            this.attribute10DataGridViewTextBoxColumn.Name = "attribute10DataGridViewTextBoxColumn";
+            this.attribute10DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // maxRepairTimeDataGridViewTextBoxColumn
+            // 
+            this.maxRepairTimeDataGridViewTextBoxColumn.DataPropertyName = "MaxRepairTime";
+            this.maxRepairTimeDataGridViewTextBoxColumn.HeaderText = "MaxRepairTime";
+            this.maxRepairTimeDataGridViewTextBoxColumn.Name = "maxRepairTimeDataGridViewTextBoxColumn";
+            this.maxRepairTimeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // resultDataGridViewTextBoxColumn
+            // 
+            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
+            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
+            this.resultDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // finalResultDataGridViewTextBoxColumn
+            // 
+            this.finalResultDataGridViewTextBoxColumn.DataPropertyName = "FinalResult";
+            this.finalResultDataGridViewTextBoxColumn.HeaderText = "FinalResult";
+            this.finalResultDataGridViewTextBoxColumn.Name = "finalResultDataGridViewTextBoxColumn";
+            this.finalResultDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // finalResultDescDataGridViewTextBoxColumn
+            // 
+            this.finalResultDescDataGridViewTextBoxColumn.DataPropertyName = "FinalResultDesc";
+            this.finalResultDescDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.finalResultDescDataGridViewTextBoxColumn.Name = "finalResultDescDataGridViewTextBoxColumn";
+            this.finalResultDescDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // imagePathDataGridViewTextBoxColumn
+            // 
+            this.imagePathDataGridViewTextBoxColumn.DataPropertyName = "ImagePath";
+            this.imagePathDataGridViewTextBoxColumn.HeaderText = "ImagePath";
+            this.imagePathDataGridViewTextBoxColumn.Name = "imagePathDataGridViewTextBoxColumn";
+            this.imagePathDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // qRCodePathDataGridViewTextBoxColumn
+            // 
+            this.qRCodePathDataGridViewTextBoxColumn.DataPropertyName = "QRCodePath";
+            this.qRCodePathDataGridViewTextBoxColumn.HeaderText = "QRCodePath";
+            this.qRCodePathDataGridViewTextBoxColumn.Name = "qRCodePathDataGridViewTextBoxColumn";
+            this.qRCodePathDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // repairTimeDataGridViewTextBoxColumn
+            // 
+            this.repairTimeDataGridViewTextBoxColumn.DataPropertyName = "RepairTime";
+            this.repairTimeDataGridViewTextBoxColumn.HeaderText = "RepairTime";
+            this.repairTimeDataGridViewTextBoxColumn.Name = "repairTimeDataGridViewTextBoxColumn";
+            this.repairTimeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // stationDataGridViewTextBoxColumn
+            // 
+            this.stationDataGridViewTextBoxColumn.DataPropertyName = "Station";
+            this.stationDataGridViewTextBoxColumn.HeaderText = "Station";
+            this.stationDataGridViewTextBoxColumn.Name = "stationDataGridViewTextBoxColumn";
+            this.stationDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // machineDataGridViewTextBoxColumn
+            // 
+            this.machineDataGridViewTextBoxColumn.DataPropertyName = "Machine";
+            this.machineDataGridViewTextBoxColumn.HeaderText = "Machine";
+            this.machineDataGridViewTextBoxColumn.Name = "machineDataGridViewTextBoxColumn";
+            this.machineDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // lastUpdateDateDataGridViewTextBoxColumn
+            // 
+            this.lastUpdateDateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn.HeaderText = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn.Name = "lastUpdateDateDataGridViewTextBoxColumn";
+            this.lastUpdateDateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // lastUpdatedByDataGridViewTextBoxColumn
+            // 
+            this.lastUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn.HeaderText = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn.Name = "lastUpdatedByDataGridViewTextBoxColumn";
+            this.lastUpdatedByDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // creationDateDataGridViewTextBoxColumn
+            // 
+            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn.HeaderText = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
+            this.creationDateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // createdByDataGridViewTextBoxColumn
+            // 
+            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
+            this.createdByDataGridViewTextBoxColumn.Visible = false;
             // 
             // SearchForm
             // 

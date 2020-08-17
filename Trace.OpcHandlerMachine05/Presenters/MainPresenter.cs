@@ -34,7 +34,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
             _view.FormLoad += Initailization;
             _view.Connect_Click += Connect;
             _view.Disconnect_Click += Disconnect;
-            _view.InterLock += InterLock;
+            //_view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
             _view.KeepLogging += KeepLogging;
             _view.RefreshData += RefreshData;
@@ -264,22 +264,6 @@ namespace Trace.OpcHandlerMachine05.Presenters
                 if (!invalid)
                 {
                     PartAssemblyModel part = new PartAssemblyModel();
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[0]")
-                    {
-                        part.LineNumber = 1;
-                        part.PartName = "LWR Actuator P/N";
-                        part.SerialNumber = item.Value.ToString();
-                        if (!string.IsNullOrEmpty(part.SerialNumber))
-                            partActuaterSN = part.SerialNumber.Substring(11, (part.SerialNumber.Length - 11));
-                    }
-
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[1]")
-                    {
-                        part.LineNumber = 2;
-                        part.PartName = "LWR Actuator S/N";
-                        part.SerialNumber = partActuaterSN;// item.Value.ToString();
-                    }
-
                     if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[2]")
                     {
                         part.LineNumber = 3;
@@ -287,63 +271,83 @@ namespace Trace.OpcHandlerMachine05.Presenters
                         part.SerialNumber = item.Value.ToString();
                     }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[3]")
+                    if (trace.ModelRunningFlag == 1)
                     {
-                        part.LineNumber = 4;
-                        part.PartName = "Vane LH1";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[0]")
+                        {
+                            part.LineNumber = 1;
+                            part.PartName = "LWR Actuator P/N";
+                            part.SerialNumber = item.Value.ToString();
+                            if (!string.IsNullOrEmpty(part.SerialNumber))
+                                partActuaterSN = part.SerialNumber.Substring(11, (part.SerialNumber.Length - 11));
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[4]")
-                    {
-                        part.LineNumber = 5;
-                        part.PartName = "Vane LH2";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[1]")
+                        {
+                            part.LineNumber = 2;
+                            part.PartName = "LWR Actuator S/N";
+                            part.SerialNumber = partActuaterSN;// item.Value.ToString();
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[5]")
-                    {
-                        part.LineNumber = 6;
-                        part.PartName = "Vane LH3";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[3]")
+                        {
+                            part.LineNumber = 4;
+                            part.PartName = "Vane LH1";
+                            part.SerialNumber = item.Value.ToString();
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[6]")
-                    {
-                        part.LineNumber = 7;
-                        part.PartName = "Vane RH1";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[4]")
+                        {
+                            part.LineNumber = 5;
+                            part.PartName = "Vane LH2";
+                            part.SerialNumber = item.Value.ToString();
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[7]")
-                    {
-                        part.LineNumber = 8;
-                        part.PartName = "Vane RH2";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[5]")
+                        {
+                            part.LineNumber = 6;
+                            part.PartName = "Vane LH3";
+                            part.SerialNumber = item.Value.ToString();
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[8]")
-                    {
-                        part.LineNumber = 9;
-                        part.PartName = "Vane RH3";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[6]")
+                        {
+                            part.LineNumber = 7;
+                            part.PartName = "Vane RH1";
+                            part.SerialNumber = item.Value.ToString();
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[9]")
-                    {
-                        part.LineNumber = 10;
-                        part.PartName = "COVER";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[7]")
+                        {
+                            part.LineNumber = 8;
+                            part.PartName = "Vane RH2";
+                            part.SerialNumber = item.Value.ToString();
+                        }
 
-                    if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[10]")
-                    {
-                        part.LineNumber = 11;
-                        part.PartName = "Link Driver";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[8]")
+                        {
+                            part.LineNumber = 9;
+                            part.PartName = "Vane RH3";
+                            part.SerialNumber = item.Value.ToString();
+                        }
 
-                    trace.PartAssemblies.Add(part);
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[9]")
+                        {
+                            part.LineNumber = 10;
+                            part.PartName = "COVER";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+
+                        if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[10]")
+                        {
+                            part.LineNumber = 11;
+                            part.PartName = "Link Driver";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                    }
+                    
+                    if(!string.IsNullOrEmpty(part.PartName))
+                        trace.PartAssemblies.Add(part);
                 }
             }
 

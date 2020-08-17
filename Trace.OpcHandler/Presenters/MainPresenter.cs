@@ -271,18 +271,22 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 if (!invalid)
                 {
                     PartAssemblyModel part = new PartAssemblyModel();
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
+                    if(trace.ModelRunningFlag == 1)
                     {
-                        part.LineNumber = 1;
-                        part.PartName = "UPR Actuator P/N";
-                        part.SerialNumber = item.Value.ToString();
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
+                        {
+                            part.LineNumber = 1;
+                            part.PartName = "UPR Actuator P/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[1]")
+                        {
+                            part.LineNumber = 2;
+                            part.PartName = "UPR Actuator S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
                     }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[1]")
-                    {
-                        part.LineNumber = 2;
-                        part.PartName = "UPR Actuator S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
+
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[2]")
                     {
                         part.LineNumber = 3;
@@ -810,39 +814,42 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
             #region Keep Camera Result
             trace.CameraResults = new List<CameraResultModel>();
-            foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            if (trace.ModelRunningFlag == 1)
             {
-                CameraResultModel cam = new CameraResultModel();
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[8]")
+                foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
                 {
-                    cam.CameraName = "Lever Assy L";
-                    cam.TestResult = item.Value.ToString();
-                }
+                    CameraResultModel cam = new CameraResultModel();
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[8]")
+                    {
+                        cam.CameraName = "Lever Assy L";
+                        cam.TestResult = item.Value.ToString();
+                    }
 
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[9]")
-                {
-                    cam.CameraName = "Lever Assy R";
-                    cam.TestResult = item.Value.ToString();
-                }
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[9]")
+                    {
+                        cam.CameraName = "Lever Assy R";
+                        cam.TestResult = item.Value.ToString();
+                    }
 
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[17]")
-                {
-                    cam.CameraName = "Check Spacer";
-                    cam.TestResult = item.Value.ToString();
-                }
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[17]")
+                    {
+                        cam.CameraName = "Check Spacer";
+                        cam.TestResult = item.Value.ToString();
+                    }
 
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[18]")
-                {
-                    cam.CameraName = "Check Vane RH";
-                    cam.TestResult = item.Value.ToString();
-                }
-                if (item.ItemName == _view.tagMainBlock + "ST1TestResult[19]")
-                {
-                    cam.CameraName = "Check Vane LH";
-                    cam.TestResult = item.Value.ToString();
-                }
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[18]")
+                    {
+                        cam.CameraName = "Check Vane RH";
+                        cam.TestResult = item.Value.ToString();
+                    }
+                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[19]")
+                    {
+                        cam.CameraName = "Check Vane LH";
+                        cam.TestResult = item.Value.ToString();
+                    }
 
-                trace.CameraResults.Add(cam);
+                    trace.CameraResults.Add(cam);
+                }
             }
             #endregion
 

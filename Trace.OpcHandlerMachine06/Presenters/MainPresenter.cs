@@ -34,7 +34,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
             _view.FormLoad += Initailization;
             _view.Connect_Click += Connect;
             _view.Disconnect_Click += Disconnect;
-            _view.InterLock += InterLock;
+            //_view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
             _view.KeepLogging += KeepLogging;
             _view.RefreshData += RefreshData;
@@ -323,13 +323,24 @@ namespace Trace.OpcHandlerMachine06.Presenters
                 if (!invalid)
                 {
                     if (item.ItemName == _view.tagMainBlock + "ST5_1Code")
+                    {
                         trace.ItemCode = item.Value.ToString();
+
+                        var modelRunningType = _serviceTraceLog.GetListByItemCode(trace.ItemCode.ToString())
+                                                               .Where(x => x.MachineId == 1).FirstOrDefault();
+
+                        trace.ModelRunningFlag = modelRunningType.ModelRunningFlag;
+                    }
+                    //trace.ItemCode = item.Value.ToString();
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1_Product_Serial_No.")
                         trace.PartSerialNumber = item.Value.ToString();
 
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[0]")
-                        trace.Actuator = item.Value.ToString();
+                    if(trace.ModelRunningFlag == 1)
+                    {
+                        if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[0]")
+                            trace.Actuator = item.Value.ToString();
+                    }
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1TestResult[1]")
                     {
