@@ -74,18 +74,18 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDetail = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuExportCSV = new System.Windows.Forms.ToolStripButton();
             this.stationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelRunningDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partSerialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actuatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.swNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentMaximumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openAngleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lineErrorCounterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalResultDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,16 +93,18 @@
             this.attribute6DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute7DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute8DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.swNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lineErrorCounterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute9DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attribute10DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxRepairTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalResultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalResultDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qRCodePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.repairTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.machineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastUpdateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -189,7 +191,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.28671F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.71329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 489F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 490F));
             this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 1);
@@ -212,9 +214,9 @@
             // panel15
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(707, 69);
+            this.panel15.Location = new System.Drawing.Point(706, 69);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(484, 36);
+            this.panel15.Size = new System.Drawing.Size(485, 36);
             this.panel15.TabIndex = 10;
             // 
             // panel14
@@ -225,7 +227,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(237, 69);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(464, 36);
+            this.panel14.Size = new System.Drawing.Size(463, 36);
             this.panel14.TabIndex = 9;
             // 
             // label4
@@ -259,9 +261,9 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(707, 36);
+            this.panel12.Location = new System.Drawing.Point(706, 36);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(484, 27);
+            this.panel12.Size = new System.Drawing.Size(485, 27);
             this.panel12.TabIndex = 7;
             // 
             // panel11
@@ -270,7 +272,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(237, 36);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(464, 27);
+            this.panel11.Size = new System.Drawing.Size(463, 27);
             this.panel11.TabIndex = 6;
             // 
             // txtpartSerialNo
@@ -278,15 +280,15 @@
             this.txtpartSerialNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtpartSerialNo.Location = new System.Drawing.Point(0, 0);
             this.txtpartSerialNo.Name = "txtpartSerialNo";
-            this.txtpartSerialNo.Size = new System.Drawing.Size(464, 26);
+            this.txtpartSerialNo.Size = new System.Drawing.Size(463, 26);
             this.txtpartSerialNo.TabIndex = 1;
             // 
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(707, 3);
+            this.panel9.Location = new System.Drawing.Point(706, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(484, 27);
+            this.panel9.Size = new System.Drawing.Size(485, 27);
             this.panel9.TabIndex = 4;
             // 
             // panel5
@@ -361,7 +363,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(237, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(464, 27);
+            this.panel8.Size = new System.Drawing.Size(463, 27);
             this.panel8.TabIndex = 3;
             // 
             // txtitemCode
@@ -369,7 +371,7 @@
             this.txtitemCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtitemCode.Location = new System.Drawing.Point(0, 0);
             this.txtitemCode.Name = "txtitemCode";
-            this.txtitemCode.Size = new System.Drawing.Size(464, 26);
+            this.txtitemCode.Size = new System.Drawing.Size(463, 26);
             this.txtitemCode.TabIndex = 0;
             // 
             // panel3
@@ -401,17 +403,15 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.stationIdDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
             this.itemCodeDataGridViewTextBoxColumn,
             this.modelRunningDataGridViewTextBoxColumn,
             this.partSerialNumberDataGridViewTextBoxColumn,
             this.actuatorDataGridViewTextBoxColumn,
             this.productionDateDataGridViewTextBoxColumn,
-            this.swNumberDataGridViewTextBoxColumn,
             this.currentMaximumDataGridViewTextBoxColumn,
             this.openAngleDataGridViewTextBoxColumn,
-            this.lineErrorCounterDataGridViewTextBoxColumn,
             this.attribute1DataGridViewTextBoxColumn,
+            this.finalResultDescDataGridViewTextBoxColumn,
             this.attribute2DataGridViewTextBoxColumn,
             this.attribute3DataGridViewTextBoxColumn,
             this.attribute4DataGridViewTextBoxColumn,
@@ -419,16 +419,18 @@
             this.attribute6DataGridViewTextBoxColumn,
             this.attribute7DataGridViewTextBoxColumn,
             this.attribute8DataGridViewTextBoxColumn,
+            this.swNumberDataGridViewTextBoxColumn,
+            this.lineErrorCounterDataGridViewTextBoxColumn,
             this.attribute9DataGridViewTextBoxColumn,
             this.attribute10DataGridViewTextBoxColumn,
             this.maxRepairTimeDataGridViewTextBoxColumn,
             this.resultDataGridViewTextBoxColumn,
             this.finalResultDataGridViewTextBoxColumn,
-            this.finalResultDescDataGridViewTextBoxColumn,
             this.imagePathDataGridViewTextBoxColumn,
             this.qRCodePathDataGridViewTextBoxColumn,
             this.repairTimeDataGridViewTextBoxColumn,
             this.stationDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
             this.machineDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn,
             this.lastUpdateDateDataGridViewTextBoxColumn,
@@ -474,7 +476,9 @@
             this.toolStripSeparator7,
             this.mnuClear,
             this.toolStripSeparator2,
-            this.mnuDetail});
+            this.mnuDetail,
+            this.toolStripSeparator1,
+            this.mnuExportCSV});
             this.bindingNavCategory.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.bindingNavCategory.Location = new System.Drawing.Point(0, 0);
             this.bindingNavCategory.MoveFirstItem = this.toolStripButton3;
@@ -614,18 +618,27 @@
             this.panel4.Size = new System.Drawing.Size(1200, 40);
             this.panel4.TabIndex = 10;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // mnuExportCSV
+            // 
+            this.mnuExportCSV.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mnuExportCSV.Image = ((System.Drawing.Image)(resources.GetObject("mnuExportCSV.Image")));
+            this.mnuExportCSV.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnuExportCSV.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mnuExportCSV.Name = "mnuExportCSV";
+            this.mnuExportCSV.Size = new System.Drawing.Size(28, 28);
+            this.mnuExportCSV.Text = "Export to *.csv";
+            this.mnuExportCSV.Click += new System.EventHandler(this.mnuExportCSV_Click);
+            // 
             // stationIdDataGridViewTextBoxColumn
             // 
             this.stationIdDataGridViewTextBoxColumn.DataPropertyName = "StationId";
             this.stationIdDataGridViewTextBoxColumn.HeaderText = "Station";
             this.stationIdDataGridViewTextBoxColumn.Name = "stationIdDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Machine";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Visible = false;
             // 
             // itemCodeDataGridViewTextBoxColumn
             // 
@@ -662,13 +675,6 @@
             this.productionDateDataGridViewTextBoxColumn.HeaderText = "Production Date";
             this.productionDateDataGridViewTextBoxColumn.Name = "productionDateDataGridViewTextBoxColumn";
             // 
-            // swNumberDataGridViewTextBoxColumn
-            // 
-            this.swNumberDataGridViewTextBoxColumn.DataPropertyName = "SwNumber";
-            this.swNumberDataGridViewTextBoxColumn.HeaderText = "SW Number";
-            this.swNumberDataGridViewTextBoxColumn.Name = "swNumberDataGridViewTextBoxColumn";
-            this.swNumberDataGridViewTextBoxColumn.Visible = false;
-            // 
             // currentMaximumDataGridViewTextBoxColumn
             // 
             this.currentMaximumDataGridViewTextBoxColumn.DataPropertyName = "CurrentMaximum";
@@ -681,18 +687,18 @@
             this.openAngleDataGridViewTextBoxColumn.HeaderText = "Open Angle";
             this.openAngleDataGridViewTextBoxColumn.Name = "openAngleDataGridViewTextBoxColumn";
             // 
-            // lineErrorCounterDataGridViewTextBoxColumn
-            // 
-            this.lineErrorCounterDataGridViewTextBoxColumn.DataPropertyName = "LineErrorCounter";
-            this.lineErrorCounterDataGridViewTextBoxColumn.HeaderText = "Line Error Counter";
-            this.lineErrorCounterDataGridViewTextBoxColumn.Name = "lineErrorCounterDataGridViewTextBoxColumn";
-            this.lineErrorCounterDataGridViewTextBoxColumn.Visible = false;
-            // 
             // attribute1DataGridViewTextBoxColumn
             // 
             this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
             this.attribute1DataGridViewTextBoxColumn.HeaderText = "Camera Check Linkage";
             this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
+            // 
+            // finalResultDescDataGridViewTextBoxColumn
+            // 
+            this.finalResultDescDataGridViewTextBoxColumn.DataPropertyName = "FinalResultDesc";
+            this.finalResultDescDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.finalResultDescDataGridViewTextBoxColumn.Name = "finalResultDescDataGridViewTextBoxColumn";
+            this.finalResultDescDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // attribute2DataGridViewTextBoxColumn
             // 
@@ -743,6 +749,20 @@
             this.attribute8DataGridViewTextBoxColumn.Name = "attribute8DataGridViewTextBoxColumn";
             this.attribute8DataGridViewTextBoxColumn.Visible = false;
             // 
+            // swNumberDataGridViewTextBoxColumn
+            // 
+            this.swNumberDataGridViewTextBoxColumn.DataPropertyName = "SwNumber";
+            this.swNumberDataGridViewTextBoxColumn.HeaderText = "SW Number";
+            this.swNumberDataGridViewTextBoxColumn.Name = "swNumberDataGridViewTextBoxColumn";
+            this.swNumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // lineErrorCounterDataGridViewTextBoxColumn
+            // 
+            this.lineErrorCounterDataGridViewTextBoxColumn.DataPropertyName = "LineErrorCounter";
+            this.lineErrorCounterDataGridViewTextBoxColumn.HeaderText = "Line Error Counter";
+            this.lineErrorCounterDataGridViewTextBoxColumn.Name = "lineErrorCounterDataGridViewTextBoxColumn";
+            this.lineErrorCounterDataGridViewTextBoxColumn.Visible = false;
+            // 
             // attribute9DataGridViewTextBoxColumn
             // 
             this.attribute9DataGridViewTextBoxColumn.DataPropertyName = "Attribute9";
@@ -778,13 +798,6 @@
             this.finalResultDataGridViewTextBoxColumn.Name = "finalResultDataGridViewTextBoxColumn";
             this.finalResultDataGridViewTextBoxColumn.Visible = false;
             // 
-            // finalResultDescDataGridViewTextBoxColumn
-            // 
-            this.finalResultDescDataGridViewTextBoxColumn.DataPropertyName = "FinalResultDesc";
-            this.finalResultDescDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.finalResultDescDataGridViewTextBoxColumn.Name = "finalResultDescDataGridViewTextBoxColumn";
-            this.finalResultDescDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // imagePathDataGridViewTextBoxColumn
             // 
             this.imagePathDataGridViewTextBoxColumn.DataPropertyName = "ImagePath";
@@ -812,6 +825,13 @@
             this.stationDataGridViewTextBoxColumn.HeaderText = "Station";
             this.stationDataGridViewTextBoxColumn.Name = "stationDataGridViewTextBoxColumn";
             this.stationDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Machine";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
             // 
             // machineDataGridViewTextBoxColumn
             // 
@@ -939,18 +959,18 @@
         private System.Windows.Forms.ToolStripButton mnuClear;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton mnuDetail;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton mnuExportCSV;
         private System.Windows.Forms.DataGridViewTextBoxColumn stationIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelRunningDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partSerialNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actuatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productionDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn swNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentMaximumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openAngleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lineErrorCounterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finalResultDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute3DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute4DataGridViewTextBoxColumn;
@@ -958,16 +978,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute6DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute7DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute8DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn swNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lineErrorCounterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute9DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute10DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxRepairTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalResultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn finalResultDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imagePathDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qRCodePathDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn repairTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn machineDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateDateDataGridViewTextBoxColumn;

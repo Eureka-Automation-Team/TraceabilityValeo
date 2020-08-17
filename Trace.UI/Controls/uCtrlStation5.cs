@@ -181,7 +181,7 @@ namespace Trace.UI.Controls
             if (MonitoringRailTime != null)
                 MonitoringRailTime(sender, e);
 
-            SetGrid();
+            //SetGrid();
         }
 
         public void GenerateQrCode()

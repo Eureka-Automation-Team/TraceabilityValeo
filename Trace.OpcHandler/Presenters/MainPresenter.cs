@@ -255,8 +255,10 @@ namespace Trace.OpcHandlerMachine01.Presenters
             }
             #endregion
 
+           
             #region Keep Part Assemblies
             trace.PartAssemblies = new List<PartAssemblyModel>();
+            string partActuaterSN = string.Empty;
             foreach (var item in r.Where(x => tagsPart.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
                 //tmpMsg = string.Empty;
@@ -278,12 +280,14 @@ namespace Trace.OpcHandlerMachine01.Presenters
                             part.LineNumber = 1;
                             part.PartName = "UPR Actuator P/N";
                             part.SerialNumber = item.Value.ToString();
+                            if (!string.IsNullOrEmpty(part.SerialNumber))
+                                partActuaterSN = part.SerialNumber.Substring(11, (part.SerialNumber.Length - 11));
                         }
                         if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[1]")
                         {
                             part.LineNumber = 2;
                             part.PartName = "UPR Actuator S/N";
-                            part.SerialNumber = item.Value.ToString();
+                            part.SerialNumber = partActuaterSN;
                         }
                     }
 
@@ -320,7 +324,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[7]")
                     {
                         part.LineNumber = 8;
-                        part.PartName = "Space";
+                        part.PartName = "Spacer";
                         part.SerialNumber = item.Value.ToString();
                     }
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[8]")
@@ -368,7 +372,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[15]")
                     {
                         part.LineNumber = 16;
-                        part.PartName = "Space BOX S/N";
+                        part.PartName = "Spacer BOX S/N";
                         part.SerialNumber = item.Value.ToString();
                     }
 
@@ -377,445 +381,446 @@ namespace Trace.OpcHandlerMachine01.Presenters
             }
             #endregion
 
-            #region Keep Tightening
             List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
             TighteningRepairModel tRepair = new TighteningRepairModel();
             TighteningResultModel tmp = new TighteningResultModel();
-
-            if (trace.TighteningResults == null)
-                trace.TighteningResults = new List<TighteningResultModel>();
-
-            foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
+            if (trace.ModelRunningFlag == 1)
             {
-                if (!invalid)
+                #region Keep Tightening
+
+                if (trace.TighteningResults == null)
+                    trace.TighteningResults = new List<TighteningResultModel>();
+
+                foreach (var item in r.Where(x => tagsTightening.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
                 {
-                    //No.1                  
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[0]")
+                    if (!invalid)
                     {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "1";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[0]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[0]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[0]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[0]").FirstOrDefault().Value.ToString();
-
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[10]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[10]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[10]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[10]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[10]").FirstOrDefault().Value.ToString();
-
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
+                        //No.1                  
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[0]")
                         {
-                            trace.TighteningResults.Add(t);
-                            tRepairs.Add(tRepair);
-                        }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            tRepairs.Add(tRepair);
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    return c;
-                                }).ToList();
-                        }
-                    }
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "1";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[0]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[0]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[0]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[0]").FirstOrDefault().Value.ToString();
 
-                    //No.2
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[1]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "2";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[1]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[1]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[1]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[1]").FirstOrDefault().Value.ToString();
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[10]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[10]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[10]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[10]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[10]").FirstOrDefault().Value.ToString();
 
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[11]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[11]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[11]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[11]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[11]").FirstOrDefault().Value.ToString();
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
 
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
-                        {
-                            trace.TighteningResults.Add(t);
-
-                            if (!string.IsNullOrEmpty(t.TestResult))
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
                                 tRepairs.Add(tRepair);
-                        }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
-
-                            if (!string.IsNullOrEmpty(t.TestResult))
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
                                 tRepairs.Add(tRepair);
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        return c;
+                                    }).ToList();
+                            }
                         }
-                    }
 
-                    //No.3
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[2]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "3";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[2]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[2]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[2]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[2]").FirstOrDefault().Value.ToString();
-
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[12]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[12]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[12]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[12]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[12]").FirstOrDefault().Value.ToString();
-
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
+                        //No.2
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[1]")
                         {
-                            trace.TighteningResults.Add(t);
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "2";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[1]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[1]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[1]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[1]").FirstOrDefault().Value.ToString();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[11]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[11]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[11]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[11]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[11]").FirstOrDefault().Value.ToString();
+
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                        //No.3
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[2]")
+                        {
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "3";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[2]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[2]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[2]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[2]").FirstOrDefault().Value.ToString();
+
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[12]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[12]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[12]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[12]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[12]").FirstOrDefault().Value.ToString();
+
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
-                    }
 
-                    //No.4
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[3]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "4";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[3]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[3]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[3]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[3]").FirstOrDefault().Value.ToString();
-
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[13]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[13]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[13]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[13]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[13]").FirstOrDefault().Value.ToString();
-
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
+                        //No.4
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[3]")
                         {
-                            trace.TighteningResults.Add(t);
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "4";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[3]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[3]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[3]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[3]").FirstOrDefault().Value.ToString();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[13]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[13]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[13]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[13]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[13]").FirstOrDefault().Value.ToString();
+
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                        //No.5
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[4]")
+                        {
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "5";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[4]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[4]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[4]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[4]").FirstOrDefault().Value.ToString();
+
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[14]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[14]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[14]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[14]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[14]").FirstOrDefault().Value.ToString();
+
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
-                    }
 
-                    //No.5
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[4]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "5";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[4]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[4]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[4]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[4]").FirstOrDefault().Value.ToString();
-
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[14]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[14]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[14]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[14]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[14]").FirstOrDefault().Value.ToString();
-
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
+                        //No.6
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[5]")
                         {
-                            trace.TighteningResults.Add(t);
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "6";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[5]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[5]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[5]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[5]").FirstOrDefault().Value.ToString();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[15]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[15]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[15]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[15]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[15]").FirstOrDefault().Value.ToString();
+
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                        //No.7
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[6]")
+                        {
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "7";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[6]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[6]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[6]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[6]").FirstOrDefault().Value.ToString();
+
+                            //JointsControlAngle Result 
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[16]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[16]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[16]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[16]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[16]").FirstOrDefault().Value.ToString();
+
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
+
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
+
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
-                    }
 
-                    //No.6
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[5]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "6";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[5]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[5]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[5]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[5]").FirstOrDefault().Value.ToString();
-
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[15]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[15]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[15]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[15]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[15]").FirstOrDefault().Value.ToString();
-
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
+                        //No.8
+                        if (item.ItemName == _view.tagMainBlock + "ST1TestResult[7]")
                         {
-                            trace.TighteningResults.Add(t);
+                            TighteningResultModel t = new TighteningResultModel();
+                            t.No = "8";
+                            t.Result = ConvertToDecimal(item.Value.ToString());
+                            t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[7]").FirstOrDefault().Value.ToString());
+                            t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[7]").FirstOrDefault().Value.ToString());
+                            t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[7]").FirstOrDefault().Value.ToString());
+                            t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
-                        }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
+                            //JointsControlAngle Result
+                            //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[17]").FirstOrDefault().Value);
+                            //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[17]").FirstOrDefault().Value);
+                            //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[17]").FirstOrDefault().Value);
+                            //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[17]").FirstOrDefault().Value);
+                            //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[17]").FirstOrDefault().Value.ToString();
 
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
-                        }
-                    }
+                            tRepair = autoMappingRepair(t);
+                            List<TighteningResultModel> tExist = new List<TighteningResultModel>();
+                            tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
 
-                    //No.7
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[6]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "7";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[6]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[6]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[6]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[6]").FirstOrDefault().Value.ToString();
+                            if (tExist.Count() == 0)
+                            {
+                                trace.TighteningResults.Add(t);
 
-                        //JointsControlAngle Result 
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[16]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[16]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[16]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[16]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[16]").FirstOrDefault().Value.ToString();
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
+                            else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
+                            {
+                                trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
+                                    .Select(c => {
+                                        c.RepairFlag = (c.TestResult == "NOK");
+                                        c.Result = t.Result;
+                                        c.Min = t.Min;
+                                        c.Max = t.Max;
+                                        c.Target = t.Target;
+                                        c.TestResult = t.TestResult;
+                                        c.JointResult = t.JointResult;
+                                        c.JointMin = t.JointMin;
+                                        c.JointMax = t.JointMax;
+                                        c.JointTarget = t.JointTarget;
+                                        c.JointTestResult = t.TestResult;
+                                        //c.RepairFlag = true;
+                                        return c;
+                                    }).ToList();
 
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
-                        {
-                            trace.TighteningResults.Add(t);
-
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
-                        }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
-
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
-                        }
-                    }
-
-                    //No.8
-                    if (item.ItemName == _view.tagMainBlock + "ST1TestResult[7]")
-                    {
-                        TighteningResultModel t = new TighteningResultModel();
-                        t.No = "8";
-                        t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[7]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[7]").FirstOrDefault().Value.ToString());
-                        t.Target = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[7]").FirstOrDefault().Value.ToString());
-                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[7]").FirstOrDefault().Value.ToString();
-
-                        //JointsControlAngle Result
-                        //t.JointResult = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestResult[17]").FirstOrDefault().Value);
-                        //t.JointMin = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter2[17]").FirstOrDefault().Value);
-                        //t.JointMax = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter1[17]").FirstOrDefault().Value);
-                        //t.JointTarget = Convert.ToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST1Parameter3[17]").FirstOrDefault().Value);
-                        //t.JointTestResult = t.TestResult;// r.Where(x => x.ItemName == _view.tagMainBlock + "ST1TestJudgment[17]").FirstOrDefault().Value.ToString();
-
-                        tRepair = autoMappingRepair(t);
-                        List<TighteningResultModel> tExist = new List<TighteningResultModel>();
-                        tExist = trace.TighteningResults.Where(x => x.No == t.No).ToList();
-
-                        if (tExist.Count() == 0)
-                        {
-                            trace.TighteningResults.Add(t);
-
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
-                        }
-                        else if (tExist.Where(x => (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK").Count() > 0)
-                        {
-                            trace.TighteningResults.Where(x => x.No == t.No && (string.IsNullOrEmpty(x.TestResult) ? "NOK" : x.TestResult) == "NOK")
-                                .Select(c => {
-                                    c.RepairFlag = (c.TestResult == "NOK");
-                                    c.Result = t.Result;
-                                    c.Min = t.Min;
-                                    c.Max = t.Max;
-                                    c.Target = t.Target;
-                                    c.TestResult = t.TestResult;
-                                    c.JointResult = t.JointResult;
-                                    c.JointMin = t.JointMin;
-                                    c.JointMax = t.JointMax;
-                                    c.JointTarget = t.JointTarget;
-                                    c.JointTestResult = t.TestResult;
-                                    //c.RepairFlag = true;
-                                    return c;
-                                }).ToList();
-
-                            if (!string.IsNullOrEmpty(t.TestResult))
-                                tRepairs.Add(tRepair);
+                                if (!string.IsNullOrEmpty(t.TestResult))
+                                    tRepairs.Add(tRepair);
+                            }
                         }
                     }
                 }
-            }
-            #endregion
+                #endregion
 
-            #region Keep Camera Result
-            trace.CameraResults = new List<CameraResultModel>();
-            if (trace.ModelRunningFlag == 1)
-            {
+                #region Keep Camera Result
+                trace.CameraResults = new List<CameraResultModel>();
+            
                 foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
                 {
                     CameraResultModel cam = new CameraResultModel();
@@ -850,8 +855,8 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
                     trace.CameraResults.Add(cam);
                 }
+                #endregion
             }
-            #endregion
 
             #region Insert/Update Logging Detail
             if (invalid)
