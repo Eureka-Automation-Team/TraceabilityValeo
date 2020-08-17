@@ -35,7 +35,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             _view.FormLoad += Initailization;
             _view.Connect_Click += Connect;
             _view.Disconnect_Click += Disconnect;
-            _view.InterLock += InterLock;
+            //_view.InterLock += InterLock;
             _view.MakeReady += MakeReady;
             _view.KeepLogging += KeepLogging;
             _view.RefreshData += RefreshData;
@@ -289,6 +289,85 @@ namespace Trace.OpcHandlerMachine01.Presenters
                             part.PartName = "UPR Actuator S/N";
                             part.SerialNumber = partActuaterSN;
                         }
+
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[3]")
+                        {
+                            part.LineNumber = 4;
+                            part.PartName = "UPR vane set LH";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[4]")
+                        {
+                            part.LineNumber = 5;
+                            part.PartName = "UPR vane set RH";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[5]")
+                        {
+                            part.LineNumber = 6;
+                            part.PartName = "Pull rod";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[6]")
+                        {
+                            part.LineNumber = 7;
+                            part.PartName = "Lever";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[7]")
+                        {
+                            part.LineNumber = 8;
+                            part.PartName = "Spacer";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[8]")
+                        {
+                            part.LineNumber = 9;
+                            part.PartName = "Tether";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[9]")
+                        {
+                            part.LineNumber = 10;
+                            part.PartName = "UPR Actuator BOX S/N ";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[10]")
+                        {
+                            part.LineNumber = 11;
+                            part.PartName = "UPR Van set LH BOX S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[11]")
+                        {
+                            part.LineNumber = 12;
+                            part.PartName = "UPR Van set RH BOX S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[12]")
+                        {
+                            part.LineNumber = 13;
+                            part.PartName = "Tether BOX S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[13]")
+                        {
+                            part.LineNumber = 14;
+                            part.PartName = "UPR Frame BOX S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[14]")
+                        {
+                            part.LineNumber = 15;
+                            part.PartName = "PullRod BOX S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
+                        if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[15]")
+                        {
+                            part.LineNumber = 16;
+                            part.PartName = "Spacer BOX S/N";
+                            part.SerialNumber = item.Value.ToString();
+                        }
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[2]")
@@ -297,86 +376,11 @@ namespace Trace.OpcHandlerMachine01.Presenters
                         part.PartName = "UPR Frame";
                         part.SerialNumber = item.Value.ToString();
                     }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[3]")
-                    {
-                        part.LineNumber = 4;
-                        part.PartName = "UPR vane set LH";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[4]")
-                    {
-                        part.LineNumber = 5;
-                        part.PartName = "UPR vane set RH";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[5]")
-                    {
-                        part.LineNumber = 6;
-                        part.PartName = "Pull rod";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[6]")
-                    {
-                        part.LineNumber = 7;
-                        part.PartName = "Lever";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[7]")
-                    {
-                        part.LineNumber = 8;
-                        part.PartName = "Spacer";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[8]")
-                    {
-                        part.LineNumber = 9;
-                        part.PartName = "Tether";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[9]")
-                    {
-                        part.LineNumber = 10;
-                        part.PartName = "UPR Actuator BOX S/N ";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[10]")
-                    {
-                        part.LineNumber = 11;
-                        part.PartName = "UPR Van set LH BOX S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[11]")
-                    {
-                        part.LineNumber = 12;
-                        part.PartName = "UPR Van set RH BOX S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[12]")
-                    {
-                        part.LineNumber = 13;
-                        part.PartName = "Tether BOX S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[13]")
-                    {
-                        part.LineNumber = 14;
-                        part.PartName = "UPR Frame BOX S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[14]")
-                    {
-                        part.LineNumber = 15;
-                        part.PartName = "PullRod BOX S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
-                    if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[15]")
-                    {
-                        part.LineNumber = 16;
-                        part.PartName = "Spacer BOX S/N";
-                        part.SerialNumber = item.Value.ToString();
-                    }
 
-                    trace.PartAssemblies.Add(part);
+
+
+                    if (part.PartName != null)
+                        trace.PartAssemblies.Add(part);
                 }
             }
             #endregion
@@ -826,13 +830,13 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     CameraResultModel cam = new CameraResultModel();
                     if (item.ItemName == _view.tagMainBlock + "ST1TestResult[8]")
                     {
-                        cam.CameraName = "Lever Assy L";
+                        cam.CameraName = "Lever Assy LH";
                         cam.TestResult = item.Value.ToString();
                     }
 
                     if (item.ItemName == _view.tagMainBlock + "ST1TestResult[9]")
                     {
-                        cam.CameraName = "Lever Assy R";
+                        cam.CameraName = "Lever Assy RH";
                         cam.TestResult = item.Value.ToString();
                     }
 

@@ -341,7 +341,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
                         if (item.ItemName == _view.tagMainBlock + "ST4PartSerialNo[10]")
                         {
                             part.LineNumber = 11;
-                            part.PartName = "Link Driver";
+                            part.PartName = "Linkage Driver";
                             part.SerialNumber = item.Value.ToString();
                         }
                     }
