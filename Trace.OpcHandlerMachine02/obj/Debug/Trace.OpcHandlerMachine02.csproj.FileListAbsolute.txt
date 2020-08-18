@@ -84,3 +84,4 @@ C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerM
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.csproj.CopyComplete
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.exe
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.pdb
+C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.csprojAssemblyReference.cache

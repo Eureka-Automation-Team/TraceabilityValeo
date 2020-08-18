@@ -32,21 +32,21 @@ namespace Trace.UI.Presenters
             var result1 = _serviceTraceLog.GetListByMachineID(6, 1);
             var result2 = _serviceTraceLog.GetListByMachineID(7, 1);
 
-            //TraceabilityLogModel log1 = result1.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
-            //TraceabilityLogModel log2 = result2.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            TraceabilityLogModel log1 = result1.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            TraceabilityLogModel log2 = result2.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
 
-            TraceabilityLogModel log1 = result1.FirstOrDefault();
-            TraceabilityLogModel log2 = result2.FirstOrDefault();
+            //TraceabilityLogModel log1 = result1.FirstOrDefault();
+            //TraceabilityLogModel log2 = result2.FirstOrDefault();
 
             if (log1 != null)
             {
                 _view.traceabilityUpperLog = _serviceTraceLog.GetByID(log1.Id);
-                _view.CountQtyUpper = result1.Count();
+                _view.CountQtyUpper = _serviceTraceLog.GetListByMachineID(6, 500).Count();
             }
             if(log2 != null)
             {
                 _view.traceabilityLowerLog = _serviceTraceLog.GetByID(log2.Id);
-                _view.CountQtyLower = result2.Count();
+                _view.CountQtyLower = _serviceTraceLog.GetListByMachineID(7, 500).Count();
             }
         }
 

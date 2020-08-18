@@ -277,6 +277,7 @@ namespace Trace.OpcHandlerMachine02.Presenters
                         errMsg += Environment.NewLine;
 
                     errMsg += tmpMsg;
+                    _view.ResultnMessage = errMsg;
                 }
 
                 if (!invalid)

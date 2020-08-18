@@ -55,8 +55,8 @@ namespace Trace.UI.Presenters
         {
             var result = _serviceTraceLog.GetListByMachineID(2, 1);
 
-            // TraceabilityLogModel log = result.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
-            TraceabilityLogModel log = result.FirstOrDefault();
+            TraceabilityLogModel log = result.Where(x => x.CreationDate.Date == DateTime.Now.Date).FirstOrDefault();
+            //TraceabilityLogModel log = result.FirstOrDefault();
             if (log != null)
             {
                 _view.traceabilityLog = _serviceTraceLog.GetByID(log.Id);
