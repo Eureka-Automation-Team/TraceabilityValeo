@@ -76,7 +76,6 @@ C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\bin\Debug\System.Buffers.xm
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\bin\Debug\K4os.Compression.LZ4.xml
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\bin\Debug\K4os.Hash.xxHash.xml
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\bin\Debug\System.Memory.xml
-C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.csprojAssemblyReference.cache
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.exe.config
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.MonitoringForm.resources
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine02\obj\Debug\Trace.OpcHandlerMachine02.Properties.Resources.resources

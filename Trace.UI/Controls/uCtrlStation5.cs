@@ -19,6 +19,8 @@ namespace Trace.UI.Controls
         private bool _MonitorFlag;
         private TraceabilityLogModel _traceabilityUpperLog;
         private TraceabilityLogModel _traceabilityLowerLog;
+        private int _CountQtyUpper;
+        private int _CountQtyLower;
 
         public uCtrlStation5()
         {
@@ -160,6 +162,25 @@ namespace Trace.UI.Controls
             }
         }
 
+        public int CountQtyUpper
+        {
+            get { return _CountQtyUpper; }
+            set 
+            { 
+                _CountQtyUpper = value;
+                txtUpperQty.Text = _CountQtyUpper.ToString();
+            }
+        }
+        public int CountQtyLower
+        {
+            get { return _CountQtyLower; }
+            set
+            {
+                _CountQtyLower = value;
+                txtLowerQty.Text = _CountQtyLower.ToString();
+            }
+        }
+
         public event EventHandler ControlLoad;
         public event EventHandler MonitoringRailTime;
 
@@ -237,6 +258,16 @@ namespace Trace.UI.Controls
                     dataGridView1.Columns[1].Visible = false;
                 }
             }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

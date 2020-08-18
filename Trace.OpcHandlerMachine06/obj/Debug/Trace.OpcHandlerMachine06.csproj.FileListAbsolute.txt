@@ -33,7 +33,6 @@ C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\bin\Debug\System.Buffers.xm
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\bin\Debug\K4os.Compression.LZ4.xml
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\bin\Debug\K4os.Hash.xxHash.xml
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\bin\Debug\System.Memory.xml
-C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\obj\Debug\Trace.OpcHandlerMachine06.csprojAssemblyReference.cache
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\obj\Debug\Trace.OpcHandlerMachine06.exe.config
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\obj\Debug\Trace.OpcHandlerMachine06.MonitoringForm.resources
 C:\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine06\obj\Debug\Trace.OpcHandlerMachine06.Properties.Resources.resources

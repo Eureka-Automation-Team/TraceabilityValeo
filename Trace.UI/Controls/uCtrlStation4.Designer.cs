@@ -566,7 +566,7 @@ namespace Trace.UI.Controls
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(433, 24);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Tightening";
+            this.label5.Text = "Data Tightening";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2

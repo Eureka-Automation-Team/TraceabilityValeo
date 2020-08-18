@@ -40,11 +40,13 @@ namespace Trace.UI.Presenters
 
             if (log1 != null)
             {
-                _view.traceabilityUpperLog = _serviceTraceLog.GetByID(log1.Id);                
+                _view.traceabilityUpperLog = _serviceTraceLog.GetByID(log1.Id);
+                _view.CountQtyUpper = result1.Count();
             }
             if(log2 != null)
             {
                 _view.traceabilityLowerLog = _serviceTraceLog.GetByID(log2.Id);
+                _view.CountQtyLower = result2.Count();
             }
         }
 

@@ -14,6 +14,9 @@ namespace Trace.UI.Views
 
         bool MonitorFlag { get; set; }
 
+        int CountQtyUpper { get; set; }
+        int CountQtyLower { get; set; }
+
         TraceabilityLogModel traceabilityUpperLog { get; set; }
         TraceabilityLogModel traceabilityLowerLog { get; set; }
 
