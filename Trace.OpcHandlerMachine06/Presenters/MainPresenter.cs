@@ -394,6 +394,9 @@ namespace Trace.OpcHandlerMachine06.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
+
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1ModelRunning2")
+                        trace.ModelRunningFlag = Convert.ToInt32(item.Value);
                 }
             }
             #endregion

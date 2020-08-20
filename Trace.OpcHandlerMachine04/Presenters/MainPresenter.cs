@@ -216,6 +216,9 @@ namespace Trace.OpcHandlerMachine04.Presenters
 
                     if (item.ItemName == _view.tagMainBlock + "ST3_2RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
+
+                    if (item.ItemName == _view.tagMainBlock + "ST3_2ModelRunning2")
+                        trace.ModelRunningFlag = Convert.ToInt32(item.Value);
                 }
             }
 
