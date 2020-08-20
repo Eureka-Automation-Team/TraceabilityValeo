@@ -58,6 +58,7 @@
             // 
             // panelContainer
             // 
+            this.panelContainer.AutoScroll = true;
             this.panelContainer.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;

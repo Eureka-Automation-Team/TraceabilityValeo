@@ -60,6 +60,9 @@ namespace Trace.UI.Controls
                     tighteningResultBindingUpper.DataSource = _traceabilityUpperLog.TighteningResults;
                     cameraResultBindingUpper.DataSource = _traceabilityUpperLog.CameraResults;
 
+                    if (_traceabilityUpperLog.ModelRunningDesc != null)
+                        txtUpperModelRunningFlag.Text = "UPPER " + _traceabilityUpperLog.ModelRunningDesc.Replace("_", " ");
+
                     if (_traceabilityUpperLog.FinalResult == 1)
                     {
 
@@ -88,6 +91,8 @@ namespace Trace.UI.Controls
                     txtUpperLineErrorCounter.Text = string.Empty;
                     txtUpperCameraCheck.Text = string.Empty;
                     //txtUpperVaneCheck.Text = string.Empty;
+
+                    txtUpperModelRunningFlag.Text = string.Empty;
 
                     tighteningResultBindingUpper.DataSource = null;
                     cameraResultBindingUpper.DataSource = null;
@@ -120,6 +125,9 @@ namespace Trace.UI.Controls
                     txtLowerCameraCheck.Text = _traceabilityLowerLog.Attribute1;
                     //txtLowerVaneCheck.Text = _traceabilityLowerLog.Attribute2;
 
+                    if (_traceabilityLowerLog.ModelRunningDesc != null)
+                        txtLowerModelRunningFlag.Text = "LOWER " + _traceabilityLowerLog.ModelRunningDesc.Replace("_", " ");
+
                     tighteningResultBindingLower.DataSource = _traceabilityLowerLog.TighteningResults;
                     cameraResultBindingLower.DataSource = _traceabilityLowerLog.CameraResults;
 
@@ -151,6 +159,7 @@ namespace Trace.UI.Controls
                     txtLowerLineErrorCounter.Text = string.Empty;
                     txtLowerCameraCheck.Text = string.Empty;
                     //txtLowerVaneCheck.Text = string.Empty;
+                    txtLowerModelRunningFlag.Text = string.Empty;
 
                     tighteningResultBindingLower.DataSource = null;
                     cameraResultBindingLower.DataSource = null;

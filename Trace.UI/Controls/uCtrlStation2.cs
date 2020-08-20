@@ -47,6 +47,9 @@ namespace Trace.UI.Controls
                     tighteningResultModelBindingSource.DataSource = _traceabilityLog.TighteningResults;
                     lblFinalResult.Text = _traceabilityLog.FinalResultDesc;
 
+                    if (_traceabilityLog.ModelRunningDesc != null)
+                        txtModelRunningFlag.Text = "UPPER " + _traceabilityLog.ModelRunningDesc.Replace("_", " ");
+
                     if (_traceabilityLog.FinalResult == 1)
                     {
 
@@ -68,6 +71,7 @@ namespace Trace.UI.Controls
                     txtItemCode.Text = string.Empty;
                     partAssemblyModelBindingSource.DataSource = null;
                     tighteningResultModelBindingSource.DataSource = null;
+                    txtModelRunningFlag.Text = string.Empty;
 
                     lblFinalResult.Text = "";
                     lblFinalResult.BackColor = Color.White;

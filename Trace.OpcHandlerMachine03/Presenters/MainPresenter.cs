@@ -183,7 +183,7 @@ namespace Trace.OpcHandlerMachine03.Presenters
             TraceabilityLogModel trace = new TraceabilityLogModel();
             trace.StationId = machine.StationId;
             trace.MachineId = machine.Id;
-            trace.Description = "UPPER AGS FRAM";
+            trace.Description = "UPPER AGS FRAME";
             trace.ProductionDate = DateTime.Now;
 
             foreach (var item in r)

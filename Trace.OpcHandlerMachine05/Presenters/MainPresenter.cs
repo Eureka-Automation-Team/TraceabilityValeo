@@ -352,7 +352,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
             }
            
             //Keep Tightening
-            int i = 1;
+            //int i = 1;
             List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
             TighteningRepairModel tRepair = new TighteningRepairModel();
             TighteningResultModel tmp = new TighteningResultModel();
@@ -381,7 +381,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
                         if (item.ItemName == _view.tagMainBlock + "ST4TestResult[0]")
                         {
                             TighteningResultModel t = new TighteningResultModel();
-                            t.No = i.ToString();
+                            t.No = "LH";// i.ToString();
                             t.Result = ConvertToDecimal(item.Value.ToString());
                             t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[0]").FirstOrDefault().Value.ToString());
                             t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[0]").FirstOrDefault().Value.ToString());
@@ -428,7 +428,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
                         if (item.ItemName == _view.tagMainBlock + "ST4TestResult[1]")
                         {
                             TighteningResultModel t = new TighteningResultModel();
-                            t.No = i.ToString();
+                            t.No = "RH";// i.ToString();
                             t.Result = ConvertToDecimal(item.Value.ToString());
                             t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter2[1]").FirstOrDefault().Value.ToString());
                             t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST4Parameter1[1]").FirstOrDefault().Value.ToString());
@@ -471,7 +471,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
                             }
                         }
                     }
-                    i++;
+                    //i++;
                 }
             }
 

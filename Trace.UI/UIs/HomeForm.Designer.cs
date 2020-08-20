@@ -60,9 +60,11 @@
             // 
             this.uCtrlStation51.BackColor = System.Drawing.Color.White;
             this.uCtrlStation51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uCtrlStation51.CountQtyLower = 0;
+            this.uCtrlStation51.CountQtyUpper = 0;
             this.uCtrlStation51.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation51.Location = new System.Drawing.Point(0, 703);
+            this.uCtrlStation51.Location = new System.Drawing.Point(0, 714);
             this.uCtrlStation51.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation51.MonitorFlag = false;
             this.uCtrlStation51.Name = "uCtrlStation51";
@@ -77,7 +79,7 @@
             this.uCtrlStation41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation41.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation41.Location = new System.Drawing.Point(0, 503);
+            this.uCtrlStation41.Location = new System.Drawing.Point(0, 514);
             this.uCtrlStation41.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation41.MonitorFlag = false;
             this.uCtrlStation41.Name = "uCtrlStation41";
@@ -91,11 +93,11 @@
             this.uCtrlStation31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uCtrlStation31.Dock = System.Windows.Forms.DockStyle.Top;
             this.uCtrlStation31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.uCtrlStation31.Location = new System.Drawing.Point(0, 408);
+            this.uCtrlStation31.Location = new System.Drawing.Point(0, 431);
             this.uCtrlStation31.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation31.MonitorFlag = false;
             this.uCtrlStation31.Name = "uCtrlStation31";
-            this.uCtrlStation31.Size = new System.Drawing.Size(1325, 95);
+            this.uCtrlStation31.Size = new System.Drawing.Size(1325, 83);
             this.uCtrlStation31.TabIndex = 2;
             this.uCtrlStation31.traceabilityLowerLog = null;
             this.uCtrlStation31.traceabilityUpperLog = null;
@@ -110,7 +112,7 @@
             this.uCtrlStation21.Margin = new System.Windows.Forms.Padding(4);
             this.uCtrlStation21.MonitorFlag = false;
             this.uCtrlStation21.Name = "uCtrlStation21";
-            this.uCtrlStation21.Size = new System.Drawing.Size(1325, 160);
+            this.uCtrlStation21.Size = new System.Drawing.Size(1325, 183);
             this.uCtrlStation21.TabIndex = 1;
             this.uCtrlStation21.traceabilityLog = null;
             // 
@@ -147,9 +149,9 @@
             this.label1.Location = new System.Drawing.Point(41, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(409, 30);
+            this.label1.Size = new System.Drawing.Size(697, 30);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Home";
+            this.label1.Text = "DATA MONITORING ACTIVE GRILL SHUTTER ASSEMBLY LINE FOR BMW G01/G02";
             // 
             // picClose
             // 

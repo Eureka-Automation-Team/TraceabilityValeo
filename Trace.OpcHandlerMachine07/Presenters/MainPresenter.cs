@@ -135,7 +135,7 @@ namespace Trace.OpcHandlerMachine07.Presenters
 
             if (loggings.Where(x => x.MachineId == _view.machine.Id).Count() == 0)
             {
-                var newJob = loggings.Where(x => x.MachineId == 5);
+                var newJob = loggings.Where(x => x.MachineId == 4);
 
                 WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                       CultureInfo.InvariantCulture)));

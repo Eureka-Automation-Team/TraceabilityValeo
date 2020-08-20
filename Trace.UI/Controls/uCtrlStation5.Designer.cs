@@ -45,11 +45,7 @@ namespace Trace.UI.Controls
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtUpperQty = new System.Windows.Forms.TextBox();
             this.txtUpperManchineName = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtLowerQty = new System.Windows.Forms.TextBox();
             this.txtLowerManchineName = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -82,101 +78,6 @@ namespace Trace.UI.Controls
             this.panel8 = new System.Windows.Forms.Panel();
             this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.dgvEOLUpper = new System.Windows.Forms.DataGridView();
-            this.tighteningResultBindingUpper = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvEOLLower = new System.Windows.Forms.DataGridView();
-            this.tighteningResultBindingLower = new System.Windows.Forms.BindingSource(this.components);
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
-            this.txtUpperCameraCheck = new System.Windows.Forms.TextBox();
-            this.txtLowerCameraCheck = new System.Windows.Forms.TextBox();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.splitContainer11 = new System.Windows.Forms.SplitContainer();
-            this.lblUpperFinalResult = new System.Windows.Forms.TextBox();
-            this.lblLowerFinalResult = new System.Windows.Forms.TextBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.splitContainer10 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.cameraResultBindingUpper = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cameraResultBindingLower = new System.Windows.Forms.BindingSource(this.components);
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtStationNumber = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cameraNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceLogIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceLogDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JointMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JointMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JointTarget = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -210,6 +111,113 @@ namespace Trace.UI.Controls
             this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tighteningResultBindingUpper = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvEOLLower = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tighteningResultBindingLower = new System.Windows.Forms.BindingSource(this.components);
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
+            this.txtUpperCameraCheck = new System.Windows.Forms.TextBox();
+            this.txtLowerCameraCheck = new System.Windows.Forms.TextBox();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.splitContainer11 = new System.Windows.Forms.SplitContainer();
+            this.lblUpperFinalResult = new System.Windows.Forms.TextBox();
+            this.lblLowerFinalResult = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.splitContainer10 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.cameraNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testResultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testResultDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceLogIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceLogDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdateDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cameraResultBindingUpper = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cameraResultBindingLower = new System.Windows.Forms.BindingSource(this.components);
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtStationNumber = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtUpperQty = new System.Windows.Forms.TextBox();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtLowerQty = new System.Windows.Forms.TextBox();
+            this.txtUpperModelRunningFlag = new System.Windows.Forms.TextBox();
+            this.txtLowerModelRunningFlag = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -295,6 +303,10 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel4.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel31.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -325,9 +337,9 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1985, 294);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1959, 258);
             this.tableLayoutPanel3.TabIndex = 20;
             // 
             // panel12
@@ -336,18 +348,18 @@ namespace Trace.UI.Controls
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(138, 48);
+            this.panel12.Size = new System.Drawing.Size(138, 36);
             this.panel12.TabIndex = 22;
             // 
             // label14
             // 
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(0, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 48);
+            this.label14.Size = new System.Drawing.Size(138, 36);
             this.label14.TabIndex = 6;
             this.label14.Text = "Machine";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -358,18 +370,18 @@ namespace Trace.UI.Controls
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(147, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(133, 48);
+            this.panel13.Size = new System.Drawing.Size(133, 36);
             this.panel13.TabIndex = 23;
             // 
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(133, 48);
+            this.label10.Size = new System.Drawing.Size(133, 36);
             this.label10.TabIndex = 7;
             this.label10.Text = "Code";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -380,18 +392,18 @@ namespace Trace.UI.Controls
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(286, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(615, 48);
+            this.panel14.Size = new System.Drawing.Size(589, 36);
             this.panel14.TabIndex = 25;
             // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(615, 48);
+            this.label11.Size = new System.Drawing.Size(589, 36);
             this.label11.TabIndex = 8;
             this.label11.Text = "Part Serial No.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -401,10 +413,10 @@ namespace Trace.UI.Controls
             // 
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 57);
+            this.panel1.Location = new System.Drawing.Point(3, 45);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(138, 234);
+            this.panel1.Size = new System.Drawing.Size(138, 210);
             this.panel1.TabIndex = 26;
             // 
             // splitContainer1
@@ -417,39 +429,16 @@ namespace Trace.UI.Controls
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.txtUpperQty);
+            this.splitContainer1.Panel1.Controls.Add(this.panel26);
             this.splitContainer1.Panel1.Controls.Add(this.txtUpperManchineName);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.label13);
-            this.splitContainer1.Panel2.Controls.Add(this.txtLowerQty);
+            this.splitContainer1.Panel2.Controls.Add(this.panel31);
             this.splitContainer1.Panel2.Controls.Add(this.txtLowerManchineName);
-            this.splitContainer1.Size = new System.Drawing.Size(138, 231);
-            this.splitContainer1.SplitterDistance = 108;
+            this.splitContainer1.Size = new System.Drawing.Size(138, 207);
+            this.splitContainer1.SplitterDistance = 101;
             this.splitContainer1.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(0, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 17);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "UPR Complete Qty.";
-            // 
-            // txtUpperQty
-            // 
-            this.txtUpperQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtUpperQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.txtUpperQty.Location = new System.Drawing.Point(21, 57);
-            this.txtUpperQty.Name = "txtUpperQty";
-            this.txtUpperQty.Size = new System.Drawing.Size(97, 47);
-            this.txtUpperQty.TabIndex = 19;
-            this.txtUpperQty.Text = "0";
-            this.txtUpperQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtUpperManchineName
             // 
@@ -459,27 +448,6 @@ namespace Trace.UI.Controls
             this.txtUpperManchineName.ReadOnly = true;
             this.txtUpperManchineName.Size = new System.Drawing.Size(138, 23);
             this.txtUpperManchineName.TabIndex = 18;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label13.Location = new System.Drawing.Point(0, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(132, 17);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "LWR Complete Qty.";
-            // 
-            // txtLowerQty
-            // 
-            this.txtLowerQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtLowerQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.txtLowerQty.Location = new System.Drawing.Point(21, 65);
-            this.txtLowerQty.Name = "txtLowerQty";
-            this.txtLowerQty.Size = new System.Drawing.Size(97, 47);
-            this.txtLowerQty.TabIndex = 21;
-            this.txtLowerQty.Text = "0";
-            this.txtLowerQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtLowerManchineName
             // 
@@ -494,10 +462,10 @@ namespace Trace.UI.Controls
             // 
             this.panel3.Controls.Add(this.splitContainer2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(147, 57);
+            this.panel3.Location = new System.Drawing.Point(147, 45);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(133, 234);
+            this.panel3.Size = new System.Drawing.Size(133, 210);
             this.panel3.TabIndex = 27;
             // 
             // splitContainer2
@@ -510,13 +478,15 @@ namespace Trace.UI.Controls
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.picQRCodeUpper);
             this.splitContainer2.Panel1.Controls.Add(this.txtUpperItemCode);
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.picQRCodeLower);
             this.splitContainer2.Panel2.Controls.Add(this.txtLowerItemCode);
-            this.splitContainer2.Size = new System.Drawing.Size(133, 231);
-            this.splitContainer2.SplitterDistance = 108;
+            this.splitContainer2.Size = new System.Drawing.Size(133, 207);
+            this.splitContainer2.SplitterDistance = 101;
             this.splitContainer2.TabIndex = 19;
             // 
             // txtUpperItemCode
@@ -541,10 +511,10 @@ namespace Trace.UI.Controls
             // 
             this.panel4.Controls.Add(this.splitContainer3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(286, 57);
+            this.panel4.Location = new System.Drawing.Point(286, 45);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(615, 234);
+            this.panel4.Size = new System.Drawing.Size(589, 210);
             this.panel4.TabIndex = 28;
             // 
             // splitContainer3
@@ -557,23 +527,24 @@ namespace Trace.UI.Controls
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.picQRCodeUpper);
+            this.splitContainer3.Panel1.Controls.Add(this.panel17);
             this.splitContainer3.Panel1.Controls.Add(this.txtUpperPartSerialNumber);
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.picQRCodeLower);
+            this.splitContainer3.Panel2.Controls.Add(this.panel18);
             this.splitContainer3.Panel2.Controls.Add(this.txtLowerPartSerialNumber);
-            this.splitContainer3.Size = new System.Drawing.Size(615, 231);
-            this.splitContainer3.SplitterDistance = 108;
+            this.splitContainer3.Size = new System.Drawing.Size(589, 207);
+            this.splitContainer3.SplitterDistance = 101;
             this.splitContainer3.TabIndex = 19;
             // 
             // picQRCodeUpper
             // 
+            this.picQRCodeUpper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picQRCodeUpper.Image = ((System.Drawing.Image)(resources.GetObject("picQRCodeUpper.Image")));
-            this.picQRCodeUpper.Location = new System.Drawing.Point(4, 23);
+            this.picQRCodeUpper.Location = new System.Drawing.Point(0, 23);
             this.picQRCodeUpper.Name = "picQRCodeUpper";
-            this.picQRCodeUpper.Size = new System.Drawing.Size(85, 85);
+            this.picQRCodeUpper.Size = new System.Drawing.Size(133, 78);
             this.picQRCodeUpper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picQRCodeUpper.TabIndex = 1;
             this.picQRCodeUpper.TabStop = false;
@@ -585,15 +556,16 @@ namespace Trace.UI.Controls
             this.txtUpperPartSerialNumber.Location = new System.Drawing.Point(0, 0);
             this.txtUpperPartSerialNumber.Name = "txtUpperPartSerialNumber";
             this.txtUpperPartSerialNumber.ReadOnly = true;
-            this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(615, 23);
+            this.txtUpperPartSerialNumber.Size = new System.Drawing.Size(589, 23);
             this.txtUpperPartSerialNumber.TabIndex = 18;
             // 
             // picQRCodeLower
             // 
+            this.picQRCodeLower.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picQRCodeLower.Image = ((System.Drawing.Image)(resources.GetObject("picQRCodeLower.Image")));
-            this.picQRCodeLower.Location = new System.Drawing.Point(4, 25);
+            this.picQRCodeLower.Location = new System.Drawing.Point(0, 23);
             this.picQRCodeLower.Name = "picQRCodeLower";
-            this.picQRCodeLower.Size = new System.Drawing.Size(85, 85);
+            this.picQRCodeLower.Size = new System.Drawing.Size(133, 79);
             this.picQRCodeLower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picQRCodeLower.TabIndex = 20;
             this.picQRCodeLower.TabStop = false;
@@ -605,16 +577,16 @@ namespace Trace.UI.Controls
             this.txtLowerPartSerialNumber.Location = new System.Drawing.Point(0, 0);
             this.txtLowerPartSerialNumber.Name = "txtLowerPartSerialNumber";
             this.txtLowerPartSerialNumber.ReadOnly = true;
-            this.txtLowerPartSerialNumber.Size = new System.Drawing.Size(615, 23);
+            this.txtLowerPartSerialNumber.Size = new System.Drawing.Size(589, 23);
             this.txtLowerPartSerialNumber.TabIndex = 19;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(907, 57);
+            this.panel5.Location = new System.Drawing.Point(881, 45);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(645, 234);
+            this.panel5.Size = new System.Drawing.Size(645, 210);
             this.panel5.TabIndex = 29;
             // 
             // tableLayoutPanel1
@@ -624,7 +596,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.71631F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 363F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 364F));
             this.tableLayoutPanel1.Controls.Add(this.panel20, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel21, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel22, 2, 0);
@@ -635,7 +607,7 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(645, 234);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(645, 210);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel20
@@ -644,7 +616,7 @@ namespace Trace.UI.Controls
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(3, 3);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(164, 228);
+            this.panel20.Size = new System.Drawing.Size(163, 204);
             this.panel20.TabIndex = 0;
             // 
             // splitContainer4
@@ -663,8 +635,8 @@ namespace Trace.UI.Controls
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.txtLowerActuator);
-            this.splitContainer4.Size = new System.Drawing.Size(164, 228);
-            this.splitContainer4.SplitterDistance = 109;
+            this.splitContainer4.Size = new System.Drawing.Size(163, 204);
+            this.splitContainer4.SplitterDistance = 101;
             this.splitContainer4.TabIndex = 23;
             // 
             // txtUpperActuator
@@ -673,7 +645,7 @@ namespace Trace.UI.Controls
             this.txtUpperActuator.Location = new System.Drawing.Point(0, 0);
             this.txtUpperActuator.Name = "txtUpperActuator";
             this.txtUpperActuator.ReadOnly = true;
-            this.txtUpperActuator.Size = new System.Drawing.Size(164, 23);
+            this.txtUpperActuator.Size = new System.Drawing.Size(163, 23);
             this.txtUpperActuator.TabIndex = 22;
             // 
             // txtLowerActuator
@@ -682,16 +654,16 @@ namespace Trace.UI.Controls
             this.txtLowerActuator.Location = new System.Drawing.Point(0, 0);
             this.txtLowerActuator.Name = "txtLowerActuator";
             this.txtLowerActuator.ReadOnly = true;
-            this.txtLowerActuator.Size = new System.Drawing.Size(164, 23);
+            this.txtLowerActuator.Size = new System.Drawing.Size(163, 23);
             this.txtLowerActuator.TabIndex = 23;
             // 
             // panel21
             // 
             this.panel21.Controls.Add(this.splitContainer5);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(173, 3);
+            this.panel21.Location = new System.Drawing.Point(172, 3);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(105, 228);
+            this.panel21.Size = new System.Drawing.Size(105, 204);
             this.panel21.TabIndex = 1;
             // 
             // splitContainer5
@@ -709,8 +681,8 @@ namespace Trace.UI.Controls
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.txtLowerProductionDate);
-            this.splitContainer5.Size = new System.Drawing.Size(105, 228);
-            this.splitContainer5.SplitterDistance = 109;
+            this.splitContainer5.Size = new System.Drawing.Size(105, 204);
+            this.splitContainer5.SplitterDistance = 100;
             this.splitContainer5.TabIndex = 23;
             // 
             // txtUpperProductionDate
@@ -735,9 +707,9 @@ namespace Trace.UI.Controls
             // 
             this.panel22.Controls.Add(this.splitContainer6);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(284, 3);
+            this.panel22.Location = new System.Drawing.Point(283, 3);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(1, 228);
+            this.panel22.Size = new System.Drawing.Size(1, 204);
             this.panel22.TabIndex = 2;
             // 
             // splitContainer6
@@ -755,7 +727,7 @@ namespace Trace.UI.Controls
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.txtLowerSwNumber);
-            this.splitContainer6.Size = new System.Drawing.Size(1, 228);
+            this.splitContainer6.Size = new System.Drawing.Size(1, 204);
             this.splitContainer6.SplitterDistance = 108;
             this.splitContainer6.TabIndex = 23;
             // 
@@ -781,9 +753,9 @@ namespace Trace.UI.Controls
             // 
             this.panel28.Controls.Add(this.splitContainer7);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(284, 3);
+            this.panel28.Location = new System.Drawing.Point(283, 3);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(1, 228);
+            this.panel28.Size = new System.Drawing.Size(1, 204);
             this.panel28.TabIndex = 3;
             // 
             // splitContainer7
@@ -801,7 +773,7 @@ namespace Trace.UI.Controls
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.txtLowerLineErrorCounter);
-            this.splitContainer7.Size = new System.Drawing.Size(1, 228);
+            this.splitContainer7.Size = new System.Drawing.Size(1, 204);
             this.splitContainer7.SplitterDistance = 108;
             this.splitContainer7.TabIndex = 23;
             // 
@@ -827,9 +799,9 @@ namespace Trace.UI.Controls
             // 
             this.panel8.Controls.Add(this.splitContainer8);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(284, 3);
+            this.panel8.Location = new System.Drawing.Point(283, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(358, 228);
+            this.panel8.Size = new System.Drawing.Size(359, 204);
             this.panel8.TabIndex = 4;
             // 
             // splitContainer8
@@ -847,8 +819,8 @@ namespace Trace.UI.Controls
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.dgvEOLLower);
-            this.splitContainer8.Size = new System.Drawing.Size(358, 228);
-            this.splitContainer8.SplitterDistance = 108;
+            this.splitContainer8.Size = new System.Drawing.Size(359, 204);
+            this.splitContainer8.SplitterDistance = 101;
             this.splitContainer8.TabIndex = 0;
             // 
             // dgvEOLUpper
@@ -909,1007 +881,8 @@ namespace Trace.UI.Controls
             this.dgvEOLUpper.Name = "dgvEOLUpper";
             this.dgvEOLUpper.RowHeadersVisible = false;
             this.dgvEOLUpper.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEOLUpper.Size = new System.Drawing.Size(358, 108);
+            this.dgvEOLUpper.Size = new System.Drawing.Size(359, 101);
             this.dgvEOLUpper.TabIndex = 25;
-            // 
-            // tighteningResultBindingUpper
-            // 
-            this.tighteningResultBindingUpper.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
-            // 
-            // dgvEOLLower
-            // 
-            this.dgvEOLLower.AllowUserToAddRows = false;
-            this.dgvEOLLower.AutoGenerateColumns = false;
-            this.dgvEOLLower.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvEOLLower.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvEOLLower.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEOLLower.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEOLLower.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEOLLower.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEOLLower.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn30,
-            this.dataGridViewTextBoxColumn31});
-            this.dgvEOLLower.DataSource = this.tighteningResultBindingLower;
-            this.dgvEOLLower.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEOLLower.Location = new System.Drawing.Point(0, 0);
-            this.dgvEOLLower.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvEOLLower.Name = "dgvEOLLower";
-            this.dgvEOLLower.RowHeadersVisible = false;
-            this.dgvEOLLower.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEOLLower.Size = new System.Drawing.Size(358, 116);
-            this.dgvEOLLower.TabIndex = 26;
-            // 
-            // tighteningResultBindingLower
-            // 
-            this.tighteningResultBindingLower.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.tableLayoutPanel2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(907, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(645, 48);
-            this.panel6.TabIndex = 30;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.42857F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 360F));
-            this.tableLayoutPanel2.Controls.Add(this.panel23, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel24, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel25, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel27, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel7, 4, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(645, 48);
-            this.tableLayoutPanel2.TabIndex = 10;
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.label6);
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel23.Location = new System.Drawing.Point(3, 3);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(160, 42);
-            this.panel23.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 42);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Actuator No.";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.label7);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(169, 3);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(112, 42);
-            this.panel24.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 42);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Production Date";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.label8);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(287, 3);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(1, 42);
-            this.panel25.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1, 42);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "SW No.";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.label5);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel27.Location = new System.Drawing.Point(287, 3);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(1, 42);
-            this.panel27.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1, 42);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "LIN Error Code";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(287, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(355, 42);
-            this.panel7.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(355, 42);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "DATA EOL TEST";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.label9);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(1558, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(91, 48);
-            this.panel10.TabIndex = 34;
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(0, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 48);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "LWRCheck Linkage";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.splitContainer9);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(1558, 57);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panel19.Size = new System.Drawing.Size(91, 234);
-            this.panel19.TabIndex = 38;
-            // 
-            // splitContainer9
-            // 
-            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer9.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer9.Location = new System.Drawing.Point(0, 3);
-            this.splitContainer9.Name = "splitContainer9";
-            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer9.Panel1
-            // 
-            this.splitContainer9.Panel1.Controls.Add(this.txtUpperCameraCheck);
-            // 
-            // splitContainer9.Panel2
-            // 
-            this.splitContainer9.Panel2.Controls.Add(this.txtLowerCameraCheck);
-            this.splitContainer9.Size = new System.Drawing.Size(91, 231);
-            this.splitContainer9.SplitterDistance = 106;
-            this.splitContainer9.TabIndex = 23;
-            // 
-            // txtUpperCameraCheck
-            // 
-            this.txtUpperCameraCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtUpperCameraCheck.Location = new System.Drawing.Point(0, 0);
-            this.txtUpperCameraCheck.Name = "txtUpperCameraCheck";
-            this.txtUpperCameraCheck.ReadOnly = true;
-            this.txtUpperCameraCheck.Size = new System.Drawing.Size(91, 23);
-            this.txtUpperCameraCheck.TabIndex = 22;
-            this.txtUpperCameraCheck.Visible = false;
-            // 
-            // txtLowerCameraCheck
-            // 
-            this.txtLowerCameraCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtLowerCameraCheck.Location = new System.Drawing.Point(0, 0);
-            this.txtLowerCameraCheck.Name = "txtLowerCameraCheck";
-            this.txtLowerCameraCheck.ReadOnly = true;
-            this.txtLowerCameraCheck.Size = new System.Drawing.Size(91, 23);
-            this.txtLowerCameraCheck.TabIndex = 23;
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.label2);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(1909, 3);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(73, 48);
-            this.panel29.TabIndex = 41;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 48);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Result";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel30
-            // 
-            this.panel30.Controls.Add(this.splitContainer11);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(1909, 57);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(73, 234);
-            this.panel30.TabIndex = 42;
-            // 
-            // splitContainer11
-            // 
-            this.splitContainer11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer11.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer11.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer11.Name = "splitContainer11";
-            this.splitContainer11.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer11.Panel1
-            // 
-            this.splitContainer11.Panel1.Controls.Add(this.lblUpperFinalResult);
-            this.splitContainer11.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            // 
-            // splitContainer11.Panel2
-            // 
-            this.splitContainer11.Panel2.Controls.Add(this.lblLowerFinalResult);
-            this.splitContainer11.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.splitContainer11.Size = new System.Drawing.Size(73, 234);
-            this.splitContainer11.SplitterDistance = 108;
-            this.splitContainer11.TabIndex = 25;
-            // 
-            // lblUpperFinalResult
-            // 
-            this.lblUpperFinalResult.BackColor = System.Drawing.Color.White;
-            this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblUpperFinalResult.Name = "lblUpperFinalResult";
-            this.lblUpperFinalResult.ReadOnly = true;
-            this.lblUpperFinalResult.Size = new System.Drawing.Size(73, 27);
-            this.lblUpperFinalResult.TabIndex = 24;
-            this.lblUpperFinalResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblLowerFinalResult
-            // 
-            this.lblLowerFinalResult.BackColor = System.Drawing.Color.White;
-            this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblLowerFinalResult.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblLowerFinalResult.Name = "lblLowerFinalResult";
-            this.lblLowerFinalResult.ReadOnly = true;
-            this.lblLowerFinalResult.Size = new System.Drawing.Size(73, 27);
-            this.lblLowerFinalResult.TabIndex = 25;
-            this.lblLowerFinalResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label4);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(1655, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(248, 48);
-            this.panel9.TabIndex = 43;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(248, 48);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Vanes Check Result";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.splitContainer10);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(1655, 57);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(248, 234);
-            this.panel11.TabIndex = 44;
-            // 
-            // splitContainer10
-            // 
-            this.splitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer10.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer10.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer10.Name = "splitContainer10";
-            this.splitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer10.Panel1
-            // 
-            this.splitContainer10.Panel1.Controls.Add(this.dataGridView3);
-            // 
-            // splitContainer10.Panel2
-            // 
-            this.splitContainer10.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer10.Size = new System.Drawing.Size(248, 234);
-            this.splitContainer10.SplitterDistance = 109;
-            this.splitContainer10.TabIndex = 0;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView3.ColumnHeadersHeight = 27;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cameraNameDataGridViewTextBoxColumn,
-            this.testResultDataGridViewTextBoxColumn1,
-            this.testResultDescriptionDataGridViewTextBoxColumn1,
-            this.traceLogIdDataGridViewTextBoxColumn1,
-            this.traceLogDataGridViewTextBoxColumn1,
-            this.idDataGridViewTextBoxColumn1,
-            this.lastUpdateDateDataGridViewTextBoxColumn1,
-            this.lastUpdatedByDataGridViewTextBoxColumn1,
-            this.creationDateDataGridViewTextBoxColumn1,
-            this.createdByDataGridViewTextBoxColumn1});
-            this.dataGridView3.DataSource = this.cameraResultBindingUpper;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(248, 109);
-            this.dataGridView3.TabIndex = 19;
-            // 
-            // cameraResultBindingUpper
-            // 
-            this.cameraResultBindingUpper.DataSource = typeof(Trace.Domain.Models.CameraResultModel);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn32,
-            this.dataGridViewTextBoxColumn33,
-            this.dataGridViewTextBoxColumn34,
-            this.dataGridViewTextBoxColumn35,
-            this.dataGridViewTextBoxColumn36,
-            this.dataGridViewTextBoxColumn37,
-            this.dataGridViewTextBoxColumn38,
-            this.dataGridViewTextBoxColumn39,
-            this.dataGridViewTextBoxColumn40,
-            this.dataGridViewTextBoxColumn41});
-            this.dataGridView1.DataSource = this.cameraResultBindingLower;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(248, 121);
-            this.dataGridView1.TabIndex = 20;
-            // 
-            // cameraResultBindingLower
-            // 
-            this.cameraResultBindingLower.DataSource = typeof(Trace.Domain.Models.CameraResultModel);
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.tableLayoutPanel4);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(66, 294);
-            this.panel15.TabIndex = 21;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel4.Controls.Add(this.panel16, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.txtStationNumber, 0, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(66, 64);
-            this.tableLayoutPanel4.TabIndex = 22;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.label12);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(3, 3);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(60, 24);
-            this.panel16.TabIndex = 23;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(0, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 24);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Station";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtStationNumber
-            // 
-            this.txtStationNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtStationNumber.Location = new System.Drawing.Point(3, 33);
-            this.txtStationNumber.Name = "txtStationNumber";
-            this.txtStationNumber.ReadOnly = true;
-            this.txtStationNumber.Size = new System.Drawing.Size(60, 26);
-            this.txtStationNumber.TabIndex = 14;
-            this.txtStationNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tableLayoutPanel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(66, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1985, 294);
-            this.panel2.TabIndex = 22;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn32.DataPropertyName = "CameraName";
-            this.dataGridViewTextBoxColumn32.HeaderText = "Vanse";
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.DataPropertyName = "TestResult";
-            this.dataGridViewTextBoxColumn33.HeaderText = "Judgment";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            this.dataGridViewTextBoxColumn33.Width = 95;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.DataPropertyName = "TestResultDescription";
-            this.dataGridViewTextBoxColumn34.HeaderText = "TestResultDescription";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.ReadOnly = true;
-            this.dataGridViewTextBoxColumn34.Visible = false;
-            this.dataGridViewTextBoxColumn34.Width = 172;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.DataPropertyName = "TraceLogId";
-            this.dataGridViewTextBoxColumn35.HeaderText = "TraceLogId";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.Visible = false;
-            this.dataGridViewTextBoxColumn35.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            this.dataGridViewTextBoxColumn36.DataPropertyName = "TraceLog";
-            this.dataGridViewTextBoxColumn36.HeaderText = "TraceLog";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            this.dataGridViewTextBoxColumn36.Visible = false;
-            this.dataGridViewTextBoxColumn36.Width = 94;
-            // 
-            // dataGridViewTextBoxColumn37
-            // 
-            this.dataGridViewTextBoxColumn37.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn37.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
-            this.dataGridViewTextBoxColumn37.Visible = false;
-            this.dataGridViewTextBoxColumn37.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn38
-            // 
-            this.dataGridViewTextBoxColumn38.DataPropertyName = "LastUpdateDate";
-            this.dataGridViewTextBoxColumn38.HeaderText = "LastUpdateDate";
-            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
-            this.dataGridViewTextBoxColumn38.Visible = false;
-            this.dataGridViewTextBoxColumn38.Width = 136;
-            // 
-            // dataGridViewTextBoxColumn39
-            // 
-            this.dataGridViewTextBoxColumn39.DataPropertyName = "LastUpdatedBy";
-            this.dataGridViewTextBoxColumn39.HeaderText = "LastUpdatedBy";
-            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
-            this.dataGridViewTextBoxColumn39.Visible = false;
-            this.dataGridViewTextBoxColumn39.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn40
-            // 
-            this.dataGridViewTextBoxColumn40.DataPropertyName = "CreationDate";
-            this.dataGridViewTextBoxColumn40.HeaderText = "CreationDate";
-            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
-            this.dataGridViewTextBoxColumn40.Visible = false;
-            this.dataGridViewTextBoxColumn40.Width = 116;
-            // 
-            // dataGridViewTextBoxColumn41
-            // 
-            this.dataGridViewTextBoxColumn41.DataPropertyName = "CreatedBy";
-            this.dataGridViewTextBoxColumn41.HeaderText = "CreatedBy";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            this.dataGridViewTextBoxColumn41.Visible = false;
-            this.dataGridViewTextBoxColumn41.Width = 99;
-            // 
-            // cameraNameDataGridViewTextBoxColumn
-            // 
-            this.cameraNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cameraNameDataGridViewTextBoxColumn.DataPropertyName = "CameraName";
-            this.cameraNameDataGridViewTextBoxColumn.HeaderText = "Vanse";
-            this.cameraNameDataGridViewTextBoxColumn.Name = "cameraNameDataGridViewTextBoxColumn";
-            // 
-            // testResultDataGridViewTextBoxColumn1
-            // 
-            this.testResultDataGridViewTextBoxColumn1.DataPropertyName = "TestResult";
-            this.testResultDataGridViewTextBoxColumn1.HeaderText = "Judgment";
-            this.testResultDataGridViewTextBoxColumn1.Name = "testResultDataGridViewTextBoxColumn1";
-            this.testResultDataGridViewTextBoxColumn1.Width = 95;
-            // 
-            // testResultDescriptionDataGridViewTextBoxColumn1
-            // 
-            this.testResultDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "TestResultDescription";
-            this.testResultDescriptionDataGridViewTextBoxColumn1.HeaderText = "TestResultDescription";
-            this.testResultDescriptionDataGridViewTextBoxColumn1.Name = "testResultDescriptionDataGridViewTextBoxColumn1";
-            this.testResultDescriptionDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.testResultDescriptionDataGridViewTextBoxColumn1.Visible = false;
-            this.testResultDescriptionDataGridViewTextBoxColumn1.Width = 172;
-            // 
-            // traceLogIdDataGridViewTextBoxColumn1
-            // 
-            this.traceLogIdDataGridViewTextBoxColumn1.DataPropertyName = "TraceLogId";
-            this.traceLogIdDataGridViewTextBoxColumn1.HeaderText = "TraceLogId";
-            this.traceLogIdDataGridViewTextBoxColumn1.Name = "traceLogIdDataGridViewTextBoxColumn1";
-            this.traceLogIdDataGridViewTextBoxColumn1.Visible = false;
-            this.traceLogIdDataGridViewTextBoxColumn1.Width = 105;
-            // 
-            // traceLogDataGridViewTextBoxColumn1
-            // 
-            this.traceLogDataGridViewTextBoxColumn1.DataPropertyName = "TraceLog";
-            this.traceLogDataGridViewTextBoxColumn1.HeaderText = "TraceLog";
-            this.traceLogDataGridViewTextBoxColumn1.Name = "traceLogDataGridViewTextBoxColumn1";
-            this.traceLogDataGridViewTextBoxColumn1.Visible = false;
-            this.traceLogDataGridViewTextBoxColumn1.Width = 94;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            this.idDataGridViewTextBoxColumn1.Width = 44;
-            // 
-            // lastUpdateDateDataGridViewTextBoxColumn1
-            // 
-            this.lastUpdateDateDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.HeaderText = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Name = "lastUpdateDateDataGridViewTextBoxColumn1";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Visible = false;
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Width = 136;
-            // 
-            // lastUpdatedByDataGridViewTextBoxColumn1
-            // 
-            this.lastUpdatedByDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.HeaderText = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Name = "lastUpdatedByDataGridViewTextBoxColumn1";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Visible = false;
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // creationDateDataGridViewTextBoxColumn1
-            // 
-            this.creationDateDataGridViewTextBoxColumn1.DataPropertyName = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn1.HeaderText = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn1.Name = "creationDateDataGridViewTextBoxColumn1";
-            this.creationDateDataGridViewTextBoxColumn1.Visible = false;
-            this.creationDateDataGridViewTextBoxColumn1.Width = 116;
-            // 
-            // createdByDataGridViewTextBoxColumn1
-            // 
-            this.createdByDataGridViewTextBoxColumn1.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn1.HeaderText = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
-            this.createdByDataGridViewTextBoxColumn1.Visible = false;
-            this.createdByDataGridViewTextBoxColumn1.Width = 99;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "JointMin";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Joint Min";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "JointMax";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Joint Max";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "JointTarget";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Joint Target";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "JointResult";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Joint Result";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            this.dataGridViewTextBoxColumn4.Width = 88;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "RepairFlag";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Repair";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            this.dataGridViewCheckBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "No";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 104;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Min";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Min";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 55;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "MinDesc";
-            this.dataGridViewTextBoxColumn7.HeaderText = "MinDesc";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
-            this.dataGridViewTextBoxColumn7.Width = 87;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Max";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Max";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 58;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "MaxDesc";
-            this.dataGridViewTextBoxColumn9.HeaderText = "MaxDesc";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            this.dataGridViewTextBoxColumn9.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Target";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Target";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            this.dataGridViewTextBoxColumn10.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "TargetDesc";
-            this.dataGridViewTextBoxColumn11.HeaderText = "TargetDesc";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            this.dataGridViewTextBoxColumn11.Width = 107;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Result";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Result";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ResultDesc";
-            this.dataGridViewTextBoxColumn13.HeaderText = "ResultDesc";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
-            this.dataGridViewTextBoxColumn13.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "JointMin";
-            this.dataGridViewTextBoxColumn14.HeaderText = "JointMin";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Visible = false;
-            this.dataGridViewTextBoxColumn14.Width = 85;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "JointMinDesc";
-            this.dataGridViewTextBoxColumn15.HeaderText = "JointMinDesc";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Visible = false;
-            this.dataGridViewTextBoxColumn15.Width = 117;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "JointMax";
-            this.dataGridViewTextBoxColumn16.HeaderText = "JointMax";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            this.dataGridViewTextBoxColumn16.Width = 88;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "JointMaxDesc";
-            this.dataGridViewTextBoxColumn17.HeaderText = "JointMaxDesc";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            this.dataGridViewTextBoxColumn17.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "JointTarget";
-            this.dataGridViewTextBoxColumn18.HeaderText = "JointTarget";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            this.dataGridViewTextBoxColumn18.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "JointTargetDesc";
-            this.dataGridViewTextBoxColumn19.HeaderText = "JointTargetDesc";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            this.dataGridViewTextBoxColumn19.Width = 137;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "JointResult";
-            this.dataGridViewTextBoxColumn20.HeaderText = "JointResult";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Visible = false;
-            this.dataGridViewTextBoxColumn20.Width = 103;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "JointResultDesc";
-            this.dataGridViewTextBoxColumn21.HeaderText = "JointResultDesc";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Visible = false;
-            this.dataGridViewTextBoxColumn21.Width = 135;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "TestResult";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Judgment";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.Width = 95;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "JointTestResult";
-            this.dataGridViewTextBoxColumn23.HeaderText = "JointTestResult";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.Visible = false;
-            this.dataGridViewTextBoxColumn23.Width = 131;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "TestResultDescription";
-            this.dataGridViewTextBoxColumn24.HeaderText = "TestResultDescription";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Visible = false;
-            this.dataGridViewTextBoxColumn24.Width = 172;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "RepairFlag";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "RepairFlag";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.Visible = false;
-            this.dataGridViewCheckBoxColumn2.Width = 83;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "TraceLogId";
-            this.dataGridViewTextBoxColumn25.HeaderText = "TraceLogId";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.Visible = false;
-            this.dataGridViewTextBoxColumn25.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "TraceLog";
-            this.dataGridViewTextBoxColumn26.HeaderText = "TraceLog";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.Visible = false;
-            this.dataGridViewTextBoxColumn26.Width = 94;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn27.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.Visible = false;
-            this.dataGridViewTextBoxColumn27.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "LastUpdateDate";
-            this.dataGridViewTextBoxColumn28.HeaderText = "LastUpdateDate";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.Visible = false;
-            this.dataGridViewTextBoxColumn28.Width = 136;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.DataPropertyName = "LastUpdatedBy";
-            this.dataGridViewTextBoxColumn29.HeaderText = "LastUpdatedBy";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.Visible = false;
-            this.dataGridViewTextBoxColumn29.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            this.dataGridViewTextBoxColumn30.DataPropertyName = "CreationDate";
-            this.dataGridViewTextBoxColumn30.HeaderText = "CreationDate";
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            this.dataGridViewTextBoxColumn30.Visible = false;
-            this.dataGridViewTextBoxColumn30.Width = 116;
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            this.dataGridViewTextBoxColumn31.DataPropertyName = "CreatedBy";
-            this.dataGridViewTextBoxColumn31.HeaderText = "CreatedBy";
-            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            this.dataGridViewTextBoxColumn31.Visible = false;
-            this.dataGridViewTextBoxColumn31.Width = 99;
             // 
             // JointMin
             // 
@@ -1919,7 +892,6 @@ namespace Trace.UI.Controls
             this.JointMin.Name = "JointMin";
             this.JointMin.ReadOnly = true;
             this.JointMin.Visible = false;
-            this.JointMin.Width = 70;
             // 
             // JointMax
             // 
@@ -1929,7 +901,6 @@ namespace Trace.UI.Controls
             this.JointMax.Name = "JointMax";
             this.JointMax.ReadOnly = true;
             this.JointMax.Visible = false;
-            this.JointMax.Width = 73;
             // 
             // JointTarget
             // 
@@ -1939,7 +910,6 @@ namespace Trace.UI.Controls
             this.JointTarget.Name = "JointTarget";
             this.JointTarget.ReadOnly = true;
             this.JointTarget.Visible = false;
-            this.JointTarget.Width = 90;
             // 
             // JointResult
             // 
@@ -1949,7 +919,6 @@ namespace Trace.UI.Controls
             this.JointResult.Name = "JointResult";
             this.JointResult.ReadOnly = true;
             this.JointResult.Visible = false;
-            this.JointResult.Width = 88;
             // 
             // RepairFlag
             // 
@@ -2190,6 +1159,1139 @@ namespace Trace.UI.Controls
             this.createdByDataGridViewTextBoxColumn.Visible = false;
             this.createdByDataGridViewTextBoxColumn.Width = 99;
             // 
+            // tighteningResultBindingUpper
+            // 
+            this.tighteningResultBindingUpper.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
+            // 
+            // dgvEOLLower
+            // 
+            this.dgvEOLLower.AllowUserToAddRows = false;
+            this.dgvEOLLower.AutoGenerateColumns = false;
+            this.dgvEOLLower.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEOLLower.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvEOLLower.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEOLLower.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEOLLower.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEOLLower.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEOLLower.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewCheckBoxColumn2,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31});
+            this.dgvEOLLower.DataSource = this.tighteningResultBindingLower;
+            this.dgvEOLLower.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEOLLower.Location = new System.Drawing.Point(0, 0);
+            this.dgvEOLLower.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEOLLower.Name = "dgvEOLLower";
+            this.dgvEOLLower.RowHeadersVisible = false;
+            this.dgvEOLLower.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEOLLower.Size = new System.Drawing.Size(359, 99);
+            this.dgvEOLLower.TabIndex = 26;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "JointMin";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Joint Min";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "JointMax";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Joint Max";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "JointTarget";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Joint Target";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "JointResult";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Joint Result";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "RepairFlag";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Repair";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.dataGridViewCheckBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "No";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 104;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Min";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Min";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "MinDesc";
+            this.dataGridViewTextBoxColumn7.HeaderText = "MinDesc";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.dataGridViewTextBoxColumn7.Width = 87;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Max";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Max";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 58;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "MaxDesc";
+            this.dataGridViewTextBoxColumn9.HeaderText = "MaxDesc";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            this.dataGridViewTextBoxColumn9.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Target";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Target";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "TargetDesc";
+            this.dataGridViewTextBoxColumn11.HeaderText = "TargetDesc";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            this.dataGridViewTextBoxColumn11.Width = 107;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Result";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Result";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ResultDesc";
+            this.dataGridViewTextBoxColumn13.HeaderText = "ResultDesc";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            this.dataGridViewTextBoxColumn13.Width = 105;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "JointMin";
+            this.dataGridViewTextBoxColumn14.HeaderText = "JointMin";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            this.dataGridViewTextBoxColumn14.Width = 85;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "JointMinDesc";
+            this.dataGridViewTextBoxColumn15.HeaderText = "JointMinDesc";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            this.dataGridViewTextBoxColumn15.Width = 117;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "JointMax";
+            this.dataGridViewTextBoxColumn16.HeaderText = "JointMax";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            this.dataGridViewTextBoxColumn16.Width = 88;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "JointMaxDesc";
+            this.dataGridViewTextBoxColumn17.HeaderText = "JointMaxDesc";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            this.dataGridViewTextBoxColumn17.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "JointTarget";
+            this.dataGridViewTextBoxColumn18.HeaderText = "JointTarget";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            this.dataGridViewTextBoxColumn18.Width = 105;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "JointTargetDesc";
+            this.dataGridViewTextBoxColumn19.HeaderText = "JointTargetDesc";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            this.dataGridViewTextBoxColumn19.Width = 137;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "JointResult";
+            this.dataGridViewTextBoxColumn20.HeaderText = "JointResult";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            this.dataGridViewTextBoxColumn20.Width = 103;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "JointResultDesc";
+            this.dataGridViewTextBoxColumn21.HeaderText = "JointResultDesc";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Visible = false;
+            this.dataGridViewTextBoxColumn21.Width = 135;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "TestResult";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Judgment";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 95;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "JointTestResult";
+            this.dataGridViewTextBoxColumn23.HeaderText = "JointTestResult";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.Visible = false;
+            this.dataGridViewTextBoxColumn23.Width = 131;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "TestResultDescription";
+            this.dataGridViewTextBoxColumn24.HeaderText = "TestResultDescription";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Visible = false;
+            this.dataGridViewTextBoxColumn24.Width = 172;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "RepairFlag";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "RepairFlag";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.Visible = false;
+            this.dataGridViewCheckBoxColumn2.Width = 83;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "TraceLogId";
+            this.dataGridViewTextBoxColumn25.HeaderText = "TraceLogId";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.Visible = false;
+            this.dataGridViewTextBoxColumn25.Width = 105;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "TraceLog";
+            this.dataGridViewTextBoxColumn26.HeaderText = "TraceLog";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Visible = false;
+            this.dataGridViewTextBoxColumn26.Width = 94;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn27.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.Visible = false;
+            this.dataGridViewTextBoxColumn27.Width = 44;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "LastUpdateDate";
+            this.dataGridViewTextBoxColumn28.HeaderText = "LastUpdateDate";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.Visible = false;
+            this.dataGridViewTextBoxColumn28.Width = 136;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "LastUpdatedBy";
+            this.dataGridViewTextBoxColumn29.HeaderText = "LastUpdatedBy";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.Visible = false;
+            this.dataGridViewTextBoxColumn29.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "CreationDate";
+            this.dataGridViewTextBoxColumn30.HeaderText = "CreationDate";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.Visible = false;
+            this.dataGridViewTextBoxColumn30.Width = 116;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "CreatedBy";
+            this.dataGridViewTextBoxColumn31.HeaderText = "CreatedBy";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.Visible = false;
+            this.dataGridViewTextBoxColumn31.Width = 99;
+            // 
+            // tighteningResultBindingLower
+            // 
+            this.tighteningResultBindingLower.DataSource = typeof(Trace.Domain.Models.TighteningResultModel);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tableLayoutPanel2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(881, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(645, 36);
+            this.panel6.TabIndex = 30;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.42857F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 361F));
+            this.tableLayoutPanel2.Controls.Add(this.panel23, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel24, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel25, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel27, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel7, 4, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(645, 36);
+            this.tableLayoutPanel2.TabIndex = 10;
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.label6);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(3, 3);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(160, 30);
+            this.panel23.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 30);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Actuator No.";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.label7);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(169, 3);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(111, 30);
+            this.panel24.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(111, 30);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Production Date";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.label8);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(286, 3);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(1, 30);
+            this.panel25.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(1, 30);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "SW No.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.label5);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel27.Location = new System.Drawing.Point(286, 3);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(1, 30);
+            this.panel27.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(1, 30);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "LIN Error Code";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(286, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(356, 30);
+            this.panel7.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(356, 30);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "DATA EOL TEST";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label9);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(1532, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(91, 36);
+            this.panel10.TabIndex = 34;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 36);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "LWRCheck Linkage";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.splitContainer9);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(1532, 45);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.panel19.Size = new System.Drawing.Size(91, 210);
+            this.panel19.TabIndex = 38;
+            // 
+            // splitContainer9
+            // 
+            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer9.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer9.Location = new System.Drawing.Point(0, 3);
+            this.splitContainer9.Name = "splitContainer9";
+            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer9.Panel1
+            // 
+            this.splitContainer9.Panel1.Controls.Add(this.txtUpperCameraCheck);
+            // 
+            // splitContainer9.Panel2
+            // 
+            this.splitContainer9.Panel2.Controls.Add(this.txtLowerCameraCheck);
+            this.splitContainer9.Size = new System.Drawing.Size(91, 207);
+            this.splitContainer9.SplitterDistance = 103;
+            this.splitContainer9.TabIndex = 23;
+            // 
+            // txtUpperCameraCheck
+            // 
+            this.txtUpperCameraCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtUpperCameraCheck.Location = new System.Drawing.Point(0, 0);
+            this.txtUpperCameraCheck.Name = "txtUpperCameraCheck";
+            this.txtUpperCameraCheck.ReadOnly = true;
+            this.txtUpperCameraCheck.Size = new System.Drawing.Size(91, 23);
+            this.txtUpperCameraCheck.TabIndex = 22;
+            this.txtUpperCameraCheck.Visible = false;
+            // 
+            // txtLowerCameraCheck
+            // 
+            this.txtLowerCameraCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtLowerCameraCheck.Location = new System.Drawing.Point(0, 0);
+            this.txtLowerCameraCheck.Name = "txtLowerCameraCheck";
+            this.txtLowerCameraCheck.ReadOnly = true;
+            this.txtLowerCameraCheck.Size = new System.Drawing.Size(91, 23);
+            this.txtLowerCameraCheck.TabIndex = 23;
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.label2);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(1883, 3);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(73, 36);
+            this.panel29.TabIndex = 41;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 36);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Result";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.splitContainer11);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel30.Location = new System.Drawing.Point(1883, 45);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(73, 210);
+            this.panel30.TabIndex = 42;
+            // 
+            // splitContainer11
+            // 
+            this.splitContainer11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer11.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer11.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer11.Name = "splitContainer11";
+            this.splitContainer11.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer11.Panel1
+            // 
+            this.splitContainer11.Panel1.Controls.Add(this.lblUpperFinalResult);
+            this.splitContainer11.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            // 
+            // splitContainer11.Panel2
+            // 
+            this.splitContainer11.Panel2.Controls.Add(this.lblLowerFinalResult);
+            this.splitContainer11.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.splitContainer11.Size = new System.Drawing.Size(73, 210);
+            this.splitContainer11.SplitterDistance = 105;
+            this.splitContainer11.TabIndex = 25;
+            // 
+            // lblUpperFinalResult
+            // 
+            this.lblUpperFinalResult.BackColor = System.Drawing.Color.White;
+            this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblUpperFinalResult.Name = "lblUpperFinalResult";
+            this.lblUpperFinalResult.ReadOnly = true;
+            this.lblUpperFinalResult.Size = new System.Drawing.Size(73, 27);
+            this.lblUpperFinalResult.TabIndex = 24;
+            this.lblUpperFinalResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblLowerFinalResult
+            // 
+            this.lblLowerFinalResult.BackColor = System.Drawing.Color.White;
+            this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblLowerFinalResult.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblLowerFinalResult.Name = "lblLowerFinalResult";
+            this.lblLowerFinalResult.ReadOnly = true;
+            this.lblLowerFinalResult.Size = new System.Drawing.Size(73, 27);
+            this.lblLowerFinalResult.TabIndex = 25;
+            this.lblLowerFinalResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(1629, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(248, 36);
+            this.panel9.TabIndex = 43;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(248, 36);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Vanes Check Result";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.splitContainer10);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(1629, 45);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(248, 210);
+            this.panel11.TabIndex = 44;
+            // 
+            // splitContainer10
+            // 
+            this.splitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer10.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer10.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer10.Name = "splitContainer10";
+            this.splitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer10.Panel1
+            // 
+            this.splitContainer10.Panel1.Controls.Add(this.dataGridView3);
+            // 
+            // splitContainer10.Panel2
+            // 
+            this.splitContainer10.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer10.Size = new System.Drawing.Size(248, 210);
+            this.splitContainer10.SplitterDistance = 105;
+            this.splitContainer10.TabIndex = 0;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView3.ColumnHeadersHeight = 27;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cameraNameDataGridViewTextBoxColumn,
+            this.testResultDataGridViewTextBoxColumn1,
+            this.testResultDescriptionDataGridViewTextBoxColumn1,
+            this.traceLogIdDataGridViewTextBoxColumn1,
+            this.traceLogDataGridViewTextBoxColumn1,
+            this.idDataGridViewTextBoxColumn1,
+            this.lastUpdateDateDataGridViewTextBoxColumn1,
+            this.lastUpdatedByDataGridViewTextBoxColumn1,
+            this.creationDateDataGridViewTextBoxColumn1,
+            this.createdByDataGridViewTextBoxColumn1});
+            this.dataGridView3.DataSource = this.cameraResultBindingUpper;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(248, 105);
+            this.dataGridView3.TabIndex = 19;
+            // 
+            // cameraNameDataGridViewTextBoxColumn
+            // 
+            this.cameraNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cameraNameDataGridViewTextBoxColumn.DataPropertyName = "CameraName";
+            this.cameraNameDataGridViewTextBoxColumn.HeaderText = "Vanse";
+            this.cameraNameDataGridViewTextBoxColumn.Name = "cameraNameDataGridViewTextBoxColumn";
+            // 
+            // testResultDataGridViewTextBoxColumn1
+            // 
+            this.testResultDataGridViewTextBoxColumn1.DataPropertyName = "TestResult";
+            this.testResultDataGridViewTextBoxColumn1.HeaderText = "Judgment";
+            this.testResultDataGridViewTextBoxColumn1.Name = "testResultDataGridViewTextBoxColumn1";
+            this.testResultDataGridViewTextBoxColumn1.Width = 95;
+            // 
+            // testResultDescriptionDataGridViewTextBoxColumn1
+            // 
+            this.testResultDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "TestResultDescription";
+            this.testResultDescriptionDataGridViewTextBoxColumn1.HeaderText = "TestResultDescription";
+            this.testResultDescriptionDataGridViewTextBoxColumn1.Name = "testResultDescriptionDataGridViewTextBoxColumn1";
+            this.testResultDescriptionDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.testResultDescriptionDataGridViewTextBoxColumn1.Visible = false;
+            this.testResultDescriptionDataGridViewTextBoxColumn1.Width = 172;
+            // 
+            // traceLogIdDataGridViewTextBoxColumn1
+            // 
+            this.traceLogIdDataGridViewTextBoxColumn1.DataPropertyName = "TraceLogId";
+            this.traceLogIdDataGridViewTextBoxColumn1.HeaderText = "TraceLogId";
+            this.traceLogIdDataGridViewTextBoxColumn1.Name = "traceLogIdDataGridViewTextBoxColumn1";
+            this.traceLogIdDataGridViewTextBoxColumn1.Visible = false;
+            this.traceLogIdDataGridViewTextBoxColumn1.Width = 105;
+            // 
+            // traceLogDataGridViewTextBoxColumn1
+            // 
+            this.traceLogDataGridViewTextBoxColumn1.DataPropertyName = "TraceLog";
+            this.traceLogDataGridViewTextBoxColumn1.HeaderText = "TraceLog";
+            this.traceLogDataGridViewTextBoxColumn1.Name = "traceLogDataGridViewTextBoxColumn1";
+            this.traceLogDataGridViewTextBoxColumn1.Visible = false;
+            this.traceLogDataGridViewTextBoxColumn1.Width = 94;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            this.idDataGridViewTextBoxColumn1.Width = 44;
+            // 
+            // lastUpdateDateDataGridViewTextBoxColumn1
+            // 
+            this.lastUpdateDateDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.HeaderText = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Name = "lastUpdateDateDataGridViewTextBoxColumn1";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Visible = false;
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Width = 136;
+            // 
+            // lastUpdatedByDataGridViewTextBoxColumn1
+            // 
+            this.lastUpdatedByDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.HeaderText = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Name = "lastUpdatedByDataGridViewTextBoxColumn1";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Visible = false;
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // creationDateDataGridViewTextBoxColumn1
+            // 
+            this.creationDateDataGridViewTextBoxColumn1.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn1.HeaderText = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn1.Name = "creationDateDataGridViewTextBoxColumn1";
+            this.creationDateDataGridViewTextBoxColumn1.Visible = false;
+            this.creationDateDataGridViewTextBoxColumn1.Width = 116;
+            // 
+            // createdByDataGridViewTextBoxColumn1
+            // 
+            this.createdByDataGridViewTextBoxColumn1.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn1.HeaderText = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
+            this.createdByDataGridViewTextBoxColumn1.Visible = false;
+            this.createdByDataGridViewTextBoxColumn1.Width = 99;
+            // 
+            // cameraResultBindingUpper
+            // 
+            this.cameraResultBindingUpper.DataSource = typeof(Trace.Domain.Models.CameraResultModel);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.dataGridViewTextBoxColumn36,
+            this.dataGridViewTextBoxColumn37,
+            this.dataGridViewTextBoxColumn38,
+            this.dataGridViewTextBoxColumn39,
+            this.dataGridViewTextBoxColumn40,
+            this.dataGridViewTextBoxColumn41});
+            this.dataGridView1.DataSource = this.cameraResultBindingLower;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(248, 101);
+            this.dataGridView1.TabIndex = 20;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "CameraName";
+            this.dataGridViewTextBoxColumn32.HeaderText = "Vanse";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "TestResult";
+            this.dataGridViewTextBoxColumn33.HeaderText = "Judgment";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.Width = 95;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "TestResultDescription";
+            this.dataGridViewTextBoxColumn34.HeaderText = "TestResultDescription";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            this.dataGridViewTextBoxColumn34.Visible = false;
+            this.dataGridViewTextBoxColumn34.Width = 172;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "TraceLogId";
+            this.dataGridViewTextBoxColumn35.HeaderText = "TraceLogId";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.Visible = false;
+            this.dataGridViewTextBoxColumn35.Width = 105;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "TraceLog";
+            this.dataGridViewTextBoxColumn36.HeaderText = "TraceLog";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.Visible = false;
+            this.dataGridViewTextBoxColumn36.Width = 94;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn37.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.Visible = false;
+            this.dataGridViewTextBoxColumn37.Width = 44;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "LastUpdateDate";
+            this.dataGridViewTextBoxColumn38.HeaderText = "LastUpdateDate";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.Visible = false;
+            this.dataGridViewTextBoxColumn38.Width = 136;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "LastUpdatedBy";
+            this.dataGridViewTextBoxColumn39.HeaderText = "LastUpdatedBy";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.Visible = false;
+            this.dataGridViewTextBoxColumn39.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "CreationDate";
+            this.dataGridViewTextBoxColumn40.HeaderText = "CreationDate";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.Visible = false;
+            this.dataGridViewTextBoxColumn40.Width = 116;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "CreatedBy";
+            this.dataGridViewTextBoxColumn41.HeaderText = "CreatedBy";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.Visible = false;
+            this.dataGridViewTextBoxColumn41.Width = 99;
+            // 
+            // cameraResultBindingLower
+            // 
+            this.cameraResultBindingLower.DataSource = typeof(Trace.Domain.Models.CameraResultModel);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.tableLayoutPanel4);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(92, 258);
+            this.panel15.TabIndex = 21;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel4.Controls.Add(this.panel16, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.txtStationNumber, 0, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(92, 64);
+            this.tableLayoutPanel4.TabIndex = 22;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.label12);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(3, 3);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(86, 24);
+            this.panel16.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 24);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Station";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtStationNumber
+            // 
+            this.txtStationNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtStationNumber.Location = new System.Drawing.Point(3, 33);
+            this.txtStationNumber.Name = "txtStationNumber";
+            this.txtStationNumber.ReadOnly = true;
+            this.txtStationNumber.Size = new System.Drawing.Size(86, 26);
+            this.txtStationNumber.TabIndex = 14;
+            this.txtStationNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(92, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1959, 258);
+            this.panel2.TabIndex = 22;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.txtUpperModelRunningFlag);
+            this.panel17.Controls.Add(this.label15);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel17.Location = new System.Drawing.Point(0, 23);
+            this.panel17.Name = "panel17";
+            this.panel17.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.panel17.Size = new System.Drawing.Size(589, 78);
+            this.panel17.TabIndex = 19;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.txtLowerModelRunningFlag);
+            this.panel18.Controls.Add(this.label16);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(0, 23);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel18.Size = new System.Drawing.Size(589, 79);
+            this.panel18.TabIndex = 20;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(0, 3);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(589, 20);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Model Running";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(0, 5);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(589, 20);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Model Running";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.txtUpperQty);
+            this.panel26.Controls.Add(this.label1);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(0, 23);
+            this.panel26.Name = "panel26";
+            this.panel26.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel26.Size = new System.Drawing.Size(138, 78);
+            this.panel26.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "UPR Complete Qty.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtUpperQty
+            // 
+            this.txtUpperQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtUpperQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.txtUpperQty.Location = new System.Drawing.Point(34, 28);
+            this.txtUpperQty.Name = "txtUpperQty";
+            this.txtUpperQty.Size = new System.Drawing.Size(68, 47);
+            this.txtUpperQty.TabIndex = 22;
+            this.txtUpperQty.Text = "0";
+            this.txtUpperQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.txtLowerQty);
+            this.panel31.Controls.Add(this.label13);
+            this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel31.Location = new System.Drawing.Point(0, 23);
+            this.panel31.Name = "panel31";
+            this.panel31.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel31.Size = new System.Drawing.Size(138, 79);
+            this.panel31.TabIndex = 23;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(0, 5);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(138, 20);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "LWR Complete Qty.";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtLowerQty
+            // 
+            this.txtLowerQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtLowerQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.txtLowerQty.Location = new System.Drawing.Point(34, 28);
+            this.txtLowerQty.Name = "txtLowerQty";
+            this.txtLowerQty.Size = new System.Drawing.Size(68, 47);
+            this.txtLowerQty.TabIndex = 24;
+            this.txtLowerQty.Text = "0";
+            this.txtLowerQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtUpperModelRunningFlag
+            // 
+            this.txtUpperModelRunningFlag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtUpperModelRunningFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtUpperModelRunningFlag.Location = new System.Drawing.Point(0, 23);
+            this.txtUpperModelRunningFlag.Name = "txtUpperModelRunningFlag";
+            this.txtUpperModelRunningFlag.ReadOnly = true;
+            this.txtUpperModelRunningFlag.Size = new System.Drawing.Size(589, 23);
+            this.txtUpperModelRunningFlag.TabIndex = 22;
+            // 
+            // txtLowerModelRunningFlag
+            // 
+            this.txtLowerModelRunningFlag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtLowerModelRunningFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtLowerModelRunningFlag.Location = new System.Drawing.Point(0, 25);
+            this.txtLowerModelRunningFlag.Name = "txtLowerModelRunningFlag";
+            this.txtLowerModelRunningFlag.ReadOnly = true;
+            this.txtLowerModelRunningFlag.Size = new System.Drawing.Size(589, 23);
+            this.txtLowerModelRunningFlag.TabIndex = 23;
+            // 
             // uCtrlStation5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2201,7 +2303,7 @@ namespace Trace.UI.Controls
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uCtrlStation5";
-            this.Size = new System.Drawing.Size(2051, 294);
+            this.Size = new System.Drawing.Size(2051, 258);
             this.Load += new System.EventHandler(this.uCtrlStation5_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -2307,6 +2409,14 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel4.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2396,10 +2506,6 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtUpperQty;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtLowerQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn JointMin;
         private System.Windows.Forms.DataGridViewTextBoxColumn JointMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn JointTarget;
@@ -2486,5 +2592,17 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.TextBox txtUpperQty;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.TextBox txtLowerQty;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtUpperModelRunningFlag;
+        private System.Windows.Forms.TextBox txtLowerModelRunningFlag;
     }
 }

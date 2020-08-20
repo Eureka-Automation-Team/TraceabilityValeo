@@ -42,10 +42,13 @@ namespace Trace.UI.Controls
                 if (_traceabilityUpperLog != null)
                 {
                     txtStationNumber.Text = _traceabilityUpperLog.Station.StationNumber;
-                    txtUpperDescription.Text = _traceabilityUpperLog.Description;
+                    txtUpperModelRunningFlag.Text = _traceabilityUpperLog.Description;
                     txtUpperManchineName.Text = _traceabilityUpperLog.Machine.ManchineName;
                     txtUpperItemCode.Text = _traceabilityUpperLog.ItemCode;
                     lblUpperFinalResult.Text = _traceabilityUpperLog.FinalResultDesc;
+
+                    if (_traceabilityUpperLog.ModelRunningDesc != null)
+                        txtUpperModelRunningFlag.Text = "UPPER " + _traceabilityUpperLog.ModelRunningDesc.Replace("_", " ");
 
                     if (_traceabilityUpperLog.FinalResult == 1)
                     {
@@ -64,9 +67,10 @@ namespace Trace.UI.Controls
                 else
                 {
                     txtStationNumber.Text = string.Empty;
-                    txtUpperDescription.Text = string.Empty;
+                    txtUpperModelRunningFlag.Text = string.Empty;
                     txtUpperManchineName.Text = string.Empty;
                     txtUpperItemCode.Text = string.Empty;
+                    txtUpperModelRunningFlag.Text = string.Empty;
 
                     lblUpperFinalResult.Text = "";
                     lblUpperFinalResult.BackColor = Color.White;
@@ -83,10 +87,13 @@ namespace Trace.UI.Controls
                 if (_traceabilityLowerLog != null)
                 {
                     txtStationNumber.Text = _traceabilityLowerLog.Station.StationNumber;
-                    txtLowerDescription.Text = _traceabilityLowerLog.Description;
+                    txtLowerModelRunningFlag.Text = _traceabilityLowerLog.Description;
                     txtLowerManchineName.Text = _traceabilityLowerLog.Machine.ManchineName;
                     txtLowerItemCode.Text = _traceabilityLowerLog.ItemCode;
                     lblLowerFinalResult.Text = _traceabilityLowerLog.FinalResultDesc;
+
+                    if (_traceabilityLowerLog.ModelRunningDesc != null)
+                        txtLowerModelRunningFlag.Text = "LOWER " + _traceabilityLowerLog.ModelRunningDesc.Replace("_", " ");
 
                     if (_traceabilityLowerLog.FinalResult == 1)
                     {
@@ -105,9 +112,10 @@ namespace Trace.UI.Controls
                 else
                 {
                     txtStationNumber.Text = string.Empty;
-                    txtLowerDescription.Text = string.Empty;
+                    txtLowerModelRunningFlag.Text = string.Empty;
                     txtLowerManchineName.Text = string.Empty;
                     txtLowerItemCode.Text = string.Empty;
+                    txtLowerModelRunningFlag.Text = string.Empty;
 
                     lblLowerFinalResult.Text = "";
                     lblLowerFinalResult.BackColor = Color.White;

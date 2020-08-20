@@ -135,7 +135,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
 
             if (loggings.Where(x => x.MachineId == _view.machine.Id).Count() == 0)
             {
-                var newJob = loggings.Where(x => x.MachineId == 2);
+                var newJob = loggings.Where(x => x.MachineId == 3);
 
                 WriteLog("VerifyCodeST5_1.txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                       CultureInfo.InvariantCulture)));
@@ -145,6 +145,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
                     //Data not found
                     //_machine.CodeVerifyResult = 3;
                     _machine.CodeVerifyResult = 2;
+                    _view.ResultnMessage = "NOK = Data not found.";
                 }
                 else
                 {
@@ -157,6 +158,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
                 //Dupplicated
                 //_machine.CodeVerifyResult = 4; 
                 _machine.CodeVerifyResult = 2;
+                _view.ResultnMessage = "NOK = Data dupplicated.";
             }
 
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()

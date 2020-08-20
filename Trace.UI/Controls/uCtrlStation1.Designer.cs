@@ -31,12 +31,10 @@ namespace Trace.UI.Controls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtModelRunningFlag = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,46 +48,6 @@ namespace Trace.UI.Controls
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tighteningResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceabilityLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceabilityLogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partAssemblyModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.cameraResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblFinalResult = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStationNumber = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cameraNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testResultDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceLogIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traceLogDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedByDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creationDateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.testResultDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +71,50 @@ namespace Trace.UI.Controls
             this.creationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RepairFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tighteningResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceabilityLogIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceabilityLogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partAssemblyModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cameraNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testResultDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testResultDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceLogIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traceLogDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdateDateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedByDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationDateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cameraResultModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.lblFinalResult = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStationNumber = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtModelRunningFlag = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -135,61 +137,40 @@ namespace Trace.UI.Controls
             this.panel7.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.Controls.Add(this.txtModelRunningFlag);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
-            this.panel2.Location = new System.Drawing.Point(98, 2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(92, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(359, 184);
+            this.panel2.Size = new System.Drawing.Size(460, 220);
             this.panel2.TabIndex = 13;
-            // 
-            // txtModelRunningFlag
-            // 
-            this.txtModelRunningFlag.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtModelRunningFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtModelRunningFlag.Location = new System.Drawing.Point(0, 149);
-            this.txtModelRunningFlag.Name = "txtModelRunningFlag";
-            this.txtModelRunningFlag.ReadOnly = true;
-            this.txtModelRunningFlag.Size = new System.Drawing.Size(359, 26);
-            this.txtModelRunningFlag.TabIndex = 23;
-            this.txtModelRunningFlag.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(359, 24);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Model Running";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtManchineName, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel13, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel8, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.panel15, 0, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 125);
+            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(460, 170);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
             // panel6
@@ -198,7 +179,7 @@ namespace Trace.UI.Controls
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(353, 24);
+            this.panel6.Size = new System.Drawing.Size(454, 22);
             this.panel6.TabIndex = 23;
             // 
             // label2
@@ -209,7 +190,7 @@ namespace Trace.UI.Controls
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(353, 24);
+            this.label2.Size = new System.Drawing.Size(454, 24);
             this.label2.TabIndex = 6;
             this.label2.Text = "Machine";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,19 +199,19 @@ namespace Trace.UI.Controls
             // 
             this.txtManchineName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtManchineName.Location = new System.Drawing.Point(3, 33);
+            this.txtManchineName.Location = new System.Drawing.Point(3, 31);
             this.txtManchineName.Name = "txtManchineName";
             this.txtManchineName.ReadOnly = true;
-            this.txtManchineName.Size = new System.Drawing.Size(353, 23);
+            this.txtManchineName.Size = new System.Drawing.Size(454, 23);
             this.txtManchineName.TabIndex = 14;
             // 
             // panel13
             // 
             this.panel13.Controls.Add(this.label4);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 63);
+            this.panel13.Location = new System.Drawing.Point(3, 59);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(353, 22);
+            this.panel13.Size = new System.Drawing.Size(454, 22);
             this.panel13.TabIndex = 26;
             // 
             // label4
@@ -241,7 +222,7 @@ namespace Trace.UI.Controls
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(353, 24);
+            this.label4.Size = new System.Drawing.Size(454, 24);
             this.label4.TabIndex = 8;
             this.label4.Text = "Code";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -250,9 +231,10 @@ namespace Trace.UI.Controls
             // 
             this.panel14.Controls.Add(this.txtItemCode);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(3, 91);
+            this.panel14.Location = new System.Drawing.Point(3, 87);
+            this.panel14.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(353, 31);
+            this.panel14.Size = new System.Drawing.Size(454, 25);
             this.panel14.TabIndex = 27;
             // 
             // txtItemCode
@@ -261,18 +243,16 @@ namespace Trace.UI.Controls
             this.txtItemCode.Location = new System.Drawing.Point(0, 0);
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.ReadOnly = true;
-            this.txtItemCode.Size = new System.Drawing.Size(353, 23);
+            this.txtItemCode.Size = new System.Drawing.Size(454, 23);
             this.txtItemCode.TabIndex = 20;
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.tableLayoutPanel1);
-            this.panel4.Location = new System.Drawing.Point(463, 2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(552, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(967, 184);
+            this.panel4.Size = new System.Drawing.Size(881, 220);
             this.panel4.TabIndex = 15;
             // 
             // tableLayoutPanel1
@@ -296,14 +276,14 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(967, 184);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(881, 220);
             this.tableLayoutPanel1.TabIndex = 18;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(620, 3);
+            this.panel1.Location = new System.Drawing.Point(534, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(272, 24);
             this.panel1.TabIndex = 27;
@@ -332,14 +312,14 @@ namespace Trace.UI.Controls
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.testResultDescriptionDataGridViewTextBoxColumn,
@@ -371,9 +351,197 @@ namespace Trace.UI.Controls
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(235, 146);
+            this.dataGridView1.Size = new System.Drawing.Size(149, 182);
             this.dataGridView1.TabIndex = 24;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // testResultDescriptionDataGridViewTextBoxColumn
+            // 
+            this.testResultDescriptionDataGridViewTextBoxColumn.DataPropertyName = "TestResultDescription";
+            this.testResultDescriptionDataGridViewTextBoxColumn.HeaderText = "TestResultDescription";
+            this.testResultDescriptionDataGridViewTextBoxColumn.Name = "testResultDescriptionDataGridViewTextBoxColumn";
+            this.testResultDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.testResultDescriptionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // noDataGridViewTextBoxColumn
+            // 
+            this.noDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
+            this.noDataGridViewTextBoxColumn.HeaderText = "No";
+            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
+            this.noDataGridViewTextBoxColumn.Width = 51;
+            // 
+            // minDataGridViewTextBoxColumn
+            // 
+            this.minDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.minDataGridViewTextBoxColumn.DataPropertyName = "Min";
+            this.minDataGridViewTextBoxColumn.HeaderText = "Min";
+            this.minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
+            this.minDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // minDescDataGridViewTextBoxColumn
+            // 
+            this.minDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.minDescDataGridViewTextBoxColumn.DataPropertyName = "MinDesc";
+            this.minDescDataGridViewTextBoxColumn.HeaderText = "Min";
+            this.minDescDataGridViewTextBoxColumn.Name = "minDescDataGridViewTextBoxColumn";
+            this.minDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.minDescDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // maxDataGridViewTextBoxColumn
+            // 
+            this.maxDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
+            this.maxDataGridViewTextBoxColumn.HeaderText = "Max";
+            this.maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
+            this.maxDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // maxDescDataGridViewTextBoxColumn
+            // 
+            this.maxDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maxDescDataGridViewTextBoxColumn.DataPropertyName = "MaxDesc";
+            this.maxDescDataGridViewTextBoxColumn.HeaderText = "Max";
+            this.maxDescDataGridViewTextBoxColumn.Name = "maxDescDataGridViewTextBoxColumn";
+            this.maxDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maxDescDataGridViewTextBoxColumn.Width = 58;
+            // 
+            // targetDataGridViewTextBoxColumn
+            // 
+            this.targetDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.targetDataGridViewTextBoxColumn.DataPropertyName = "Target";
+            this.targetDataGridViewTextBoxColumn.HeaderText = "Target";
+            this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
+            this.targetDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // targetDescDataGridViewTextBoxColumn
+            // 
+            this.targetDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.targetDescDataGridViewTextBoxColumn.DataPropertyName = "TargetDesc";
+            this.targetDescDataGridViewTextBoxColumn.HeaderText = "Target";
+            this.targetDescDataGridViewTextBoxColumn.Name = "targetDescDataGridViewTextBoxColumn";
+            this.targetDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.targetDescDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // resultDataGridViewTextBoxColumn
+            // 
+            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
+            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
+            this.resultDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // resultDescDataGridViewTextBoxColumn
+            // 
+            this.resultDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.resultDescDataGridViewTextBoxColumn.DataPropertyName = "ResultDesc";
+            this.resultDescDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.resultDescDataGridViewTextBoxColumn.Name = "resultDescDataGridViewTextBoxColumn";
+            this.resultDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.resultDescDataGridViewTextBoxColumn.Width = 73;
+            // 
+            // JointMin
+            // 
+            this.JointMin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointMin.DataPropertyName = "JointMin";
+            this.JointMin.HeaderText = "Joint Min";
+            this.JointMin.Name = "JointMin";
+            this.JointMin.ReadOnly = true;
+            this.JointMin.Visible = false;
+            // 
+            // JointMax
+            // 
+            this.JointMax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointMax.DataPropertyName = "JointMax";
+            this.JointMax.HeaderText = "Joint Max";
+            this.JointMax.Name = "JointMax";
+            this.JointMax.ReadOnly = true;
+            this.JointMax.Visible = false;
+            // 
+            // JointTarget
+            // 
+            this.JointTarget.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointTarget.DataPropertyName = "JointTarget";
+            this.JointTarget.HeaderText = "Joint Target";
+            this.JointTarget.Name = "JointTarget";
+            this.JointTarget.ReadOnly = true;
+            this.JointTarget.Visible = false;
+            // 
+            // JointResult
+            // 
+            this.JointResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.JointResult.DataPropertyName = "JointResult";
+            this.JointResult.HeaderText = "Joint Result";
+            this.JointResult.Name = "JointResult";
+            this.JointResult.ReadOnly = true;
+            this.JointResult.Visible = false;
+            // 
+            // testResultDataGridViewCheckBoxColumn
+            // 
+            this.testResultDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.testResultDataGridViewCheckBoxColumn.DataPropertyName = "TestResult";
+            this.testResultDataGridViewCheckBoxColumn.HeaderText = "Judgment";
+            this.testResultDataGridViewCheckBoxColumn.Name = "testResultDataGridViewCheckBoxColumn";
+            this.testResultDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.testResultDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.testResultDataGridViewCheckBoxColumn.Width = 76;
+            // 
+            // traceLogIdDataGridViewTextBoxColumn
+            // 
+            this.traceLogIdDataGridViewTextBoxColumn.DataPropertyName = "TraceLogId";
+            this.traceLogIdDataGridViewTextBoxColumn.HeaderText = "TraceLogId";
+            this.traceLogIdDataGridViewTextBoxColumn.Name = "traceLogIdDataGridViewTextBoxColumn";
+            this.traceLogIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // traceLogDataGridViewTextBoxColumn
+            // 
+            this.traceLogDataGridViewTextBoxColumn.DataPropertyName = "TraceLog";
+            this.traceLogDataGridViewTextBoxColumn.HeaderText = "TraceLog";
+            this.traceLogDataGridViewTextBoxColumn.Name = "traceLogDataGridViewTextBoxColumn";
+            this.traceLogDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // lastUpdateDateDataGridViewTextBoxColumn1
+            // 
+            this.lastUpdateDateDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.HeaderText = "LastUpdateDate";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Name = "lastUpdateDateDataGridViewTextBoxColumn1";
+            this.lastUpdateDateDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // lastUpdatedByDataGridViewTextBoxColumn1
+            // 
+            this.lastUpdatedByDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.HeaderText = "LastUpdatedBy";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Name = "lastUpdatedByDataGridViewTextBoxColumn1";
+            this.lastUpdatedByDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // creationDateDataGridViewTextBoxColumn1
+            // 
+            this.creationDateDataGridViewTextBoxColumn1.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn1.HeaderText = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn1.Name = "creationDateDataGridViewTextBoxColumn1";
+            this.creationDateDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // createdByDataGridViewTextBoxColumn1
+            // 
+            this.createdByDataGridViewTextBoxColumn1.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn1.HeaderText = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
+            this.createdByDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // RepairFlag
+            // 
+            this.RepairFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RepairFlag.DataPropertyName = "RepairFlag";
+            this.RepairFlag.HeaderText = "Repair";
+            this.RepairFlag.Name = "RepairFlag";
+            this.RepairFlag.ReadOnly = true;
+            this.RepairFlag.Visible = false;
+            this.RepairFlag.Width = 60;
             // 
             // tighteningResultModelBindingSource
             // 
@@ -411,14 +579,14 @@ namespace Trace.UI.Controls
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partNameDataGridViewTextBoxColumn,
@@ -438,7 +606,7 @@ namespace Trace.UI.Controls
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(366, 146);
+            this.dataGridView2.Size = new System.Drawing.Size(366, 182);
             this.dataGridView2.TabIndex = 17;
             // 
             // partNameDataGridViewTextBoxColumn
@@ -530,7 +698,7 @@ namespace Trace.UI.Controls
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(377, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(237, 24);
+            this.panel3.Size = new System.Drawing.Size(151, 24);
             this.panel3.TabIndex = 23;
             // 
             // label5
@@ -541,7 +709,7 @@ namespace Trace.UI.Controls
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(237, 24);
+            this.label5.Size = new System.Drawing.Size(151, 24);
             this.label5.TabIndex = 7;
             this.label5.Text = "Data Tightening";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,9 +718,9 @@ namespace Trace.UI.Controls
             // 
             this.panel10.Controls.Add(this.dataGridView3);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(620, 33);
+            this.panel10.Location = new System.Drawing.Point(534, 33);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(272, 148);
+            this.panel10.Size = new System.Drawing.Size(272, 184);
             this.panel10.TabIndex = 28;
             // 
             // dataGridView3
@@ -563,14 +731,14 @@ namespace Trace.UI.Controls
             this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -591,122 +759,8 @@ namespace Trace.UI.Controls
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(272, 148);
+            this.dataGridView3.Size = new System.Drawing.Size(272, 184);
             this.dataGridView3.TabIndex = 18;
-            // 
-            // cameraResultModelBindingSource
-            // 
-            this.cameraResultModelBindingSource.DataSource = typeof(Trace.Domain.Models.CameraResultModel);
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.label8);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(898, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(66, 24);
-            this.panel11.TabIndex = 29;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 24);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Result";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.lblFinalResult);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(898, 33);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(66, 148);
-            this.panel12.TabIndex = 30;
-            // 
-            // lblFinalResult
-            // 
-            this.lblFinalResult.BackColor = System.Drawing.Color.LawnGreen;
-            this.lblFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblFinalResult.ForeColor = System.Drawing.Color.Black;
-            this.lblFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblFinalResult.Name = "lblFinalResult";
-            this.lblFinalResult.Size = new System.Drawing.Size(66, 148);
-            this.lblFinalResult.TabIndex = 28;
-            this.lblFinalResult.Text = "OK";
-            this.lblFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel7.Controls.Add(this.tableLayoutPanel3);
-            this.panel7.Location = new System.Drawing.Point(3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(92, 184);
-            this.panel7.TabIndex = 16;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.Controls.Add(this.panel9, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtStationNumber, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(92, 62);
-            this.tableLayoutPanel3.TabIndex = 22;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(86, 24);
-            this.panel9.TabIndex = 23;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 24);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Station";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtStationNumber
-            // 
-            this.txtStationNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtStationNumber.Location = new System.Drawing.Point(3, 33);
-            this.txtStationNumber.Name = "txtStationNumber";
-            this.txtStationNumber.ReadOnly = true;
-            this.txtStationNumber.Size = new System.Drawing.Size(86, 26);
-            this.txtStationNumber.TabIndex = 14;
-            this.txtStationNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Column1
             // 
@@ -797,200 +851,160 @@ namespace Trace.UI.Controls
             this.createdByDataGridViewTextBoxColumn2.Visible = false;
             this.createdByDataGridViewTextBoxColumn2.Width = 99;
             // 
-            // testResultDescriptionDataGridViewTextBoxColumn
+            // cameraResultModelBindingSource
             // 
-            this.testResultDescriptionDataGridViewTextBoxColumn.DataPropertyName = "TestResultDescription";
-            this.testResultDescriptionDataGridViewTextBoxColumn.HeaderText = "TestResultDescription";
-            this.testResultDescriptionDataGridViewTextBoxColumn.Name = "testResultDescriptionDataGridViewTextBoxColumn";
-            this.testResultDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.testResultDescriptionDataGridViewTextBoxColumn.Visible = false;
+            this.cameraResultModelBindingSource.DataSource = typeof(Trace.Domain.Models.CameraResultModel);
             // 
-            // noDataGridViewTextBoxColumn
+            // panel11
             // 
-            this.noDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
-            this.noDataGridViewTextBoxColumn.HeaderText = "No";
-            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
-            this.noDataGridViewTextBoxColumn.Width = 51;
+            this.panel11.Controls.Add(this.label8);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(812, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(66, 24);
+            this.panel11.TabIndex = 29;
             // 
-            // minDataGridViewTextBoxColumn
+            // label8
             // 
-            this.minDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minDataGridViewTextBoxColumn.DataPropertyName = "Min";
-            this.minDataGridViewTextBoxColumn.HeaderText = "Min";
-            this.minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
-            this.minDataGridViewTextBoxColumn.Visible = false;
-            this.minDataGridViewTextBoxColumn.Width = 55;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 24);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Result";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // minDescDataGridViewTextBoxColumn
+            // panel12
             // 
-            this.minDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minDescDataGridViewTextBoxColumn.DataPropertyName = "MinDesc";
-            this.minDescDataGridViewTextBoxColumn.HeaderText = "Min";
-            this.minDescDataGridViewTextBoxColumn.Name = "minDescDataGridViewTextBoxColumn";
-            this.minDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.minDescDataGridViewTextBoxColumn.Width = 55;
+            this.panel12.Controls.Add(this.lblFinalResult);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(812, 33);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(66, 184);
+            this.panel12.TabIndex = 30;
             // 
-            // maxDataGridViewTextBoxColumn
+            // lblFinalResult
             // 
-            this.maxDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
-            this.maxDataGridViewTextBoxColumn.HeaderText = "Max";
-            this.maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
-            this.maxDataGridViewTextBoxColumn.Visible = false;
-            this.maxDataGridViewTextBoxColumn.Width = 58;
+            this.lblFinalResult.BackColor = System.Drawing.Color.LawnGreen;
+            this.lblFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblFinalResult.ForeColor = System.Drawing.Color.Black;
+            this.lblFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblFinalResult.Name = "lblFinalResult";
+            this.lblFinalResult.Size = new System.Drawing.Size(66, 184);
+            this.lblFinalResult.TabIndex = 28;
+            this.lblFinalResult.Text = "OK";
+            this.lblFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // maxDescDataGridViewTextBoxColumn
+            // panel7
             // 
-            this.maxDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.maxDescDataGridViewTextBoxColumn.DataPropertyName = "MaxDesc";
-            this.maxDescDataGridViewTextBoxColumn.HeaderText = "Max";
-            this.maxDescDataGridViewTextBoxColumn.Name = "maxDescDataGridViewTextBoxColumn";
-            this.maxDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maxDescDataGridViewTextBoxColumn.Width = 58;
+            this.panel7.Controls.Add(this.tableLayoutPanel3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(92, 220);
+            this.panel7.TabIndex = 16;
             // 
-            // targetDataGridViewTextBoxColumn
+            // tableLayoutPanel3
             // 
-            this.targetDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.targetDataGridViewTextBoxColumn.DataPropertyName = "Target";
-            this.targetDataGridViewTextBoxColumn.HeaderText = "Target";
-            this.targetDataGridViewTextBoxColumn.Name = "targetDataGridViewTextBoxColumn";
-            this.targetDataGridViewTextBoxColumn.Visible = false;
-            this.targetDataGridViewTextBoxColumn.Width = 75;
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.Controls.Add(this.panel9, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtStationNumber, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(92, 62);
+            this.tableLayoutPanel3.TabIndex = 22;
             // 
-            // targetDescDataGridViewTextBoxColumn
+            // panel9
             // 
-            this.targetDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.targetDescDataGridViewTextBoxColumn.DataPropertyName = "TargetDesc";
-            this.targetDescDataGridViewTextBoxColumn.HeaderText = "Target";
-            this.targetDescDataGridViewTextBoxColumn.Name = "targetDescDataGridViewTextBoxColumn";
-            this.targetDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.targetDescDataGridViewTextBoxColumn.Width = 75;
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(86, 24);
+            this.panel9.TabIndex = 23;
             // 
-            // resultDataGridViewTextBoxColumn
+            // label6
             // 
-            this.resultDataGridViewTextBoxColumn.DataPropertyName = "Result";
-            this.resultDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
-            this.resultDataGridViewTextBoxColumn.Visible = false;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 24);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Station";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // resultDescDataGridViewTextBoxColumn
+            // txtStationNumber
             // 
-            this.resultDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.resultDescDataGridViewTextBoxColumn.DataPropertyName = "ResultDesc";
-            this.resultDescDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.resultDescDataGridViewTextBoxColumn.Name = "resultDescDataGridViewTextBoxColumn";
-            this.resultDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.resultDescDataGridViewTextBoxColumn.Width = 73;
+            this.txtStationNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtStationNumber.Location = new System.Drawing.Point(3, 33);
+            this.txtStationNumber.Name = "txtStationNumber";
+            this.txtStationNumber.ReadOnly = true;
+            this.txtStationNumber.Size = new System.Drawing.Size(86, 26);
+            this.txtStationNumber.TabIndex = 14;
+            this.txtStationNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // JointMin
+            // timer1
             // 
-            this.JointMin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointMin.DataPropertyName = "JointMin";
-            this.JointMin.HeaderText = "Joint Min";
-            this.JointMin.Name = "JointMin";
-            this.JointMin.ReadOnly = true;
-            this.JointMin.Visible = false;
-            this.JointMin.Width = 89;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // JointMax
+            // panel8
             // 
-            this.JointMax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointMax.DataPropertyName = "JointMax";
-            this.JointMax.HeaderText = "Joint Max";
-            this.JointMax.Name = "JointMax";
-            this.JointMax.ReadOnly = true;
-            this.JointMax.Visible = false;
-            this.JointMax.Width = 92;
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 115);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(454, 25);
+            this.panel8.TabIndex = 28;
             // 
-            // JointTarget
+            // panel15
             // 
-            this.JointTarget.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointTarget.DataPropertyName = "JointTarget";
-            this.JointTarget.HeaderText = "Joint Target";
-            this.JointTarget.Name = "JointTarget";
-            this.JointTarget.ReadOnly = true;
-            this.JointTarget.Visible = false;
-            this.JointTarget.Width = 109;
+            this.panel15.Controls.Add(this.txtModelRunningFlag);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(3, 140);
+            this.panel15.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(454, 30);
+            this.panel15.TabIndex = 29;
             // 
-            // JointResult
+            // label3
             // 
-            this.JointResult.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.JointResult.DataPropertyName = "JointResult";
-            this.JointResult.HeaderText = "Joint Result";
-            this.JointResult.Name = "JointResult";
-            this.JointResult.ReadOnly = true;
-            this.JointResult.Visible = false;
-            this.JointResult.Width = 107;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(454, 22);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Model Running";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // testResultDataGridViewCheckBoxColumn
+            // txtModelRunningFlag
             // 
-            this.testResultDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.testResultDataGridViewCheckBoxColumn.DataPropertyName = "TestResult";
-            this.testResultDataGridViewCheckBoxColumn.HeaderText = "Judgment";
-            this.testResultDataGridViewCheckBoxColumn.Name = "testResultDataGridViewCheckBoxColumn";
-            this.testResultDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.testResultDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.testResultDataGridViewCheckBoxColumn.Width = 76;
-            // 
-            // traceLogIdDataGridViewTextBoxColumn
-            // 
-            this.traceLogIdDataGridViewTextBoxColumn.DataPropertyName = "TraceLogId";
-            this.traceLogIdDataGridViewTextBoxColumn.HeaderText = "TraceLogId";
-            this.traceLogIdDataGridViewTextBoxColumn.Name = "traceLogIdDataGridViewTextBoxColumn";
-            this.traceLogIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // traceLogDataGridViewTextBoxColumn
-            // 
-            this.traceLogDataGridViewTextBoxColumn.DataPropertyName = "TraceLog";
-            this.traceLogDataGridViewTextBoxColumn.HeaderText = "TraceLog";
-            this.traceLogDataGridViewTextBoxColumn.Name = "traceLogDataGridViewTextBoxColumn";
-            this.traceLogDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // lastUpdateDateDataGridViewTextBoxColumn1
-            // 
-            this.lastUpdateDateDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.HeaderText = "LastUpdateDate";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Name = "lastUpdateDateDataGridViewTextBoxColumn1";
-            this.lastUpdateDateDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // lastUpdatedByDataGridViewTextBoxColumn1
-            // 
-            this.lastUpdatedByDataGridViewTextBoxColumn1.DataPropertyName = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.HeaderText = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Name = "lastUpdatedByDataGridViewTextBoxColumn1";
-            this.lastUpdatedByDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // creationDateDataGridViewTextBoxColumn1
-            // 
-            this.creationDateDataGridViewTextBoxColumn1.DataPropertyName = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn1.HeaderText = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn1.Name = "creationDateDataGridViewTextBoxColumn1";
-            this.creationDateDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // createdByDataGridViewTextBoxColumn1
-            // 
-            this.createdByDataGridViewTextBoxColumn1.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn1.HeaderText = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn1.Name = "createdByDataGridViewTextBoxColumn1";
-            this.createdByDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // RepairFlag
-            // 
-            this.RepairFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.RepairFlag.DataPropertyName = "RepairFlag";
-            this.RepairFlag.HeaderText = "Repair";
-            this.RepairFlag.Name = "RepairFlag";
-            this.RepairFlag.ReadOnly = true;
-            this.RepairFlag.Visible = false;
-            this.RepairFlag.Width = 60;
+            this.txtModelRunningFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtModelRunningFlag.Location = new System.Drawing.Point(0, 0);
+            this.txtModelRunningFlag.Name = "txtModelRunningFlag";
+            this.txtModelRunningFlag.ReadOnly = true;
+            this.txtModelRunningFlag.Size = new System.Drawing.Size(454, 23);
+            this.txtModelRunningFlag.TabIndex = 23;
             // 
             // uCtrlStation1
             // 
@@ -998,16 +1012,15 @@ namespace Trace.UI.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel7);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uCtrlStation1";
-            this.Size = new System.Drawing.Size(1433, 189);
+            this.Size = new System.Drawing.Size(1433, 220);
             this.Load += new System.EventHandler(this.uCtrlStation1_Load);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1032,6 +1045,9 @@ namespace Trace.UI.Controls
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel9.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1085,8 +1101,6 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TextBox txtItemCode;
-        private System.Windows.Forms.TextBox txtModelRunningFlag;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn testResultDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
@@ -1121,5 +1135,9 @@ namespace Trace.UI.Controls
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtModelRunningFlag;
     }
 }

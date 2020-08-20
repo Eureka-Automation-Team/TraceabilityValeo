@@ -184,7 +184,7 @@ namespace Trace.OpcHandlerMachine04.Presenters
             trace.StationId = machine.StationId;
             trace.MachineId = machine.Id;
             trace.ProductionDate = DateTime.Now;
-            trace.Description = "LOWER AGS FRAM";
+            trace.Description = "LOWER AGS FRAME";
 
             foreach (var item in r)
             {
