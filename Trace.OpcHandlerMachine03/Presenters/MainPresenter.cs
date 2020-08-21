@@ -206,6 +206,9 @@ namespace Trace.OpcHandlerMachine03.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST3_1TestResult[0]")
                         trace.Attribute1 = item.Value.ToString();
 
+                    if (item.ItemName == _view.tagMainBlock + "ST3_1TestResult[1]")
+                        trace.Jig = ConvertToInt(item.Value.ToString());
+
                     if (item.ItemName == _view.tagMainBlock + "ST3_1Final_Judgment")
                     {
                         if (Convert.ToInt32(item.Value) != 0)

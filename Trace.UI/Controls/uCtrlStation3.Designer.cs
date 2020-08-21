@@ -36,15 +36,12 @@
             this.txtUpperItemCode = new System.Windows.Forms.TextBox();
             this.txtUpperModelRunningFlag = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.lblUpperFinalResult = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.lblLowerFinalResult = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -57,6 +54,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUpperManchineName = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblUpperFinalResult = new System.Windows.Forms.Label();
+            this.lblLowerFinalResult = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUpperJig = new System.Windows.Forms.TextBox();
+            this.txtLowerJig = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -70,6 +76,9 @@
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -83,10 +92,11 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.86111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.13889F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.Controls.Add(this.txtLowerItemCode, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtLowerModelRunningFlag, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtUpperItemCode, 1, 1);
@@ -96,6 +106,9 @@
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel7, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel10, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel11, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel12, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel13, 3, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -108,65 +121,48 @@
             // 
             // txtLowerItemCode
             // 
-            this.txtLowerItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLowerItemCode.Location = new System.Drawing.Point(247, 61);
+            this.txtLowerItemCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLowerItemCode.Location = new System.Drawing.Point(196, 61);
             this.txtLowerItemCode.Name = "txtLowerItemCode";
             this.txtLowerItemCode.ReadOnly = true;
-            this.txtLowerItemCode.Size = new System.Drawing.Size(238, 23);
+            this.txtLowerItemCode.Size = new System.Drawing.Size(153, 23);
             this.txtLowerItemCode.TabIndex = 31;
             // 
             // txtLowerModelRunningFlag
             // 
-            this.txtLowerModelRunningFlag.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLowerModelRunningFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLowerModelRunningFlag.Location = new System.Drawing.Point(3, 61);
             this.txtLowerModelRunningFlag.Name = "txtLowerModelRunningFlag";
             this.txtLowerModelRunningFlag.ReadOnly = true;
-            this.txtLowerModelRunningFlag.Size = new System.Drawing.Size(238, 23);
+            this.txtLowerModelRunningFlag.Size = new System.Drawing.Size(187, 23);
             this.txtLowerModelRunningFlag.TabIndex = 30;
             // 
             // txtUpperItemCode
             // 
-            this.txtUpperItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUpperItemCode.Location = new System.Drawing.Point(247, 32);
+            this.txtUpperItemCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUpperItemCode.Location = new System.Drawing.Point(196, 32);
             this.txtUpperItemCode.Name = "txtUpperItemCode";
             this.txtUpperItemCode.ReadOnly = true;
-            this.txtUpperItemCode.Size = new System.Drawing.Size(238, 23);
+            this.txtUpperItemCode.Size = new System.Drawing.Size(153, 23);
             this.txtUpperItemCode.TabIndex = 28;
             // 
             // txtUpperModelRunningFlag
             // 
-            this.txtUpperModelRunningFlag.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUpperModelRunningFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUpperModelRunningFlag.Location = new System.Drawing.Point(3, 32);
             this.txtUpperModelRunningFlag.Name = "txtUpperModelRunningFlag";
             this.txtUpperModelRunningFlag.ReadOnly = true;
-            this.txtUpperModelRunningFlag.Size = new System.Drawing.Size(238, 23);
+            this.txtUpperModelRunningFlag.Size = new System.Drawing.Size(187, 23);
             this.txtUpperModelRunningFlag.TabIndex = 27;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label4);
+            this.panel6.Controls.Add(this.label5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(491, 3);
+            this.panel6.Location = new System.Drawing.Point(355, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(68, 23);
+            this.panel6.Size = new System.Drawing.Size(103, 23);
             this.panel6.TabIndex = 26;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Result";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -174,7 +170,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(238, 23);
+            this.panel3.Size = new System.Drawing.Size(187, 23);
             this.panel3.TabIndex = 24;
             // 
             // label2
@@ -185,7 +181,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 24);
+            this.label2.Size = new System.Drawing.Size(187, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "Model Running";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,9 +190,9 @@
             // 
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(247, 3);
+            this.panel2.Location = new System.Drawing.Point(196, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(238, 23);
+            this.panel2.Size = new System.Drawing.Size(153, 23);
             this.panel2.TabIndex = 25;
             // 
             // label3
@@ -207,56 +203,28 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 24);
+            this.label3.Size = new System.Drawing.Size(153, 24);
             this.label3.TabIndex = 8;
             this.label3.Text = "Code";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.lblUpperFinalResult);
+            this.panel7.Controls.Add(this.txtUpperJig);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(491, 32);
+            this.panel7.Location = new System.Drawing.Point(355, 32);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(68, 23);
+            this.panel7.Size = new System.Drawing.Size(103, 23);
             this.panel7.TabIndex = 32;
-            // 
-            // lblUpperFinalResult
-            // 
-            this.lblUpperFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
-            this.lblUpperFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblUpperFinalResult.ForeColor = System.Drawing.Color.Black;
-            this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblUpperFinalResult.Name = "lblUpperFinalResult";
-            this.lblUpperFinalResult.Size = new System.Drawing.Size(68, 23);
-            this.lblUpperFinalResult.TabIndex = 25;
-            this.lblUpperFinalResult.Text = "OK";
-            this.lblUpperFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.lblLowerFinalResult);
+            this.panel10.Controls.Add(this.txtLowerJig);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(491, 61);
+            this.panel10.Location = new System.Drawing.Point(355, 61);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(68, 24);
+            this.panel10.Size = new System.Drawing.Size(103, 24);
             this.panel10.TabIndex = 33;
-            // 
-            // lblLowerFinalResult
-            // 
-            this.lblLowerFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
-            this.lblLowerFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblLowerFinalResult.ForeColor = System.Drawing.Color.Black;
-            this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
-            this.lblLowerFinalResult.Name = "lblLowerFinalResult";
-            this.lblLowerFinalResult.Size = new System.Drawing.Size(68, 24);
-            this.lblLowerFinalResult.TabIndex = 25;
-            this.lblLowerFinalResult.Text = "OK";
-            this.lblLowerFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -345,8 +313,7 @@
             // 
             // txtLowerManchineName
             // 
-            this.txtLowerManchineName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLowerManchineName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLowerManchineName.Location = new System.Drawing.Point(3, 61);
             this.txtLowerManchineName.Name = "txtLowerManchineName";
             this.txtLowerManchineName.ReadOnly = true;
@@ -377,8 +344,7 @@
             // 
             // txtUpperManchineName
             // 
-            this.txtUpperManchineName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUpperManchineName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUpperManchineName.Location = new System.Drawing.Point(3, 32);
             this.txtUpperManchineName.Name = "txtUpperManchineName";
             this.txtUpperManchineName.ReadOnly = true;
@@ -388,6 +354,105 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label4);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(464, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(95, 23);
+            this.panel11.TabIndex = 34;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.lblUpperFinalResult);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(464, 32);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(95, 23);
+            this.panel12.TabIndex = 35;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.lblLowerFinalResult);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(464, 61);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(95, 24);
+            this.panel13.TabIndex = 36;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 24);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Result";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUpperFinalResult
+            // 
+            this.lblUpperFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.lblUpperFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblUpperFinalResult.ForeColor = System.Drawing.Color.Black;
+            this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblUpperFinalResult.Name = "lblUpperFinalResult";
+            this.lblUpperFinalResult.Size = new System.Drawing.Size(95, 23);
+            this.lblUpperFinalResult.TabIndex = 26;
+            this.lblUpperFinalResult.Text = "OK";
+            this.lblUpperFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLowerFinalResult
+            // 
+            this.lblLowerFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.lblLowerFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblLowerFinalResult.ForeColor = System.Drawing.Color.Black;
+            this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
+            this.lblLowerFinalResult.Name = "lblLowerFinalResult";
+            this.lblLowerFinalResult.Size = new System.Drawing.Size(95, 24);
+            this.lblLowerFinalResult.TabIndex = 26;
+            this.lblLowerFinalResult.Text = "OK";
+            this.lblLowerFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(120)))), ((int)(((byte)(140)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 24);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "JIG";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtUpperJig
+            // 
+            this.txtUpperJig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUpperJig.Location = new System.Drawing.Point(0, 0);
+            this.txtUpperJig.Name = "txtUpperJig";
+            this.txtUpperJig.ReadOnly = true;
+            this.txtUpperJig.Size = new System.Drawing.Size(103, 23);
+            this.txtUpperJig.TabIndex = 29;
+            // 
+            // txtLowerJig
+            // 
+            this.txtLowerJig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLowerJig.Location = new System.Drawing.Point(0, 0);
+            this.txtLowerJig.Name = "txtLowerJig";
+            this.txtLowerJig.ReadOnly = true;
+            this.txtLowerJig.Size = new System.Drawing.Size(103, 23);
+            this.txtLowerJig.TabIndex = 30;
             // 
             // uCtrlStation3
             // 
@@ -410,7 +475,9 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -419,6 +486,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -440,7 +510,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUpperManchineName;
         private System.Windows.Forms.TextBox txtUpperItemCode;
         private System.Windows.Forms.TextBox txtUpperModelRunningFlag;
@@ -449,8 +518,15 @@
         private System.Windows.Forms.TextBox txtLowerModelRunningFlag;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label lblUpperFinalResult;
-        private System.Windows.Forms.Label lblLowerFinalResult;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtUpperJig;
+        private System.Windows.Forms.TextBox txtLowerJig;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label lblUpperFinalResult;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label lblLowerFinalResult;
     }
 }

@@ -56,6 +56,12 @@ namespace Trace.Domain.Models
             get { return (Enum.GetName(typeof(enumModelRunningResult), ModelRunningFlag)); }
         }
 
+        public int Jig { get; set; }
+        public string JigDesc
+        {
+            get { return (Enum.GetName(typeof(enumJigResult), Jig)); }
+        }
+
         public StationModel Station { get; set; }
         public MachineModel Machine { get; set; }
         public List<PartAssemblyModel> PartAssemblies { get; set; }
@@ -76,5 +82,12 @@ namespace Trace.Domain.Models
         //NA = 0,
         ACTIVE_AGS = 1,
         PASSIVE_AGS = 2
+    }
+
+    enum enumJigResult
+    {
+        //NA = 0,
+        Jig1 = 1,
+        Jig2 = 2
     }
 }

@@ -122,3 +122,4 @@ C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.dll
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.pdb
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.NewModelrunning.resources
 C:\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.NewModelrunning.resources
+D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.Data\obj\Debug\Trace.Data.Migrations.Addjigcolumn.resources

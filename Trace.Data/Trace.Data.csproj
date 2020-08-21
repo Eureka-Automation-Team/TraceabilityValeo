@@ -186,6 +186,10 @@
     <Compile Include="Migrations\202008170532200_New Model running.Designer.cs">
       <DependentUpon>202008170532200_New Model running.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008210953463_Add jig column.cs" />
+    <Compile Include="Migrations\202008210953463_Add jig column.Designer.cs">
+      <DependentUpon>202008210953463_Add jig column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\CameraResultService.cs" />
     <Compile Include="Service\Common\NonQueryDataService.cs" />
@@ -275,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008170532200_New Model running.resx">
       <DependentUpon>202008170532200_New Model running.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008210953463_Add jig column.resx">
+      <DependentUpon>202008210953463_Add jig column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

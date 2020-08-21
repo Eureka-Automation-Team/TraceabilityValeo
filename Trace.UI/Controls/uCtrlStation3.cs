@@ -50,6 +50,9 @@ namespace Trace.UI.Controls
                     if (_traceabilityUpperLog.ModelRunningDesc != null)
                         txtUpperModelRunningFlag.Text = "UPPER " + _traceabilityUpperLog.ModelRunningDesc.Replace("_", " ");
 
+                    if (_traceabilityUpperLog.JigDesc != null)
+                        txtUpperJig.Text = _traceabilityUpperLog.JigDesc;
+
                     if (_traceabilityUpperLog.FinalResult == 1)
                     {
 
@@ -71,8 +74,9 @@ namespace Trace.UI.Controls
                     txtUpperManchineName.Text = string.Empty;
                     txtUpperItemCode.Text = string.Empty;
                     txtUpperModelRunningFlag.Text = string.Empty;
+                    txtUpperJig.Text = string.Empty;
 
-                    lblUpperFinalResult.Text = "";
+                   lblUpperFinalResult.Text = "";
                     lblUpperFinalResult.BackColor = Color.White;
                 }
             }
@@ -95,6 +99,9 @@ namespace Trace.UI.Controls
                     if (_traceabilityLowerLog.ModelRunningDesc != null)
                         txtLowerModelRunningFlag.Text = "LOWER " + _traceabilityLowerLog.ModelRunningDesc.Replace("_", " ");
 
+                    if (_traceabilityLowerLog.JigDesc != null)
+                        txtLowerJig.Text = _traceabilityLowerLog.JigDesc;
+
                     if (_traceabilityLowerLog.FinalResult == 1)
                     {
 
@@ -116,6 +123,7 @@ namespace Trace.UI.Controls
                     txtLowerManchineName.Text = string.Empty;
                     txtLowerItemCode.Text = string.Empty;
                     txtLowerModelRunningFlag.Text = string.Empty;
+                    txtLowerJig.Text = string.Empty;
 
                     lblLowerFinalResult.Text = "";
                     lblLowerFinalResult.BackColor = Color.White;
