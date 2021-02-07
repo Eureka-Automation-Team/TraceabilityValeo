@@ -13,7 +13,7 @@ using System.Data;
 namespace OPCUserInterface
 {
 	// OPC variables types:
-	enum OPCVarType
+	public enum OPCVarType
 	{
 		// These are the variable (tag) types for an Allen Bradley Logix PLC:
 		BOOL,  // C# bool, 1 byte
@@ -26,7 +26,7 @@ namespace OPCUserInterface
 
 	// -------------------------------------------------------------------------
 	// Public input data for each variable:
-	class OPCVar
+	public class OPCVar
 	{
 		public string RefName { get; set; } // Name to refer to the variable in the application
 		public string Name { get; set; } // OPC variable name - not including topic (e.g. "Program:MainProgram.TestCount")
@@ -54,7 +54,7 @@ namespace OPCUserInterface
 	}
 
 	// ---------------------------------------------------------------------------
-	class OPCClient
+	public class OPCClient
 	{
 		public Action NotificationHandler; // Subscribe to this Action for notification handling
 

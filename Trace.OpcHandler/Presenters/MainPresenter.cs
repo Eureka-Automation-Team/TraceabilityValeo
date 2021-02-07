@@ -21,7 +21,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
     public class MainPresenter
     {
-        OPCClient OPC = new OPCClient();
+        //OPCClient OPC = new OPCClient();
         IDataService<MachineModel> _serviceMachine = new MachineService(new TraceDbContextFactory());
         IDataService<PlcTagModel> _servicePLCTag = new PLCTagService(new TraceDbContextFactory());
         IDataService<TraceabilityLogModel> _serviceTraceLog = new TraceabilityLogService(new TraceDbContextFactory());
@@ -164,7 +164,8 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Logging Result : {0} => Time : {1}"
                                                                 , machineTmp.CompletedLogging.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                    var reactResult = WriteWord(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging.ToString());
+                    //var reactResult = WriteWord(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging.ToString());
+                    _view.OPC.WriteVar("ST1LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
                     WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
                                                                 , "ST1LoggingApp"
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
@@ -1122,11 +1123,11 @@ namespace Trace.OpcHandlerMachine01.Presenters
         {
             if (_view.systemReady)
             {
-                OPC.WriteVar("TraceabilityRdyWrite", false);
+                _view.OPC.WriteVar("TraceabilityRdyWrite", false);
             }
             else
             {
-                OPC.WriteVar("TraceabilityRdyWrite", true);
+                _view.OPC.WriteVar("TraceabilityRdyWrite", true);
             }
         }
 
@@ -1304,6 +1305,32 @@ namespace Trace.OpcHandlerMachine01.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            // List of variables to monitor for events:
+            _view.OPCEventVars = new List<OPCVar>()
+            {
+            new OPCVar("RequestVerify", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
+            new OPCVar("MachineStatus","ST1StatusMc", OPCVarType.SINT),
+            new OPCVar("RequestLogging", "ST1ReqLogging", OPCVarType.BOOL),
+            new OPCVar("ClockSystem", "ClockSystem", OPCVarType.BOOL),
+            new OPCVar("TraceabilityRdy", "TraceabilityRdy", OPCVarType.BOOL),
+            new OPCVar("ST1LoggingApp", "ST1LoggingApp", OPCVarType.SINT),
+            //new OPCVar("RequestLogging", "ST1ReqChkCodeVerify", OPCVarType.INT),
+            //new OPCVar("DintVar1", "Program:MainProgram.DintVar1", OPCVarType.DINT),
+            //new OPCVar("RealVar1", "Program:MainProgram.RealVar1", OPCVarType.REAL),
+            };
+
+            // List of variables to write to:
+            _view.OPCWriteVars = new List<OPCVar>()
+            {
+            new OPCVar("TraceabilityRdyWrite", "TraceabilityRdy", OPCVarType.BOOL),
+            new OPCVar("ST1LoggingAppWrite","ST1LoggingApp", OPCVarType.SINT),
+            //new OPCVar("BoolVar2", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
+            //new OPCVar("SintVar2","ST1StatusMc", OPCVarType.SINT),
+            //new OPCVar("IntVar2", "ST1ReqChkCodeVerify", OPCVarType.INT),
+            //new OPCVar("DintVar2", "Program:MainProgram.DintVar2", OPCVarType.DINT),
+            //new OPCVar("RealVar2", "Program:MainProgram.RealVar2", OPCVarType.REAL),
+            };
+
             Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
@@ -1319,6 +1346,13 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     string readyTag = _view.plcTags.Where(x => x.TypeCode == "SYSTEM_READY").FirstOrDefault().PlcTag;
                     _view.tagClockReady = _view.tagMainBlock + clockTag;
                     _view.tagTraceabilityReady = _view.tagMainBlock + readyTag;
+
+
+                    if (!_view.OPC.Init(_view.OPCEventVars, _view.OPCWriteVars, _view.serverUrl, _view.tagMainBlock))
+                    {
+                        _view.ComErrorMessage("Cannot establish communication with OPC server on startup.");
+                        return;
+                    }
                 }
             }
         }
@@ -1496,7 +1530,9 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
         private bool InvalidBoolean(string number)
         {
-            return !(number == "0" || number == "1");
+            /*---- Code Migration ----*/
+            bool myBool;
+            return !Boolean.TryParse(number, out myBool);
         }
 
         public bool WriteLog(string strFileName, string strMessage)
@@ -1515,5 +1551,6 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 return false;
             }
         }
+
     }
 }

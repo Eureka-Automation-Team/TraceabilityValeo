@@ -34,11 +34,31 @@ namespace Trace.OpcHandler
         private MachineModel _machine;
         private Item[] _items;
 
+        /*---- Code Migration ----*/
+        private List<OPCVar> _OPCEventVars;
+        private List<OPCVar> _OPCWriteVars;
+        private OPCClient _OPC;
+        public List<OPCVar> OPCEventVars
+        {
+            get { return _OPCEventVars; }
+            set { _OPCEventVars = value; }
+        }
+        public List<OPCVar> OPCWriteVars
+        {
+            get { return _OPCWriteVars; }
+            set { _OPCWriteVars = value; }
+        }
+        public OPCClient OPC
+        {
+            get { return _OPC; }
+            set { _OPC = value; }
+        }
+
         // This example program works with a Studio 5000 Logix Designer project as follows:
         // 1. Create a program named "MainProgram"
         // 2. Add the variables (tags) listed below in "OPCEventVars" and "OPCWriteVars" (at MainProgram scope)
         // 3. In RSLinx create a DDE/OPC topic for the CompactLogix controller. Name the topic "OPCTest".
-
+        /*
         // List of variables to monitor for events:
         List<OPCVar> OPCEventVars = new List<OPCVar>()
         {
@@ -62,29 +82,23 @@ namespace Trace.OpcHandler
             //new OPCVar("DintVar2", "Program:MainProgram.DintVar2", OPCVarType.DINT),
             //new OPCVar("RealVar2", "Program:MainProgram.RealVar2", OPCVarType.REAL),
         };
-
-        OPCClient OPC = new OPCClient();
+        */
+        //OPCClient OPC = new OPCClient();
 
         public MonitoringForm()
         {
             InitializeComponent();
             this._presenter = new MainPresenter(this);
-            this.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
-            this.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
+            //this.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
+            //this.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
             // Subscribe to the notification handler:
             OPC.NotificationHandler += new Action(CheckNotifications);
 
             // Subscribe to error message handler:
             OPC.ComErrorHandler += new Action<string>(ComErrorMessage);
-
-            if (!OPC.Init(OPCEventVars, OPCWriteVars, this.serverUrl, this.tagMainBlock))
-            {
-                ComErrorMessage("Cannot establish communication with OPC server on startup.");
-                return;
-            }
         }
 
-        private void ComErrorMessage(string text)
+        public void ComErrorMessage(string text)
         {
             // Check if we need to call BeginInvoke.
             if (this.InvokeRequired)
