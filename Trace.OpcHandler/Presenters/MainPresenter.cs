@@ -1,4 +1,5 @@
 ﻿using Opc.Da;
+using OPCUserInterface;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,6 +21,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
     public class MainPresenter
     {
+        OPCClient OPC = new OPCClient();
         IDataService<MachineModel> _serviceMachine = new MachineService(new TraceDbContextFactory());
         IDataService<PlcTagModel> _servicePLCTag = new PLCTagService(new TraceDbContextFactory());
         IDataService<TraceabilityLogModel> _serviceTraceLog = new TraceabilityLogService(new TraceDbContextFactory());
@@ -1120,13 +1122,11 @@ namespace Trace.OpcHandlerMachine01.Presenters
         {
             if (_view.systemReady)
             {
-                if (WriteWordInterLock(_view.tagTraceabilityReady, 0))
-                    _view.systemReady = false;
+                OPC.WriteVar("TraceabilityRdyWrite", false);
             }
             else
             {
-                if (WriteWordInterLock(_view.tagTraceabilityReady, 1))
-                    _view.systemReady = true;
+                OPC.WriteVar("TraceabilityRdyWrite", true);
             }
         }
 
@@ -1249,7 +1249,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 _view.groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
                 _view.groupStateRead.Active = true;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
-                _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
+                //_view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)   
                 if (_view.groupRead.Items != null)
@@ -1269,10 +1269,10 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 #endregion
 
                 #region Group write
-                _view.groupStateWrite = new SubscriptionState();
-                _view.groupStateWrite.Name = "WriteInterLock";
-                _view.groupStateWrite.Active = false;//not needed to read if you want to write only
-                _view.groupWrite = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWrite);
+                //_view.groupStateWrite = new SubscriptionState();
+                //_view.groupStateWrite.Name = "WriteInterLock";
+                //_view.groupStateWrite.Active = false;//not needed to read if you want to write only
+                //_view.groupWrite = (Subscription)_view.daServer.CreateSubscription(_view.groupStateWrite);
                 #endregion
 
                 return true;

@@ -1,7 +1,9 @@
 ﻿using Opc.Da;
+using OPCUserInterface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -32,10 +34,70 @@ namespace Trace.OpcHandler
         private MachineModel _machine;
         private Item[] _items;
 
+        // This example program works with a Studio 5000 Logix Designer project as follows:
+        // 1. Create a program named "MainProgram"
+        // 2. Add the variables (tags) listed below in "OPCEventVars" and "OPCWriteVars" (at MainProgram scope)
+        // 3. In RSLinx create a DDE/OPC topic for the CompactLogix controller. Name the topic "OPCTest".
+
+        // List of variables to monitor for events:
+        List<OPCVar> OPCEventVars = new List<OPCVar>()
+        {
+            new OPCVar("RequestVerify", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
+            new OPCVar("MachineStatus","ST1StatusMc", OPCVarType.SINT),
+            new OPCVar("RequestLogging", "ST1ReqLogging", OPCVarType.BOOL),
+            new OPCVar("ClockSystem", "ClockSystem", OPCVarType.BOOL),
+            new OPCVar("TraceabilityRdy", "TraceabilityRdy", OPCVarType.BOOL),
+            //new OPCVar("RequestLogging", "ST1ReqChkCodeVerify", OPCVarType.INT),
+            //new OPCVar("DintVar1", "Program:MainProgram.DintVar1", OPCVarType.DINT),
+            //new OPCVar("RealVar1", "Program:MainProgram.RealVar1", OPCVarType.REAL),
+        };
+
+        // List of variables to write to:
+        List<OPCVar> OPCWriteVars = new List<OPCVar>()
+        {
+            new OPCVar("TraceabilityRdyWrite", "TraceabilityRdy", OPCVarType.BOOL),
+            //new OPCVar("BoolVar2", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
+            //new OPCVar("SintVar2","ST1StatusMc", OPCVarType.SINT),
+            //new OPCVar("IntVar2", "ST1ReqChkCodeVerify", OPCVarType.INT),
+            //new OPCVar("DintVar2", "Program:MainProgram.DintVar2", OPCVarType.DINT),
+            //new OPCVar("RealVar2", "Program:MainProgram.RealVar2", OPCVarType.REAL),
+        };
+
+        OPCClient OPC = new OPCClient();
+
         public MonitoringForm()
         {
             InitializeComponent();
             this._presenter = new MainPresenter(this);
+            this.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
+            this.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
+            // Subscribe to the notification handler:
+            OPC.NotificationHandler += new Action(CheckNotifications);
+
+            // Subscribe to error message handler:
+            OPC.ComErrorHandler += new Action<string>(ComErrorMessage);
+
+            if (!OPC.Init(OPCEventVars, OPCWriteVars, this.serverUrl, this.tagMainBlock))
+            {
+                ComErrorMessage("Cannot establish communication with OPC server on startup.");
+                return;
+            }
+        }
+
+        private void ComErrorMessage(string text)
+        {
+            // Check if we need to call BeginInvoke.
+            if (this.InvokeRequired)
+            {
+                // Pass the same function to BeginInvoke,
+                // but the call would come on the correct
+                // thread and InvokeRequired will be false.
+                this.BeginInvoke(new Action<string>(ComErrorMessage), text);
+                return;
+            }
+
+            text = "OPC communication error.\n" + text + "\nCheck OPC Server and restart program.";
+            MessageBox.Show(text, "OPC Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public Server daServer
@@ -134,7 +196,6 @@ namespace Trace.OpcHandler
             set
             {
                 _systemReady = value;
-
                 if (_systemReady)
                 {
                     butMakeReady.Text = "Ready";
@@ -382,6 +443,64 @@ namespace Trace.OpcHandler
         private void butCompletedLogging_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void CheckNotifications()
+        {
+            // Check if we need to call BeginInvoke.
+            if (this.InvokeRequired)
+            {
+                // Pass the same function to BeginInvoke,
+                // but the call would come on the correct
+                // thread and InvokeRequired will be false.
+                this.BeginInvoke(new Action(CheckNotifications));
+                return;
+            }
+
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("RequestVerify"))
+            {
+                var mac = this.machine;
+                if (OPC.GetNotifiedBOOL("RequestVerify"))
+                {
+                    mac.RequestVerifyCode = true;
+                    VerityCode(this.machine, null);
+                }else
+                    mac.RequestVerifyCode = false;
+
+                this.machine = mac;
+            }
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("MachineStatus"))
+            {
+                var mac = this.machine;
+                mac.OnlineFlag = OPC.GetNotifiedSINT("MachineStatus");
+                this.machine = mac;
+            }
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("RequestLogging"))
+            {
+                var mac = this.machine;
+                if (OPC.GetNotifiedBOOL("RequestLogging"))
+                {                    
+                    mac.RequestLogging = true;
+                    KeepLogging(this.machine, null);
+                }
+                else
+                    mac.RequestLogging = false;                    
+
+                this.machine = mac;
+            }
+            //------------------------------------------------
+            if (OPC.GetNotificationReceived("TraceabilityRdy"))
+            {
+                if (OPC.GetNotifiedBOOL("TraceabilityRdy"))
+                {
+                    this.systemReady = true;
+                }
+                else
+                    this.systemReady = false;
+            }
         }
     }
 }

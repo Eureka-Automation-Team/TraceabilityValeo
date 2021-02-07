@@ -45,5 +45,7 @@ namespace Trace.OpcHandlerMachine01
         void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values);
         void EnableClock();
         void DisableClock();
+
+        void CheckNotifications();
     }
 }

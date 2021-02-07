@@ -1,5 +1,14 @@
-﻿using System;
+﻿// By Andrew Hassett
+// Last updated 29 August 2019
+
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
 
 namespace OPCUserInterface
 {
@@ -12,6 +21,7 @@ namespace OPCUserInterface
 		INT,   // C# short, 2 bytes
 		DINT,  // C# int, 4 bytes
 		REAL,  // C# float, 4 bytes
+		STRING, // C# text
 	}
 
 	// -------------------------------------------------------------------------
@@ -40,6 +50,7 @@ namespace OPCUserInterface
 		public short Nshort { get; set; } // AB INT, C# short, 2 bytes
 		public int Nint { get; set; } // AB DINT, C# int, 4 bytes
 		public float Nfloat { get; set; } // AB REAL, C# float, 4 bytes
+		public string Nstring { get; set; }
 	}
 
 	// ---------------------------------------------------------------------------
@@ -208,6 +219,9 @@ namespace OPCUserInterface
 					case OPCVarType.REAL:
 						writeValues[0].Value = Convert.ToSingle(Value);
 						break;
+					case OPCVarType.STRING:
+						writeValues[0].Value = Convert.ToString(Value);
+						break;
 				}
 
 				//write
@@ -265,6 +279,9 @@ namespace OPCUserInterface
 						case OPCVarType.REAL:
 							OPCEventVars[keyName].NotificationData.Nfloat = Convert.ToSingle(items[i].Value);
 							break;
+						case OPCVarType.STRING:
+							OPCEventVars[keyName].NotificationData.Nstring = Convert.ToString(items[i].Value);
+							break;
 					}
 				}
 
@@ -286,6 +303,7 @@ namespace OPCUserInterface
 		public short GetNotifiedINT(string VarName) { return OPCEventVars[VarName].NotificationData.Nshort; } // returns C# short
 		public int GetNotifiedDINT(string VarName) { return OPCEventVars[VarName].NotificationData.Nint; } // returns C# int
 		public float GetNotifiedREAL(string VarName) { return OPCEventVars[VarName].NotificationData.Nfloat; } // returns C# float
+		public string GetNotifiedSTRING(string VarName) { return OPCEventVars[VarName].NotificationData.Nstring; } // returns C# string
 
 		// --------------------------------------------------------------------
 
@@ -314,4 +332,3 @@ namespace OPCUserInterface
 	} // End class OPCClient
 
 }
-
