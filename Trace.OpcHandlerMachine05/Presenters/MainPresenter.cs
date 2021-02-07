@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -137,12 +138,18 @@ namespace Trace.OpcHandlerMachine05.Presenters
                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                         }
                         else
+                        {
                             machineTmp.CompletedLogging = 3;
+                            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Error Message : {0}"
+                                                               , _view.ResultnMessage));
+                        }                            
                     }
                     catch (Exception ex)
                     {
                         _view.ResultnMessage = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Error Message : {0}"
+                                                               , _view.ResultnMessage));
                     }
 
                     WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Logging Result : {0} => Time : {1}"
@@ -843,6 +850,7 @@ namespace Trace.OpcHandlerMachine05.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {

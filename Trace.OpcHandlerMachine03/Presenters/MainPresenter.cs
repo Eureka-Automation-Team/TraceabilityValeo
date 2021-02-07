@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -186,6 +187,29 @@ namespace Trace.OpcHandlerMachine03.Presenters
             trace.Description = "UPPER AGS FRAME";
             trace.ProductionDate = DateTime.Now;
 
+            #region Validate and Default existing log by Item Code.
+            var tagName = _view.tagMainBlock + "ST3_1Code";
+            var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
+            var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
+                                            .Where(x => x.MachineId == machine.Id).ToList();
+
+            //Exit if item code is null
+            if (string.IsNullOrEmpty(itemCode))
+            {
+                return true;
+            }
+
+            if (loggings.Count() > 0)
+            {
+                bool finishFlag = false;
+                if (trace.FinalResult != 0)
+                    finishFlag = true;
+
+                trace = _serviceTraceLog.GetByID(loggings.FirstOrDefault().Id);
+                trace.FinishFlag = finishFlag;
+            }
+            #endregion
+
             foreach (var item in r)
             {
                 tmpMsg = string.Empty;
@@ -236,14 +260,33 @@ namespace Trace.OpcHandlerMachine03.Presenters
             }
             else if (!string.IsNullOrEmpty(trace.ItemCode))
             {
-                try
+                TraceabilityLogModel logResult = new TraceabilityLogModel();
+                if (trace.FinalResult != 0)
+                    trace.FinishFlag = true;
+
+                if (trace.Id == 0)
                 {
-                    _serviceTraceLog.Create(trace);
-                    result = true;
+                    try
+                    {
+                        _serviceTraceLog.Create(trace);
+                        result = true;
+                    }
+                    catch
+                    {
+                        result = false;
+                    }
                 }
-                catch
+                else if (trace.Id != 0)
                 {
-                    result = false;
+                    try
+                    {
+                        _serviceTraceLog.Update(trace);
+                        result = true;
+                    }
+                    catch
+                    {
+                        result = false;
+                    }
                 }
             }
 
@@ -550,6 +593,7 @@ namespace Trace.OpcHandlerMachine03.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {

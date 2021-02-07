@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -133,6 +134,11 @@ namespace Trace.OpcHandlerMachine06.Presenters
                                                                 , value.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
 
+            WriteLog("VerifyCode" + _view.machine.Id + ".txt", "Set to by-pass station 3");
+            //Defualt to by-pass station 3
+            //_machine.CodeVerifyResult = 1;
+
+            /* Set By-pass station 3 */
             if (loggings.Where(x => x.MachineId == _view.machine.Id).Count() == 0)
             {
                 var newJob = loggings.Where(x => x.MachineId == 3);
@@ -160,7 +166,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
                 _machine.CodeVerifyResult = 2;
                 _view.ResultnMessage = "NOK = Data dupplicated.";
             }
-
+            /*Set By-pass station 3*/
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
 
@@ -228,12 +234,18 @@ namespace Trace.OpcHandlerMachine06.Presenters
                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                         }
                         else
+                        {
                             machineTmp.CompletedLogging = 3;
+                            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Validate error message : {0}"
+                                                               , _view.ResultnMessage));
+                        }                           
                     }
                     catch (Exception ex)
                     {
                         _view.ResultnMessage = ex.Message;
                         machineTmp.CompletedLogging = 3;
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Exception Message : {0}"
+                                                               , _view.ResultnMessage));
                     }
 
                     WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Logging Result : {0} => Time : {1}"
@@ -315,6 +327,8 @@ namespace Trace.OpcHandlerMachine06.Presenters
                         errMsg += Environment.NewLine;
 
                     errMsg += tmpMsg;
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Error Message 1 : {0}"
+                    //                                           , errMsg));
                 }
             }
             #endregion
@@ -328,10 +342,12 @@ namespace Trace.OpcHandlerMachine06.Presenters
                     {
                         trace.ItemCode = item.Value.ToString();
 
-                        var modelRunningType = _serviceTraceLog.GetListByItemCode(trace.ItemCode.ToString())
-                                                               .Where(x => x.MachineId == 1).FirstOrDefault();
+                        //var modelRunningType = _serviceTraceLog.GetListByItemCode(trace.ItemCode.ToString())
+                        //                                       .Where(x => x.MachineId == 1).FirstOrDefault();
 
-                        trace.ModelRunningFlag = modelRunningType.ModelRunningFlag;
+                        var passiveModel = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1modelRunning2").FirstOrDefault().Value.ToString();
+                        // result.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1modelRunning2").FirstOrDefault().Value;
+                        trace.ModelRunningFlag = Convert.ToInt32(passiveModel);
                     }
                     //trace.ItemCode = item.Value.ToString();
 
@@ -395,13 +411,14 @@ namespace Trace.OpcHandlerMachine06.Presenters
                     if (item.ItemName == _view.tagMainBlock + "ST5_1RepairTime")
                         trace.RepairTime = Convert.ToInt32(item.Value);
 
-                    if (item.ItemName == _view.tagMainBlock + "ST5_1ModelRunning2")
+                    if (item.ItemName == _view.tagMainBlock + "ST5_1modelRunning2")
                         trace.ModelRunningFlag = Convert.ToInt32(item.Value);
                 }
             }
+            //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Keep Master Logging Completed"));
             #endregion
 
-            #region Keep EOL Result 
+            #region Keep EOL Result             
             int i = 1;
             List<TighteningRepairModel> tRepairs = new List<TighteningRepairModel>();
             TighteningRepairModel tRepair = new TighteningRepairModel();
@@ -420,8 +437,8 @@ namespace Trace.OpcHandlerMachine06.Presenters
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "EOL Current(mA)";
                         t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter1[0]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter2[0]").FirstOrDefault().Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter2[0]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter1[0]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1TestJudgment[0]").FirstOrDefault().Value.ToString();
 
                         trace.TighteningResults.Add(t);
@@ -433,8 +450,8 @@ namespace Trace.OpcHandlerMachine06.Presenters
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Open Angle";
                         t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter1[1]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter2[1]").FirstOrDefault().Value.ToString());
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter2[1]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1Parameter1[1]").FirstOrDefault().Value.ToString());
                         t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_1TestJudgment[1]").FirstOrDefault().Value.ToString();
 
                         trace.TighteningResults.Add(t);
@@ -442,9 +459,10 @@ namespace Trace.OpcHandlerMachine06.Presenters
                 }
                 i++;
             }
+            //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Keep EOL Result Completed"));
             #endregion
 
-            #region Keep Vanses Result
+            #region Keep Vanses Result            
             trace.CameraResults = new List<CameraResultModel>();
             foreach (var item in r.Where(x => tagsVanses.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
             {
@@ -475,6 +493,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
 
                 trace.CameraResults.Add(cam);
             }
+            //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Keep Vanses Result Completed"));
             #endregion
 
             #region Insert/Update Logging Detail
@@ -497,12 +516,18 @@ namespace Trace.OpcHandlerMachine06.Presenters
 
                 if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Create trace log"));
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Vanses Result : {0}", trace.CameraResults.ToString()));
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("EOL Result : {0}", trace.TighteningResults.ToString()));
                     _serviceTraceLog.Create(trace);
                     KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
                     result = true;
                 }
                 else if (trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Update trace log"));
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Vanses Result : {0}", trace.CameraResults.ToString()));
+                    //WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("EOL Result : {0}", trace.TighteningResults.ToString()));
                     _serviceTraceLog.Update(trace);
                     KeeppingFile(trace.PartSerialNumber, out tartgetFile, out errMessageFile);
                     result = true;
@@ -851,6 +876,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {
@@ -997,16 +1023,26 @@ namespace Trace.OpcHandlerMachine06.Presenters
 
         private decimal ConvertToDecimal(string number)
         {
+            
             decimal myDecimal;
             if (string.IsNullOrEmpty(number))
-                number = "0";
+            {
+                WriteLog("ConvertToDecimal_Machine_" + _view.machine.Id + ".txt", String.Format("Input string is Null or Empty at time {0}"
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                number = "0";                
+            }                
 
             bool result = decimal.TryParse(number, out myDecimal);
 
             if (result)
                 return myDecimal;
             else
+            {
+                WriteLog("ConvertToDecimal_Machine_" + _view.machine.Id + ".txt", String.Format("Input string is [{0}] at time {1}"
+                                                                , number
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                 return 0;
+            }                
         }
 
         private int ConvertToInt(string number)

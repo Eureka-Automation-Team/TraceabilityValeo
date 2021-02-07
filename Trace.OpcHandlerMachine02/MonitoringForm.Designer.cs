@@ -262,6 +262,7 @@
             this.Name = "MonitoringForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Station 2";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.MonitoringForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

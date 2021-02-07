@@ -83,7 +83,7 @@ namespace Trace.OpcHandlerMachine07
                     SetButtonStatusColor(butRequestLogging, Convert.ToInt32(_machine.RequestLogging));
 
                     this.Tag = _machine;
-                    this.Text = "Station 5 : " + _machine.ManchineName;
+                    this.Text = "Station 5:  " + _machine.ManchineName;
                     butCompletedLogging.Text = _machine.CompletedLoggingDesc;
                     SetButtonStatusColor(butCompletedLogging, _machine.CompletedLogging);
                     if (_machine.RequestLogging && _machine.CompletedLogging == 0)

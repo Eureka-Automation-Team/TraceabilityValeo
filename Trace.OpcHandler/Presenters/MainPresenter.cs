@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -75,12 +76,24 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+            bool reactResult = false;
+            if (!string.IsNullOrEmpty(_view.ResultnMessage))
+            {
+                reactResult = WriteWord(_view.tagMainBlock + _view.ResultnMessage, _machine.CodeVerifyResult.ToString());
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
+                                                                    , _view.ResultnMessage
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                    , reactResult.ToString()));
+            }
+            else
+            {
+                reactResult = WriteWord(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult.ToString());
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
+                                                                    , "ST1CodeVerifyResult"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                    , reactResult.ToString()));
+            }
             
-            var reactResult = WriteWord(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult.ToString());
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
-                                                                , "ST1CodeVerifyResult"
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
-                                                                , reactResult.ToString()));
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
@@ -293,13 +306,14 @@ namespace Trace.OpcHandlerMachine01.Presenters
                         if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[3]")
                         {
                             part.LineNumber = 4;
-                            part.PartName = "UPR vane set LH";
+                            part.PartName = "Vanes";
                             part.SerialNumber = item.Value.ToString();
                         }
+
                         if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[4]")
                         {
                             part.LineNumber = 5;
-                            part.PartName = "UPR vane set RH";
+                            part.PartName = "Vane pack RH";
                             part.SerialNumber = item.Value.ToString();
                         }
                         /*if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[16]")
@@ -877,6 +891,10 @@ namespace Trace.OpcHandlerMachine01.Presenters
             #region Insert/Update Logging Detail
             if (invalid)
             {
+                WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Data Invalid Item Code : {0}, at {1} Message : {2}"
+                                                                , trace.ItemCode.ToString()
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                , errMsg));
                 var mac = _view.machine;
                 mac.MessageResult = errMsg;
                 _view.ResultnMessage = mac.MessageResult;
@@ -892,6 +910,9 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
                 if (trace.Id == 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
+                    WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Insert New Item Code : {0}, at {1}"
+                                                                , trace.ItemCode.ToString()
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                     logResult = _serviceTraceLog.Create(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
@@ -907,6 +928,9 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 }
                 else if (trace.Id != 0 && !string.IsNullOrEmpty(trace.ItemCode))
                 {
+                    WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Update Item Code : {0}, at {1}"
+                                                                , trace.ItemCode.ToString()
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                     logResult = _serviceTraceLog.Update(trace);
                     foreach (var item in logResult.TighteningResults.OrderBy(o => o.No))
                     {
@@ -1016,12 +1040,34 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
             try
             {
-                _view.groupWrite.Write(writeValues);
+                Opc.IRequest req;
+                _view.groupWrite.Write(writeValues, 10, new WriteCompleteEventHandler(WriteCompleteCallback), out req);
+                _view.groupRead.Read(itemToAdd, 5, new ReadCompleteEventHandler(ReadCompleteCallback), out req);
+                _view.groupWrite.RemoveItems(writeValues);
                 return true;
             }
             catch
             {
                 return false;
+            }
+        }
+
+        private void ReadCompleteCallback(object requestHandle, ItemValueResult[] results)
+        {
+            foreach (Opc.Da.ItemValueResult readResult in results)
+            {
+                WriteLog("WriteWord" + _view.machine.Id + ".txt", String.Format("Read Value = {1} || Quality : {2}", readResult.Value, readResult.Quality));
+                                                                 //, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+            }
+            Console.WriteLine();
+        }
+
+        private void WriteCompleteCallback(object requestHandle, Opc.IdentifiedResult[] results)
+        {          
+            foreach (Opc.IdentifiedResult writeResult in results)
+            {
+                WriteLog("WriteWord" + _view.machine.Id + ".txt", String.Format("Item Name : {0} || Succeeded = {1} || Time : {2}", writeResult.ItemName, writeResult.ResultID.Succeeded().ToString()
+                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             }
         }
 
@@ -1258,6 +1304,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {

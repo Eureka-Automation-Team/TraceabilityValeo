@@ -211,6 +211,7 @@
             this.butCompletedLogging.Size = new System.Drawing.Size(145, 24);
             this.butCompletedLogging.TabIndex = 19;
             this.butCompletedLogging.UseVisualStyleBackColor = false;
+            this.butCompletedLogging.Click += new System.EventHandler(this.butCompletedLogging_Click);
             // 
             // butRequestVerifyCode1
             // 
@@ -262,6 +263,7 @@
             this.Name = "MonitoringForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Station 1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.MonitoringForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

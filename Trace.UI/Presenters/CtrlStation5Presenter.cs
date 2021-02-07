@@ -41,12 +41,12 @@ namespace Trace.UI.Presenters
             if (log1 != null)
             {
                 _view.traceabilityUpperLog = _serviceTraceLog.GetByID(log1.Id);
-                _view.CountQtyUpper = _serviceTraceLog.GetListByMachineID(6, 500).Count();
+                _view.CountQtyUpper = _serviceTraceLog.GetListByMachineID(6, 500).Where(x => x.CreationDate.Date == DateTime.Now.Date).Count();
             }
             if(log2 != null)
             {
                 _view.traceabilityLowerLog = _serviceTraceLog.GetByID(log2.Id);
-                _view.CountQtyLower = _serviceTraceLog.GetListByMachineID(7, 500).Count();
+                _view.CountQtyLower = _serviceTraceLog.GetListByMachineID(7, 500).Where(x => x.CreationDate.Date == DateTime.Now.Date).Count();
             }
         }
 

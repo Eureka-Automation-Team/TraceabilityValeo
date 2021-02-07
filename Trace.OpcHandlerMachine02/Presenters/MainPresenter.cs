@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -67,8 +68,18 @@ namespace Trace.OpcHandlerMachine02.Presenters
                 if (newJob.Count() == 0)
                 {
                     //Data not found
-                    //_machine.CodeVerifyResult = 3;/
-                    _machine.CodeVerifyResult = 2;
+                    var passiveModel = result.Where(x => x.ItemName == _view.tagMainBlock + "ST2ModelRunning2").FirstOrDefault().Value;
+                    WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("ModelRunning : {0}"
+                                                                , passiveModel.ToString()));
+
+                    if (Convert.ToInt32(passiveModel) == 2)
+                    {
+                        _machine.CodeVerifyResult = 1;
+                    }
+                    else
+                    {
+                        _machine.CodeVerifyResult = 2;
+                    }                    
                 }
                 else
                 {
@@ -148,11 +159,20 @@ namespace Trace.OpcHandlerMachine02.Presenters
                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                         }
                         else
+                        {
                             machineTmp.CompletedLogging = 3;
+                            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Error Message : {0}"
+                                                                , _view.ResultnMessage.ToString()
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                        }
+                            
                     }
                     catch (Exception ex)
                     {
                         _view.ResultnMessage = ex.Message;
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Error Message : {0}"
+                                                                , _view.ResultnMessage.ToString()
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                         machineTmp.CompletedLogging = 3;
                     }
 
@@ -260,7 +280,11 @@ namespace Trace.OpcHandlerMachine02.Presenters
                         trace.RepairTime = Convert.ToInt32(item.Value);
 
                     if (item.ItemName == _view.tagMainBlock + "ST2ModelRunning2")
+                    {
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Modelrunning : {0}"
+                                                                , item.ItemName.ToString()));
                         trace.ModelRunningFlag = Convert.ToInt32(item.Value);
+                    }                        
                 }
             }
             #endregion
@@ -967,6 +991,7 @@ namespace Trace.OpcHandlerMachine02.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {

@@ -374,7 +374,7 @@ namespace Trace.OpcHandlerMachine02
 
         private void butRequestVerifyCode_Click(object sender, EventArgs e)
         {
-            this.machine.RequestVerifyCode = true;
+            //this.machine.RequestVerifyCode = true;
             VerityCode(this.machine, null);
         }
     }

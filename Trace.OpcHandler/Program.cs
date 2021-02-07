@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Trace.OpcHandler
@@ -14,9 +14,20 @@ namespace Trace.OpcHandler
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MonitoringForm());
+            bool instanceCountOne = false;
+            using (Mutex mtex = new Mutex(true, "Station 1", out instanceCountOne))
+            {
+                if (instanceCountOne)
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MonitoringForm());
+                }
+                else
+                {
+                    MessageBox.Show("Application Station 1 is already running.");
+                }
+            }
         }
     }
 }

@@ -57,7 +57,6 @@
             this.txtitemCode = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.traceabilityLogModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavCategory = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -73,12 +72,14 @@
             this.mnuClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDetail = new System.Windows.Forms.ToolStripButton();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExportCSV = new System.Windows.Forms.ToolStripButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.traceabilityLogModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelRunningDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModelRunningDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partSerialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actuatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,9 +125,9 @@
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavCategory)).BeginInit();
             this.bindingNavCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -191,7 +192,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.28671F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.71329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 490F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 494F));
             this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 1);
@@ -214,9 +215,9 @@
             // panel15
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(706, 69);
+            this.panel15.Location = new System.Drawing.Point(702, 69);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(485, 36);
+            this.panel15.Size = new System.Drawing.Size(489, 36);
             this.panel15.TabIndex = 10;
             // 
             // panel14
@@ -225,9 +226,9 @@
             this.panel14.Controls.Add(this.dtpendDate);
             this.panel14.Controls.Add(this.dtpstartDate);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(237, 69);
+            this.panel14.Location = new System.Drawing.Point(236, 69);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(463, 36);
+            this.panel14.Size = new System.Drawing.Size(460, 36);
             this.panel14.TabIndex = 9;
             // 
             // label4
@@ -261,18 +262,18 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(706, 36);
+            this.panel12.Location = new System.Drawing.Point(702, 36);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(485, 27);
+            this.panel12.Size = new System.Drawing.Size(489, 27);
             this.panel12.TabIndex = 7;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.txtpartSerialNo);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(237, 36);
+            this.panel11.Location = new System.Drawing.Point(236, 36);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(463, 27);
+            this.panel11.Size = new System.Drawing.Size(460, 27);
             this.panel11.TabIndex = 6;
             // 
             // txtpartSerialNo
@@ -280,15 +281,15 @@
             this.txtpartSerialNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtpartSerialNo.Location = new System.Drawing.Point(0, 0);
             this.txtpartSerialNo.Name = "txtpartSerialNo";
-            this.txtpartSerialNo.Size = new System.Drawing.Size(463, 26);
+            this.txtpartSerialNo.Size = new System.Drawing.Size(460, 26);
             this.txtpartSerialNo.TabIndex = 1;
             // 
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(706, 3);
+            this.panel9.Location = new System.Drawing.Point(702, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(485, 27);
+            this.panel9.Size = new System.Drawing.Size(489, 27);
             this.panel9.TabIndex = 4;
             // 
             // panel5
@@ -297,7 +298,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(228, 27);
+            this.panel5.Size = new System.Drawing.Size(227, 27);
             this.panel5.TabIndex = 0;
             // 
             // label6
@@ -308,7 +309,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(228, 24);
+            this.label6.Size = new System.Drawing.Size(227, 24);
             this.label6.TabIndex = 7;
             this.label6.Text = "Item Code";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,7 +320,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 36);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(228, 27);
+            this.panel6.Size = new System.Drawing.Size(227, 27);
             this.panel6.TabIndex = 1;
             // 
             // label2
@@ -330,7 +331,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 24);
+            this.label2.Size = new System.Drawing.Size(227, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Part Serial No.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,7 +342,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 69);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(228, 36);
+            this.panel7.Size = new System.Drawing.Size(227, 36);
             this.panel7.TabIndex = 2;
             // 
             // label3
@@ -352,7 +353,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 24);
+            this.label3.Size = new System.Drawing.Size(227, 24);
             this.label3.TabIndex = 8;
             this.label3.Text = "Date From-To";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -361,9 +362,9 @@
             // 
             this.panel8.Controls.Add(this.txtitemCode);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(237, 3);
+            this.panel8.Location = new System.Drawing.Point(236, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(463, 27);
+            this.panel8.Size = new System.Drawing.Size(460, 27);
             this.panel8.TabIndex = 3;
             // 
             // txtitemCode
@@ -371,7 +372,7 @@
             this.txtitemCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtitemCode.Location = new System.Drawing.Point(0, 0);
             this.txtitemCode.Name = "txtitemCode";
-            this.txtitemCode.Size = new System.Drawing.Size(463, 26);
+            this.txtitemCode.Size = new System.Drawing.Size(460, 26);
             this.txtitemCode.TabIndex = 0;
             // 
             // panel3
@@ -405,6 +406,7 @@
             this.stationIdDataGridViewTextBoxColumn,
             this.itemCodeDataGridViewTextBoxColumn,
             this.modelRunningDataGridViewTextBoxColumn,
+            this.ModelRunningDesc,
             this.partSerialNumberDataGridViewTextBoxColumn,
             this.actuatorDataGridViewTextBoxColumn,
             this.productionDateDataGridViewTextBoxColumn,
@@ -447,10 +449,6 @@
             this.dgvList.Size = new System.Drawing.Size(1200, 337);
             this.dgvList.TabIndex = 25;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
-            // 
-            // traceabilityLogModelBindingSource
-            // 
-            this.traceabilityLogModelBindingSource.DataSource = typeof(Trace.Domain.Models.TraceabilityLogModel);
             // 
             // bindingNavCategory
             // 
@@ -610,14 +608,6 @@
             this.mnuDetail.Text = "Detail";
             this.mnuDetail.Click += new System.EventHandler(this.mnuDetail_Click);
             // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 532);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1200, 40);
-            this.panel4.TabIndex = 10;
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -633,6 +623,18 @@
             this.mnuExportCSV.Size = new System.Drawing.Size(28, 28);
             this.mnuExportCSV.Text = "Export to *.csv";
             this.mnuExportCSV.Click += new System.EventHandler(this.mnuExportCSV_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 532);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1200, 40);
+            this.panel4.TabIndex = 10;
+            // 
+            // traceabilityLogModelBindingSource
+            // 
+            this.traceabilityLogModelBindingSource.DataSource = typeof(Trace.Domain.Models.TraceabilityLogModel);
             // 
             // stationIdDataGridViewTextBoxColumn
             // 
@@ -653,6 +655,14 @@
             this.modelRunningDataGridViewTextBoxColumn.DataPropertyName = "ModelRunning";
             this.modelRunningDataGridViewTextBoxColumn.HeaderText = "Model";
             this.modelRunningDataGridViewTextBoxColumn.Name = "modelRunningDataGridViewTextBoxColumn";
+            this.modelRunningDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ModelRunningDesc
+            // 
+            this.ModelRunningDesc.DataPropertyName = "ModelRunningDesc";
+            this.ModelRunningDesc.HeaderText = "Model";
+            this.ModelRunningDesc.Name = "ModelRunningDesc";
+            this.ModelRunningDesc.ReadOnly = true;
             // 
             // partSerialNumberDataGridViewTextBoxColumn
             // 
@@ -692,6 +702,7 @@
             this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
             this.attribute1DataGridViewTextBoxColumn.HeaderText = "Camera Check Linkage";
             this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
+            this.attribute1DataGridViewTextBoxColumn.Visible = false;
             // 
             // finalResultDescDataGridViewTextBoxColumn
             // 
@@ -907,10 +918,10 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavCategory)).EndInit();
             this.bindingNavCategory.ResumeLayout(false);
             this.bindingNavCategory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traceabilityLogModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -964,6 +975,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stationIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelRunningDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModelRunningDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn partSerialNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actuatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productionDateDataGridViewTextBoxColumn;

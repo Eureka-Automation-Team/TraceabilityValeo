@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -46,6 +47,8 @@ namespace Trace.UI.Presenters
         private void InitializeForm(object sender, EventArgs e)
         {
             _view.HideSideBar();
+
+            Thread.Sleep(5000);
             _view.LoadSubForm(new HomeForm());
         }
     }

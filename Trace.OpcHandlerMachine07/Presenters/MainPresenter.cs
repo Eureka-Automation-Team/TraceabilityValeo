@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Data;
@@ -133,11 +134,17 @@ namespace Trace.OpcHandlerMachine07.Presenters
                                                                 , value.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
 
+            WriteLog("VerifyCode" + _view.machine.Id + ".txt", "Set to by-pass station 3");
+            //Defualt to by-pass station 3
+            //_machine.CodeVerifyResult = 1;
+            /*Set By-pass station 3*/
             if (loggings.Where(x => x.MachineId == _view.machine.Id).Count() == 0)
             {
                 var newJob = loggings.Where(x => x.MachineId == 4);
 
-                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                //WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                //                      CultureInfo.InvariantCulture)));
+                WriteLog("VerifyCodeST5_2.txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                       CultureInfo.InvariantCulture)));
 
                 if (newJob.Count() == 0)
@@ -145,6 +152,7 @@ namespace Trace.OpcHandlerMachine07.Presenters
                     //Data not found
                     //_machine.CodeVerifyResult = 3;
                     _machine.CodeVerifyResult = 2;
+                    _view.ResultnMessage = "NOK = Data not found.";
                 }
                 else
                 {
@@ -157,7 +165,8 @@ namespace Trace.OpcHandlerMachine07.Presenters
                 //Dupplicated
                 //_machine.CodeVerifyResult = 4; 
                 _machine.CodeVerifyResult = 2;
-            }
+                _view.ResultnMessage = "NOK = Data dupplicated.";
+            }            
 
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
@@ -418,9 +427,9 @@ namespace Trace.OpcHandlerMachine07.Presenters
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "EOL Current(mA)";
                         t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[0]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[1]").FirstOrDefault().Value.ToString());
-                        //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2TestJudgment[0]").FirstOrDefault().Value.ToString();
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter2[0]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[0]").FirstOrDefault().Value.ToString());
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2TestJudgment[0]").FirstOrDefault().Value.ToString();
 
                         trace.TighteningResults.Add(t);
                     }
@@ -431,9 +440,9 @@ namespace Trace.OpcHandlerMachine07.Presenters
                         TighteningResultModel t = new TighteningResultModel();
                         t.No = "Open Angle";
                         t.Result = ConvertToDecimal(item.Value.ToString());
-                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[2]").FirstOrDefault().Value.ToString());
-                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[3]").FirstOrDefault().Value.ToString());
-                        //t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2TestJudgment[1]").FirstOrDefault().Value.ToString();
+                        t.Min = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter2[1]").FirstOrDefault().Value.ToString());
+                        t.Max = ConvertToDecimal(r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2Parameter1[1]").FirstOrDefault().Value.ToString());
+                        t.TestResult = r.Where(x => x.ItemName == _view.tagMainBlock + "ST5_2TestJudgment[1]").FirstOrDefault().Value.ToString();
 
                         trace.TighteningResults.Add(t);
                     }
@@ -849,6 +858,7 @@ namespace Trace.OpcHandlerMachine07.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
             if (m != null)
             {

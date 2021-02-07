@@ -378,5 +378,10 @@ namespace Trace.OpcHandler
             this.machine.RequestVerifyCode = true;
             VerityCode(this.machine, null);
         }
+
+        private void butCompletedLogging_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

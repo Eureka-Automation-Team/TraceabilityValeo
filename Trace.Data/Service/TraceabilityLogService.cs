@@ -82,7 +82,7 @@ namespace Trace.Data.Service
                 IEnumerable<TraceabilityLogModel> entities =  context.TraceabilityLogs
                                                     //.Where(x => x.CreationDate.Date >= startDate.Date && x.CreationDate.Date <= endDate.Date)
                                                     .OrderByDescending(o => o.CreationDate)
-                                                    .Take(takeRows)                                                    
+                                                    //.Take(takeRows)                                                    
                                                     .ToList();
                 return entities;
             }

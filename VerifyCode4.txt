@@ -1,0 +1,602 @@
+<<=================== Start time : 2020-08-23 18:02:29.684 ===================>>
+Get PLC Tag value time : 2020-08-23 18:02:29.686
+Get Item Code :  from database time : 2020-08-23 18:02:29.728
+Verify Code Result : 2 => Time : 2020-08-23 18:02:29.728
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:02:29.736
+<<=================== End time : 2020-08-23 18:02:29.736 ===================>>
+
+<<=================== Start time : 2020-08-23 18:07:14.688 ===================>>
+Get PLC Tag value time : 2020-08-23 18:07:14.689
+Get Item Code :  from database time : 2020-08-23 18:07:14.694
+Verify Code Result : 2 => Time : 2020-08-23 18:07:14.695
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:07:14.705
+<<=================== End time : 2020-08-23 18:07:14.705 ===================>>
+
+<<=================== Start time : 2020-08-23 18:07:55.689 ===================>>
+Get PLC Tag value time : 2020-08-23 18:07:55.689
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:07:55.708
+Verify Code Result : 1 => Time : 2020-08-23 18:07:55.708
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:07:55.710
+<<=================== End time : 2020-08-23 18:07:55.710 ===================>>
+
+<<=================== Start time : 2020-08-23 18:08:19.699 ===================>>
+Get PLC Tag value time : 2020-08-23 18:08:19.700
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:08:19.706
+Verify Code Result : 2 => Time : 2020-08-23 18:08:19.706
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:08:19.709
+<<=================== End time : 2020-08-23 18:08:19.709 ===================>>
+
+<<=================== Start time : 2020-08-23 18:15:08.705 ===================>>
+Get PLC Tag value time : 2020-08-23 18:15:08.706
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:15:08.736
+Verify Code Result : 1 => Time : 2020-08-23 18:15:08.736
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:15:08.739
+<<=================== End time : 2020-08-23 18:15:08.739 ===================>>
+
+<<=================== Start time : 2020-08-23 18:17:58.707 ===================>>
+Get PLC Tag value time : 2020-08-23 18:17:58.707
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:17:58.709
+Verify Code Result : 1 => Time : 2020-08-23 18:17:58.709
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:17:58.712
+<<=================== End time : 2020-08-23 18:17:58.712 ===================>>
+
+<<=================== Start time : 2020-08-23 18:20:03.704 ===================>>
+Get PLC Tag value time : 2020-08-23 18:20:03.704
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:20:03.707
+Verify Code Result : 1 => Time : 2020-08-23 18:20:03.707
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:20:03.711
+<<=================== End time : 2020-08-23 18:20:03.711 ===================>>
+
+<<=================== Start time : 2020-08-23 18:23:10.707 ===================>>
+Get PLC Tag value time : 2020-08-23 18:23:10.707
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:23:10.714
+Verify Code Result : 2 => Time : 2020-08-23 18:23:10.714
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:23:10.718
+<<=================== End time : 2020-08-23 18:23:10.718 ===================>>
+
+<<=================== Start time : 2020-08-23 18:32:12.723 ===================>>
+Get PLC Tag value time : 2020-08-23 18:32:12.723
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:32:12.750
+Verify Code Result : 2 => Time : 2020-08-23 18:32:12.750
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:32:12.754
+<<=================== End time : 2020-08-23 18:32:12.754 ===================>>
+
+<<=================== Start time : 2020-08-23 18:34:04.723 ===================>>
+Get PLC Tag value time : 2020-08-23 18:34:04.723
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:34:04.732
+Verify Code Result : 1 => Time : 2020-08-23 18:34:04.732
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:34:04.737
+<<=================== End time : 2020-08-23 18:34:04.738 ===================>>
+
+<<=================== Start time : 2020-08-23 18:35:11.734 ===================>>
+Get PLC Tag value time : 2020-08-23 18:35:11.734
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:35:11.741
+Verify Code Result : 1 => Time : 2020-08-23 18:35:11.741
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:35:11.746
+<<=================== End time : 2020-08-23 18:35:11.747 ===================>>
+
+<<=================== Start time : 2020-08-23 18:36:12.720 ===================>>
+Get PLC Tag value time : 2020-08-23 18:36:12.721
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:36:12.727
+Verify Code Result : 1 => Time : 2020-08-23 18:36:12.727
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:36:12.730
+<<=================== End time : 2020-08-23 18:36:12.730 ===================>>
+
+<<=================== Start time : 2020-08-23 18:36:25.723 ===================>>
+Get PLC Tag value time : 2020-08-23 18:36:25.723
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:36:25.729
+Verify Code Result : 1 => Time : 2020-08-23 18:36:25.729
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:36:25.734
+<<=================== End time : 2020-08-23 18:36:25.734 ===================>>
+
+<<=================== Start time : 2020-08-23 18:40:26.856 ===================>>
+Get PLC Tag value time : 2020-08-23 18:40:26.857
+Get Item Code : T350970 20231 00457 from database time : 2020-08-23 18:40:26.862
+Verify Code Result : 1 => Time : 2020-08-23 18:40:26.863
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:40:26.866
+<<=================== End time : 2020-08-23 18:40:26.867 ===================>>
+
+<<=================== Start time : 2020-08-23 18:41:02.725 ===================>>
+Get PLC Tag value time : 2020-08-23 18:41:02.725
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 18:41:02.732
+Verify Code Result : 1 => Time : 2020-08-23 18:41:02.732
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:41:02.737
+<<=================== End time : 2020-08-23 18:41:02.738 ===================>>
+
+<<=================== Start time : 2020-08-23 18:47:44.728 ===================>>
+Get PLC Tag value time : 2020-08-23 18:47:44.729
+Get Item Code : T350970 20231 00457 from database time : 2020-08-23 18:47:44.764
+Verify Code Result : 1 => Time : 2020-08-23 18:47:44.764
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 18:47:44.768
+<<=================== End time : 2020-08-23 18:47:44.768 ===================>>
+
+<<=================== Start time : 2020-08-23 19:05:31.754 ===================>>
+Get PLC Tag value time : 2020-08-23 19:05:31.754
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 19:05:31.777
+Verify Code Result : 1 => Time : 2020-08-23 19:05:31.778
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 19:05:31.781
+<<=================== End time : 2020-08-23 19:05:31.782 ===================>>
+
+<<=================== Start time : 2020-08-23 19:05:58.749 ===================>>
+Get PLC Tag value time : 2020-08-23 19:05:58.749
+Get Item Code : T350970 20231 00457 from database time : 2020-08-23 19:05:58.762
+Verify Code Result : 1 => Time : 2020-08-23 19:05:58.762
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 19:05:58.765
+<<=================== End time : 2020-08-23 19:05:58.765 ===================>>
+
+<<=================== Start time : 2020-08-23 19:06:20.758 ===================>>
+Get PLC Tag value time : 2020-08-23 19:06:20.758
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 19:06:20.761
+Verify Code Result : 2 => Time : 2020-08-23 19:06:20.761
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 19:06:20.763
+<<=================== End time : 2020-08-23 19:06:20.763 ===================>>
+
+<<=================== Start time : 2020-08-23 19:12:07.065 ===================>>
+Get PLC Tag value time : 2020-08-23 19:12:07.066
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 19:12:07.108
+Verify Code Result : 1 => Time : 2020-08-23 19:12:07.109
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 19:12:07.117
+<<=================== End time : 2020-08-23 19:12:07.117 ===================>>
+
+<<=================== Start time : 2020-08-23 19:14:37.060 ===================>>
+Get PLC Tag value time : 2020-08-23 19:14:37.060
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 19:14:37.063
+Verify Code Result : 1 => Time : 2020-08-23 19:14:37.063
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 19:14:37.066
+<<=================== End time : 2020-08-23 19:14:37.066 ===================>>
+
+<<=================== Start time : 2020-08-23 21:04:27.252 ===================>>
+Get PLC Tag value time : 2020-08-23 21:04:27.252
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 21:04:27.270
+Verify Code Result : 1 => Time : 2020-08-23 21:04:27.270
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 21:04:27.277
+<<=================== End time : 2020-08-23 21:04:27.277 ===================>>
+
+<<=================== Start time : 2020-08-23 21:12:28.260 ===================>>
+Get PLC Tag value time : 2020-08-23 21:12:28.260
+Get Item Code : T350970 20231 00457 from database time : 2020-08-23 21:12:28.301
+Verify Code Result : 1 => Time : 2020-08-23 21:12:28.301
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 21:12:28.303
+<<=================== End time : 2020-08-23 21:12:28.304 ===================>>
+
+<<=================== Start time : 2020-08-23 21:17:30.273 ===================>>
+Get PLC Tag value time : 2020-08-23 21:17:30.273
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 21:17:30.279
+Verify Code Result : 1 => Time : 2020-08-23 21:17:30.280
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 21:17:30.283
+<<=================== End time : 2020-08-23 21:17:30.284 ===================>>
+
+<<=================== Start time : 2020-08-23 21:18:46.279 ===================>>
+Get PLC Tag value time : 2020-08-23 21:18:46.280
+Get Item Code : T350970 20231 00457 from database time : 2020-08-23 21:18:46.286
+Verify Code Result : 1 => Time : 2020-08-23 21:18:46.286
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 21:18:46.292
+<<=================== End time : 2020-08-23 21:18:46.292 ===================>>
+
+<<=================== Start time : 2020-08-23 21:20:14.280 ===================>>
+Get PLC Tag value time : 2020-08-23 21:20:14.280
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 21:20:14.283
+Verify Code Result : 2 => Time : 2020-08-23 21:20:14.283
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 21:20:14.285
+<<=================== End time : 2020-08-23 21:20:14.286 ===================>>
+
+<<=================== Start time : 2020-08-23 21:20:53.283 ===================>>
+Get PLC Tag value time : 2020-08-23 21:20:53.284
+Get Item Code : T350970 20231 00458 from database time : 2020-08-23 21:20:53.291
+Verify Code Result : 2 => Time : 2020-08-23 21:20:53.292
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-23 21:20:53.299
+<<=================== End time : 2020-08-23 21:20:53.300 ===================>>
+
+<<=================== Start time : 2020-08-24 00:05:36.592 ===================>>
+Get PLC Tag value time : 2020-08-24 00:05:36.593
+Get Item Code : T350970 20231 00458 from database time : 2020-08-24 00:05:36.636
+Verify Code Result : 2 => Time : 2020-08-24 00:05:36.636
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:05:36.645
+<<=================== End time : 2020-08-24 00:05:36.645 ===================>>
+
+<<=================== Start time : 2020-08-24 00:09:17.592 ===================>>
+Get PLC Tag value time : 2020-08-24 00:09:17.592
+Get Item Code : T350970 20231 00458 from database time : 2020-08-24 00:09:17.616
+Verify Code Result : 2 => Time : 2020-08-24 00:09:17.616
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:09:17.620
+<<=================== End time : 2020-08-24 00:09:17.620 ===================>>
+
+<<=================== Start time : 2020-08-24 00:12:05.591 ===================>>
+Get PLC Tag value time : 2020-08-24 00:12:05.591
+Get Item Code : T350970 20231 00458 from database time : 2020-08-24 00:12:05.597
+Verify Code Result : 2 => Time : 2020-08-24 00:12:05.598
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:12:05.601
+<<=================== End time : 2020-08-24 00:12:05.602 ===================>>
+
+<<=================== Start time : 2020-08-24 00:36:58.689 ===================>>
+Get PLC Tag value time : 2020-08-24 00:36:58.690
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:36:58.714
+Verify Code Result : 1 => Time : 2020-08-24 00:36:58.714
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:36:58.718
+<<=================== End time : 2020-08-24 00:36:58.718 ===================>>
+
+<<=================== Start time : 2020-08-24 00:39:10.601 ===================>>
+Get PLC Tag value time : 2020-08-24 00:39:10.601
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:39:10.608
+Verify Code Result : 1 => Time : 2020-08-24 00:39:10.608
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:39:10.611
+<<=================== End time : 2020-08-24 00:39:10.612 ===================>>
+
+<<=================== Start time : 2020-08-24 00:41:21.603 ===================>>
+Get PLC Tag value time : 2020-08-24 00:41:21.603
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 00:41:21.609
+Verify Code Result : 1 => Time : 2020-08-24 00:41:21.610
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:41:21.612
+<<=================== End time : 2020-08-24 00:41:21.613 ===================>>
+
+<<=================== Start time : 2020-08-24 00:42:03.607 ===================>>
+Get PLC Tag value time : 2020-08-24 00:42:03.607
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:42:03.614
+Verify Code Result : 2 => Time : 2020-08-24 00:42:03.614
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:42:03.620
+<<=================== End time : 2020-08-24 00:42:03.620 ===================>>
+
+<<=================== Start time : 2020-08-24 00:44:32.610 ===================>>
+Get PLC Tag value time : 2020-08-24 00:44:32.611
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 00:44:32.617
+Verify Code Result : 1 => Time : 2020-08-24 00:44:32.617
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:44:32.623
+<<=================== End time : 2020-08-24 00:44:32.623 ===================>>
+
+<<=================== Start time : 2020-08-24 00:45:18.612 ===================>>
+Get PLC Tag value time : 2020-08-24 00:45:18.613
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:45:18.619
+Verify Code Result : 2 => Time : 2020-08-24 00:45:18.620
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:45:18.627
+<<=================== End time : 2020-08-24 00:45:18.627 ===================>>
+
+<<=================== Start time : 2020-08-24 00:46:03.614 ===================>>
+Get PLC Tag value time : 2020-08-24 00:46:03.614
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 00:46:03.620
+Verify Code Result : 2 => Time : 2020-08-24 00:46:03.621
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:46:03.623
+<<=================== End time : 2020-08-24 00:46:03.624 ===================>>
+
+<<=================== Start time : 2020-08-24 00:48:53.612 ===================>>
+Get PLC Tag value time : 2020-08-24 00:48:53.613
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:48:53.618
+Verify Code Result : 2 => Time : 2020-08-24 00:48:53.619
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:48:53.621
+<<=================== End time : 2020-08-24 00:48:53.621 ===================>>
+
+<<=================== Start time : 2020-08-24 00:49:31.613 ===================>>
+Get PLC Tag value time : 2020-08-24 00:49:31.614
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 00:49:31.620
+Verify Code Result : 2 => Time : 2020-08-24 00:49:31.620
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:49:31.624
+<<=================== End time : 2020-08-24 00:49:31.625 ===================>>
+
+<<=================== Start time : 2020-08-24 00:49:59.613 ===================>>
+Get PLC Tag value time : 2020-08-24 00:49:59.613
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:49:59.619
+Verify Code Result : 2 => Time : 2020-08-24 00:49:59.620
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:49:59.622
+<<=================== End time : 2020-08-24 00:49:59.623 ===================>>
+
+<<=================== Start time : 2020-08-24 00:50:44.612 ===================>>
+Get PLC Tag value time : 2020-08-24 00:50:44.612
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:50:44.618
+Verify Code Result : 2 => Time : 2020-08-24 00:50:44.619
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:50:44.622
+<<=================== End time : 2020-08-24 00:50:44.622 ===================>>
+
+<<=================== Start time : 2020-08-24 00:51:11.618 ===================>>
+Get PLC Tag value time : 2020-08-24 00:51:11.618
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 00:51:11.624
+Verify Code Result : 2 => Time : 2020-08-24 00:51:11.625
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:51:11.627
+<<=================== End time : 2020-08-24 00:51:11.628 ===================>>
+
+<<=================== Start time : 2020-08-24 00:51:41.618 ===================>>
+Get PLC Tag value time : 2020-08-24 00:51:41.618
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 00:51:41.633
+Verify Code Result : 2 => Time : 2020-08-24 00:51:41.633
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:51:41.637
+<<=================== End time : 2020-08-24 00:51:41.637 ===================>>
+
+<<=================== Start time : 2020-08-24 00:52:03.620 ===================>>
+Get PLC Tag value time : 2020-08-24 00:52:03.621
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 00:52:03.626
+Verify Code Result : 2 => Time : 2020-08-24 00:52:03.626
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 00:52:03.629
+<<=================== End time : 2020-08-24 00:52:03.629 ===================>>
+
+<<=================== Start time : 2020-08-24 01:25:30.633 ===================>>
+Get PLC Tag value time : 2020-08-24 01:25:30.633
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 01:25:30.639
+Verify Code Result : 2 => Time : 2020-08-24 01:25:30.640
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:25:30.642
+<<=================== End time : 2020-08-24 01:25:30.643 ===================>>
+
+<<=================== Start time : 2020-08-24 01:26:12.634 ===================>>
+Get PLC Tag value time : 2020-08-24 01:26:12.634
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 01:26:12.641
+Verify Code Result : 2 => Time : 2020-08-24 01:26:12.641
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:26:12.648
+<<=================== End time : 2020-08-24 01:26:12.648 ===================>>
+
+<<=================== Start time : 2020-08-24 01:27:06.633 ===================>>
+Get PLC Tag value time : 2020-08-24 01:27:06.634
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 01:27:06.640
+Verify Code Result : 2 => Time : 2020-08-24 01:27:06.640
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:27:06.644
+<<=================== End time : 2020-08-24 01:27:06.644 ===================>>
+
+<<=================== Start time : 2020-08-24 01:28:13.633 ===================>>
+Get PLC Tag value time : 2020-08-24 01:28:13.633
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 01:28:13.643
+Verify Code Result : 2 => Time : 2020-08-24 01:28:13.644
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:28:13.647
+<<=================== End time : 2020-08-24 01:28:13.648 ===================>>
+
+<<=================== Start time : 2020-08-24 01:45:15.715 ===================>>
+Get PLC Tag value time : 2020-08-24 01:45:15.715
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 01:45:15.745
+Verify Code Result : 2 => Time : 2020-08-24 01:45:15.745
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:45:16.726
+<<=================== End time : 2020-08-24 01:45:16.727 ===================>>
+
+<<=================== Start time : 2020-08-24 01:45:38.733 ===================>>
+Get PLC Tag value time : 2020-08-24 01:45:38.734
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 01:45:38.740
+Verify Code Result : 2 => Time : 2020-08-24 01:45:38.740
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:45:38.743
+<<=================== End time : 2020-08-24 01:45:38.743 ===================>>
+
+<<=================== Start time : 2020-08-24 01:46:00.740 ===================>>
+Get PLC Tag value time : 2020-08-24 01:46:00.741
+Get Item Code : T350970 20231 02547 from database time : 2020-08-24 01:46:00.747
+Verify Code Result : 2 => Time : 2020-08-24 01:46:00.747
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:46:00.750
+<<=================== End time : 2020-08-24 01:46:00.751 ===================>>
+
+<<=================== Start time : 2020-08-24 01:50:01.732 ===================>>
+Get PLC Tag value time : 2020-08-24 01:50:01.732
+Get Item Code : T350970 20231 00457 from database time : 2020-08-24 01:50:01.739
+Verify Code Result : 2 => Time : 2020-08-24 01:50:01.739
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-08-24 01:50:01.748
+<<=================== End time : 2020-08-24 01:50:01.748 ===================>>
+
+<<=================== Start time : 2020-09-18 11:50:47.637 ===================>>
+Get PLC Tag value time : 2020-09-18 11:50:47.643
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 11:50:47.698
+Verify Code Result : 1 => Time : 2020-09-18 11:50:47.698
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 11:50:47.707
+<<=================== End time : 2020-09-18 11:50:47.707 ===================>>
+
+<<=================== Start time : 2020-09-18 11:52:25.538 ===================>>
+Get PLC Tag value time : 2020-09-18 11:52:25.538
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 11:52:25.543
+Verify Code Result : 1 => Time : 2020-09-18 11:52:25.544
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 11:52:25.547
+<<=================== End time : 2020-09-18 11:52:25.547 ===================>>
+
+<<=================== Start time : 2020-09-18 11:55:18.381 ===================>>
+Get PLC Tag value time : 2020-09-18 11:55:18.382
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 11:55:18.386
+Verify Code Result : 1 => Time : 2020-09-18 11:55:18.387
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 11:55:18.392
+<<=================== End time : 2020-09-18 11:55:18.392 ===================>>
+
+<<=================== Start time : 2020-09-18 11:56:35.334 ===================>>
+Get PLC Tag value time : 2020-09-18 11:56:35.334
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 11:56:35.339
+Verify Code Result : 2 => Time : 2020-09-18 11:56:35.339
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 11:56:35.343
+<<=================== End time : 2020-09-18 11:56:35.343 ===================>>
+
+<<=================== Start time : 2020-09-18 11:57:31.299 ===================>>
+Get PLC Tag value time : 2020-09-18 11:57:31.299
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 11:57:31.304
+Verify Code Result : 1 => Time : 2020-09-18 11:57:31.307
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 11:57:31.311
+<<=================== End time : 2020-09-18 11:57:31.312 ===================>>
+
+<<=================== Start time : 2020-09-18 11:58:03.275 ===================>>
+Get PLC Tag value time : 2020-09-18 11:58:03.275
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 11:58:03.280
+Verify Code Result : 2 => Time : 2020-09-18 11:58:03.281
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 11:58:03.285
+<<=================== End time : 2020-09-18 11:58:03.285 ===================>>
+
+<<=================== Start time : 2020-09-18 12:06:11.970 ===================>>
+Get PLC Tag value time : 2020-09-18 12:06:11.971
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 12:06:11.993
+Verify Code Result : 2 => Time : 2020-09-18 12:06:11.993
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:06:11.996
+<<=================== End time : 2020-09-18 12:06:11.996 ===================>>
+
+<<=================== Start time : 2020-09-18 12:06:51.941 ===================>>
+Get PLC Tag value time : 2020-09-18 12:06:51.941
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:06:51.946
+Verify Code Result : 2 => Time : 2020-09-18 12:06:51.947
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:06:51.950
+<<=================== End time : 2020-09-18 12:06:51.951 ===================>>
+
+<<=================== Start time : 2020-09-18 12:08:08.902 ===================>>
+Get PLC Tag value time : 2020-09-18 12:08:08.903
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 12:08:08.909
+Verify Code Result : 2 => Time : 2020-09-18 12:08:08.909
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:08:08.913
+<<=================== End time : 2020-09-18 12:08:08.918 ===================>>
+
+<<=================== Start time : 2020-09-18 12:08:42.881 ===================>>
+Get PLC Tag value time : 2020-09-18 12:08:42.882
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:08:42.887
+Verify Code Result : 2 => Time : 2020-09-18 12:08:42.887
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:08:42.891
+<<=================== End time : 2020-09-18 12:08:42.891 ===================>>
+
+<<=================== Start time : 2020-09-18 12:14:11.612 ===================>>
+Get PLC Tag value time : 2020-09-18 12:14:11.612
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:14:11.618
+Verify Code Result : 2 => Time : 2020-09-18 12:14:11.618
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:14:11.622
+<<=================== End time : 2020-09-18 12:14:11.623 ===================>>
+
+<<=================== Start time : 2020-09-18 12:14:34.604 ===================>>
+Get PLC Tag value time : 2020-09-18 12:14:34.604
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 12:14:34.609
+Verify Code Result : 2 => Time : 2020-09-18 12:14:34.610
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:14:34.613
+<<=================== End time : 2020-09-18 12:14:34.613 ===================>>
+
+<<=================== Start time : 2020-09-18 12:15:20.586 ===================>>
+Get PLC Tag value time : 2020-09-18 12:15:20.586
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:15:20.591
+Verify Code Result : 2 => Time : 2020-09-18 12:15:20.592
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:15:20.602
+<<=================== End time : 2020-09-18 12:15:20.603 ===================>>
+
+<<=================== Start time : 2020-09-18 12:15:58.540 ===================>>
+Get PLC Tag value time : 2020-09-18 12:15:58.540
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 12:15:58.546
+Verify Code Result : 2 => Time : 2020-09-18 12:15:58.546
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:15:58.549
+<<=================== End time : 2020-09-18 12:15:58.550 ===================>>
+
+<<=================== Start time : 2020-09-18 12:16:46.510 ===================>>
+Get PLC Tag value time : 2020-09-18 12:16:46.510
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:16:46.515
+Verify Code Result : 2 => Time : 2020-09-18 12:16:46.516
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:16:46.519
+<<=================== End time : 2020-09-18 12:16:46.520 ===================>>
+
+<<=================== Start time : 2020-09-18 12:34:41.718 ===================>>
+Get PLC Tag value time : 2020-09-18 12:34:41.719
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:34:41.752
+Verify Code Result : 2 => Time : 2020-09-18 12:34:41.753
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:34:41.755
+<<=================== End time : 2020-09-18 12:34:41.755 ===================>>
+
+<<=================== Start time : 2020-09-18 12:47:48.213 ===================>>
+Get PLC Tag value time : 2020-09-18 12:47:48.213
+Get Item Code : T350970 20260 00271 from database time : 2020-09-18 12:47:48.246
+Verify Code Result : 2 => Time : 2020-09-18 12:47:48.246
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:47:48.250
+<<=================== End time : 2020-09-18 12:47:48.251 ===================>>
+
+<<=================== Start time : 2020-09-18 12:55:10.916 ===================>>
+Get PLC Tag value time : 2020-09-18 12:55:10.916
+Get Item Code : T350970 20206 00129 from database time : 2020-09-18 12:55:10.948
+Verify Code Result : 2 => Time : 2020-09-18 12:55:10.948
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-18 12:55:10.951
+<<=================== End time : 2020-09-18 12:55:10.952 ===================>>
+
+<<=================== Start time : 2020-09-29 08:35:09.854 ===================>>
+Get PLC Tag value time : 2020-09-29 08:35:09.861
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 08:35:09.910
+Verify Code Result : 2 => Time : 2020-09-29 08:35:09.910
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 08:35:09.920
+<<=================== End time : 2020-09-29 08:35:09.920 ===================>>
+
+<<=================== Start time : 2020-09-29 08:39:14.915 ===================>>
+Get PLC Tag value time : 2020-09-29 08:39:14.915
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 08:39:14.921
+Verify Code Result : 2 => Time : 2020-09-29 08:39:14.922
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 08:39:14.926
+<<=================== End time : 2020-09-29 08:39:14.926 ===================>>
+
+<<=================== Start time : 2020-09-29 09:07:01.885 ===================>>
+Get PLC Tag value time : 2020-09-29 09:07:01.885
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 09:07:01.891
+Verify Code Result : 2 => Time : 2020-09-29 09:07:01.892
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 09:07:01.898
+<<=================== End time : 2020-09-29 09:07:01.905 ===================>>
+
+<<=================== Start time : 2020-09-29 10:17:20.916 ===================>>
+Get PLC Tag value time : 2020-09-29 10:17:20.916
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 10:17:20.947
+Verify Code Result : 2 => Time : 2020-09-29 10:17:20.947
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 10:17:20.951
+<<=================== End time : 2020-09-29 10:17:20.952 ===================>>
+
+<<=================== Start time : 2020-09-29 10:31:35.913 ===================>>
+Get PLC Tag value time : 2020-09-29 10:31:35.914
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 10:31:35.935
+Verify Code Result : 2 => Time : 2020-09-29 10:31:35.936
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 10:31:35.938
+<<=================== End time : 2020-09-29 10:31:35.938 ===================>>
+
+<<=================== Start time : 2020-09-29 10:47:27.934 ===================>>
+Get PLC Tag value time : 2020-09-29 10:47:27.934
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 10:47:27.966
+Verify Code Result : 2 => Time : 2020-09-29 10:47:27.966
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 10:47:27.969
+<<=================== End time : 2020-09-29 10:47:27.969 ===================>>
+
+<<=================== Start time : 2020-09-29 11:03:04.977 ===================>>
+Get PLC Tag value time : 2020-09-29 11:03:04.978
+Get Item Code : T350970 20260 00271 from database time : 2020-09-29 11:03:05.007
+Verify Code Result : 2 => Time : 2020-09-29 11:03:05.007
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-29 11:03:05.011
+<<=================== End time : 2020-09-29 11:03:05.011 ===================>>
+
+<<=================== Start time : 2020-09-30 10:01:33.964 ===================>>
+Get PLC Tag value time : 2020-09-30 10:01:33.964
+Get Item Code : T350970 20260 00271 from database time : 2020-09-30 10:01:34.002
+Verify Code Result : 2 => Time : 2020-09-30 10:01:34.002
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-30 10:01:34.005
+<<=================== End time : 2020-09-30 10:01:34.005 ===================>>
+
+<<=================== Start time : 2020-09-30 10:20:22.152 ===================>>
+Get PLC Tag value time : 2020-09-30 10:20:22.152
+Get Item Code : T350970 20260 00271 from database time : 2020-09-30 10:20:22.170
+Verify Code Result : 2 => Time : 2020-09-30 10:20:22.170
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-09-30 10:20:22.173
+<<=================== End time : 2020-09-30 10:20:22.173 ===================>>
+
+<<=================== Start time : 2020-11-26 15:44:31.408 ===================>>
+Get PLC Tag value time : 2020-11-26 15:44:31.412
+Get Item Code : T350970 20305 00414 from database time : 2020-11-26 15:44:31.467
+Verify Code Result : 2 => Time : 2020-11-26 15:44:31.467
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2020-11-26 15:44:31.474
+<<=================== End time : 2020-11-26 15:44:31.474 ===================>>
+
+<<=================== Start time : 2021-01-07 11:01:08.050 ===================>>
+Get PLC Tag value time : 2021-01-07 11:01:08.055
+Get Item Code : T350970 21006 00562 from database time : 2021-01-07 11:01:08.080
+Verify Code Result : 2 => Time : 2021-01-07 11:01:08.081
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2021-01-07 11:01:08.088
+<<=================== End time : 2021-01-07 11:01:08.088 ===================>>
+
+<<=================== Start time : 2021-01-07 11:14:33.570 ===================>>
+Get PLC Tag value time : 2021-01-07 11:14:33.571
+Get Item Code : T350970 21006 00562 from database time : 2021-01-07 11:14:33.597
+Verify Code Result : 2 => Time : 2021-01-07 11:14:33.597
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2021-01-07 11:14:33.602
+<<=================== End time : 2021-01-07 11:14:33.602 ===================>>
+
+<<=================== Start time : 2021-01-07 13:21:01.389 ===================>>
+Get PLC Tag value time : 2021-01-07 13:21:01.389
+Get Item Code : T350970 21007 00585 from database time : 2021-01-07 13:21:01.428
+Verify Code Result : 2 => Time : 2021-01-07 13:21:01.428
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2021-01-07 13:21:01.432
+<<=================== End time : 2021-01-07 13:21:01.432 ===================>>
+
+<<=================== Start time : 2021-01-07 13:21:52.976 ===================>>
+Get PLC Tag value time : 2021-01-07 13:21:52.977
+Get Item Code : T350970 21007 00585 from database time : 2021-01-07 13:21:52.983
+Verify Code Result : 2 => Time : 2021-01-07 13:21:52.983
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2021-01-07 13:21:52.989
+<<=================== End time : 2021-01-07 13:21:52.989 ===================>>
+
+<<=================== Start time : 2021-01-07 13:34:18.346 ===================>>
+Get PLC Tag value time : 2021-01-07 13:34:18.346
+Get Item Code : T350970 21007 00587 from database time : 2021-01-07 13:34:18.369
+Verify Code Result : 1 => Time : 2021-01-07 13:34:18.369
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2021-01-07 13:34:18.381
+<<=================== End time : 2021-01-07 13:34:18.381 ===================>>
+
+<<=================== Start time : 2021-01-07 13:43:00.577 ===================>>
+Get PLC Tag value time : 2021-01-07 13:43:00.577
+Get Item Code : T350970 21007 00589 from database time : 2021-01-07 13:43:00.582
+Verify Code Result : 1 => Time : 2021-01-07 13:43:00.582
+Write PLC Tag : ST3_2CodeVerifyResult  Value = [True] => Complete Time : 2021-01-07 13:43:00.584
+<<=================== End time : 2021-01-07 13:43:00.584 ===================>>
+
