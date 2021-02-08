@@ -56,8 +56,8 @@ namespace Trace.OpcHandlerMachine01.Presenters
             var tagName = _view.tagMainBlock + "ST1CodeVerify";
             var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get PLC Tag value time : {0}"
-                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));            
-                
+                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+
             var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code : {0} from database time : {1}"
                                                                 , value.ToString()
@@ -79,23 +79,19 @@ namespace Trace.OpcHandlerMachine01.Presenters
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             bool reactResult = false;
-            if (!string.IsNullOrEmpty(_view.ResultnMessage))
-            {
-                reactResult = WriteWord(_view.tagMainBlock + _view.ResultnMessage, _machine.CodeVerifyResult.ToString());
-                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
-                                                                    , _view.ResultnMessage
-                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
-                                                                    , reactResult.ToString()));
-            }
-            else
-            {
-                reactResult = WriteWord(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult.ToString());
-                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
-                                                                    , "ST1CodeVerifyResult"
-                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
-                                                                    , reactResult.ToString()));
-            }
-            
+
+            //reactResult = WriteWord(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult.ToString());
+
+            /*---- Start Code Migration ----*/
+            reactResult = _view.OPC.WriteVar("ST1CodeVerifyResultWrite", Convert.ToSByte(_machine.CodeVerifyResult));
+            /*---- End Code Migration ----*/
+
+            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
+                                                                , "ST1CodeVerifyResult"
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                , reactResult.ToString()));
+
+
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
@@ -140,7 +136,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     bool keepLog = false;
                     var machineTmp = _view.machine;
                     machineTmp.MessageResult = string.Empty;
-                    
+
                     try
                     {
                         WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
@@ -151,7 +147,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                             machineTmp.CompletedLogging = 1;
                             WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Insert to Database complete time : {0}"
                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                        }                            
+                        }
                         else
                             machineTmp.CompletedLogging = 3;
                     }
@@ -165,7 +161,11 @@ namespace Trace.OpcHandlerMachine01.Presenters
                                                                 , machineTmp.CompletedLogging.ToString()
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
                     //var reactResult = WriteWord(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging.ToString());
-                    _view.OPC.WriteVar("ST1LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
+
+                    /*---- Start Code Migration ----*/
+                    var reactResult = _view.OPC.WriteVar("ST1LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
+                    /*---- End Code Migration ----*/
+
                     WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
                                                                 , "ST1LoggingApp"
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
@@ -176,7 +176,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     _view.machine = machineTmp;
                     LoadCurrentValue(_view.groupRead);
                 }
-                
+
                 #endregion
             }
         }
@@ -271,7 +271,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             }
             #endregion
 
-           
+
             #region Keep Part Assemblies
             trace.PartAssemblies = new List<PartAssemblyModel>();
             string partActuaterSN = string.Empty;
@@ -289,7 +289,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 if (!invalid)
                 {
                     PartAssemblyModel part = new PartAssemblyModel();
-                    if(trace.ModelRunningFlag == 1)
+                    if (trace.ModelRunningFlag == 1)
                     {
                         if (item.ItemName == _view.tagMainBlock + "ST1PartSerialNo[0]")
                         {
@@ -853,7 +853,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
 
                 #region Keep Camera Result
                 trace.CameraResults = new List<CameraResultModel>();
-            
+
                 foreach (var item in r.Where(x => tagsCamera.Any(s => s.Tag == x.ItemName)).OrderBy(o => o.ItemName))
                 {
                     CameraResultModel cam = new CameraResultModel();
@@ -1060,13 +1060,13 @@ namespace Trace.OpcHandlerMachine01.Presenters
             foreach (Opc.Da.ItemValueResult readResult in results)
             {
                 WriteLog("WriteWord" + _view.machine.Id + ".txt", String.Format("Read Value = {1} || Quality : {2}", readResult.Value, readResult.Quality));
-                                                                 //, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                //, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             }
             Console.WriteLine();
         }
 
         private void WriteCompleteCallback(object requestHandle, Opc.IdentifiedResult[] results)
-        {          
+        {
             foreach (Opc.IdentifiedResult writeResult in results)
             {
                 WriteLog("WriteWord" + _view.machine.Id + ".txt", String.Format("Item Name : {0} || Succeeded = {1} || Time : {2}", writeResult.ItemName, writeResult.ResultID.Succeeded().ToString()
@@ -1151,7 +1151,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 _view.ResultnMessage = "Inter Lock failed!";
                 //Application.Exit();
             }
- 
+
         }
 
         private bool WriteWordInterLock(string tag, int value)
@@ -1247,8 +1247,8 @@ namespace Trace.OpcHandlerMachine01.Presenters
                 #region Group read interlock and Machine status
                 _view.groupStateRead = new SubscriptionState();
                 _view.groupStateRead.Name = "InterLockGroup";
-                _view.groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
-                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                // _view.groupStateRead.UpdateRate = 1000;// this is the time between every reads from OPC server
+                _view.groupStateRead.Active = false;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
                 //_view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
@@ -1305,6 +1305,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             _view.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
             _view.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
 
+            /*---- Start Code Migration ----*/
             // List of variables to monitor for events:
             _view.OPCEventVars = new List<OPCVar>()
             {
@@ -1324,12 +1325,14 @@ namespace Trace.OpcHandlerMachine01.Presenters
             {
             new OPCVar("TraceabilityRdyWrite", "TraceabilityRdy", OPCVarType.BOOL),
             new OPCVar("ST1LoggingAppWrite","ST1LoggingApp", OPCVarType.SINT),
+            new OPCVar("ST1CodeVerifyResultWrite","ST1CodeVerifyResult", OPCVarType.SINT),
             //new OPCVar("BoolVar2", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
             //new OPCVar("SintVar2","ST1StatusMc", OPCVarType.SINT),
             //new OPCVar("IntVar2", "ST1ReqChkCodeVerify", OPCVarType.INT),
             //new OPCVar("DintVar2", "Program:MainProgram.DintVar2", OPCVarType.DINT),
             //new OPCVar("RealVar2", "Program:MainProgram.RealVar2", OPCVarType.REAL),
             };
+            /*---- End Code Migration ----*/
 
             Thread.Sleep(10000);
             var m = _serviceMachine.GetByID(machineId);
@@ -1347,12 +1350,13 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     _view.tagClockReady = _view.tagMainBlock + clockTag;
                     _view.tagTraceabilityReady = _view.tagMainBlock + readyTag;
 
-
+                    /*---- Start Code Migration ----*/
                     if (!_view.OPC.Init(_view.OPCEventVars, _view.OPCWriteVars, _view.serverUrl, _view.tagMainBlock))
                     {
                         _view.ComErrorMessage("Cannot establish communication with OPC server on startup.");
                         return;
                     }
+                    /*---- End Code Migration ----*/
                 }
             }
         }

@@ -53,49 +53,21 @@ namespace Trace.OpcHandler
             get { return _OPC; }
             set { _OPC = value; }
         }
-
-        // This example program works with a Studio 5000 Logix Designer project as follows:
-        // 1. Create a program named "MainProgram"
-        // 2. Add the variables (tags) listed below in "OPCEventVars" and "OPCWriteVars" (at MainProgram scope)
-        // 3. In RSLinx create a DDE/OPC topic for the CompactLogix controller. Name the topic "OPCTest".
-        /*
-        // List of variables to monitor for events:
-        List<OPCVar> OPCEventVars = new List<OPCVar>()
-        {
-            new OPCVar("RequestVerify", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
-            new OPCVar("MachineStatus","ST1StatusMc", OPCVarType.SINT),
-            new OPCVar("RequestLogging", "ST1ReqLogging", OPCVarType.BOOL),
-            new OPCVar("ClockSystem", "ClockSystem", OPCVarType.BOOL),
-            new OPCVar("TraceabilityRdy", "TraceabilityRdy", OPCVarType.BOOL),
-            //new OPCVar("RequestLogging", "ST1ReqChkCodeVerify", OPCVarType.INT),
-            //new OPCVar("DintVar1", "Program:MainProgram.DintVar1", OPCVarType.DINT),
-            //new OPCVar("RealVar1", "Program:MainProgram.RealVar1", OPCVarType.REAL),
-        };
-
-        // List of variables to write to:
-        List<OPCVar> OPCWriteVars = new List<OPCVar>()
-        {
-            new OPCVar("TraceabilityRdyWrite", "TraceabilityRdy", OPCVarType.BOOL),
-            //new OPCVar("BoolVar2", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
-            //new OPCVar("SintVar2","ST1StatusMc", OPCVarType.SINT),
-            //new OPCVar("IntVar2", "ST1ReqChkCodeVerify", OPCVarType.INT),
-            //new OPCVar("DintVar2", "Program:MainProgram.DintVar2", OPCVarType.DINT),
-            //new OPCVar("RealVar2", "Program:MainProgram.RealVar2", OPCVarType.REAL),
-        };
-        */
-        //OPCClient OPC = new OPCClient();
+        /*---- End Code Migration ----*/
 
         public MonitoringForm()
         {
             InitializeComponent();
             this._presenter = new MainPresenter(this);
-            //this.serverUrl = ConfigurationManager.AppSettings["DefaultUrl"].ToString();
-            //this.tagMainBlock = ConfigurationManager.AppSettings["MainBlock"].ToString();
+
+            /*---- Start Code Migration ----*/
+            OPC = new OPCClient();
             // Subscribe to the notification handler:
             OPC.NotificationHandler += new Action(CheckNotifications);
 
             // Subscribe to error message handler:
             OPC.ComErrorHandler += new Action<string>(ComErrorMessage);
+            /*---- End Code Migration ----*/
         }
 
         public void ComErrorMessage(string text)
@@ -271,7 +243,7 @@ namespace Trace.OpcHandler
         public void DisableClock()
         {
             timerConnect.Enabled = true;
-            timerInter.Enabled = false;            
+            timerInter.Enabled = false;
         }
 
         public void EnableClock()
@@ -459,6 +431,7 @@ namespace Trace.OpcHandler
 
         }
 
+        /*---- Start Code Migration ----*/
         public void CheckNotifications()
         {
             // Check if we need to call BeginInvoke.
@@ -479,7 +452,8 @@ namespace Trace.OpcHandler
                 {
                     mac.RequestVerifyCode = true;
                     VerityCode(this.machine, null);
-                }else
+                }
+                else
                     mac.RequestVerifyCode = false;
 
                 this.machine = mac;
@@ -496,12 +470,12 @@ namespace Trace.OpcHandler
             {
                 var mac = this.machine;
                 if (OPC.GetNotifiedBOOL("RequestLogging"))
-                {                    
+                {
                     mac.RequestLogging = true;
                     KeepLogging(this.machine, null);
                 }
                 else
-                    mac.RequestLogging = false;                    
+                    mac.RequestLogging = false;
 
                 this.machine = mac;
             }
@@ -515,6 +489,14 @@ namespace Trace.OpcHandler
                 else
                     this.systemReady = false;
             }
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("ST1LoggingApp"))
+            {
+                var mac = this.machine;
+                mac.CompletedLogging = OPC.GetNotifiedSINT("ST1LoggingApp");
+                this.machine = mac;
+            }
         }
+        /*---- End Code Migration ----*/
     }
 }

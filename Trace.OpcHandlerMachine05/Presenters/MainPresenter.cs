@@ -792,8 +792,8 @@ namespace Trace.OpcHandlerMachine05.Presenters
                 #region Group read interlock and Machine status
                 _view.groupStateRead = new SubscriptionState();
                 _view.groupStateRead.Name = "InterLockGroup";
-                _view.groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
-                _view.groupStateRead.Active = true;//this must be true if you the group has to read value
+                //_view.groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
+                _view.groupStateRead.Active = false;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
                 _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
