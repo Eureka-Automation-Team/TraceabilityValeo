@@ -946,7 +946,7 @@ namespace Trace.OpcHandlerMachine02.Presenters
                 //_view.groupStateRead.UpdateRate = 1000;// this isthe time between every reads from OPC server
                 _view.groupStateRead.Active = false;//this must be true if you the group has to read value
                 _view.groupRead = (Subscription)_view.daServer.CreateSubscription(_view.groupStateRead);
-                _view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
+                //_view.groupRead.DataChanged += new DataChangedEventHandler(_view.group_DataChanged);//callback when the data are readed                            
 
                 // add items to the group    (in Rockwell names are identified like [Name of PLC in the server]Block of word:number of word,number of consecutive readed words)   
                 if (_view.groupRead.Items != null)

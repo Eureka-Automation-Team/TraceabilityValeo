@@ -113,7 +113,7 @@ namespace OPCUserInterface
 				OPCEventVars[OPCVarIn.RefName].VarType = OPCVarIn.VarType;
 				OPCEventVars[OPCVarIn.RefName].NotificationReceived = false;
 				OPCEventVars[OPCVarIn.RefName].ItemEventIndex = 0;
-				OPCEventVars[OPCVarIn.RefName].FullName = "[" + OPCTopic + "]" + OPCVarIn.Name;
+				OPCEventVars[OPCVarIn.RefName].FullName = OPCTopic + OPCVarIn.Name;
 
 				NumEventVars++;
 			} // End foreach
@@ -126,7 +126,7 @@ namespace OPCUserInterface
 
 				OPCWriteVars[OPCVarIn.RefName].Name = OPCVarIn.Name;
 				OPCWriteVars[OPCVarIn.RefName].VarType = OPCVarIn.VarType;
-				OPCWriteVars[OPCVarIn.RefName].FullName = "[" + OPCTopic + "]" + OPCVarIn.Name;
+				OPCWriteVars[OPCVarIn.RefName].FullName = OPCTopic + OPCVarIn.Name;
 
 			} // End foreach
 

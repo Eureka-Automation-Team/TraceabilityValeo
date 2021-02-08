@@ -31,10 +31,56 @@ namespace Trace.OpcHandlerMachine03
         private MachineModel _machine;
         private Item[] _items;
 
+        /*---- Code Migration ----*/
+        private List<OPCVar> _OPCEventVars;
+        private List<OPCVar> _OPCWriteVars;
+        private OPCClient _OPC;
+        public List<OPCVar> OPCEventVars
+        {
+            get { return _OPCEventVars; }
+            set { _OPCEventVars = value; }
+        }
+        public List<OPCVar> OPCWriteVars
+        {
+            get { return _OPCWriteVars; }
+            set { _OPCWriteVars = value; }
+        }
+        public OPCClient OPC
+        {
+            get { return _OPC; }
+            set { _OPC = value; }
+        }
+        /*---- End Code Migration ----*/
+
         public MonitoringForm()
         {
             InitializeComponent();
             this._presenter = new MainPresenter(this);
+
+            /*---- Start Code Migration ----*/
+            OPC = new OPCClient();
+            // Subscribe to the notification handler:
+            OPC.NotificationHandler += new Action(CheckNotifications);
+
+            // Subscribe to error message handler:
+            OPC.ComErrorHandler += new Action<string>(ComErrorMessage);
+            /*---- End Code Migration ----*/
+        }
+
+        public void ComErrorMessage(string text)
+        {
+            // Check if we need to call BeginInvoke.
+            if (this.InvokeRequired)
+            {
+                // Pass the same function to BeginInvoke,
+                // but the call would come on the correct
+                // thread and InvokeRequired will be false.
+                this.BeginInvoke(new Action<string>(ComErrorMessage), text);
+                return;
+            }
+
+            text = "OPC communication error.\n" + text + "\nCheck OPC Server and restart program.";
+            MessageBox.Show(text, "OPC Communication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public Server daServer
@@ -377,5 +423,73 @@ namespace Trace.OpcHandlerMachine03
             this.machine.RequestVerifyCode = true;
             VerityCode(this.machine, null);
         }
+
+        /*---- Start Code Migration ----*/
+        public void CheckNotifications()
+        {
+            // Check if we need to call BeginInvoke.
+            if (this.InvokeRequired)
+            {
+                // Pass the same function to BeginInvoke,
+                // but the call would come on the correct
+                // thread and InvokeRequired will be false.
+                this.BeginInvoke(new Action(CheckNotifications));
+                return;
+            }
+
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("RequestVerify"))
+            {
+                var mac = this.machine;
+                if (OPC.GetNotifiedBOOL("RequestVerify"))
+                {
+                    mac.RequestVerifyCode = true;
+                    VerityCode(this.machine, null);
+                }
+                else
+                    mac.RequestVerifyCode = false;
+
+                this.machine = mac;
+            }
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("MachineStatus"))
+            {
+                var mac = this.machine;
+                mac.OnlineFlag = OPC.GetNotifiedSINT("MachineStatus");
+                this.machine = mac;
+            }
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("RequestLogging"))
+            {
+                var mac = this.machine;
+                if (OPC.GetNotifiedBOOL("RequestLogging"))
+                {
+                    mac.RequestLogging = true;
+                    KeepLogging(this.machine, null);
+                }
+                else
+                    mac.RequestLogging = false;
+
+                this.machine = mac;
+            }
+            //------------------------------------------------
+            if (OPC.GetNotificationReceived("TraceabilityRdy"))
+            {
+                if (OPC.GetNotifiedBOOL("TraceabilityRdy"))
+                {
+                    this.systemReady = true;
+                }
+                else
+                    this.systemReady = false;
+            }
+            // --------------------------------------------
+            if (OPC.GetNotificationReceived("LoggingApp"))
+            {
+                var mac = this.machine;
+                mac.CompletedLogging = OPC.GetNotifiedSINT("LoggingApp");
+                this.machine = mac;
+            }
+        }
+        /*---- End Code Migration ----*/
     }
 }

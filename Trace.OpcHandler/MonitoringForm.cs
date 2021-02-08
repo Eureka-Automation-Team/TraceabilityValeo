@@ -490,10 +490,10 @@ namespace Trace.OpcHandler
                     this.systemReady = false;
             }
             // --------------------------------------------
-            if (OPC.GetNotificationReceived("ST1LoggingApp"))
+            if (OPC.GetNotificationReceived("LoggingApp"))
             {
                 var mac = this.machine;
-                mac.CompletedLogging = OPC.GetNotifiedSINT("ST1LoggingApp");
+                mac.CompletedLogging = OPC.GetNotifiedSINT("LoggingApp");
                 this.machine = mac;
             }
         }

@@ -42,6 +42,14 @@ namespace Trace.OpcHandlerMachine03
 
         string ResultnMessage { get; set; }
 
+        /*---- Start Code Migration ----*/
+        List<OPCVar> OPCEventVars { get; set; }
+        List<OPCVar> OPCWriteVars { get; set; }
+        OPCClient OPC { get; set; }
+        void ComErrorMessage(string text);
+        void CheckNotifications();
+        /*---- End Code Migration ----*/
+
         void group_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] values);
         void EnableClock();
         void DisableClock();

@@ -83,7 +83,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             //reactResult = WriteWord(_view.tagMainBlock + "ST1CodeVerifyResult", _machine.CodeVerifyResult.ToString());
 
             /*---- Start Code Migration ----*/
-            reactResult = _view.OPC.WriteVar("ST1CodeVerifyResultWrite", Convert.ToSByte(_machine.CodeVerifyResult));
+            reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(_machine.CodeVerifyResult));
             /*---- End Code Migration ----*/
 
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
@@ -163,7 +163,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
                     //var reactResult = WriteWord(_view.tagMainBlock + "ST1LoggingApp", machineTmp.CompletedLogging.ToString());
 
                     /*---- Start Code Migration ----*/
-                    var reactResult = _view.OPC.WriteVar("ST1LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
+                    var reactResult = _view.OPC.WriteVar("LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
                     /*---- End Code Migration ----*/
 
                     WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
@@ -1314,7 +1314,7 @@ namespace Trace.OpcHandlerMachine01.Presenters
             new OPCVar("RequestLogging", "ST1ReqLogging", OPCVarType.BOOL),
             new OPCVar("ClockSystem", "ClockSystem", OPCVarType.BOOL),
             new OPCVar("TraceabilityRdy", "TraceabilityRdy", OPCVarType.BOOL),
-            new OPCVar("ST1LoggingApp", "ST1LoggingApp", OPCVarType.SINT),
+            new OPCVar("LoggingApp", "ST1LoggingApp", OPCVarType.SINT),
             //new OPCVar("RequestLogging", "ST1ReqChkCodeVerify", OPCVarType.INT),
             //new OPCVar("DintVar1", "Program:MainProgram.DintVar1", OPCVarType.DINT),
             //new OPCVar("RealVar1", "Program:MainProgram.RealVar1", OPCVarType.REAL),
@@ -1324,8 +1324,8 @@ namespace Trace.OpcHandlerMachine01.Presenters
             _view.OPCWriteVars = new List<OPCVar>()
             {
             new OPCVar("TraceabilityRdyWrite", "TraceabilityRdy", OPCVarType.BOOL),
-            new OPCVar("ST1LoggingAppWrite","ST1LoggingApp", OPCVarType.SINT),
-            new OPCVar("ST1CodeVerifyResultWrite","ST1CodeVerifyResult", OPCVarType.SINT),
+            new OPCVar("LoggingAppWrite","ST1LoggingApp", OPCVarType.SINT),
+            new OPCVar("CodeVerifyResultWrite","ST1CodeVerifyResult", OPCVarType.SINT),
             //new OPCVar("BoolVar2", "ST1ReqChkCodeVerify", OPCVarType.BOOL),
             //new OPCVar("SintVar2","ST1StatusMc", OPCVarType.SINT),
             //new OPCVar("IntVar2", "ST1ReqChkCodeVerify", OPCVarType.INT),
