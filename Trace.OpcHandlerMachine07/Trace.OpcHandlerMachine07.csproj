@@ -66,6 +66,7 @@
     <Compile Include="MonitoringForm.Designer.cs">
       <DependentUpon>MonitoringForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OPCClient.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

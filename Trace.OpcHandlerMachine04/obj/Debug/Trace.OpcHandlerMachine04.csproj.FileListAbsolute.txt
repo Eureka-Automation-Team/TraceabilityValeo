@@ -24,7 +24,6 @@ D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\S
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\K4os.Compression.LZ4.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\K4os.Hash.xxHash.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\System.Memory.dll
-D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\Trace.Data.pdb
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\Trace.Data.dll.config
 D:\EUREKA\Projects\Valeo\TraceabilityValeo\Trace.OpcHandlerMachine04\bin\Debug\Trace.Domain.pdb
