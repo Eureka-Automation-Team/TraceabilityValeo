@@ -96,7 +96,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.86111F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.13889F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.tableLayoutPanel2.Controls.Add(this.txtLowerItemCode, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtLowerModelRunningFlag, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtUpperItemCode, 1, 1);
@@ -122,7 +122,7 @@
             // txtLowerItemCode
             // 
             this.txtLowerItemCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLowerItemCode.Location = new System.Drawing.Point(196, 61);
+            this.txtLowerItemCode.Location = new System.Drawing.Point(195, 61);
             this.txtLowerItemCode.Name = "txtLowerItemCode";
             this.txtLowerItemCode.ReadOnly = true;
             this.txtLowerItemCode.Size = new System.Drawing.Size(152, 23);
@@ -134,13 +134,13 @@
             this.txtLowerModelRunningFlag.Location = new System.Drawing.Point(3, 61);
             this.txtLowerModelRunningFlag.Name = "txtLowerModelRunningFlag";
             this.txtLowerModelRunningFlag.ReadOnly = true;
-            this.txtLowerModelRunningFlag.Size = new System.Drawing.Size(187, 23);
+            this.txtLowerModelRunningFlag.Size = new System.Drawing.Size(186, 23);
             this.txtLowerModelRunningFlag.TabIndex = 30;
             // 
             // txtUpperItemCode
             // 
             this.txtUpperItemCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUpperItemCode.Location = new System.Drawing.Point(196, 32);
+            this.txtUpperItemCode.Location = new System.Drawing.Point(195, 32);
             this.txtUpperItemCode.Name = "txtUpperItemCode";
             this.txtUpperItemCode.ReadOnly = true;
             this.txtUpperItemCode.Size = new System.Drawing.Size(152, 23);
@@ -152,14 +152,14 @@
             this.txtUpperModelRunningFlag.Location = new System.Drawing.Point(3, 32);
             this.txtUpperModelRunningFlag.Name = "txtUpperModelRunningFlag";
             this.txtUpperModelRunningFlag.ReadOnly = true;
-            this.txtUpperModelRunningFlag.Size = new System.Drawing.Size(187, 23);
+            this.txtUpperModelRunningFlag.Size = new System.Drawing.Size(186, 23);
             this.txtUpperModelRunningFlag.TabIndex = 27;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(354, 3);
+            this.panel6.Location = new System.Drawing.Point(353, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(103, 23);
             this.panel6.TabIndex = 26;
@@ -183,7 +183,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(187, 23);
+            this.panel3.Size = new System.Drawing.Size(186, 23);
             this.panel3.TabIndex = 24;
             // 
             // label2
@@ -194,7 +194,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 24);
+            this.label2.Size = new System.Drawing.Size(186, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "Model Running";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,7 +203,7 @@
             // 
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(196, 3);
+            this.panel2.Location = new System.Drawing.Point(195, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(152, 23);
             this.panel2.TabIndex = 25;
@@ -225,7 +225,7 @@
             // 
             this.panel7.Controls.Add(this.txtUpperJig);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(354, 32);
+            this.panel7.Location = new System.Drawing.Point(353, 32);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(103, 23);
             this.panel7.TabIndex = 32;
@@ -244,7 +244,7 @@
             // 
             this.panel10.Controls.Add(this.txtLowerJig);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(354, 61);
+            this.panel10.Location = new System.Drawing.Point(353, 61);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(103, 24);
             this.panel10.TabIndex = 33;
@@ -263,9 +263,9 @@
             // 
             this.panel11.Controls.Add(this.label4);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(463, 3);
+            this.panel11.Location = new System.Drawing.Point(462, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(96, 23);
+            this.panel11.Size = new System.Drawing.Size(97, 23);
             this.panel11.TabIndex = 34;
             // 
             // label4
@@ -276,7 +276,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 24);
+            this.label4.Size = new System.Drawing.Size(97, 24);
             this.label4.TabIndex = 9;
             this.label4.Text = "Result";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,46 +285,44 @@
             // 
             this.panel12.Controls.Add(this.lblUpperFinalResult);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(463, 32);
+            this.panel12.Location = new System.Drawing.Point(462, 32);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(96, 23);
+            this.panel12.Size = new System.Drawing.Size(97, 23);
             this.panel12.TabIndex = 35;
             // 
             // lblUpperFinalResult
             // 
-            this.lblUpperFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.lblUpperFinalResult.BackColor = System.Drawing.SystemColors.Control;
             this.lblUpperFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblUpperFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUpperFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblUpperFinalResult.ForeColor = System.Drawing.Color.Black;
             this.lblUpperFinalResult.Location = new System.Drawing.Point(0, 0);
             this.lblUpperFinalResult.Name = "lblUpperFinalResult";
-            this.lblUpperFinalResult.Size = new System.Drawing.Size(96, 23);
+            this.lblUpperFinalResult.Size = new System.Drawing.Size(97, 23);
             this.lblUpperFinalResult.TabIndex = 26;
-            this.lblUpperFinalResult.Text = "OK";
             this.lblUpperFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel13
             // 
             this.panel13.Controls.Add(this.lblLowerFinalResult);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(463, 61);
+            this.panel13.Location = new System.Drawing.Point(462, 61);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(96, 24);
+            this.panel13.Size = new System.Drawing.Size(97, 24);
             this.panel13.TabIndex = 36;
             // 
             // lblLowerFinalResult
             // 
-            this.lblLowerFinalResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.lblLowerFinalResult.BackColor = System.Drawing.SystemColors.Control;
             this.lblLowerFinalResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblLowerFinalResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLowerFinalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblLowerFinalResult.ForeColor = System.Drawing.Color.Black;
             this.lblLowerFinalResult.Location = new System.Drawing.Point(0, 0);
             this.lblLowerFinalResult.Name = "lblLowerFinalResult";
-            this.lblLowerFinalResult.Size = new System.Drawing.Size(96, 24);
+            this.lblLowerFinalResult.Size = new System.Drawing.Size(97, 24);
             this.lblLowerFinalResult.TabIndex = 26;
-            this.lblLowerFinalResult.Text = "OK";
             this.lblLowerFinalResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1

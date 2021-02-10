@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Domain.Models;
@@ -414,12 +415,12 @@ namespace Trace.OpcHandlerMachine06
             if (MakeReady != null)
                 MakeReady(sender, e);
 
-            if (systemReady)
-            {
-                Cursor.Current = Cursors.WaitCursor;
-                group_DataChanged(null, null, groupRead.Read(groupRead.Items));
-                Cursor.Current = Cursors.Default;
-            }
+            //if (systemReady)
+            //{
+            //    Cursor.Current = Cursors.WaitCursor;
+            //    group_DataChanged(null, null, groupRead.Read(groupRead.Items));
+            //    Cursor.Current = Cursors.Default;
+            //}
         }
 
         private void butRefresh_Click(object sender, EventArgs e)
@@ -464,7 +465,7 @@ namespace Trace.OpcHandlerMachine06
                 this.BeginInvoke(new Action(CheckNotifications));
                 return;
             }
-
+            Thread.Sleep(50);  //Delay 50ms.
             // --------------------------------------------
             if (OPC.GetNotificationReceived("RequestVerify"))
             {

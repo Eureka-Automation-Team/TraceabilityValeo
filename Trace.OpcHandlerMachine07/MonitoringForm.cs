@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Domain.Models;
@@ -463,6 +464,7 @@ namespace Trace.OpcHandlerMachine07
                 // but the call would come on the correct
                 // thread and InvokeRequired will be false.
                 this.BeginInvoke(new Action(CheckNotifications));
+                Thread.Sleep(50);  //Delay 50ms.
                 return;
             }
 
@@ -494,12 +496,14 @@ namespace Trace.OpcHandlerMachine07
                 if (OPC.GetNotifiedBOOL("RequestLogging"))
                 {
                     mac.RequestLogging = true;
+                    this.machine = mac;
                     KeepLogging(this.machine, null);
                 }
                 else
+                {
                     mac.RequestLogging = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                }
             }
             //------------------------------------------------
             if (OPC.GetNotificationReceived("TraceabilityRdy"))

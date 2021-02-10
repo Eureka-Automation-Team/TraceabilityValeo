@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Domain.Models;
@@ -440,10 +441,11 @@ namespace Trace.OpcHandler
                 // Pass the same function to BeginInvoke,
                 // but the call would come on the correct
                 // thread and InvokeRequired will be false.
-                this.BeginInvoke(new Action(CheckNotifications));
+                this.BeginInvoke(new Action(CheckNotifications));                
                 return;
             }
 
+            Thread.Sleep(50);  //Delay 50ms.
             // --------------------------------------------
             if (OPC.GetNotificationReceived("RequestVerify"))
             {

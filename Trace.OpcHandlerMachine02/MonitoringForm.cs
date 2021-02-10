@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trace.Domain.Models;
@@ -418,10 +419,11 @@ namespace Trace.OpcHandlerMachine02
                 // Pass the same function to BeginInvoke,
                 // but the call would come on the correct
                 // thread and InvokeRequired will be false.
-                this.BeginInvoke(new Action(CheckNotifications));
+                this.BeginInvoke(new Action(CheckNotifications));                
                 return;
             }
 
+            Thread.Sleep(50);  //Delay 50ms.
             // --------------------------------------------
             if (OPC.GetNotificationReceived("RequestVerify"))
             {
@@ -429,12 +431,14 @@ namespace Trace.OpcHandlerMachine02
                 if (OPC.GetNotifiedBOOL("RequestVerify"))
                 {
                     mac.RequestVerifyCode = true;
+                    this.machine = mac;
                     VerityCode(this.machine, null);
                 }
                 else
+                {
                     mac.RequestVerifyCode = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                }                                    
             }
             // --------------------------------------------
             if (OPC.GetNotificationReceived("MachineStatus"))
@@ -450,12 +454,14 @@ namespace Trace.OpcHandlerMachine02
                 if (OPC.GetNotifiedBOOL("RequestLogging"))
                 {
                     mac.RequestLogging = true;
+                    this.machine = mac;
                     KeepLogging(this.machine, null);
                 }
                 else
+                {
                     mac.RequestLogging = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                }                                    
             }
             //------------------------------------------------
             if (OPC.GetNotificationReceived("TraceabilityRdy"))
