@@ -43,6 +43,12 @@ namespace Trace.OpcHandlerMachine07
         string ResultnMessage { get; set; }
 
         /*---- Start Code Migration ----*/
+        event EventHandler ResetComplete;
+        event EventHandler ResetVerify;
+        event EventHandler ResetActuater;
+        bool lockingAppFlag { get; set; }
+        bool verifyResultFlag { get; set; }
+        bool getActuaterFlag { get; set; }
         List<OPCVar> OPCEventVars { get; set; }
         List<OPCVar> OPCWriteVars { get; set; }
         OPCClient OPC { get; set; }

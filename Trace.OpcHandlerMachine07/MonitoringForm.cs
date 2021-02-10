@@ -33,6 +33,9 @@ namespace Trace.OpcHandlerMachine07
         private Item[] _items;
 
         /*---- Code Migration ----*/
+        private bool _lockingAppFlag;
+        private bool _verifyResultFlag;
+        private bool _getActuaterFlag;
         private List<OPCVar> _OPCEventVars;
         private List<OPCVar> _OPCWriteVars;
         private OPCClient _OPC;
@@ -237,6 +240,22 @@ namespace Trace.OpcHandlerMachine07
             set { _items = value; }
         }
 
+        public bool lockingAppFlag
+        {
+            get { return _lockingAppFlag; }
+            set { _lockingAppFlag = value; }
+        }
+        public bool verifyResultFlag
+        {
+            get { return _verifyResultFlag; }
+            set { _verifyResultFlag = value; }
+        }
+        public bool getActuaterFlag
+        {
+            get { return _getActuaterFlag; }
+            set { _getActuaterFlag = value; }
+        }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
@@ -247,6 +266,9 @@ namespace Trace.OpcHandlerMachine07
         public event EventHandler VerityCode;
         public event EventHandler VerityActuater;
         public event EventHandler RefreshData;
+        public event EventHandler ResetComplete;
+        public event EventHandler ResetVerify;
+        public event EventHandler ResetActuater;
 
         public void DisableClock()
         {
@@ -472,15 +494,19 @@ namespace Trace.OpcHandlerMachine07
             if (OPC.GetNotificationReceived("RequestVerify"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("RequestVerify"))
+                var _requestVerify = OPC.GetNotifiedBOOL("RequestVerify");
+                if (_requestVerify)
                 {
                     mac.RequestVerifyCode = true;
+                    this.machine = mac;
                     VerityCode(this.machine, null);
                 }
-                else
+                else if (!_requestVerify)
+                {
                     mac.RequestVerifyCode = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                    ResetVerify(this.machine, null);
+                }
             }
             // --------------------------------------------
             if (OPC.GetNotificationReceived("MachineStatus"))
@@ -493,16 +519,18 @@ namespace Trace.OpcHandlerMachine07
             if (OPC.GetNotificationReceived("RequestLogging"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("RequestLogging"))
+                var _requestFlag = OPC.GetNotifiedBOOL("RequestLogging");
+                if (_requestFlag)
                 {
                     mac.RequestLogging = true;
                     this.machine = mac;
                     KeepLogging(this.machine, null);
                 }
-                else
+                else if (!_requestFlag)
                 {
                     mac.RequestLogging = false;
                     this.machine = mac;
+                    ResetComplete(this.machine, null);
                 }
             }
             //------------------------------------------------
@@ -526,15 +554,19 @@ namespace Trace.OpcHandlerMachine07
             if (OPC.GetNotificationReceived("ReqCodeActuater"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("ReqCodeActuater"))
+                var _reqActuater = OPC.GetNotifiedBOOL("ReqCodeActuater");
+                if (_reqActuater)
                 {
                     mac.RequestCodeActuater = true;
+                    this.machine = mac;
                     VerityActuater(_machine, null);
                 }
-                else
+                else if (!_reqActuater)
+                {
                     mac.RequestCodeActuater = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                    ResetActuater(_machine, null);
+                }
             }
         }
         /*---- End Code Migration ----*/

@@ -33,6 +33,8 @@ namespace Trace.OpcHandlerMachine05
         private Item[] _items;
 
         /*---- Code Migration ----*/
+        private bool _lockingAppFlag;
+        private bool _verifyResultFlag;
         private List<OPCVar> _OPCEventVars;
         private List<OPCVar> _OPCWriteVars;
         private OPCClient _OPC;
@@ -226,6 +228,17 @@ namespace Trace.OpcHandlerMachine05
         {
             get { return _items; }
             set { _items = value; }
+        }
+
+        public bool lockingAppFlag
+        {
+            get { return _lockingAppFlag; }
+            set { _lockingAppFlag = value; }
+        }
+        public bool verifyResultFlag
+        {
+            get { return _verifyResultFlag; }
+            set { _verifyResultFlag = value; }
         }
 
         public event EventHandler FormLoad;
@@ -444,13 +457,14 @@ namespace Trace.OpcHandlerMachine05
             if (OPC.GetNotificationReceived("RequestVerify"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("RequestVerify"))
+                var _requestVerify = OPC.GetNotifiedBOOL("RequestVerify");
+                if (_requestVerify)
                 {
                     mac.RequestVerifyCode = true;
                     this.machine = mac;
                     VerityCode(this.machine, null);
                 }
-                else
+                else if (!_requestVerify)
                 {
                     mac.RequestVerifyCode = false;
                     this.machine = mac;
@@ -475,12 +489,12 @@ namespace Trace.OpcHandlerMachine05
                     this.machine = mac;
                     KeepLogging(this.machine, null);
                 }
-                else if(!_requestFlag)
+                else if (!_requestFlag)
                 {
                     mac.RequestLogging = false;
                     this.machine = mac;
                     ResetComplete(this.machine, null);
-                }                                   
+                }
             }
             //------------------------------------------------
             if (OPC.GetNotificationReceived("TraceabilityRdy"))

@@ -41,158 +41,208 @@ namespace Trace.OpcHandlerMachine07.Presenters
             _view.RefreshData += RefreshData;
             _view.VerityCode += VerityCode;
             _view.VerityActuater += VerityActuater;
+            _view.ResetComplete += ResetComplete;
+            _view.ResetVerify += ResetVerify;
+            _view.ResetActuater += ResetActuater;
+        }
+
+        private void ResetActuater(object sender, EventArgs e)
+        {
+            WriteLog("VerifyActuaterUpper" + _view.machine.Id + ".txt", String.Format("***Reset Actuater result to 0 at time : {0}"
+                                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+            /*---- Start Code Migration ----*/
+            var reactResult = _view.OPC.WriteVar("ReceiveCodeResultWrite", Convert.ToSByte(0));
+            var reactCodeResult = _view.OPC.WriteVar("ReceiveCodeActuaterorWrite", "");
+            if (reactResult && reactCodeResult)
+                _view.getActuaterFlag = false;
+            /*---- End Code Migration ----*/
+            WriteLog("VerifyActuaterUpper" + _view.machine.Id + ".txt", "");
+        }
+
+        private void ResetVerify(object sender, EventArgs e)
+        {
+            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("***Reset Verify result to 0 at time : {0}"
+                                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+            /*---- Start Code Migration ----*/
+            var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(0));
+            if (reactResult)
+                _view.verifyResultFlag = false;
+            /*---- End Code Migration ----*/
+            WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
+        }
+
+        private void ResetComplete(object sender, EventArgs e)
+        {
+            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("***Reset LoggingApp to 0 at time : {0}"
+                                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+            /*---- Start Code Migration ----*/
+            var reactResult = _view.OPC.WriteVar("LoggingAppWrite", Convert.ToSByte(0));
+            if (reactResult)
+                _view.lockingAppFlag = false;
+            /*---- End Code Migration ----*/
+            WriteLog("KeepLogging" + _view.machine.Id + ".txt", "");
         }
 
         private void VerityActuater(object sender, EventArgs e)
         {
-            MachineModel _machine = sender as MachineModel;
-            var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
-            WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
-                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-            WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("RequestCodeActuater : {0} ", _machine.RequestCodeActuater));
-            if (_machine.RequestCodeActuater)
+            if (!_view.getActuaterFlag)
             {
-                var tagItemCode = _view.tagMainBlock + "ST5_2CodeVerify";
+                MachineModel _machine = sender as MachineModel;
+                var grpReadResult = _view.groupRead.Read(_view.groupRead.Items).ToList();
+                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
+                                                                     , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
 
-                var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
-
-                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Item Code : {0} => Time : {1}"
-                                                                    , itemCode
-                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-                var result = _serviceTraceLog.GetListByItemCode(itemCode.ToString());
-                var loggings = result.Where(x => x.MachineId == 5);
-                string receiveActuatorCode = string.Empty;
-
-                if (loggings.Count() == 0)
+                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("RequestCodeActuater : {0} ", _machine.RequestCodeActuater));
+                if (_machine.RequestCodeActuater)
                 {
-                    _machine.ActuatorResult = 2;  //Data not found
-                }
-                else
-                {
-                    PartAssemblyModel model = new PartAssemblyModel();
-                    model.TraceabilityLogId = loggings.FirstOrDefault().Id;
-                    var partAssblies = _servicePartAssembly.GetByPrimary(model);
+                    var tagItemCode = _view.tagMainBlock + "ST5_2CodeVerify";
 
-                    if (partAssblies.Count() > 0)
+                    var itemCode = grpReadResult.Where(x => x.ItemName == tagItemCode).FirstOrDefault().Value;
+
+                    WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Item Code : {0} => Time : {1}"
+                                                                        , itemCode
+                                                                        , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+
+                    var result = _serviceTraceLog.GetListByItemCode(itemCode.ToString());
+                    var loggings = result.Where(x => x.MachineId == 5);
+                    string receiveActuatorCode = string.Empty;
+
+                    if (loggings.Count() == 0)
                     {
-                        var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N");
-
-                        if (actuaterResult.Count() == 0)
-                        {
-                            _machine.ActuatorResult = 2;
-                        }
-                        else
-                        {
-                            _machine.ActuatorResult = 1;
-                            receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
-                        }
+                        _machine.ActuatorResult = 2;  //Data not found
                     }
                     else
-                        _machine.ActuatorResult = 2;
+                    {
+                        PartAssemblyModel model = new PartAssemblyModel();
+                        model.TraceabilityLogId = loggings.FirstOrDefault().Id;
+                        var partAssblies = _servicePartAssembly.GetByPrimary(model);
 
-                }
+                        if (partAssblies.Count() > 0)
+                        {
+                            var actuaterResult = partAssblies.Where(x => x.PartName == "LWR Actuator P/N");
 
-                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Actuator Result : {0} => Time : {1}"
-                                                            , _machine.ActuatorResult
-                                                            , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                            if (actuaterResult.Count() == 0)
+                            {
+                                _machine.ActuatorResult = 2;
+                            }
+                            else
+                            {
+                                _machine.ActuatorResult = 1;
+                                receiveActuatorCode = actuaterResult.FirstOrDefault().SerialNumber;
+                            }
+                        }
+                        else
+                            _machine.ActuatorResult = 2;
 
-                //WriteWord(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult.ToString());
-                /*---- Start Code Migration ----*/
-                _view.OPC.WriteVar("ReceiveCodeResultWrite", _machine.ActuatorResult.ToString());
-                /*---- End Code Migration ----*/
+                    }
 
-                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_2ReceiveCodeResult"
-                                                            , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-                //var reactResult = WriteString(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
-
-                /*---- Start Code Migration ----*/
-                var reactResult = _view.OPC.WriteVar("ReceiveCodeActuaterorWrite", receiveActuatorCode);
-                /*---- End Code Migration ----*/
-
-                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
-                                                            , "ST5_2ReceiveCodeActuateror"
-                                                            , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
-                                                            , receiveActuatorCode));
-                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
+                    WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Actuator Result : {0} => Time : {1}"
+                                                                , _machine.ActuatorResult
                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", "");
-                _view.machine = _machine;
-            }
+
+                    //WriteWord(_view.tagMainBlock + "ST5_2ReceiveCodeResult", _machine.ActuatorResult.ToString());
+                    /*---- Start Code Migration ----*/
+                    var reactResult = _view.OPC.WriteVar("ReceiveCodeResultWrite", _machine.ActuatorResult.ToString());
+                    /*---- End Code Migration ----*/
+
+                    WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0} => Time : {1}", "ST5_2ReceiveCodeResult"
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+
+                    //var reactResult = WriteString(_view.tagMainBlock + "ST5_2ReceiveCodeActuateror", receiveActuatorCode);
+
+                    /*---- Start Code Migration ----*/
+                    var reactCodeResult = _view.OPC.WriteVar("ReceiveCodeActuaterorWrite", receiveActuatorCode);
+                    if (reactResult && reactCodeResult)
+                        _view.getActuaterFlag = true;
+                    /*---- End Code Migration ----*/
+
+                    WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0} : [{2}] => Time : {1}"
+                                                                , "ST5_2ReceiveCodeActuateror"
+                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                , receiveActuatorCode));
+                    WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                    WriteLog("VerifyActuaterLower" + _view.machine.Id + ".txt", "");
+                    _view.machine = _machine;
+                }
+            }                       
         }
 
         private void VerityCode(object sender, EventArgs e)
         {
-            MachineModel _machine = sender as MachineModel;
-            var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
-
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
-                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-            var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
-            var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get PLC Tag value time : {0}"
-                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-            var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code : {0} from database time : {1}"
-                                                                , value.ToString()
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", "Set to by-pass station 3");
-            //Defualt to by-pass station 3
-            //_machine.CodeVerifyResult = 1;
-            /*Set By-pass station 3*/
-            if (loggings.Where(x => x.MachineId == _view.machine.Id).Count() == 0)
+            if (!_view.verifyResultFlag)
             {
-                var newJob = loggings.Where(x => x.MachineId == 4);
+                MachineModel _machine = sender as MachineModel;
+                var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
 
-                //WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                //                      CultureInfo.InvariantCulture)));
-                WriteLog("VerifyCodeST5_2.txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                                      CultureInfo.InvariantCulture)));
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
+                                                                     , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
 
-                if (newJob.Count() == 0)
+                var tagName = _view.tagMainBlock + "ST5_2CodeVerify";
+                var value = result.Where(x => x.ItemName == tagName).FirstOrDefault().Value;
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get PLC Tag value time : {0}"
+                                                                     , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+
+                var loggings = _serviceTraceLog.GetListByItemCode(value.ToString());
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code : {0} from database time : {1}"
+                                                                    , value.ToString()
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", "Set to by-pass station 3");
+                //Defualt to by-pass station 3
+                //_machine.CodeVerifyResult = 1;
+                /*Set By-pass station 3*/
+                if (loggings.Where(x => x.MachineId == _view.machine.Id).Count() == 0)
                 {
-                    //Data not found
-                    //_machine.CodeVerifyResult = 3;
-                    _machine.CodeVerifyResult = 2;
-                    _view.ResultnMessage = "NOK = Data not found.";
+                    var newJob = loggings.Where(x => x.MachineId == 4);
+
+                    //WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                    //                      CultureInfo.InvariantCulture)));
+                    WriteLog("VerifyCodeST5_2.txt", String.Format("Get Item Code from DB : {0} ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff",
+                                          CultureInfo.InvariantCulture)));
+
+                    if (newJob.Count() == 0)
+                    {
+                        //Data not found
+                        //_machine.CodeVerifyResult = 3;
+                        _machine.CodeVerifyResult = 2;
+                        _view.ResultnMessage = "NOK = Data not found.";
+                    }
+                    else
+                    {
+                        var firstResult = newJob.FirstOrDefault();
+                        _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    }
                 }
                 else
                 {
-                    var firstResult = newJob.FirstOrDefault();
-                    _machine.CodeVerifyResult = firstResult.FinalResult == 1 ? 1 : 2;
+                    //Dupplicated
+                    //_machine.CodeVerifyResult = 4; 
+                    _machine.CodeVerifyResult = 2;
+                    _view.ResultnMessage = "NOK = Data dupplicated.";
                 }
-            }
-            else
-            {
-                //Dupplicated
-                //_machine.CodeVerifyResult = 4; 
-                _machine.CodeVerifyResult = 2;
-                _view.ResultnMessage = "NOK = Data dupplicated.";
+
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+
+                //var reactResult = WriteWord(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult.ToString());
+                /*---- Start Code Migration ----*/
+                var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(_machine.CodeVerifyResult));
+                if (reactResult)
+                    _view.verifyResultFlag = true;
+                /*---- End Code Migration ----*/
+
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
+                                                                    , "ST5_2CodeVerifyResult"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                    , reactResult.ToString()));
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
+                _view.machine = _machine;
+                _machine.RequestCodeActuater = true;
+                VerityActuater(_machine, e);
             }            
-
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Verify Code Result : {0} => Time : {1}", _machine.CodeVerifyResult.ToString()
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-
-            //var reactResult = WriteWord(_view.tagMainBlock + "ST5_2CodeVerifyResult", _machine.CodeVerifyResult.ToString());
-            /*---- Start Code Migration ----*/
-            var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(_machine.CodeVerifyResult));
-            /*---- End Code Migration ----*/
-
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
-                                                                , "ST5_2CodeVerifyResult"
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
-                                                                , reactResult.ToString()));
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
-            _view.machine = _machine;
-            _machine.RequestCodeActuater = true;
-            VerityActuater(_machine, e);
         }
 
         private void RefreshData(object sender, EventArgs e)
@@ -205,75 +255,80 @@ namespace Trace.OpcHandlerMachine07.Presenters
         {
             if (_view.systemReady)
             {
-                MachineModel machine = (MachineModel)sender;
-                ItemValueResult[] subscipt;
-                try
+                if (!_view.lockingAppFlag)
                 {
-                    subscipt = _view.groupRead.Read(_view.groupRead.Items);
-                }
-                catch (Opc.ResultIDException ex)
-                {
-                    _view.connectedPlc = false;
-                    _view.systemReady = false;
-                    _view.ResultnMessage = ex.Message;
-                    return;
-                }
-
-                var result = subscipt.ToList();
-                var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
-                var tags = (from tag in machineTags
-                            where tag.MachineId == machine.Id
-                            select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
-
-                var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
-
-                #region Station1
-                if (machine.RequestLogging)
-                {
-                    bool keepLog = false;
-                    var machineTmp = _view.machine;
-                    machineTmp.MessageResult = string.Empty;
-
+                    MachineModel machine = (MachineModel)sender;
+                    ItemValueResult[] subscipt;
                     try
                     {
-                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                        keepLog = LoggingData(r, machine, machineTags);
-                        if (keepLog)
-                        {
-                            machineTmp.CompletedLogging = 1;
-                            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Insert to Database complete time : {0}"
-                                                               , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                        }
-                        else
-                            machineTmp.CompletedLogging = 3;
+                        subscipt = _view.groupRead.Read(_view.groupRead.Items);
                     }
-                    catch (Exception ex)
+                    catch (Opc.ResultIDException ex)
                     {
+                        _view.connectedPlc = false;
+                        _view.systemReady = false;
                         _view.ResultnMessage = ex.Message;
-                        machineTmp.CompletedLogging = 3;
+                        return;
                     }
 
-                    WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Logging Result : {0} => Time : {1}"
-                                                                , machineTmp.CompletedLogging.ToString()
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                    //var reactResult = WriteWord(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging.ToString());
-                    /*---- Start Code Migration ----*/
-                    var reactResult = _view.OPC.WriteVar("LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
-                    /*---- End Code Migration ----*/
+                    var result = subscipt.ToList();
+                    var machineTags = _servicePLCTag.GetAll().ToList().Where(x => x.MachineId == machine.Id);
+                    var tags = (from tag in machineTags
+                                where tag.MachineId == machine.Id
+                                select new { Tag = _view.tagMainBlock + tag.PlcTag, Type = tag.TypeCode }).ToArray();
 
-                    WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
-                                                                , "ST5_2LoggingApp"
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
-                                                                , machineTmp.CompletedLogging.ToString()));
-                    WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
-                                                                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
-                    WriteLog("KeepLogging" + _view.machine.Id + ".txt", "");
-                    _view.machine = machineTmp;
-                    LoadCurrentValue(_view.groupRead);
+                    var r = result.Where(x => tags.Any(s => s.Tag == x.ItemName));
+
+                    #region Station1
+                    if (machine.RequestLogging)
+                    {
+                        bool keepLog = false;
+                        var machineTmp = _view.machine;
+                        machineTmp.MessageResult = string.Empty;
+
+                        try
+                        {
+                            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("<<=================== Start time : {0} ===================>>"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                            keepLog = LoggingData(r, machine, machineTags);
+                            if (keepLog)
+                            {
+                                machineTmp.CompletedLogging = 1;
+                                WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Insert to Database complete time : {0}"
+                                                                   , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                            }
+                            else
+                                machineTmp.CompletedLogging = 3;
+                        }
+                        catch (Exception ex)
+                        {
+                            _view.ResultnMessage = ex.Message;
+                            machineTmp.CompletedLogging = 3;
+                        }
+
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Logging Result : {0} => Time : {1}"
+                                                                    , machineTmp.CompletedLogging.ToString()
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                        //var reactResult = WriteWord(_view.tagMainBlock + "ST5_2LoggingApp", machineTmp.CompletedLogging.ToString());
+                        /*---- Start Code Migration ----*/
+                        var reactResult = _view.OPC.WriteVar("LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
+                        if (reactResult)
+                            _view.lockingAppFlag = true;
+                        /*---- End Code Migration ----*/
+
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
+                                                                    , "ST5_2LoggingApp"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+                                                                    , machineTmp.CompletedLogging.ToString()));
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("<<=================== End time : {0} ===================>>"
+                                                                    , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
+                        WriteLog("KeepLogging" + _view.machine.Id + ".txt", "");
+                        _view.machine = machineTmp;
+                        LoadCurrentValue(_view.groupRead);
+                    }
+
+                    #endregion
                 }
-
-                #endregion
             }
         }
 

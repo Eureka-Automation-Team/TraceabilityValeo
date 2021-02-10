@@ -46,10 +46,12 @@ namespace Trace.OpcHandlerMachine05.Presenters
 
         private void ResetVerify(object sender, EventArgs e)
         {
-            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("***Reset LoggingApp to 0 at time : {0}"
+            WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("***Reset Verify result to 0 at time : {0}"
                                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             /*---- Start Code Migration ----*/
             var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(0));
+            if (reactResult)
+                _view.verifyResultFlag = false;
             /*---- End Code Migration ----*/
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
         }
@@ -60,14 +62,16 @@ namespace Trace.OpcHandlerMachine05.Presenters
                                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             /*---- Start Code Migration ----*/
             var reactResult = _view.OPC.WriteVar("LoggingAppWrite", Convert.ToSByte(0));
+            if (reactResult)
+                _view.lockingAppFlag = false;
             /*---- End Code Migration ----*/
             WriteLog("KeepLogging" + _view.machine.Id + ".txt", "");
         }
 
         private void VerityCode(object sender, EventArgs e)
         {
-            var _verifyResult = _view.OPC.GetNotifiedSINT("CodeVerifyResult");        //Modify 10-Feb-2021
-            if (_verifyResult == 0)
+            //var _verifyResult = _view.OPC.GetNotifiedSINT("CodeVerifyResult");        //Modify 10-Feb-2021
+            if (!_view.verifyResultFlag)
             {
                 MachineModel _machine = sender as MachineModel;
                 var result = _view.groupRead.Read(_view.groupRead.Items).ToList();
@@ -105,6 +109,8 @@ namespace Trace.OpcHandlerMachine05.Presenters
 
                 /*---- Start Code Migration ----*/
                 var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(_machine.CodeVerifyResult));
+                if (reactResult)
+                    _view.verifyResultFlag = true;
                 /*---- End Code Migration ----*/
 
                 WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"
@@ -128,8 +134,8 @@ namespace Trace.OpcHandlerMachine05.Presenters
         {
             if (_view.systemReady)
             {
-                var _completedLogging = _view.OPC.GetNotifiedSINT("LoggingApp");        //Modify 10-Feb-2021
-                if(_completedLogging == 0)
+                //var _completedLogging = _view.OPC.GetNotifiedSINT("LoggingApp");        //Modify 10-Feb-2021
+                if(!_view.lockingAppFlag)
                 {
                     MachineModel machine = (MachineModel)sender;
                     ItemValueResult[] subscipt;
@@ -193,6 +199,8 @@ namespace Trace.OpcHandlerMachine05.Presenters
 
                         /*---- Start Code Migration ----*/
                         var reactResult = _view.OPC.WriteVar("LoggingAppWrite", Convert.ToSByte(machineTmp.CompletedLogging));
+                        if (reactResult)
+                            _view.lockingAppFlag = true;
                         /*---- End Code Migration ----*/
 
                         WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Write PLC Tag : {0}  Value = [{2}] => Complete Time : {1}"

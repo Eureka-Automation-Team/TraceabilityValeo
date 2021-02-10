@@ -34,6 +34,8 @@ namespace Trace.OpcHandlerMachine02
         private Item[] _items;
 
         /*---- Code Migration ----*/
+        private bool _lockingAppFlag;
+        private bool _verifyResultFlag;
         private List<OPCVar> _OPCEventVars;
         private List<OPCVar> _OPCWriteVars;
         private OPCClient _OPC;
@@ -213,6 +215,17 @@ namespace Trace.OpcHandlerMachine02
             set { _items = value; }
         }
 
+        public bool lockingAppFlag
+        {
+            get { return _lockingAppFlag; }
+            set { _lockingAppFlag = value; }
+        }
+        public bool verifyResultFlag
+        {
+            get { return _verifyResultFlag; }
+            set { _verifyResultFlag = value; }
+        }
+
         public event EventHandler FormLoad;
         public event EventHandler Connect_Click;
         public event EventHandler Disconnect_Click;
@@ -223,6 +236,8 @@ namespace Trace.OpcHandlerMachine02
         public event EventHandler VerityCode;
         public event EventHandler VerityActuater;
         public event EventHandler RefreshData;
+        public event EventHandler ResetComplete;
+        public event EventHandler ResetVerify;
 
         public void DisableClock()
         {
@@ -428,17 +443,19 @@ namespace Trace.OpcHandlerMachine02
             if (OPC.GetNotificationReceived("RequestVerify"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("RequestVerify"))
+                var _requestVerify = OPC.GetNotifiedBOOL("RequestVerify");
+                if (_requestVerify)
                 {
                     mac.RequestVerifyCode = true;
                     this.machine = mac;
                     VerityCode(this.machine, null);
                 }
-                else
+                else if (!_requestVerify)
                 {
                     mac.RequestVerifyCode = false;
                     this.machine = mac;
-                }                                    
+                    ResetVerify(this.machine, null);
+                }
             }
             // --------------------------------------------
             if (OPC.GetNotificationReceived("MachineStatus"))
@@ -451,17 +468,19 @@ namespace Trace.OpcHandlerMachine02
             if (OPC.GetNotificationReceived("RequestLogging"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("RequestLogging"))
+                var _requestFlag = OPC.GetNotifiedBOOL("RequestLogging");
+                if (_requestFlag)
                 {
                     mac.RequestLogging = true;
                     this.machine = mac;
                     KeepLogging(this.machine, null);
                 }
-                else
+                else if (!_requestFlag)
                 {
                     mac.RequestLogging = false;
                     this.machine = mac;
-                }                                    
+                    ResetComplete(this.machine, null);
+                }
             }
             //------------------------------------------------
             if (OPC.GetNotificationReceived("TraceabilityRdy"))

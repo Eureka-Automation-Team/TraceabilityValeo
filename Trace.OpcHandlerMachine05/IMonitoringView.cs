@@ -18,8 +18,6 @@ namespace Trace.OpcHandlerMachine05
         event EventHandler MakeReady;
         event EventHandler KeepLogging;
         event EventHandler CompleteAction;
-        event EventHandler ResetComplete;
-        event EventHandler ResetVerify;
         event EventHandler VerityCode;
         event EventHandler VerityActuater;
         event EventHandler RefreshData;
@@ -45,6 +43,10 @@ namespace Trace.OpcHandlerMachine05
         string ResultnMessage { get; set; }
 
         /*---- Start Code Migration ----*/
+        event EventHandler ResetComplete;
+        event EventHandler ResetVerify;
+        bool lockingAppFlag { get; set; }
+        bool verifyResultFlag { get; set; }
         List<OPCVar> OPCEventVars { get; set; }
         List<OPCVar> OPCWriteVars { get; set; }
         OPCClient OPC { get; set; }
