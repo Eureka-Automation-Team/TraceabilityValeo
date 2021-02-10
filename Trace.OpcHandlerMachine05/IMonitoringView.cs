@@ -18,6 +18,8 @@ namespace Trace.OpcHandlerMachine05
         event EventHandler MakeReady;
         event EventHandler KeepLogging;
         event EventHandler CompleteAction;
+        event EventHandler ResetComplete;
+        event EventHandler ResetVerify;
         event EventHandler VerityCode;
         event EventHandler VerityActuater;
         event EventHandler RefreshData;

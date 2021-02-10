@@ -238,6 +238,8 @@ namespace Trace.OpcHandlerMachine05
         public event EventHandler VerityCode;
         public event EventHandler VerityActuater;
         public event EventHandler RefreshData;
+        public event EventHandler ResetComplete;
+        public event EventHandler ResetVerify;
 
         public void DisableClock()
         {
@@ -435,23 +437,25 @@ namespace Trace.OpcHandlerMachine05
                 // but the call would come on the correct
                 // thread and InvokeRequired will be false.
                 this.BeginInvoke(new Action(CheckNotifications));
-                //Thread.Sleep(50);  //Delay 50ms.
                 return;
             }
             Thread.Sleep(50);  //Delay 50ms.
-            // --------------------------------------------
+            // --------------------------------------------ResetVerify
             if (OPC.GetNotificationReceived("RequestVerify"))
             {
                 var mac = this.machine;
                 if (OPC.GetNotifiedBOOL("RequestVerify"))
                 {
                     mac.RequestVerifyCode = true;
+                    this.machine = mac;
                     VerityCode(this.machine, null);
                 }
                 else
+                {
                     mac.RequestVerifyCode = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                    ResetVerify(this.machine, null);
+                }
             }
             // --------------------------------------------
             if (OPC.GetNotificationReceived("MachineStatus"))
@@ -464,15 +468,19 @@ namespace Trace.OpcHandlerMachine05
             if (OPC.GetNotificationReceived("RequestLogging"))
             {
                 var mac = this.machine;
-                if (OPC.GetNotifiedBOOL("RequestLogging"))
+                var _requestFlag = OPC.GetNotifiedBOOL("RequestLogging");
+                if (_requestFlag)
                 {
                     mac.RequestLogging = true;
+                    this.machine = mac;
                     KeepLogging(this.machine, null);
                 }
-                else
+                else if(!_requestFlag)
+                {
                     mac.RequestLogging = false;
-
-                this.machine = mac;
+                    this.machine = mac;
+                    ResetComplete(this.machine, null);
+                }                                   
             }
             //------------------------------------------------
             if (OPC.GetNotificationReceived("TraceabilityRdy"))
