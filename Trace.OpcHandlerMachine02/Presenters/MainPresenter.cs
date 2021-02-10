@@ -1267,8 +1267,14 @@ namespace Trace.OpcHandlerMachine02.Presenters
         private bool InvalidBoolean(string number)
         {
             /*---- Code Migration ----*/
+            string val = number;
+            if (number == "0")
+                val = "False";
+            else if (number == "1")
+                val = "True";
+
             bool myBool;
-            return !Boolean.TryParse(number, out myBool);
+            return !Boolean.TryParse(val, out myBool);
         }
 
         public bool WriteLog(string strFileName, string strMessage)
