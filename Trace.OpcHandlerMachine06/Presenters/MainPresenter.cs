@@ -51,10 +51,10 @@ namespace Trace.OpcHandlerMachine06.Presenters
             WriteLog("VerifyActuaterUpper" + _view.machine.Id + ".txt", String.Format("***Reset Actuater result to 0 at time : {0}"
                                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             /*---- Start Code Migration ----*/
-            var reactResult = _view.OPC.WriteVar("ReceiveCodeResultWrite", Convert.ToSByte(0));
-            var reactCodeResult = _view.OPC.WriteVar("ReceiveCodeActuaterorWrite", "");
-            if (reactResult && reactCodeResult)
-                _view.getActuaterFlag = false;
+            //var reactResult = _view.OPC.WriteVar("ReceiveCodeResultWrite", Convert.ToSByte(0));
+            //var reactCodeResult = _view.OPC.WriteVar("ReceiveCodeActuaterorWrite", "");
+            //if (reactResult && reactCodeResult)
+            _view.getActuaterFlag = false;
             /*---- End Code Migration ----*/
             WriteLog("VerifyActuaterUpper" + _view.machine.Id + ".txt", "");
         }
@@ -64,9 +64,9 @@ namespace Trace.OpcHandlerMachine06.Presenters
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", String.Format("***Reset Verify result to 0 at time : {0}"
                                                                                 , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)));
             /*---- Start Code Migration ----*/
-            var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(0));
-            if (reactResult)
-                _view.verifyResultFlag = false;
+            //var reactResult = _view.OPC.WriteVar("CodeVerifyResultWrite", Convert.ToSByte(0));
+            //if (reactResult)
+            _view.verifyResultFlag = false;
             /*---- End Code Migration ----*/
             WriteLog("VerifyCode" + _view.machine.Id + ".txt", "");
         }
@@ -365,6 +365,7 @@ namespace Trace.OpcHandlerMachine06.Presenters
             #region Validate and Default existing log by Item Code.
             var tagName = _view.tagMainBlock + "ST5_1Code";
             var itemCode = r.Where(x => x.ItemName == tagName).FirstOrDefault().Value.ToString();
+            WriteLog("KeepLogging" + _view.machine.Id + ".txt", String.Format("Item Code : {0}", itemCode));
             var loggings = _serviceTraceLog.GetListByItemCode(itemCode)
                                             .Where(x =>
                                                     x.MachineId == machine.Id
